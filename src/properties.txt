@@ -1,0 +1,2 @@
+#El formato de la fecha debe ser => yyyy-MM-dd
+FECHA=2016-01-01
