@@ -8,21 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace UberFrba
+namespace UberFrba.Login
 {
-    public partial class Form1 : Form
+    public partial class Login : Form
     {
-        public Form1()
+        public Login()
         {
             InitializeComponent();
         }
 
-        private void Usuario_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void Usuario_TextChanged(object sender, EventArgs e)
+        private void Login_Load(object sender, EventArgs e)
         {
 
         }
