@@ -36,13 +36,15 @@ namespace UberFrba
             this.abmUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.abmClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.abmClienteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.altaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modificacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.abmRolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.abmFacturacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registroDeViajesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rendicionDeViajesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.altaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.modificacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cerrarSeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,7 +59,9 @@ namespace UberFrba
             this.abmRolToolStripMenuItem,
             this.abmFacturacionToolStripMenuItem,
             this.registroDeViajesToolStripMenuItem,
-            this.rendicionDeViajesToolStripMenuItem});
+            this.rendicionDeViajesToolStripMenuItem,
+            this.cerrarSeToolStripMenuItem,
+            this.salirToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5);
@@ -90,6 +94,24 @@ namespace UberFrba
             this.abmClienteToolStripMenuItem1.Size = new System.Drawing.Size(85, 19);
             this.abmClienteToolStripMenuItem1.Text = "Abm Cliente";
             // 
+            // altaToolStripMenuItem
+            // 
+            this.altaToolStripMenuItem.Name = "altaToolStripMenuItem";
+            this.altaToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.altaToolStripMenuItem.Text = "Alta";
+            // 
+            // bajaToolStripMenuItem
+            // 
+            this.bajaToolStripMenuItem.Name = "bajaToolStripMenuItem";
+            this.bajaToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.bajaToolStripMenuItem.Text = "Baja";
+            // 
+            // modificacionToolStripMenuItem
+            // 
+            this.modificacionToolStripMenuItem.Name = "modificacionToolStripMenuItem";
+            this.modificacionToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.modificacionToolStripMenuItem.Text = "Modificacion";
+            // 
             // abmRolToolStripMenuItem
             // 
             this.abmRolToolStripMenuItem.Name = "abmRolToolStripMenuItem";
@@ -114,33 +136,34 @@ namespace UberFrba
             this.rendicionDeViajesToolStripMenuItem.Size = new System.Drawing.Size(121, 19);
             this.rendicionDeViajesToolStripMenuItem.Text = "Rendicion de Viajes";
             // 
-            // altaToolStripMenuItem
+            // cerrarSeToolStripMenuItem
             // 
-            this.altaToolStripMenuItem.Name = "altaToolStripMenuItem";
-            this.altaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.altaToolStripMenuItem.Text = "Alta";
+            this.cerrarSeToolStripMenuItem.Name = "cerrarSeToolStripMenuItem";
+            this.cerrarSeToolStripMenuItem.Size = new System.Drawing.Size(88, 19);
+            this.cerrarSeToolStripMenuItem.Text = "Cerrar Sesion";
+            this.cerrarSeToolStripMenuItem.Click += new System.EventHandler(this.cerrarSeToolStripMenuItem_Click);
             // 
-            // bajaToolStripMenuItem
+            // salirToolStripMenuItem
             // 
-            this.bajaToolStripMenuItem.Name = "bajaToolStripMenuItem";
-            this.bajaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.bajaToolStripMenuItem.Text = "Baja";
-            // 
-            // modificacionToolStripMenuItem
-            // 
-            this.modificacionToolStripMenuItem.Name = "modificacionToolStripMenuItem";
-            this.modificacionToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.modificacionToolStripMenuItem.Text = "Modificacion";
+            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(41, 19);
+            this.salirToolStripMenuItem.Text = "Salir";
             // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1443, 629);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(839, 492);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "MenuPrincipal";
-            this.Text = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Uber FRBA";
+            this.Load += new System.EventHandler(this.FormBase_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -149,7 +172,6 @@ namespace UberFrba
         }
 
         #endregion
-
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem abmUsuarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem abmClienteToolStripMenuItem;
@@ -161,6 +183,8 @@ namespace UberFrba
         private System.Windows.Forms.ToolStripMenuItem altaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bajaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modificacionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cerrarSeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
 
 
     }

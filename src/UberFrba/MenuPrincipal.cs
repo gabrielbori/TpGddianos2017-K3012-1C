@@ -7,10 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using UberFrba;
+using UberFrba.Model;
+
 namespace UberFrba
 {
-    public partial class MenuPrincipal : Form
+    public partial class MenuPrincipal : FormBase
     {
+
         public static ToolStripMenuItem[] controles = new ToolStripMenuItem[] { };
         public static List<ToolStripMenuItem> allControles = new List<ToolStripMenuItem>();
         public static ToolStrip strip = null;
@@ -22,6 +25,20 @@ namespace UberFrba
 
         private void FormBase_Load(object sender, EventArgs e)
         {
+            Login.Login login = new Login.Login();
+            login.mostrar(this);
+            this.menuStrip1.Visible = false;
+
+            /* controles = new ToolStripMenuItem[] {};
+
+           // foreach (ToolStripMenuItem tool in this.menuStrip1.Items/*Controls.OfType<ToolStripMenuItem>()*/ //)
+           // allControles.Add(tool);
+            //allControles.Remove(cerrarSesion);
+            //allControles.Remove(Salir);*/
+
+            strip = this.menuStrip1;
+           
+ 
         }
 
         private void abmUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
@@ -32,6 +49,21 @@ namespace UberFrba
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+
+        private void MenuPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cerrarSeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
                                            
