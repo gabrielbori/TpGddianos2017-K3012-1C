@@ -27,14 +27,14 @@ namespace UberFrba
         {
             Login.Login login = new Login.Login();
             login.mostrar(this);
-            this.menuStrip1.Visible = false;
+            this.menuStrip1.Visible = false;//Es false. Cuando entra el login correcto, pasa a true y muestra todas las opciones del sistema .
 
-            /* controles = new ToolStripMenuItem[] {};
+            controles = new ToolStripMenuItem[] {abmClienteToolStripMenuItem1};
 
-           // foreach (ToolStripMenuItem tool in this.menuStrip1.Items/*Controls.OfType<ToolStripMenuItem>()*/ //)
-           // allControles.Add(tool);
+            foreach (ToolStripMenuItem tool in this.menuStrip1.Items/*Controls.OfType<ToolStripMenuItem>()*/ )
+            allControles.Add(tool);
             //allControles.Remove(cerrarSesion);
-            //allControles.Remove(Salir);*/
+            //allControles.Remove(Salir);
 
             strip = this.menuStrip1;
            
@@ -64,6 +64,11 @@ namespace UberFrba
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void abmRolToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+      
         }
     }
                                            

@@ -66,7 +66,7 @@ namespace UberFrba
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5);
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuStrip1.Size = new System.Drawing.Size(1443, 29);
+            this.menuStrip1.Size = new System.Drawing.Size(851, 29);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -97,19 +97,19 @@ namespace UberFrba
             // altaToolStripMenuItem
             // 
             this.altaToolStripMenuItem.Name = "altaToolStripMenuItem";
-            this.altaToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.altaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.altaToolStripMenuItem.Text = "Alta";
             // 
             // bajaToolStripMenuItem
             // 
             this.bajaToolStripMenuItem.Name = "bajaToolStripMenuItem";
-            this.bajaToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.bajaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.bajaToolStripMenuItem.Text = "Baja";
             // 
             // modificacionToolStripMenuItem
             // 
             this.modificacionToolStripMenuItem.Name = "modificacionToolStripMenuItem";
-            this.modificacionToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.modificacionToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.modificacionToolStripMenuItem.Text = "Modificacion";
             // 
             // abmRolToolStripMenuItem
@@ -117,6 +117,7 @@ namespace UberFrba
             this.abmRolToolStripMenuItem.Name = "abmRolToolStripMenuItem";
             this.abmRolToolStripMenuItem.Size = new System.Drawing.Size(65, 19);
             this.abmRolToolStripMenuItem.Text = "Abm Rol";
+            this.abmRolToolStripMenuItem.Click += new System.EventHandler(this.abmRolToolStripMenuItem_Click);
             // 
             // abmFacturacionToolStripMenuItem
             // 
@@ -154,7 +155,8 @@ namespace UberFrba
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(839, 492);
+            this.BackgroundImage = global::UberFrba.Properties.Resources.damask_background_wallpaper_960x600;
+            this.ClientSize = new System.Drawing.Size(851, 571);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.IsMdiContainer = true;
