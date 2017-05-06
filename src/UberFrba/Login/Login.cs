@@ -35,8 +35,33 @@ namespace UberFrba.Login
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //MenuPrincipal.showControls();
+            //MenuPrincipal.ShowControls();
             this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            System.Windows.Forms.Application.Exit();
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void textBox2_KeyDown(object sender, EventArgs e)
+        {
+        }
+
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+
         }
     }
 }
