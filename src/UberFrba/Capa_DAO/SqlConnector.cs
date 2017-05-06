@@ -7,9 +7,9 @@ using System.Windows.Forms;
 using System.Data;
 using System.Text.RegularExpressions;
 
-namespace UberFrba.Capa_DAO
+namespace UberFrba.CapaDAO
 {
-    class SqlConnector
+    public class SqlConnector
     {
         /// <summary>
         /// Realiza la conexion a la base de datos.
@@ -290,5 +290,4 @@ namespace UberFrba.Capa_DAO
             }
         }
     }
-    
 }

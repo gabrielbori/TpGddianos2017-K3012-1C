@@ -39,12 +39,7 @@ namespace UberFrba.Login
             this.Close();
         }
 
-        private void buttor_Cerrar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            System.Windows.Forms.Application.Exit();
-        }
-
+       
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
         }

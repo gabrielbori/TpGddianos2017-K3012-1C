@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using UberFrba.Model;
-using UberFrba.Capa_DAO;
-namespace UberFrba.Capa_DAO
+
+namespace UberFrba.CapaDAO
 {
-    class DAOLogin:SqlConnector
+    class DAOLogin : SqlConnector
     {
         private static void loginIncorrecto(string user)
         {
@@ -22,7 +22,7 @@ namespace UberFrba.Capa_DAO
 
         private static void intentoLogin(string user, int estado)
         {
-            executeProcedure("INTENTO_LOGIN", user, estado, Globals.getDateFechaSistema());             
+            executeProcedure("INTENTO_LOGIN", user, estado, Globals.getDateFechaSistema());
         }
 
         public static bool iniciarSesionConPassword(string user, int rol, string pass)
@@ -36,7 +36,7 @@ namespace UberFrba.Capa_DAO
             return false;
         }
 
-        
+
         public static bool iniciarSesionConRespuesta(string user, int rol, string resp)
         {
             if (executeProcedureWithReturnValue("RESPUESTA_CORRECTA", user, Encriptacion.getSHA256(resp)) != 0)
@@ -52,9 +52,9 @@ namespace UberFrba.Capa_DAO
         {
             List<int> funcionalidades = getFuncionalidades(rol);
             int userID = getUserID(user);
-            
+
             Globals.setUser(userID, user, funcionalidades, rol);
-            
+
             return true;
         }
 
@@ -96,6 +96,5 @@ namespace UberFrba.Capa_DAO
         {
             return executeProcedureWithReturnValue("PASSWORD_CORRECTA", user, Encriptacion.getSHA256(pass)) != 0;
         }
-    }   
-    
+    }
 }
