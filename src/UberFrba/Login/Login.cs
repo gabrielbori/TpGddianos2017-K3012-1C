@@ -33,13 +33,13 @@ namespace UberFrba.Login
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button_IniciarSesion_Click(object sender, EventArgs e)
         {
             //MenuPrincipal.ShowControls();
             this.Close();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void buttor_Cerrar_Click(object sender, EventArgs e)
         {
             this.Close();
             System.Windows.Forms.Application.Exit();
