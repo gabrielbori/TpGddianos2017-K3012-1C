@@ -75,7 +75,10 @@ namespace UberFrba.CapaDAO
             return true;
         }
 
-        
+        public static DataTable getRolesUsuario(string user)
+        {
+            return retrieveDataTable("GET_ROLES_USUARIO", user);
+        }
 
     }
 }

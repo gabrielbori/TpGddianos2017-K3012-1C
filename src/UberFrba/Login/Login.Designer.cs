@@ -46,6 +46,7 @@
             this.textBox_Username.Name = "textBox_Username";
             this.textBox_Username.Size = new System.Drawing.Size(140, 20);
             this.textBox_Username.TabIndex = 0;
+            this.textBox_Username.TextChanged += new System.EventHandler(this.textBox_Username_TextChanged);
             // 
             // textBox_password
             // 
@@ -61,6 +62,7 @@
             this.comboBox_Roles.Name = "comboBox_Roles";
             this.comboBox_Roles.Size = new System.Drawing.Size(140, 21);
             this.comboBox_Roles.TabIndex = 2;
+            
             // 
             // label1
             // 
