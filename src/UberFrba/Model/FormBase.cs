@@ -50,5 +50,23 @@ namespace UberFrba.Model
         {
             text.SelectionStart = 0;
         }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // FormBase
+            // 
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Name = "FormBase";
+            this.Load += new System.EventHandler(this.FormBase_Load);
+            this.ResumeLayout(false);
+
+        }
+
+        private void FormBase_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

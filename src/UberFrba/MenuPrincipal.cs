@@ -56,19 +56,7 @@ namespace UberFrba
 
         public static void showControls()
         {
-            strip.Visible = true;
-            hideControls();
-
-            for (int i = 0; i < controles.Count(); i++)
-            {
-                if (Globals.tieneFuncionalidad(i + 1))
-                {
-                    controles[i].Visible = true;
-                    if (controles[i].OwnerItem != null)
-                        controles[i].OwnerItem.Visible = true;
-                }
-            }
-
+           
         }
     }
 }
