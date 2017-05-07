@@ -9,16 +9,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using UberFrba.Model;
 
-namespace UberFrba
+
+namespace UberFrba.Login
 {
-    public partial class Form1 : FormBase
+    public partial class Login : FormBase
     {
-        public Form1()
+        public Login()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Login_Load(object sender, EventArgs e)
         {
 
         }
