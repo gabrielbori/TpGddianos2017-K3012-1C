@@ -60,7 +60,7 @@ namespace UberFrba.Login
             DataTable roles = DAOLogin.getRolesUsuario(textBox_Username.Text);
 
             comboBox_Roles.ValueMember = "ROL_ID";
-            comboBox_Roles.DisplayMember = "NOMBRE";
+            comboBox_Roles.DisplayMember = "ROL_NOMBRE";
             comboBox_Roles.DataSource = roles;
         }
 
