@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using UberFrba;
 using UberFrba.Model;
@@ -13,7 +14,6 @@ namespace UberFrba
 {
     public partial class MenuPrincipal : FormBase
     {
-
         public static ToolStripMenuItem[] controles = new ToolStripMenuItem[] { };
         public static List<ToolStripMenuItem> allControles = new List<ToolStripMenuItem>();
         public static ToolStrip strip = null;
@@ -23,54 +23,40 @@ namespace UberFrba
             InitializeComponent();
         }
 
+
         private void FormBase_Load(object sender, EventArgs e)
         {
             Login.Login login = new Login.Login();
             login.mostrar(this);
-            this.menuStrip1.Visible = false;//Es false. Cuando entra el login correcto, pasa a true y muestra todas las opciones del sistema .
+            this.menuStrip1.Visible = false;
 
-            controles = new ToolStripMenuItem[] {abmClienteToolStripMenuItem1};
+            controles = new ToolStripMenuItem[] {facturacionToolStripMenuItem, altaToolStripMenuItem, bajaToolStripMenuItem, modificacionToolStripMenuItem, altaToolStripMenuItem1, bajaToolStripMenuItem1, modificacionToolStripMenuItem1, altaToolStripMenuItem2, bajaToolStripMenuItem2, modificacionToolStripMenuItem2, listadoEstadisticoToolStripMenuItem, registroDeViajesToolStripMenuItem, rendicionDeViajesToolStripMenuItem, altaToolStripMenuItem3, bajaToolStripMenuItem3, modificacionToolStripMenuItem3 };
 
-            foreach (ToolStripMenuItem tool in this.menuStrip1.Items/*Controls.OfType<ToolStripMenuItem>()*/ )
-            allControles.Add(tool);
-            //allControles.Remove(cerrarSesion);
-            //allControles.Remove(Salir);
+            foreach (ToolStripMenuItem tool in this.menuStrip1.Items/*Controls.OfType<ToolStripMenuItem>()*/)
+                allControles.Add(tool);
+            allControles.Remove(cerrarSesiònToolStripMenuItem);
+            allControles.Remove(salirToolStripMenuItem);
+        }
+        private void registroDeViajeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
 
-            strip = this.menuStrip1;
+        }
+
+        private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private static void hideControls()
+        {
+            foreach (ToolStripMenuItem control in allControles)
+                control.Visible = false;
+        }
+
+        public static void showControls()
+        {
            
- 
-        }
-
-        private void abmUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void MenuPrincipal_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cerrarSeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void abmRolToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-      
         }
     }
-                                           
 }
-

@@ -10,7 +10,6 @@ using System.Windows.Forms;
 
 namespace UberFrba.Model
 {
-    
     public class FormBase : Form
     {
         //MENSAJES GENÉRICOS
@@ -40,7 +39,7 @@ namespace UberFrba.Model
         }
 
         //MOSTRAR
-        public virtual void mostrar(Form parent, params object [] values)
+        public virtual void mostrar(Form parent, params object[] values)
         {
             this.MdiParent = parent;
             this.Show();
@@ -67,6 +66,7 @@ namespace UberFrba.Model
 
         private void FormBase_Load(object sender, EventArgs e)
         {
+
         }
     }
 }
