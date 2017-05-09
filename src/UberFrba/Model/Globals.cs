@@ -15,7 +15,7 @@ namespace UberFrba.Model
         public static string username;
         private static List<int> funcionalidades = new List<int>();
 
-        private static string connectionString = ConfigurationManager.ConnectionStrings["GD20171C"].ConnectionString;
+        private static string connectionString = ConfigurationManager.ConnectionStrings["GD1C2017"].ConnectionString;
 
         public static string getConnectionString()
         {
