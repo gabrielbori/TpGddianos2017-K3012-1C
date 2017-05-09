@@ -216,7 +216,7 @@ BEGIN
 	return 1
 END;
 
-
+GO
 INSERT INTO GDDIANOS.PERSONA VALUES (1, 46415743, 'Alex', 'Falcon', 38457835, 'Cosquin 295', 25/10/1994,1,'alex.falcon.25@hotmail.com');
 INSERT INTO GDDIANOS.USUARIO VALUES ('afalcon', 'Qwerty1234',0,1,1);
 
