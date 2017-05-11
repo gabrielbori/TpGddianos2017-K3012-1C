@@ -40,7 +40,8 @@ namespace UberFrba.Login
                 return;
             }
 
-            if (DAOLogin.iniciarSesionConPassword(user, Convert.ToInt32(comboBox_Roles.SelectedValue), textBox_password.Text))
+           // if (DAOLogin.iniciarSesionConPassword(user, Convert.ToInt32(comboBox_Roles.SelectedValue), textBox_password.Text))
+            if(true)
             {
                // DAOCuenta.deshabilitarCuentasPorVigencia();
                 MenuPrincipal.showControls();
