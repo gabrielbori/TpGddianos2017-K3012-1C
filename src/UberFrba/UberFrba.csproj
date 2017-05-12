@@ -45,11 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abm Automovil\Form1.cs">
+    <Compile Include="Abm Automovil\AltaAutomovil.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Abm Automovil\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Abm Automovil\AltaAutomovil.Designer.cs">
+      <DependentUpon>AltaAutomovil.cs</DependentUpon>
     </Compile>
     <Compile Include="Abm Chofer\Form1.cs">
       <SubType>Form</SubType>
@@ -120,6 +120,9 @@
     <Compile Include="Rendicion Viajes\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Abm Automovil\AltaAutomovil.resx">
+      <DependentUpon>AltaAutomovil.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
