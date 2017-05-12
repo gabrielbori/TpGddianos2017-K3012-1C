@@ -11,9 +11,9 @@ namespace UberFrba.CapaDAO
     class DAOLogin : SqlConnector
     {
 
-        private static int getUserID(string user)
+        private static String getUserID(string user)
         {
-            return executeProcedureWithReturnValue("GET_ID_USUARIO", user);
+            return Globals.username;
         }
 
         private static List<int> getFuncionalidades(int rolID)
@@ -33,31 +33,22 @@ namespace UberFrba.CapaDAO
             return executeProcedureWithReturnValue("EXISTE_USUARIO", user) != 0;
         }
 
-        private static void loginCorrecto(string user)
-        {
-            intentoLogin(user, 1);
-        }
-
-        private static void loginIncorrecto(string user)
-        {
-            intentoLogin(user, 0);
-        }
 
         public static bool iniciarSesionConPassword(string user, int rol, string pass)
         {
             if (contraseniaCorrecta(user, pass))
             {
-                loginCorrecto(user);
-                return iniciarSesion(user, rol);
+                //loginCorrecto(user);
+                //return iniciarSesion(user, rol);
+                MessageBox.Show("Inicio session bien con contrasenia");
             }
-            loginIncorrecto(user);
             return false;
         }
 
         public static bool contraseniaCorrecta(string user, string pass)
         {
-            return true;
-///     executeProcedureWithReturnValue("PASSWORD_CORRECTA", user, Encriptacion.getSHA256(pass)) != 0;
+           
+           return executeProcedureWithReturnValue("PASSWORD_CORRECTA", user, Encriptacion.getSHA256(pass)) != 0;
         }
 
         private static void intentoLogin(string user, int estado)
@@ -68,9 +59,9 @@ namespace UberFrba.CapaDAO
         private static bool iniciarSesion(string user, int rol)
         {
             List<int> funcionalidades = getFuncionalidades(rol);
-            int userID = getUserID(user);
+            
 
-            Globals.setUser(userID, user, funcionalidades, rol);
+            Globals.setUser(user, funcionalidades, rol);
 
             return true;
         }
