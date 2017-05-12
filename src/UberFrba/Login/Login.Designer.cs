@@ -46,6 +46,7 @@
             this.textBox_Username.Name = "textBox_Username";
             this.textBox_Username.Size = new System.Drawing.Size(140, 20);
             this.textBox_Username.TabIndex = 0;
+            this.textBox_Username.Text = "Ingrese Su Usuario";
             this.textBox_Username.TextChanged += new System.EventHandler(this.textBox_Username_TextChanged);
             // 
             // textBox_password
@@ -54,6 +55,7 @@
             this.textBox_password.Name = "textBox_password";
             this.textBox_password.Size = new System.Drawing.Size(140, 20);
             this.textBox_password.TabIndex = 1;
+            this.textBox_password.Text = "Ingrese Su Contraseña";
             // 
             // comboBox_Roles
             // 
@@ -62,7 +64,7 @@
             this.comboBox_Roles.Name = "comboBox_Roles";
             this.comboBox_Roles.Size = new System.Drawing.Size(140, 21);
             this.comboBox_Roles.TabIndex = 2;
-            
+            this.comboBox_Roles.Text = "Elija El Rol Correspondiente";
             // 
             // label1
             // 
