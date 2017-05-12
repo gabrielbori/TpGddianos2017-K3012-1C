@@ -7,10 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UberFrba.Model;
 
 namespace UberFrba.Abm_Automovil
 {
-    public partial class AltaAutomovil : Form
+    public partial class AltaAutomovil : FormBase
     {
         public AltaAutomovil()
         {

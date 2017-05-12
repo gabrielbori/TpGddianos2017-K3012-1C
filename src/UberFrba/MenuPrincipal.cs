@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using UberFrba;
 using UberFrba.Model;
+using UberFrba.Abm_Automovil;
 
 namespace UberFrba
 {
@@ -48,6 +49,11 @@ namespace UberFrba
 
         }
 
+        private void altaAutomovil_click(object sender, EventArgs e) 
+        {
+            Abm_Automovil.AltaAutomovil altaAutomovil = new Abm_Automovil.AltaAutomovil();
+            altaAutomovil.mostrar(this);
+        }
 
         private static void hideControls()
         {
