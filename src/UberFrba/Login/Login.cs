@@ -11,6 +11,7 @@ using UberFrba.Model;
 using UberFrba.CapaDAO;
 
 
+
 namespace UberFrba.Login
 {
     public partial class Login : FormBase
@@ -18,6 +19,12 @@ namespace UberFrba.Login
         public Login()
         {
             InitializeComponent();
+        }
+
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            this.ActiveControl = textBox_Username;
         }
 
         private void Cerrar_Click(object sender, EventArgs e)
@@ -35,13 +42,13 @@ namespace UberFrba.Login
                
             }
 
-/*            if (comboBox_Roles.SelectedIndex == -1)
+            if (comboBox_Roles.SelectedIndex == -1)
             {
                 Mensaje_Error("No se seleccionó rol");
                 return;
-            }*/
+            }
 
-            if (DAOLogin.iniciarSesionConPassword(user, Convert.ToInt32(comboBox_Roles.SelectedValue), textBox_password.Text))
+           if (DAOLogin.iniciarSesionConPassword(user, Convert.ToInt32(comboBox_Roles.SelectedValue), textBox_password.Text))
             {
                // DAOCuenta.deshabilitarCuentasPorVigencia();
                 MenuPrincipal.showControls();
@@ -51,9 +58,14 @@ namespace UberFrba.Login
                 Mensaje_Error("Contraseña incorrecta");
            
         }
-        private void Login_Load(object sender, EventArgs e)
+
+        private void textBox_Username_TextChanged(object sender, EventArgs e)
         {
-            this.ActiveControl = textBox_Username;
+            DataTable roles = DAOLogin.getRolesUsuario(textBox_Username.Text);
+
+            comboBox_Roles.ValueMember = "ROL_ID";
+            comboBox_Roles.DisplayMember = "ROL_NOMBRE";
+            comboBox_Roles.DataSource = roles;
         }
 
         private void button_Cerrar_Click(object sender, EventArgs e)
@@ -65,5 +77,6 @@ namespace UberFrba.Login
         {
 
         }
+
     }
 }

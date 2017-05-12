@@ -11,7 +11,6 @@ namespace UberFrba.Model
 {
     class Globals
     {
-        public static int userID = -1;
         public static string username;
         private static List<int> funcionalidades = new List<int>();
 
@@ -37,13 +36,13 @@ namespace UberFrba.Model
             return DateTime.Today;
         }
 
-        public static void setUser(int id, string name, List<int> funcs, int rol)
+        public static void setUser(string userName, List<int> funcs, int rol)
         {
-            if (rol == (int)Roles.Admin)
+            /*if (rol == (int)Roles.Admin)
                 userID = 0;
             else
-                userID = id;
-            username = name;
+                userID = id;*/
+            username = userName;
             funcionalidades = funcs;
         }
 
@@ -54,7 +53,6 @@ namespace UberFrba.Model
 
         public static void cerrarSesion()
         {
-            userID = 0;
             username = "";
             funcionalidades = new List<int>();
         }
