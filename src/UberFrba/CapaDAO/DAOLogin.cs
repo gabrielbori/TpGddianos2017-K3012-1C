@@ -16,17 +16,7 @@ namespace UberFrba.CapaDAO
             return Globals.username;
         }
 
-        private static List<int> getFuncionalidades(int rolID)
-        {
-            DataTable funcs = retrieveDataTable("GET_FUNCIONALIDADES_ROL", rolID);
-            List<int> funcionalidades = new List<int>();
-
-            for (int i = 0; i < funcs.Rows.Count; i++)
-            {
-                funcionalidades.Add((int)funcs.Rows[i][0]);
-            }
-            return funcionalidades;
-        }
+        
 
         public static bool existeUsuario(string user)
         {
@@ -39,8 +29,8 @@ namespace UberFrba.CapaDAO
             if (contraseniaCorrecta(user, pass))
             {
                 //loginCorrecto(user);
-                //return iniciarSesion(user, rol);
-                MessageBox.Show("Inicio session bien con contrasenia");
+                return iniciarSesion(user, rol);
+                
             }
             return false;
         }
@@ -51,19 +41,26 @@ namespace UberFrba.CapaDAO
            return executeProcedureWithReturnValue("PASSWORD_CORRECTA", user, Encriptacion.getSHA256(pass)) != 0;
         }
 
-        private static void intentoLogin(string user, int estado)
-        {
-            executeProcedure("INTENTO_LOGIN", user, estado, Globals.getDateFechaSistema());
-        }
-
         private static bool iniciarSesion(string user, int rol)
         {
-            List<int> funcionalidades = getFuncionalidades(rol);
+            List<int> funcionalidades = null;//getFuncionalidades(rol);
             
 
-            Globals.setUser(user, funcionalidades, rol);
+            //Globals.setUser(user, funcionalidades, rol);
 
             return true;
+        }
+
+        private static List<int> getFuncionalidades(int rolID)
+        {
+            DataTable funcs = retrieveDataTable("Get_Funcionalidades_Por_Rol", rolID);
+            List<int> funcionalidades = new List<int>();
+
+            for (int i = 0; i < funcs.Rows.Count; i++)
+            {
+                funcionalidades.Add((int)funcs.Rows[i][0]);
+            }
+            return funcionalidades;
         }
 
         public static DataTable getRolesUsuario(string user)
