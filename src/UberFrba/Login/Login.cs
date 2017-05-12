@@ -39,6 +39,7 @@ namespace UberFrba.Login
             {
                 Mensaje_Error("El usuario no existe");
                 return;
+               
             }
 
             if (comboBox_Roles.SelectedIndex == -1)
@@ -72,7 +73,10 @@ namespace UberFrba.Login
             System.Windows.Forms.Application.Exit();
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
 
+        }
 
     }
 }
