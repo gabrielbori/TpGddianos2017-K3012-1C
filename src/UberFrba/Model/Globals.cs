@@ -11,7 +11,7 @@ namespace UberFrba.Model
 {
     class Globals
     {
-        public static string username;
+        public static string username="";
         private static List<int> funcionalidades = new List<int>();
 
         private static string connectionString = ConfigurationManager.ConnectionStrings["GD1C2017"].ConnectionString;
@@ -43,6 +43,7 @@ namespace UberFrba.Model
             else
                 userID = id;*/
             username = userName;
+           
             funcionalidades = funcs;
         }
 
