@@ -44,15 +44,32 @@ namespace UberFrba
 
         }
 
-        private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void altaAutomovil_click(object sender, EventArgs e) 
         {
             Abm_Automovil.AltaAutomovil altaAutomovil = new Abm_Automovil.AltaAutomovil();
             altaAutomovil.mostrar(this);
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Globals.username == "")
+            {
+                Mensaje_Error("¡Todavía no inicio sesión!", "Inicie una sesión");
+                return;
+            }
+            var mensaje = Mensaje_Pregunta("¿Desea cerrar la sesión actual: " + Globals.username + "?", "Cerrar sesión");
+            if (mensaje == DialogResult.No) return;
+
+            Globals.cerrarSesion();
+            if (ActiveMdiChild != null) ActiveMdiChild.Close();
+            Login.Login login = new Login.Login();
+            login.mostrar(this);
+            this.menuStrip1.Visible = false;
         }
 
         private static void hideControls()

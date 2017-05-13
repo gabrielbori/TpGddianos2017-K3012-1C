@@ -46,7 +46,8 @@ namespace UberFrba.CapaDAO
             List<int> funcionalidades = null;//getFuncionalidades(rol);
             
 
-            //Globals.setUser(user, funcionalidades, rol);
+           // Globals.setUser(user, funcionalidades, rol);
+            Globals.setUser(user, null, rol);
 
             return true;
         }
