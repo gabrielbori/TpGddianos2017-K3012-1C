@@ -93,6 +93,12 @@ namespace UberFrba
                 }
             }
         }
+
+        private void bajaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Abm_Automovil.BajaAutomovil bajaAutomovil = new Abm_Automovil.BajaAutomovil();
+            bajaAutomovil.mostrar(this);
+        }
         
     }
 }

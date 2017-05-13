@@ -45,11 +45,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abm Automovil\BajaAutomovil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Automovil\BajaAutomovil.Designer.cs">
+      <DependentUpon>BajaAutomovil.cs</DependentUpon>
+    </Compile>
     <Compile Include="Abm Automovil\AltaAutomovil.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Abm Automovil\AltaAutomovil.Designer.cs">
       <DependentUpon>AltaAutomovil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Automovil\ModificacionAutomovil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Automovil\ModificacionAutomovil.Designer.cs">
+      <DependentUpon>ModificacionAutomovil.cs</DependentUpon>
     </Compile>
     <Compile Include="Abm Chofer\Form1.cs">
       <SubType>Form</SubType>
@@ -79,6 +91,12 @@
     </Compile>
     <Compile Include="Facturacion\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Persona\AltaPersona.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Persona\AltaPersona.Designer.cs">
+      <DependentUpon>AltaPersona.cs</DependentUpon>
     </Compile>
     <Compile Include="Listado Estadistico\Form1.cs">
       <SubType>Form</SubType>
@@ -120,8 +138,14 @@
     <Compile Include="Rendicion Viajes\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Abm Automovil\BajaAutomovil.resx">
+      <DependentUpon>BajaAutomovil.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Abm Automovil\AltaAutomovil.resx">
       <DependentUpon>AltaAutomovil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Automovil\ModificacionAutomovil.resx">
+      <DependentUpon>ModificacionAutomovil.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -131,6 +155,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Model\FormBase.resx">
       <DependentUpon>FormBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Persona\AltaPersona.resx">
+      <DependentUpon>AltaPersona.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
