@@ -11,6 +11,7 @@ using UberFrba.Model;
 using UberFrba.CapaDAO;
 
 
+
 namespace UberFrba.Login
 {
     public partial class Login : FormBase
@@ -18,6 +19,13 @@ namespace UberFrba.Login
         public Login()
         {
             InitializeComponent();
+        }
+
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            this.ActiveControl = textBox_Username;
+
         }
 
         private void Cerrar_Click(object sender, EventArgs e)
@@ -32,6 +40,7 @@ namespace UberFrba.Login
             {
                 Mensaje_Error("El usuario no existe");
                 return;
+               
             }
 
             if (comboBox_Roles.SelectedIndex == -1)
@@ -40,7 +49,7 @@ namespace UberFrba.Login
                 return;
             }
 
-            if (DAOLogin.iniciarSesionConPassword(user, Convert.ToInt32(comboBox_Roles.SelectedValue), textBox_password.Text))
+           if (DAOLogin.iniciarSesionConPassword(user, Convert.ToInt32(comboBox_Roles.SelectedValue), textBox_password.Text))
             {
                // DAOCuenta.deshabilitarCuentasPorVigencia();
                 MenuPrincipal.showControls();
@@ -49,10 +58,6 @@ namespace UberFrba.Login
             else
                 Mensaje_Error("Contraseña incorrecta");
            
-        }
-        private void Login_Load(object sender, EventArgs e)
-        {
-            this.ActiveControl = textBox_Username;
         }
 
         private void textBox_Username_TextChanged(object sender, EventArgs e)
@@ -68,5 +73,11 @@ namespace UberFrba.Login
         {
             System.Windows.Forms.Application.Exit();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

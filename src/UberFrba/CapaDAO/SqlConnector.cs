@@ -24,6 +24,7 @@ namespace UberFrba.CapaDAO
                 cn.ConnectionString = sconcompleto; // esta linea no se si es obligatoria pero por las dudas jaja, haria lo mismo, estableceria la cabecera de conexion                
                 cm.Connection = cn; // establezco que el comando sql que cree antes use la conexion sql que estableci recien
                 cn.Open(); // aca abro la conexion  
+              
             }
             catch (Exception ex)
             {

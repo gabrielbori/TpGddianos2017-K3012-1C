@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using UberFrba;
 using UberFrba.Model;
+using UberFrba.Abm_Automovil;
 
 namespace UberFrba
 {
@@ -29,13 +30,14 @@ namespace UberFrba
             Login.Login login = new Login.Login();
             login.mostrar(this);
             this.menuStrip1.Visible = false;
-
-            controles = new ToolStripMenuItem[] {facturacionToolStripMenuItem, altaToolStripMenuItem, bajaToolStripMenuItem, modificacionToolStripMenuItem, altaToolStripMenuItem1, bajaToolStripMenuItem1, modificacionToolStripMenuItem1, altaToolStripMenuItem2, bajaToolStripMenuItem2, modificacionToolStripMenuItem2, listadoEstadisticoToolStripMenuItem, registroDeViajesToolStripMenuItem, rendicionDeViajesToolStripMenuItem, altaToolStripMenuItem3, bajaToolStripMenuItem3, modificacionToolStripMenuItem3 };
+            controles = new ToolStripMenuItem[] { abmAutomovilToolStripMenuItem, abmChoferToolStripMenuItem, abmClienteToolStripMenuItem, facturacionToolStripMenuItem, listadoEstadisticoToolStripMenuItem,registroDeViajesToolStripMenuItem, rendicionDeViajesToolStripMenuItem, rolToolStripMenuItem, cerrarSesiònToolStripMenuItem, salirToolStripMenuItem };
 
             foreach (ToolStripMenuItem tool in this.menuStrip1.Items/*Controls.OfType<ToolStripMenuItem>()*/)
                 allControles.Add(tool);
             allControles.Remove(cerrarSesiònToolStripMenuItem);
             allControles.Remove(salirToolStripMenuItem);
+
+            strip = this.menuStrip1; 
         }
         private void registroDeViajeToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -47,6 +49,11 @@ namespace UberFrba
 
         }
 
+        private void altaAutomovil_click(object sender, EventArgs e) 
+        {
+            Abm_Automovil.AltaAutomovil altaAutomovil = new Abm_Automovil.AltaAutomovil();
+            altaAutomovil.mostrar(this);
+        }
 
         private static void hideControls()
         {
@@ -56,7 +63,20 @@ namespace UberFrba
 
         public static void showControls()
         {
-           
+            strip.Visible = true;
+            hideControls();
+
+            for (int i = 0; i < controles.Count(); i++)
+            {
+                //if (Globals.tieneFuncionalidad(i + 1))
+                if(true)
+                {
+                    controles[i].Visible = true;
+                    if (controles[i].OwnerItem != null)
+                        controles[i].OwnerItem.Visible = true;
+                }
+            }
         }
+        
     }
 }
