@@ -43,17 +43,19 @@ namespace UberFrba.CapaDAO
 
         private static bool iniciarSesion(string user, int rol)
         {
-            List<int> funcionalidades = null;//getFuncionalidades(rol);
+            List<int> funcionalidades = getFuncionalidades(rol);
             
 
-            //Globals.setUser(user, funcionalidades, rol);
+            Globals.setUser(user, funcionalidades, rol);
+           
 
             return true;
         }
 
         private static List<int> getFuncionalidades(int rolID)
         {
-            DataTable funcs = retrieveDataTable("Get_Funcionalidades_Por_Rol", rolID);
+            
+            DataTable funcs = retrieveDataTable("GET_FUNCIONALIDADES_ROL", rolID);
             List<int> funcionalidades = new List<int>();
 
             for (int i = 0; i < funcs.Rows.Count; i++)

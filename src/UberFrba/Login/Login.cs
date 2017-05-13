@@ -51,6 +51,7 @@ namespace UberFrba.Login
 
            if (DAOLogin.iniciarSesionConPassword(user, Convert.ToInt32(comboBox_Roles.SelectedValue), textBox_password.Text))
             {
+               
                // DAOCuenta.deshabilitarCuentasPorVigencia();
                 MenuPrincipal.showControls();
                 this.Close();

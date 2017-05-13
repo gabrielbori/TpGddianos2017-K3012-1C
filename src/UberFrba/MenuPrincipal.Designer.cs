@@ -216,12 +216,16 @@
             this.cerrarSesiònToolStripMenuItem.Name = "cerrarSesiònToolStripMenuItem";
             this.cerrarSesiònToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
             this.cerrarSesiònToolStripMenuItem.Text = "Cerrar sesiòn";
+            this.cerrarSesiònToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesionToolStripMenuItem_Click);
             // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
             this.salirToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
             this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
+            
+
             // 
             // MenuPrincipal
             // 
