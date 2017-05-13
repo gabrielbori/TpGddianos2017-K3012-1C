@@ -43,6 +43,7 @@ namespace UberFrba.Model
             else
                 userID = id;*/
             username = userName;
+           
             funcionalidades = funcs;
         }
 

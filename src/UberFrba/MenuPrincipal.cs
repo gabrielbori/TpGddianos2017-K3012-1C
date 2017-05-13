@@ -85,8 +85,7 @@ namespace UberFrba
 
             for (int i = 0; i < controles.Count(); i++)
             {
-                //if (Globals.tieneFuncionalidad(i + 1))
-                if(true)
+                if (Globals.tieneFuncionalidad(i + 1))
                 {
                     controles[i].Visible = true;
                     if (controles[i].OwnerItem != null)
