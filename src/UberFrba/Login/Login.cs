@@ -25,6 +25,7 @@ namespace UberFrba.Login
         private void Login_Load(object sender, EventArgs e)
         {
             this.ActiveControl = textBox_Username;
+
         }
 
         private void Cerrar_Click(object sender, EventArgs e)
