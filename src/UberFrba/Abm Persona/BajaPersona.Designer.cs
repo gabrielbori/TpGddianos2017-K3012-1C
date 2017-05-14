@@ -1,6 +1,6 @@
-﻿namespace UberFrba.Abm_Chofer
+﻿namespace UberFrba.Abm_Persona
 {
-    partial class Form1
+    partial class BajaPersona
     {
         /// <summary>
         /// Required designer variable.
@@ -28,9 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // BajaPersona
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Name = "BajaPersona";
+            this.Text = "BajaPersona";
+            this.Load += new System.EventHandler(this.BajaPersona_Load);
+            this.ResumeLayout(false);
+
         }
 
         #endregion

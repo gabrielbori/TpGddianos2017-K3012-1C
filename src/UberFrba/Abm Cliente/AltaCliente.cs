@@ -7,14 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UberFrba.Model;
 
-namespace UberFrba.Abm_Rol
+namespace UberFrba.Abm_Cliente
 {
-    public partial class Form1 : Form
+    public partial class AltaCliente : FormBase
     {
-        public Form1()
+        public AltaCliente()
         {
             InitializeComponent();
+        }
+
+        private void AltaCliente_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

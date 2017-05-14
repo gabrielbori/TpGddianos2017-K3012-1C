@@ -50,6 +50,71 @@ namespace UberFrba
             altaAutomovil.mostrar(this);
         }
 
+        private void bajaAutomovil_click(object sender, EventArgs e)
+        {
+            Abm_Automovil.BajaAutomovil bajaAutomovil = new Abm_Automovil.BajaAutomovil();
+            bajaAutomovil.mostrar(this);
+        }
+
+        private void modificacionAutomovil_click(object sender, EventArgs e)
+        {
+            Abm_Automovil.ModificacionAutomovil modificacionAutomovil = new Abm_Automovil.ModificacionAutomovil();
+            modificacionAutomovil.mostrar(this);
+        }
+
+        private void altaChofer_click(object sender, EventArgs e)
+        {
+            Abm_Chofer.AltaChofer altaChofer = new Abm_Chofer.AltaChofer();
+            altaChofer.mostrar(this);
+        }
+
+        private void bajaChofer_click(object sender, EventArgs e)
+        {
+            Abm_Chofer.BajaChofer bajaChofer = new Abm_Chofer.BajaChofer();
+            bajaChofer.mostrar(this);
+        }
+
+        private void modificacionChofer_click(object sender, EventArgs e)
+        {
+            Abm_Chofer.ModificacionChofer modificacionChofer = new Abm_Chofer.ModificacionChofer();
+            modificacionChofer.mostrar(this);
+        }
+
+        private void altaCliente_click(object sender, EventArgs e)
+        {
+            Abm_Cliente.AltaCliente altaCliente = new Abm_Cliente.AltaCliente();
+            altaCliente.mostrar(this);
+        }
+
+        private void bajaCliente_click(object sender, EventArgs e)
+        {
+            Abm_Cliente.BajaCliente bajaCliente = new Abm_Cliente.BajaCliente();
+            bajaCliente.mostrar(this);
+        }
+
+        private void modificacionCliente_click(object sender, EventArgs e)
+        {
+            Abm_Cliente.ModificacionCliente modificacionCliente = new Abm_Cliente.ModificacionCliente();
+            modificacionCliente.mostrar(this);
+        }
+
+        private void altaRol_click(object sender, EventArgs e)
+        {
+            Abm_Rol.AltaRol altaRol = new Abm_Rol.AltaRol();
+            altaRol.mostrar(this);
+        }
+
+        private void bajaRol_click(object sender, EventArgs e)
+        {
+            Abm_Rol.BajaRol bajaRol = new Abm_Rol.BajaRol();
+            bajaRol.mostrar(this);
+        }
+
+        private void modificacionRol_click(object sender, EventArgs e)
+        {
+            Abm_Rol.ModificacionRol modificacionRol = new Abm_Rol.ModificacionRol();
+            modificacionRol.mostrar(this);
+        }
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();

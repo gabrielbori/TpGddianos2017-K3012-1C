@@ -1,6 +1,6 @@
-﻿namespace UberFrba.Registro_Viajes
+﻿namespace UberFrba.Abm_Chofer
 {
-    partial class Form1
+    partial class AltaChofer
     {
         /// <summary>
         /// Required designer variable.
@@ -28,9 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // AltaChofer
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Name = "AltaChofer";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.AltaChofer_Load);
+            this.ResumeLayout(false);
+
         }
 
         #endregion

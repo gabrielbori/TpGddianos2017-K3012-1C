@@ -7,14 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UberFrba.Model;
 
-namespace UberFrba.Registro_Viajes
+namespace UberFrba.Abm_Rol
 {
-    public partial class Form1 : Form
+    public partial class ModificacionRol : FormBase
     {
-        public Form1()
+        public ModificacionRol()
         {
             InitializeComponent();
+        }
+
+        private void ModificacionRol_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

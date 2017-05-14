@@ -7,14 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UberFrba.Model;
 
 namespace UberFrba.Facturacion
 {
-    public partial class Form1 : Form
+    public partial class Facturar : FormBase
     {
-        public Form1()
+        public Facturar()
         {
             InitializeComponent();
+        }
+
+        private void Facturar_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
