@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UberFrba.Model;
 
 namespace UberFrba.Abm_Automovil
 {
-    public partial class BajaAutomovil : Form
+    public partial class ModificacionAutomovil : FormBase
     {
-        public BajaAutomovil()
+        public ModificacionAutomovil()
         {
             InitializeComponent();
         }
