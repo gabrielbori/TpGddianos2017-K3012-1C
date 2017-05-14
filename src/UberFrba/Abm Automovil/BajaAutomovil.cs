@@ -11,9 +11,9 @@ using UberFrba.Model;
 
 namespace UberFrba.Abm_Automovil
 {
-    public partial class AltaAutomovil : FormBase
+    public partial class BajaAutomovil : FormBase
     {
-        public AltaAutomovil()
+        public BajaAutomovil()
         {
             InitializeComponent();
         }

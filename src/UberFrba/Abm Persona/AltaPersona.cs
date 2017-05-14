@@ -7,17 +7,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UberFrba.Model;
 
 namespace UberFrba.Abm_Cliente
 {
-    public partial class Form1 : Form
+    public partial class AltaPersona : FormBase
     {
-        public Form1()
+        public AltaPersona()
         {
             InitializeComponent();
         }
 
         private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AltaPersona_Load(object sender, EventArgs e)
         {
 
         }
