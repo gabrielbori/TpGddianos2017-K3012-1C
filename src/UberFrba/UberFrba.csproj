@@ -69,12 +69,6 @@
     <Compile Include="Abm Chofer\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Abm Cliente\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Abm Cliente\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Abm Rol\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,6 +183,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\FondoPrueba1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Abm Cliente\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
