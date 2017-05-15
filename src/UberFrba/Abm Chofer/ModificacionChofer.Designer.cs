@@ -36,6 +36,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.Name = "ModificacionChofer";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ModificacionChofer";
             this.Load += new System.EventHandler(this.ModificacionChofer_Load);
             this.ResumeLayout(false);

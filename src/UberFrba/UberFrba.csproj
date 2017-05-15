@@ -129,8 +129,14 @@
     <Compile Include="Abm Rol\ModificacionRol.Designer.cs">
       <DependentUpon>ModificacionRol.cs</DependentUpon>
     </Compile>
+    <Compile Include="CapaDAO\DAOAutomovil.cs" />
+    <Compile Include="CapaDAO\DAOChofer.cs" />
+    <Compile Include="CapaDAO\DAOCLiente.cs" />
+    <Compile Include="CapaDAO\DAOFacturacion.cs" />
     <Compile Include="CapaDAO\DAOListadoEstadistico.cs" />
     <Compile Include="CapaDAO\DAOLogin.cs" />
+    <Compile Include="CapaDAO\DAORegistroViaje.cs" />
+    <Compile Include="CapaDAO\DAORendicionViaje.cs" />
     <Compile Include="CapaDAO\DAORol.cs" />
     <Compile Include="CapaDAO\DAOUsuario.cs" />
     <Compile Include="CapaDAO\SqlConnector.cs" />
@@ -146,11 +152,11 @@
     <Compile Include="Abm Persona\AltaPersona.Designer.cs">
       <DependentUpon>AltaPersona.cs</DependentUpon>
     </Compile>
-    <Compile Include="Listado Estadistico\Form1.cs">
+    <Compile Include="Listado Estadistico\ListadoEstadistico.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Listado Estadistico\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Listado Estadistico\ListadoEstadistico.Designer.cs">
+      <DependentUpon>ListadoEstadistico.cs</DependentUpon>
     </Compile>
     <Compile Include="Login\Login.cs">
       <SubType>Form</SubType>
@@ -230,6 +236,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\Facturar.resx">
       <DependentUpon>Facturar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listado Estadistico\ListadoEstadistico.resx">
+      <DependentUpon>ListadoEstadistico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
