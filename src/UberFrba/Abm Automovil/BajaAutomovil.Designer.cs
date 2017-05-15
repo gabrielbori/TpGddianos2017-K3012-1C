@@ -183,6 +183,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "BajaAutomovil";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Baja De Automovil";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);

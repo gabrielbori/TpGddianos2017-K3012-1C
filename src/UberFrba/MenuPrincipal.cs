@@ -184,6 +184,5 @@ namespace UberFrba
             Rendicion_Viajes.RendirViaje rendirViaje = new Rendicion_Viajes.RendirViaje();
             rendirViaje.mostrar(this);     
         }
-        
     }
 }
