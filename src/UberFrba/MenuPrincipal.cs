@@ -30,7 +30,7 @@ namespace UberFrba
             Login.Login login = new Login.Login();
             login.mostrar(this);
             this.menuStrip1.Visible = false;
-            controles = new ToolStripMenuItem[] { abmAutomovilToolStripMenuItem, abmChoferToolStripMenuItem, abmClienteToolStripMenuItem, facturacionToolStripMenuItem, listadoEstadisticoToolStripMenuItem,registroDeViajesToolStripMenuItem, rendicionDeViajesToolStripMenuItem, rolToolStripMenuItem, cerrarSesiònToolStripMenuItem, salirToolStripMenuItem };
+            controles = new ToolStripMenuItem[] { abmAutomovilToolStripMenuItem, abmChoferToolStripMenuItem, abmClienteToolStripMenuItem, facturacionToolStripMenuItem, listadoEstadisticoToolStripMenuItem,registroDeViajesToolStripMenuItem, rendicionDeViajesToolStripMenuItem, rolToolStripMenuItem,cerrarSesiònToolStripMenuItem, salirToolStripMenuItem };
 
             foreach (ToolStripMenuItem tool in this.menuStrip1.Items/*Controls.OfType<ToolStripMenuItem>()*/)
                 allControles.Add(tool);
@@ -41,6 +41,8 @@ namespace UberFrba
         }
         private void registroDeViajeToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Registro_Viajes.RegistrarViaje registrarViaje = new Registro_Viajes.RegistrarViaje();
+            registrarViaje.mostrar(this);
 
         }
 
@@ -163,6 +165,24 @@ namespace UberFrba
         {
             Abm_Automovil.BajaAutomovil bajaAutomovil = new Abm_Automovil.BajaAutomovil();
             bajaAutomovil.mostrar(this);
+        }
+
+        private void listadoEstadisticoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Listado_Estadistico.ListadoEstadistico listadoEstadistico = new Listado_Estadistico.ListadoEstadistico();
+            listadoEstadistico.mostrar(this);
+        }
+
+        private void facturacionToolStripMenuItem_click(object sender, EventArgs e)
+        {
+            Facturacion.Facturar facturar = new Facturacion.Facturar();
+            facturar.mostrar(this);   
+        }
+
+        private void rendicionDeViajesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Rendicion_Viajes.RendirViaje rendirViaje = new Rendicion_Viajes.RendirViaje();
+            rendirViaje.mostrar(this);     
         }
         
     }

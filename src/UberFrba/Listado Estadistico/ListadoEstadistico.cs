@@ -7,14 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using UberFrba.Model;
 namespace UberFrba.Listado_Estadistico
 {
-    public partial class Form1 : Form
+    public partial class ListadoEstadistico : FormBase
     {
-        public Form1()
+        public ListadoEstadistico()
         {
             InitializeComponent();
+        }
+
+        private void ListadoEstadistico_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
