@@ -30,7 +30,7 @@ namespace UberFrba
             Login.Login login = new Login.Login();
             login.mostrar(this);
             this.menuStrip1.Visible = false;
-            controles = new ToolStripMenuItem[] { abmAutomovilToolStripMenuItem, abmChoferToolStripMenuItem, abmClienteToolStripMenuItem, facturacionToolStripMenuItem, listadoEstadisticoToolStripMenuItem,registroDeViajesToolStripMenuItem, rendicionDeViajesToolStripMenuItem, rolToolStripMenuItem, cerrarSesiònToolStripMenuItem, salirToolStripMenuItem };
+            controles = new ToolStripMenuItem[] { abmAutomovilToolStripMenuItem, abmChoferToolStripMenuItem, abmClienteToolStripMenuItem, facturacionToolStripMenuItem, listadoEstadisticoToolStripMenuItem,registroDeViajesToolStripMenuItem, rendicionDeViajesToolStripMenuItem, rolToolStripMenuItem,cerrarSesiònToolStripMenuItem, salirToolStripMenuItem };
 
             foreach (ToolStripMenuItem tool in this.menuStrip1.Items/*Controls.OfType<ToolStripMenuItem>()*/)
                 allControles.Add(tool);
@@ -41,6 +41,8 @@ namespace UberFrba
         }
         private void registroDeViajeToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Registro_Viajes.RegistrarViaje registrarViaje = new Registro_Viajes.RegistrarViaje();
+            registrarViaje.mostrar(this);
 
         }
 
@@ -50,6 +52,71 @@ namespace UberFrba
             altaAutomovil.mostrar(this);
         }
 
+        private void bajaAutomovil_click(object sender, EventArgs e)
+        {
+            Abm_Automovil.BajaAutomovil bajaAutomovil = new Abm_Automovil.BajaAutomovil();
+            bajaAutomovil.mostrar(this);
+        }
+
+        private void modificacionAutomovil_click(object sender, EventArgs e)
+        {
+            Abm_Automovil.ModificacionAutomovil modificacionAutomovil = new Abm_Automovil.ModificacionAutomovil();
+            modificacionAutomovil.mostrar(this);
+        }
+
+        private void altaChofer_click(object sender, EventArgs e)
+        {
+            Abm_Chofer.AltaChofer altaChofer = new Abm_Chofer.AltaChofer();
+            altaChofer.mostrar(this);
+        }
+
+        private void bajaChofer_click(object sender, EventArgs e)
+        {
+            Abm_Chofer.BajaChofer bajaChofer = new Abm_Chofer.BajaChofer();
+            bajaChofer.mostrar(this);
+        }
+
+        private void modificacionChofer_click(object sender, EventArgs e)
+        {
+            Abm_Chofer.ModificacionChofer modificacionChofer = new Abm_Chofer.ModificacionChofer();
+            modificacionChofer.mostrar(this);
+        }
+
+        private void altaCliente_click(object sender, EventArgs e)
+        {
+            Abm_Cliente.AltaCliente altaCliente = new Abm_Cliente.AltaCliente();
+            altaCliente.mostrar(this);
+        }
+
+        private void bajaCliente_click(object sender, EventArgs e)
+        {
+            Abm_Cliente.BajaCliente bajaCliente = new Abm_Cliente.BajaCliente();
+            bajaCliente.mostrar(this);
+        }
+
+        private void modificacionCliente_click(object sender, EventArgs e)
+        {
+            Abm_Cliente.ModificacionCliente modificacionCliente = new Abm_Cliente.ModificacionCliente();
+            modificacionCliente.mostrar(this);
+        }
+
+        private void altaRol_click(object sender, EventArgs e)
+        {
+            Abm_Rol.AltaRol altaRol = new Abm_Rol.AltaRol();
+            altaRol.mostrar(this);
+        }
+
+        private void bajaRol_click(object sender, EventArgs e)
+        {
+            Abm_Rol.BajaRol bajaRol = new Abm_Rol.BajaRol();
+            bajaRol.mostrar(this);
+        }
+
+        private void modificacionRol_click(object sender, EventArgs e)
+        {
+            Abm_Rol.ModificacionRol modificacionRol = new Abm_Rol.ModificacionRol();
+            modificacionRol.mostrar(this);
+        }
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -99,6 +166,23 @@ namespace UberFrba
             Abm_Automovil.BajaAutomovil bajaAutomovil = new Abm_Automovil.BajaAutomovil();
             bajaAutomovil.mostrar(this);
         }
-        
+
+        private void listadoEstadisticoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Listado_Estadistico.ListadoEstadistico listadoEstadistico = new Listado_Estadistico.ListadoEstadistico();
+            listadoEstadistico.mostrar(this);
+        }
+
+        private void facturacionToolStripMenuItem_click(object sender, EventArgs e)
+        {
+            Facturacion.Facturar facturar = new Facturacion.Facturar();
+            facturar.mostrar(this);   
+        }
+
+        private void rendicionDeViajesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Rendicion_Viajes.RendirViaje rendirViaje = new Rendicion_Viajes.RendirViaje();
+            rendirViaje.mostrar(this);     
+        }
     }
 }

@@ -7,14 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UberFrba.Model;
 
-namespace UberFrba.Facturacion
+namespace UberFrba.Rendicion_Viajes
 {
-    public partial class Form1 : Form
+    public partial class RendirViaje : FormBase
     {
-        public Form1()
+        public RendirViaje()
         {
             InitializeComponent();
+        }
+
+        private void RendirViaje_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
