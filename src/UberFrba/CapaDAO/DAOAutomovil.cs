@@ -8,5 +8,6 @@ namespace UberFrba.CapaDAO
 {
     class DAOAutomovil
     {
+
     }
 }
