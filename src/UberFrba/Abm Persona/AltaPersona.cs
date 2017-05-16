@@ -8,8 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using UberFrba.Model;
+using UberFrba.Abm_Persona;
 
-namespace UberFrba.Abm_Cliente
+namespace UberFrba.Abm_Persona
 {
     public partial class AltaPersona : FormBase
     {
@@ -25,7 +26,12 @@ namespace UberFrba.Abm_Cliente
 
         private void AltaPersona_Load(object sender, EventArgs e)
         {
+         
+        }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
