@@ -70,6 +70,10 @@ namespace UberFrba.Login
             comboBox_Roles.DataSource = roles;
         }
 
+        private void textBox_Username_Click(object sender, EventArgs e)
+        {
+            textBox_Username.Clear();
+        }
         private void button_Cerrar_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.Application.Exit();

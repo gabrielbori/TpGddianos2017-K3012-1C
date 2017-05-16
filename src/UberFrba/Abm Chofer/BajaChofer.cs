@@ -7,14 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UberFrba.Model;
 
-namespace UberFrba.Rendicion_Viajes
+namespace UberFrba.Abm_Chofer
 {
-    public partial class Form1 : Form
+    public partial class BajaChofer : FormBase
     {
-        public Form1()
+        public BajaChofer()
         {
             InitializeComponent();
+        }
+
+        private void BajaChofer_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

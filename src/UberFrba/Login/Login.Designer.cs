@@ -28,68 +28,59 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox_Username = new System.Windows.Forms.TextBox();
-            this.textBox_password = new System.Windows.Forms.TextBox();
-            this.comboBox_Roles = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.IniciarSesion = new System.Windows.Forms.Button();
             this.Cerrar = new System.Windows.Forms.Button();
+            this.IniciarSesion = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBox_Roles = new System.Windows.Forms.ComboBox();
+            this.textBox_password = new System.Windows.Forms.TextBox();
+            this.textBox_Username = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // textBox_Username
+            // Cerrar
             // 
-            this.textBox_Username.Location = new System.Drawing.Point(187, 84);
-            this.textBox_Username.Name = "textBox_Username";
-            this.textBox_Username.Size = new System.Drawing.Size(140, 20);
-            this.textBox_Username.TabIndex = 0;
-            this.textBox_Username.Text = "Ingrese Su Usuario";
-            this.textBox_Username.TextChanged += new System.EventHandler(this.textBox_Username_TextChanged);
+            this.Cerrar.Location = new System.Drawing.Point(348, 226);
+            this.Cerrar.Name = "Cerrar";
+            this.Cerrar.Size = new System.Drawing.Size(75, 23);
+            this.Cerrar.TabIndex = 9;
+            this.Cerrar.Text = "Cerrar";
+            this.Cerrar.UseVisualStyleBackColor = true;
+            this.Cerrar.Click += new System.EventHandler(this.Cerrar_Click);
             // 
-            // textBox_password
+            // IniciarSesion
             // 
-            this.textBox_password.Location = new System.Drawing.Point(187, 129);
-            this.textBox_password.Name = "textBox_password";
-            this.textBox_password.Size = new System.Drawing.Size(140, 20);
-            this.textBox_password.TabIndex = 1;
-            this.textBox_password.Text = "Ingrese Su Contraseña";
+            this.IniciarSesion.Location = new System.Drawing.Point(252, 226);
+            this.IniciarSesion.Name = "IniciarSesion";
+            this.IniciarSesion.Size = new System.Drawing.Size(75, 23);
+            this.IniciarSesion.TabIndex = 8;
+            this.IniciarSesion.Text = "Ingresar";
+            this.IniciarSesion.UseVisualStyleBackColor = true;
+            this.IniciarSesion.Click += new System.EventHandler(this.IniciarSesion_Click);
             // 
-            // comboBox_Roles
+            // label5
             // 
-            this.comboBox_Roles.FormattingEnabled = true;
-            this.comboBox_Roles.Location = new System.Drawing.Point(187, 172);
-            this.comboBox_Roles.Name = "comboBox_Roles";
-            this.comboBox_Roles.Size = new System.Drawing.Size(140, 21);
-            this.comboBox_Roles.TabIndex = 2;
-            this.comboBox_Roles.Text = "Elija El Rol Correspondiente";
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(52, 173);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(129, 16);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Selección De Rol";
             // 
-            // label1
+            // label4
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(131, 9);
-            this.label1.Name = "label1";
-            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label1.Size = new System.Drawing.Size(243, 20);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Bienvenido Al Sistema UBER";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(144, 43);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(215, 20);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Ingrese Sus Credenciales";
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(92, 129);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(87, 16);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Contraseña";
             // 
             // label3
             // 
@@ -103,47 +94,60 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Usuario";
             // 
-            // label4
+            // label2
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(92, 129);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(87, 16);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Contraseña";
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(144, 43);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(215, 20);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Ingrese Sus Credenciales";
             // 
-            // label5
+            // label1
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(52, 173);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(129, 16);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "Selección De Rol";
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(95, 9);
+            this.label1.Name = "label1";
+            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label1.Size = new System.Drawing.Size(291, 20);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Bienvenido Al Sistema UBERFRBA";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // IniciarSesion
+            // comboBox_Roles
             // 
-            this.IniciarSesion.Location = new System.Drawing.Point(252, 226);
-            this.IniciarSesion.Name = "IniciarSesion";
-            this.IniciarSesion.Size = new System.Drawing.Size(75, 23);
-            this.IniciarSesion.TabIndex = 8;
-            this.IniciarSesion.Text = "Ingresar";
-            this.IniciarSesion.UseVisualStyleBackColor = true;
-            this.IniciarSesion.Click += new System.EventHandler(this.IniciarSesion_Click);
+            this.comboBox_Roles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_Roles.FormattingEnabled = true;
+            this.comboBox_Roles.Location = new System.Drawing.Point(187, 172);
+            this.comboBox_Roles.Name = "comboBox_Roles";
+            this.comboBox_Roles.Size = new System.Drawing.Size(140, 21);
+            this.comboBox_Roles.TabIndex = 2;
             // 
-            // Cerrar
+            // textBox_password
             // 
-            this.Cerrar.Location = new System.Drawing.Point(348, 226);
-            this.Cerrar.Name = "Cerrar";
-            this.Cerrar.Size = new System.Drawing.Size(75, 23);
-            this.Cerrar.TabIndex = 9;
-            this.Cerrar.Text = "Cerrar";
-            this.Cerrar.UseVisualStyleBackColor = true;
-            this.Cerrar.Click += new System.EventHandler(this.Cerrar_Click);
+            this.textBox_password.Location = new System.Drawing.Point(187, 129);
+            this.textBox_password.Name = "textBox_password";
+            this.textBox_password.PasswordChar = '*';
+            this.textBox_password.Size = new System.Drawing.Size(140, 20);
+            this.textBox_password.TabIndex = 1;
+            this.textBox_password.Tag = "Ingresar";
+            this.textBox_password.UseSystemPasswordChar = true;
+            // 
+            // textBox_Username
+            // 
+            this.textBox_Username.Location = new System.Drawing.Point(187, 84);
+            this.textBox_Username.Name = "textBox_Username";
+            this.textBox_Username.Size = new System.Drawing.Size(140, 20);
+            this.textBox_Username.TabIndex = 0;
+            this.textBox_Username.Text = "Ingrese Su Usuario";
+            this.textBox_Username.UseWaitCursor = true;
+            this.textBox_Username.Click += new System.EventHandler(this.textBox_Username_Click);
+            this.textBox_Username.TextChanged += new System.EventHandler(this.textBox_Username_TextChanged);
             // 
             // Login
             // 

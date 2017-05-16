@@ -1,6 +1,6 @@
-﻿namespace UberFrba.Facturacion
+﻿namespace UberFrba.Abm_Chofer
 {
-    partial class Form1
+    partial class ModificacionChofer
     {
         /// <summary>
         /// Required designer variable.
@@ -28,9 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // ModificacionChofer
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Name = "ModificacionChofer";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "ModificacionChofer";
+            this.Load += new System.EventHandler(this.ModificacionChofer_Load);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
