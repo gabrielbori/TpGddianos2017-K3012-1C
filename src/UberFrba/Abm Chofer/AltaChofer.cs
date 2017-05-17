@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using UberFrba.Model;
+using UberFrba.Abm_Persona;
+
 namespace UberFrba.Abm_Chofer
 {
     public partial class AltaChofer : FormBase
@@ -19,7 +21,7 @@ namespace UberFrba.Abm_Chofer
 
         private void AltaChofer_Load(object sender, EventArgs e)
         {
-
+       
         }
     }
 }

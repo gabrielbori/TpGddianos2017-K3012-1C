@@ -1,4 +1,4 @@
-﻿namespace UberFrba.Abm_Cliente
+﻿namespace UberFrba.Abm_Persona
 {
 
     using UberFrba.Model;
@@ -206,6 +206,7 @@
             this.button2.TabIndex = 18;
             this.button2.Text = "Cancelar";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // AltaPersona
             // 
