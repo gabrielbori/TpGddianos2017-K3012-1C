@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using UberFrba;
 using UberFrba.Model;
 using UberFrba.Abm_Automovil;
+using UberFrba.Abm_Persona;
 
 namespace UberFrba
 {
@@ -30,7 +31,7 @@ namespace UberFrba
             Login.Login login = new Login.Login();
             login.mostrar(this);
             this.menuStrip1.Visible = false;
-            controles = new ToolStripMenuItem[] { abmAutomovilToolStripMenuItem, abmChoferToolStripMenuItem, abmClienteToolStripMenuItem, facturacionToolStripMenuItem, listadoEstadisticoToolStripMenuItem,registroDeViajesToolStripMenuItem, rendicionDeViajesToolStripMenuItem, rolToolStripMenuItem,cerrarSesiònToolStripMenuItem, salirToolStripMenuItem };
+            controles = new ToolStripMenuItem[] {altaAutomovil,bajaAutomovil,modificacionAutomovil,altaChofer,bajaChofer,modificacionChofer,altaCliente,bajaCliente,modificacionCliente,facturacion,listadoEstadistico,registroDeViajes,rendicionDeViajes,altaRol,bajaRol,modificacionRol};
 
             foreach (ToolStripMenuItem tool in this.menuStrip1.Items/*Controls.OfType<ToolStripMenuItem>()*/)
                 allControles.Add(tool);
@@ -39,81 +40,133 @@ namespace UberFrba
 
             strip = this.menuStrip1; 
         }
+
+        private bool noPuedeIngresar(int idFun)
+        {
+            if (!puedeIngresar(idFun))
+            {
+                Mensaje_Error("No posee acceso a esta funcionalidad", "Funcionalidad inaccesible");
+                return true;
+            }
+            else
+                return false;
+        }
+
+        private bool puedeIngresar(int idFun)
+        {
+            if (Globals.tieneFuncionalidad(idFun))
+            {
+                return true;//Puede acceder
+            }
+            return false;
+        }
+
         private void registroDeViajeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Registro_Viajes.RegistrarViaje registrarViaje = new Registro_Viajes.RegistrarViaje();
-            registrarViaje.mostrar(this);
-
+            if(noPuedeIngresar(12)) return;
+            if (ActiveMdiChild != null) ActiveMdiChild.Close();
+               Registro_Viajes.RegistrarViaje registrarViaje = new Registro_Viajes.RegistrarViaje();
+               registrarViaje.mostrar(this);
         }
 
         private void altaAutomovil_click(object sender, EventArgs e) 
         {
+            if (noPuedeIngresar(1)) return;
+            if (ActiveMdiChild != null) ActiveMdiChild.Close();
             Abm_Automovil.AltaAutomovil altaAutomovil = new Abm_Automovil.AltaAutomovil();
             altaAutomovil.mostrar(this);
         }
 
         private void bajaAutomovil_click(object sender, EventArgs e)
         {
+            if (noPuedeIngresar(2)) return;
+            if (ActiveMdiChild != null) ActiveMdiChild.Close();
             Abm_Automovil.BajaAutomovil bajaAutomovil = new Abm_Automovil.BajaAutomovil();
             bajaAutomovil.mostrar(this);
         }
 
         private void modificacionAutomovil_click(object sender, EventArgs e)
         {
+            if (noPuedeIngresar(3)) return;
+            if (ActiveMdiChild != null) ActiveMdiChild.Close();
             Abm_Automovil.ModificacionAutomovil modificacionAutomovil = new Abm_Automovil.ModificacionAutomovil();
             modificacionAutomovil.mostrar(this);
         }
 
         private void altaChofer_click(object sender, EventArgs e)
         {
-            Abm_Chofer.AltaChofer altaChofer = new Abm_Chofer.AltaChofer();
+
+            if (noPuedeIngresar(4)) return;
+            if (ActiveMdiChild != null) ActiveMdiChild.Close();
+            Abm_Persona.AltaPersona altaChofer = new Abm_Persona.AltaPersona(2);
             altaChofer.mostrar(this);
+
+            //Abm_Chofer.AltaChofer altaChofer = new Abm_Chofer.AltaChofer();
+            //altaChofer.mostrar(this);
         }
 
         private void bajaChofer_click(object sender, EventArgs e)
         {
-            Abm_Chofer.BajaChofer bajaChofer = new Abm_Chofer.BajaChofer();
+            if (noPuedeIngresar(5)) return;
+            if (ActiveMdiChild != null) ActiveMdiChild.Close();
+            Abm_Persona.BajaPersona bajaChofer = new Abm_Persona.BajaPersona();
             bajaChofer.mostrar(this);
         }
 
         private void modificacionChofer_click(object sender, EventArgs e)
         {
-            Abm_Chofer.ModificacionChofer modificacionChofer = new Abm_Chofer.ModificacionChofer();
+            if (noPuedeIngresar(6)) return;
+            if (ActiveMdiChild != null) ActiveMdiChild.Close();
+            Abm_Persona.ModificacionPersona modificacionChofer = new Abm_Persona.ModificacionPersona();
             modificacionChofer.mostrar(this);
         }
 
         private void altaCliente_click(object sender, EventArgs e)
         {
-            Abm_Cliente.AltaCliente altaCliente = new Abm_Cliente.AltaCliente();
+            if (noPuedeIngresar(7)) return;
+            if (ActiveMdiChild != null) ActiveMdiChild.Close();
+            Abm_Persona.AltaPersona altaCliente = new Abm_Persona.AltaPersona(3);
             altaCliente.mostrar(this);
+            //Abm_Cliente.AltaCliente altaCliente = new Abm_Cliente.AltaCliente();
+            //altaCliente.mostrar(this);
         }
 
         private void bajaCliente_click(object sender, EventArgs e)
         {
-            Abm_Cliente.BajaCliente bajaCliente = new Abm_Cliente.BajaCliente();
+            if (noPuedeIngresar(8)) return;
+            if (ActiveMdiChild != null) ActiveMdiChild.Close();
+            Abm_Persona.BajaPersona bajaCliente = new Abm_Persona.BajaPersona();
             bajaCliente.mostrar(this);
         }
 
         private void modificacionCliente_click(object sender, EventArgs e)
         {
+            if (noPuedeIngresar(9)) return;
+            if (ActiveMdiChild != null) ActiveMdiChild.Close();
             Abm_Cliente.ModificacionCliente modificacionCliente = new Abm_Cliente.ModificacionCliente();
             modificacionCliente.mostrar(this);
         }
 
         private void altaRol_click(object sender, EventArgs e)
         {
+            if (noPuedeIngresar(14)) return;
+            if (ActiveMdiChild != null) ActiveMdiChild.Close();
             Abm_Rol.AltaRol altaRol = new Abm_Rol.AltaRol();
             altaRol.mostrar(this);
         }
 
         private void bajaRol_click(object sender, EventArgs e)
         {
+            if (noPuedeIngresar(15)) return;
+            if (ActiveMdiChild != null) ActiveMdiChild.Close();
             Abm_Rol.BajaRol bajaRol = new Abm_Rol.BajaRol();
             bajaRol.mostrar(this);
         }
 
         private void modificacionRol_click(object sender, EventArgs e)
         {
+            if (noPuedeIngresar(16)) return;
+            if (ActiveMdiChild != null) ActiveMdiChild.Close();
             Abm_Rol.ModificacionRol modificacionRol = new Abm_Rol.ModificacionRol();
             modificacionRol.mostrar(this);
         }
@@ -161,26 +214,27 @@ namespace UberFrba
             }
         }
 
-        private void bajaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Abm_Automovil.BajaAutomovil bajaAutomovil = new Abm_Automovil.BajaAutomovil();
-            bajaAutomovil.mostrar(this);
-        }
 
         private void listadoEstadisticoToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (noPuedeIngresar(11)) return;
+            if (ActiveMdiChild != null) ActiveMdiChild.Close();
             Listado_Estadistico.ListadoEstadistico listadoEstadistico = new Listado_Estadistico.ListadoEstadistico();
             listadoEstadistico.mostrar(this);
         }
 
         private void facturacionToolStripMenuItem_click(object sender, EventArgs e)
         {
+            if (noPuedeIngresar(10)) return;
+            if (ActiveMdiChild != null) ActiveMdiChild.Close();
             Facturacion.Facturar facturar = new Facturacion.Facturar();
             facturar.mostrar(this);   
         }
 
         private void rendicionDeViajesToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (noPuedeIngresar(13)) return;
+            if (ActiveMdiChild != null) ActiveMdiChild.Close();
             Rendicion_Viajes.RendirViaje rendirViaje = new Rendicion_Viajes.RendirViaje();
             rendirViaje.mostrar(this);     
         }

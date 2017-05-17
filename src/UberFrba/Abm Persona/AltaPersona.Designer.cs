@@ -38,18 +38,18 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox_Nombre = new System.Windows.Forms.TextBox();
+            this.textBox_Apellido = new System.Windows.Forms.TextBox();
+            this.textBox_DNI = new System.Windows.Forms.TextBox();
+            this.textBox_Telefono = new System.Windows.Forms.TextBox();
+            this.textBox_FechaNac = new System.Windows.Forms.TextBox();
+            this.textBox_Direccion = new System.Windows.Forms.TextBox();
+            this.textBox_Mail = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBox_CodigoPostal = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -115,15 +115,6 @@
             this.label7.TabIndex = 6;
             this.label7.Text = "Mail";
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(26, 247);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(28, 13);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "Tipo";
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -133,74 +124,68 @@
             this.label9.TabIndex = 8;
             this.label9.Text = "Ingresar Datos Principaes De Una Persona";
             // 
-            // textBox1
+            // textBox_Nombre
             // 
-            this.textBox1.Location = new System.Drawing.Point(167, 44);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(164, 20);
-            this.textBox1.TabIndex = 9;
+            this.textBox_Nombre.Location = new System.Drawing.Point(167, 44);
+            this.textBox_Nombre.Name = "textBox_Nombre";
+            this.textBox_Nombre.Size = new System.Drawing.Size(164, 20);
+            this.textBox_Nombre.TabIndex = 9;
             // 
-            // textBox2
+            // textBox_Apellido
             // 
-            this.textBox2.Location = new System.Drawing.Point(167, 70);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(164, 20);
-            this.textBox2.TabIndex = 10;
+            this.textBox_Apellido.Location = new System.Drawing.Point(167, 70);
+            this.textBox_Apellido.Name = "textBox_Apellido";
+            this.textBox_Apellido.Size = new System.Drawing.Size(164, 20);
+            this.textBox_Apellido.TabIndex = 10;
             // 
-            // textBox3
+            // textBox_DNI
             // 
-            this.textBox3.Location = new System.Drawing.Point(167, 96);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(164, 20);
-            this.textBox3.TabIndex = 11;
+            this.textBox_DNI.Location = new System.Drawing.Point(167, 96);
+            this.textBox_DNI.Name = "textBox_DNI";
+            this.textBox_DNI.Size = new System.Drawing.Size(164, 20);
+            this.textBox_DNI.TabIndex = 11;
             // 
-            // textBox4
+            // textBox_Telefono
             // 
-            this.textBox4.Location = new System.Drawing.Point(167, 122);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(164, 20);
-            this.textBox4.TabIndex = 12;
+            this.textBox_Telefono.Location = new System.Drawing.Point(167, 122);
+            this.textBox_Telefono.Name = "textBox_Telefono";
+            this.textBox_Telefono.Size = new System.Drawing.Size(164, 20);
+            this.textBox_Telefono.TabIndex = 12;
             // 
-            // textBox5
+            // textBox_FechaNac
             // 
-            this.textBox5.Location = new System.Drawing.Point(167, 152);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(164, 20);
-            this.textBox5.TabIndex = 13;
+            this.textBox_FechaNac.Location = new System.Drawing.Point(167, 152);
+            this.textBox_FechaNac.Name = "textBox_FechaNac";
+            this.textBox_FechaNac.Size = new System.Drawing.Size(164, 20);
+            this.textBox_FechaNac.TabIndex = 13;
             // 
-            // textBox6
+            // textBox_Direccion
             // 
-            this.textBox6.Location = new System.Drawing.Point(167, 182);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(164, 20);
-            this.textBox6.TabIndex = 14;
+            this.textBox_Direccion.Location = new System.Drawing.Point(167, 182);
+            this.textBox_Direccion.Name = "textBox_Direccion";
+            this.textBox_Direccion.Size = new System.Drawing.Size(164, 20);
+            this.textBox_Direccion.TabIndex = 14;
             // 
-            // textBox7
+            // textBox_Mail
             // 
-            this.textBox7.Location = new System.Drawing.Point(167, 211);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(164, 20);
-            this.textBox7.TabIndex = 15;
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(167, 240);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(164, 20);
-            this.textBox8.TabIndex = 16;
+            this.textBox_Mail.Location = new System.Drawing.Point(167, 211);
+            this.textBox_Mail.Name = "textBox_Mail";
+            this.textBox_Mail.Size = new System.Drawing.Size(164, 20);
+            this.textBox_Mail.TabIndex = 15;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(274, 291);
+            this.button1.Location = new System.Drawing.Point(274, 299);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 17;
             this.button1.Text = "Aceptar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(12, 291);
+            this.button2.Location = new System.Drawing.Point(12, 299);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 18;
@@ -208,23 +193,41 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.label10.Location = new System.Drawing.Point(26, 253);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(72, 13);
+            this.label10.TabIndex = 19;
+            this.label10.Text = "Codigo Postal";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
+            // 
+            // textBox_CodigoPostal
+            // 
+            this.textBox_CodigoPostal.Location = new System.Drawing.Point(167, 246);
+            this.textBox_CodigoPostal.Name = "textBox_CodigoPostal";
+            this.textBox_CodigoPostal.Size = new System.Drawing.Size(164, 20);
+            this.textBox_CodigoPostal.TabIndex = 20;
+            // 
             // AltaPersona
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(361, 326);
+            this.ClientSize = new System.Drawing.Size(361, 341);
+            this.Controls.Add(this.textBox_CodigoPostal);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBox_Mail);
+            this.Controls.Add(this.textBox_Direccion);
+            this.Controls.Add(this.textBox_FechaNac);
+            this.Controls.Add(this.textBox_Telefono);
+            this.Controls.Add(this.textBox_DNI);
+            this.Controls.Add(this.textBox_Apellido);
+            this.Controls.Add(this.textBox_Nombre);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -250,17 +253,17 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox textBox_Nombre;
+        private System.Windows.Forms.TextBox textBox_Apellido;
+        private System.Windows.Forms.TextBox textBox_DNI;
+        private System.Windows.Forms.TextBox textBox_Telefono;
+        private System.Windows.Forms.TextBox textBox_FechaNac;
+        private System.Windows.Forms.TextBox textBox_Direccion;
+        private System.Windows.Forms.TextBox textBox_Mail;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox textBox_CodigoPostal;
     }
 }
