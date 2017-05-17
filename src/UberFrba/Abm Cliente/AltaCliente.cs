@@ -21,10 +21,6 @@ namespace UberFrba.Abm_Cliente
         private void AltaCliente_Load(object sender, EventArgs e)
         {
 
-
-
-
-
         }
     }
 }
