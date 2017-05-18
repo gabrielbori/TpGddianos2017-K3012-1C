@@ -81,24 +81,6 @@
     <Compile Include="Abm Chofer\ModificacionChofer.Designer.cs">
       <DependentUpon>ModificacionChofer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Abm Cliente\AltaCliente.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Abm Cliente\AltaCliente.Designer.cs">
-      <DependentUpon>AltaCliente.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Abm Cliente\BajaCliente.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Abm Cliente\BajaCliente.Designer.cs">
-      <DependentUpon>BajaCliente.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Abm Cliente\ModificacionCliente.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Abm Cliente\ModificacionCliente.Designer.cs">
-      <DependentUpon>ModificacionCliente.cs</DependentUpon>
-    </Compile>
     <Compile Include="Abm Persona\BajaPersona.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +92,12 @@
     </Compile>
     <Compile Include="Abm Persona\ModificacionPersona.Designer.cs">
       <DependentUpon>ModificacionPersona.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Persona\SeleccionDePersona.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Persona\SeleccionDePersona.Designer.cs">
+      <DependentUpon>SeleccionDePersona.cs</DependentUpon>
     </Compile>
     <Compile Include="Abm Rol\AltaRol.cs">
       <SubType>Form</SubType>
@@ -135,6 +123,7 @@
     <Compile Include="CapaDAO\DAOFacturacion.cs" />
     <Compile Include="CapaDAO\DAOListadoEstadistico.cs" />
     <Compile Include="CapaDAO\DAOLogin.cs" />
+    <Compile Include="CapaDAO\DAOPersona.cs" />
     <Compile Include="CapaDAO\DAORegistroViaje.cs" />
     <Compile Include="CapaDAO\DAORendicionViaje.cs" />
     <Compile Include="CapaDAO\DAORol.cs" />
@@ -210,20 +199,14 @@
     <EmbeddedResource Include="Abm Chofer\ModificacionChofer.resx">
       <DependentUpon>ModificacionChofer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Abm Cliente\AltaCliente.resx">
-      <DependentUpon>AltaCliente.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Abm Cliente\BajaCliente.resx">
-      <DependentUpon>BajaCliente.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Abm Cliente\ModificacionCliente.resx">
-      <DependentUpon>ModificacionCliente.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Abm Persona\BajaPersona.resx">
       <DependentUpon>BajaPersona.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Persona\ModificacionPersona.resx">
       <DependentUpon>ModificacionPersona.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Persona\SeleccionDePersona.resx">
+      <DependentUpon>SeleccionDePersona.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Rol\AltaRol.resx">
       <DependentUpon>AltaRol.cs</DependentUpon>
@@ -289,7 +272,9 @@
   <ItemGroup>
     <None Include="Resources\FondoPrueba1.bmp" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Abm Cliente\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using UberFrba.Model;
+using UberFrba.Abm_Persona;
+
 namespace UberFrba.Abm_Persona
 {
     public partial class BajaPersona : FormBase
