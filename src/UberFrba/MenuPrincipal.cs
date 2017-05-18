@@ -109,16 +109,16 @@ namespace UberFrba
         {
             if (noPuedeIngresar(5)) return;
             if (ActiveMdiChild != null) ActiveMdiChild.Close();
-            Abm_Persona.BajaPersona bajaChofer = new Abm_Persona.BajaPersona();
-            bajaChofer.mostrar(this);
+            Abm_Persona.SeleccionDePersona seleccionPersona = new Abm_Persona.SeleccionDePersona(1,2);
+            seleccionPersona.mostrar(this);
         }
 
         private void modificacionChofer_click(object sender, EventArgs e)
         {
             if (noPuedeIngresar(6)) return;
             if (ActiveMdiChild != null) ActiveMdiChild.Close();
-            Abm_Persona.ModificacionPersona modificacionChofer = new Abm_Persona.ModificacionPersona();
-            modificacionChofer.mostrar(this);
+            Abm_Persona.SeleccionDePersona seleccionPersona = new Abm_Persona.SeleccionDePersona(1,2);
+            seleccionPersona.mostrar(this);
         }
 
         private void altaCliente_click(object sender, EventArgs e)
@@ -135,16 +135,16 @@ namespace UberFrba
         {
             if (noPuedeIngresar(8)) return;
             if (ActiveMdiChild != null) ActiveMdiChild.Close();
-            Abm_Persona.BajaPersona bajaCliente = new Abm_Persona.BajaPersona();
-            bajaCliente.mostrar(this);
+            Abm_Persona.SeleccionDePersona seleccionPersona = new Abm_Persona.SeleccionDePersona(1,3);
+            seleccionPersona.mostrar(this);
         }
 
         private void modificacionCliente_click(object sender, EventArgs e)
         {
-            if (noPuedeIngresar(9)) return;
+            if (noPuedeIngresar(8)) return;
             if (ActiveMdiChild != null) ActiveMdiChild.Close();
-            Abm_Cliente.ModificacionCliente modificacionCliente = new Abm_Cliente.ModificacionCliente();
-            modificacionCliente.mostrar(this);
+            Abm_Persona.SeleccionDePersona seleccionPersona = new Abm_Persona.SeleccionDePersona(1,3);
+            seleccionPersona.mostrar(this);
         }
 
         private void altaRol_click(object sender, EventArgs e)
