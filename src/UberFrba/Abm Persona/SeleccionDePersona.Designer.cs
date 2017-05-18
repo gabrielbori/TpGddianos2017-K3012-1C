@@ -69,6 +69,7 @@
             this.dataGridView_Seleccion.ReadOnly = true;
             this.dataGridView_Seleccion.Size = new System.Drawing.Size(565, 168);
             this.dataGridView_Seleccion.TabIndex = 40;
+            this.dataGridView_Seleccion.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_Seleccion_CellContentClick);
             // 
             // Seleccionar
             // 
@@ -175,7 +176,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(990, 261);
+            this.ClientSize = new System.Drawing.Size(990, 255);
             this.Controls.Add(this.button_Cerrar);
             this.Controls.Add(this.dataGridView_Seleccion);
             this.Controls.Add(this.paner_Filtros);
