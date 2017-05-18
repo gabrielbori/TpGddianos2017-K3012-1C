@@ -207,21 +207,21 @@
             // altaRol
             // 
             this.altaRol.Name = "altaRol";
-            this.altaRol.Size = new System.Drawing.Size(152, 22);
+            this.altaRol.Size = new System.Drawing.Size(144, 22);
             this.altaRol.Text = "Alta";
             this.altaRol.Click += new System.EventHandler(this.altaRol_click);
             // 
             // bajaRol
             // 
             this.bajaRol.Name = "bajaRol";
-            this.bajaRol.Size = new System.Drawing.Size(152, 22);
+            this.bajaRol.Size = new System.Drawing.Size(144, 22);
             this.bajaRol.Text = "Baja";
             this.bajaRol.Click += new System.EventHandler(this.bajaRol_click);
             // 
             // modificacionRol
             // 
             this.modificacionRol.Name = "modificacionRol";
-            this.modificacionRol.Size = new System.Drawing.Size(152, 22);
+            this.modificacionRol.Size = new System.Drawing.Size(144, 22);
             this.modificacionRol.Text = "Modificacion";
             this.modificacionRol.Click += new System.EventHandler(this.modificacionRol_click);
             // 
