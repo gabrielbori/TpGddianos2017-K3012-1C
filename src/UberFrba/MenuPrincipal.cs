@@ -109,7 +109,7 @@ namespace UberFrba
         {
             if (noPuedeIngresar(5)) return;
             if (ActiveMdiChild != null) ActiveMdiChild.Close();
-            Abm_Persona.SeleccionDePersona seleccionPersona = new Abm_Persona.SeleccionDePersona(1,2);
+            Abm_Persona.SeleccionDePersona seleccionPersona = new Abm_Persona.SeleccionDePersona(new Abm_Persona.BajaPersona(),1,2);
             seleccionPersona.mostrar(this);
         }
 
@@ -117,7 +117,7 @@ namespace UberFrba
         {
             if (noPuedeIngresar(6)) return;
             if (ActiveMdiChild != null) ActiveMdiChild.Close();
-            Abm_Persona.SeleccionDePersona seleccionPersona = new Abm_Persona.SeleccionDePersona(1,2);
+            Abm_Persona.SeleccionDePersona seleccionPersona = new Abm_Persona.SeleccionDePersona(new Abm_Persona.ModificacionPersona(),1,2);
             seleccionPersona.mostrar(this);
         }
 
@@ -135,7 +135,7 @@ namespace UberFrba
         {
             if (noPuedeIngresar(8)) return;
             if (ActiveMdiChild != null) ActiveMdiChild.Close();
-            Abm_Persona.SeleccionDePersona seleccionPersona = new Abm_Persona.SeleccionDePersona(1,3);
+            Abm_Persona.SeleccionDePersona seleccionPersona = new Abm_Persona.SeleccionDePersona(new Abm_Persona.BajaPersona(),1, 3);
             seleccionPersona.mostrar(this);
         }
 
@@ -143,7 +143,7 @@ namespace UberFrba
         {
             if (noPuedeIngresar(8)) return;
             if (ActiveMdiChild != null) ActiveMdiChild.Close();
-            Abm_Persona.SeleccionDePersona seleccionPersona = new Abm_Persona.SeleccionDePersona(1,3);
+            Abm_Persona.SeleccionDePersona seleccionPersona = new Abm_Persona.SeleccionDePersona(new Abm_Persona.ModificacionPersona(), 1, 3);
             seleccionPersona.mostrar(this);
         }
 

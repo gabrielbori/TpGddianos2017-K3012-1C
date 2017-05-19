@@ -165,6 +165,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Model\Globals.cs" />
+    <Compile Include="Model\Persona.cs" />
     <Compile Include="Model\Rol.cs" />
     <Compile Include="Model\Usuario.cs" />
     <Compile Include="Program.cs" />
