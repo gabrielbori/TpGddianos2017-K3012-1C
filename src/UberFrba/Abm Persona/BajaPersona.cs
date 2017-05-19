@@ -38,12 +38,12 @@ namespace UberFrba.Abm_Persona
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var resultado = Mensaje_Pregunta("¿Está seguro que desea eliminar a la persona del sistema?", "Eliminar Persona");
+            var resultado = Mensaje_Pregunta("¿Está seguro que desea dar la baja a la persona del sistema?", "Baja Persona");
             if (resultado == DialogResult.Yes)
             {
                 int id = persona.ID;
-                DAOPersona.bajarPersona(id);
-                Mensaje_OK("Los datos han sido eliminados con éxito");
+                DAOPersona.bajaPersona(id);
+                Mensaje_OK("La persona ha sido dada de baja");
                 this.Close();
             }
         }

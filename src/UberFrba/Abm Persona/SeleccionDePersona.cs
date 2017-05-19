@@ -17,14 +17,13 @@ namespace UberFrba.Abm_Persona
     {
         private FormBase caller;
 
-        private int tipoAmbos = 0, tipoPersona = 0;
+        private int tipoAmbos = 1, tipoPersona = 0;
 
         string nombre, apellido, doc;
 
-        public SeleccionDePersona(FormBase caller, int tipoS1, int tipoS2)
+        public SeleccionDePersona(FormBase caller, int tipoS2)
         {
             this.caller = caller;
-            tipoAmbos = tipoS1;
             tipoPersona = tipoS2;
             InitializeComponent();
         }

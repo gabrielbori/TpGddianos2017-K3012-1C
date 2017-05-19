@@ -123,6 +123,16 @@ namespace UberFrba.Abm_Persona
         {
             cerrar();
         }
+
+        private void checkBox_Estado_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
         
     }
 }
