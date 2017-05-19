@@ -51,6 +51,10 @@
             this.modificacionRol = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesiònToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.turnosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.altaTurno = new System.Windows.Forms.ToolStripMenuItem();
+            this.bajaTurno = new System.Windows.Forms.ToolStripMenuItem();
+            this.modificacionTurno = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,6 +69,7 @@
             this.registroDeViajes,
             this.rendicionDeViajes,
             this.rolToolStripMenuItem,
+            this.turnosToolStripMenuItem,
             this.cerrarSesiònToolStripMenuItem,
             this.salirToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -86,21 +91,21 @@
             // altaAutomovil
             // 
             this.altaAutomovil.Name = "altaAutomovil";
-            this.altaAutomovil.Size = new System.Drawing.Size(152, 22);
+            this.altaAutomovil.Size = new System.Drawing.Size(144, 22);
             this.altaAutomovil.Text = "Alta";
             this.altaAutomovil.Click += new System.EventHandler(this.altaAutomovil_click);
             // 
             // bajaAutomovil
             // 
             this.bajaAutomovil.Name = "bajaAutomovil";
-            this.bajaAutomovil.Size = new System.Drawing.Size(152, 22);
+            this.bajaAutomovil.Size = new System.Drawing.Size(144, 22);
             this.bajaAutomovil.Text = "Baja";
             this.bajaAutomovil.Click += new System.EventHandler(this.bajaAutomovil_click);
             // 
             // modificacionAutomovil
             // 
             this.modificacionAutomovil.Name = "modificacionAutomovil";
-            this.modificacionAutomovil.Size = new System.Drawing.Size(152, 22);
+            this.modificacionAutomovil.Size = new System.Drawing.Size(144, 22);
             this.modificacionAutomovil.Text = "Modificacion";
             this.modificacionAutomovil.Click += new System.EventHandler(this.modificacionAutomovil_click);
             // 
@@ -117,21 +122,21 @@
             // altaChofer
             // 
             this.altaChofer.Name = "altaChofer";
-            this.altaChofer.Size = new System.Drawing.Size(152, 22);
+            this.altaChofer.Size = new System.Drawing.Size(144, 22);
             this.altaChofer.Text = "Alta";
             this.altaChofer.Click += new System.EventHandler(this.altaChofer_click);
             // 
             // bajaChofer
             // 
             this.bajaChofer.Name = "bajaChofer";
-            this.bajaChofer.Size = new System.Drawing.Size(152, 22);
+            this.bajaChofer.Size = new System.Drawing.Size(144, 22);
             this.bajaChofer.Text = "Baja";
             this.bajaChofer.Click += new System.EventHandler(this.bajaChofer_click);
             // 
             // modificacionChofer
             // 
             this.modificacionChofer.Name = "modificacionChofer";
-            this.modificacionChofer.Size = new System.Drawing.Size(152, 22);
+            this.modificacionChofer.Size = new System.Drawing.Size(144, 22);
             this.modificacionChofer.Text = "Modificacion";
             this.modificacionChofer.Click += new System.EventHandler(this.modificacionChofer_click);
             // 
@@ -148,21 +153,21 @@
             // altaCliente
             // 
             this.altaCliente.Name = "altaCliente";
-            this.altaCliente.Size = new System.Drawing.Size(152, 22);
+            this.altaCliente.Size = new System.Drawing.Size(144, 22);
             this.altaCliente.Text = "Alta";
             this.altaCliente.Click += new System.EventHandler(this.altaCliente_click);
             // 
             // bajaCliente
             // 
             this.bajaCliente.Name = "bajaCliente";
-            this.bajaCliente.Size = new System.Drawing.Size(152, 22);
+            this.bajaCliente.Size = new System.Drawing.Size(144, 22);
             this.bajaCliente.Text = "Baja";
             this.bajaCliente.Click += new System.EventHandler(this.bajaCliente_click);
             // 
             // modificacionCliente
             // 
             this.modificacionCliente.Name = "modificacionCliente";
-            this.modificacionCliente.Size = new System.Drawing.Size(152, 22);
+            this.modificacionCliente.Size = new System.Drawing.Size(144, 22);
             this.modificacionCliente.Text = "Modificacion";
             this.modificacionCliente.Click += new System.EventHandler(this.modificacionCliente_click);
             // 
@@ -239,6 +244,37 @@
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
+            // turnosToolStripMenuItem
+            // 
+            this.turnosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.altaTurno,
+            this.bajaTurno,
+            this.modificacionTurno});
+            this.turnosToolStripMenuItem.Name = "turnosToolStripMenuItem";
+            this.turnosToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
+            this.turnosToolStripMenuItem.Text = "Turnos";
+            // 
+            // altaTurno
+            // 
+            this.altaTurno.Name = "altaTurno";
+            this.altaTurno.Size = new System.Drawing.Size(152, 22);
+            this.altaTurno.Text = "Alta";
+            this.altaTurno.Click += new System.EventHandler(this.altaTurno_Click);
+            // 
+            // bajaTurno
+            // 
+            this.bajaTurno.Name = "bajaTurno";
+            this.bajaTurno.Size = new System.Drawing.Size(152, 22);
+            this.bajaTurno.Text = "Baja";
+            this.bajaTurno.Click += new System.EventHandler(this.bajaTurno_Click);
+            // 
+            // modificacionTurno
+            // 
+            this.modificacionTurno.Name = "modificacionTurno";
+            this.modificacionTurno.Size = new System.Drawing.Size(152, 22);
+            this.modificacionTurno.Text = "Modificacion";
+            this.modificacionTurno.Click += new System.EventHandler(this.modificacionTurno_Click);
+            // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -283,5 +319,9 @@
         private System.Windows.Forms.ToolStripMenuItem modificacionRol;
         private System.Windows.Forms.ToolStripMenuItem cerrarSesiònToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem turnosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem altaTurno;
+        private System.Windows.Forms.ToolStripMenuItem bajaTurno;
+        private System.Windows.Forms.ToolStripMenuItem modificacionTurno;
     }
 }
