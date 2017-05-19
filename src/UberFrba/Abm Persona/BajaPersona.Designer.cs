@@ -1,7 +1,21 @@
-﻿namespace UberFrba.Abm_Persona
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using UberFrba.Model;
+using UberFrba.CapaDAO;
+
+namespace UberFrba.Abm_Persona
 {
     partial class BajaPersona
     {
+
+        private Persona persona;
+
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -11,6 +25,33 @@
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// 
+
+        public override void mostrar(Form parent, params object[] values)
+        {
+            Persona persona = (Persona)values[0];
+            
+            this.persona = persona;
+            textBox_Direccion.Text = persona.Direccion;
+            textBox_Apellido.Text = persona.Apellido;
+            textBox_DNI.Text = Convert.ToString(persona.Dni);
+            dateTimePicker_FechaNacimiento.Text = persona.FechaDeNacimiento.ToString();
+            textBox_Telefono.Text = Convert.ToString(persona.Telefono);
+            textBox_Mail.Text = persona.Mail;
+            textBox_Nombre.Text = persona.Nombre;
+            textBox_CodigoPostal.Text = persona.CodigoPostal;
+            checkBox_Estado.Checked = Convert.ToBoolean(persona.Estado);
+
+            if (checkBox_Estado.Checked) //Si está habilitado no permitir deshabilitar
+            {
+                checkBox_Estado.Visible = false;
+                label2.Visible = false;
+            }
+
+            base.mostrar(parent);
+        }
+
+
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -34,7 +75,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.textBox_Mail = new System.Windows.Forms.TextBox();
             this.textBox_Direccion = new System.Windows.Forms.TextBox();
-            this.textBox_FechaNac = new System.Windows.Forms.TextBox();
             this.textBox_Telefono = new System.Windows.Forms.TextBox();
             this.textBox_DNI = new System.Windows.Forms.TextBox();
             this.textBox_Apellido = new System.Windows.Forms.TextBox();
@@ -47,13 +87,16 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.dateTimePicker_FechaNacimiento = new System.Windows.Forms.DateTimePicker();
+            this.checkBox_Estado = new System.Windows.Forms.CheckBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBox_CodigoPostal
             // 
             this.textBox_CodigoPostal.Location = new System.Drawing.Point(173, 233);
             this.textBox_CodigoPostal.Name = "textBox_CodigoPostal";
-            this.textBox_CodigoPostal.Size = new System.Drawing.Size(164, 20);
+            this.textBox_CodigoPostal.Size = new System.Drawing.Size(226, 20);
             this.textBox_CodigoPostal.TabIndex = 58;
             // 
             // label10
@@ -68,69 +111,64 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(12, 274);
+            this.button2.Location = new System.Drawing.Point(12, 311);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 56;
             this.button2.Text = "Cancelar";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(274, 274);
+            this.button1.Location = new System.Drawing.Point(352, 311);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 55;
             this.button1.Text = "Eliminar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox_Mail
             // 
             this.textBox_Mail.Location = new System.Drawing.Point(173, 207);
             this.textBox_Mail.Name = "textBox_Mail";
-            this.textBox_Mail.Size = new System.Drawing.Size(164, 20);
+            this.textBox_Mail.Size = new System.Drawing.Size(226, 20);
             this.textBox_Mail.TabIndex = 54;
             // 
             // textBox_Direccion
             // 
             this.textBox_Direccion.Location = new System.Drawing.Point(173, 181);
             this.textBox_Direccion.Name = "textBox_Direccion";
-            this.textBox_Direccion.Size = new System.Drawing.Size(164, 20);
+            this.textBox_Direccion.Size = new System.Drawing.Size(226, 20);
             this.textBox_Direccion.TabIndex = 53;
-            // 
-            // textBox_FechaNac
-            // 
-            this.textBox_FechaNac.Location = new System.Drawing.Point(173, 155);
-            this.textBox_FechaNac.Name = "textBox_FechaNac";
-            this.textBox_FechaNac.Size = new System.Drawing.Size(164, 20);
-            this.textBox_FechaNac.TabIndex = 52;
             // 
             // textBox_Telefono
             // 
             this.textBox_Telefono.Location = new System.Drawing.Point(173, 129);
             this.textBox_Telefono.Name = "textBox_Telefono";
-            this.textBox_Telefono.Size = new System.Drawing.Size(164, 20);
+            this.textBox_Telefono.Size = new System.Drawing.Size(226, 20);
             this.textBox_Telefono.TabIndex = 51;
             // 
             // textBox_DNI
             // 
             this.textBox_DNI.Location = new System.Drawing.Point(173, 103);
             this.textBox_DNI.Name = "textBox_DNI";
-            this.textBox_DNI.Size = new System.Drawing.Size(164, 20);
+            this.textBox_DNI.Size = new System.Drawing.Size(226, 20);
             this.textBox_DNI.TabIndex = 50;
             // 
             // textBox_Apellido
             // 
             this.textBox_Apellido.Location = new System.Drawing.Point(173, 77);
             this.textBox_Apellido.Name = "textBox_Apellido";
-            this.textBox_Apellido.Size = new System.Drawing.Size(164, 20);
+            this.textBox_Apellido.Size = new System.Drawing.Size(226, 20);
             this.textBox_Apellido.TabIndex = 49;
             // 
             // textBox_Nombre
             // 
             this.textBox_Nombre.Location = new System.Drawing.Point(173, 51);
             this.textBox_Nombre.Name = "textBox_Nombre";
-            this.textBox_Nombre.Size = new System.Drawing.Size(164, 20);
+            this.textBox_Nombre.Size = new System.Drawing.Size(226, 20);
             this.textBox_Nombre.TabIndex = 48;
             // 
             // label9
@@ -206,18 +244,46 @@
             this.label1.TabIndex = 40;
             this.label1.Text = "Nombre";
             // 
+            // dateTimePicker_FechaNacimiento
+            // 
+            this.dateTimePicker_FechaNacimiento.Location = new System.Drawing.Point(173, 155);
+            this.dateTimePicker_FechaNacimiento.Name = "dateTimePicker_FechaNacimiento";
+            this.dateTimePicker_FechaNacimiento.Size = new System.Drawing.Size(226, 20);
+            this.dateTimePicker_FechaNacimiento.TabIndex = 79;
+            // 
+            // checkBox_Estado
+            // 
+            this.checkBox_Estado.AutoSize = true;
+            this.checkBox_Estado.Location = new System.Drawing.Point(173, 259);
+            this.checkBox_Estado.Name = "checkBox_Estado";
+            this.checkBox_Estado.Size = new System.Drawing.Size(73, 17);
+            this.checkBox_Estado.TabIndex = 82;
+            this.checkBox_Estado.Text = "Habilitado";
+            this.checkBox_Estado.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(32, 263);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(40, 13);
+            this.label8.TabIndex = 81;
+            this.label8.Text = "Estado";
+            // 
             // BajaPersona
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(368, 309);
+            this.ClientSize = new System.Drawing.Size(439, 346);
+            this.Controls.Add(this.checkBox_Estado);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.dateTimePicker_FechaNacimiento);
             this.Controls.Add(this.textBox_CodigoPostal);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox_Mail);
             this.Controls.Add(this.textBox_Direccion);
-            this.Controls.Add(this.textBox_FechaNac);
             this.Controls.Add(this.textBox_Telefono);
             this.Controls.Add(this.textBox_DNI);
             this.Controls.Add(this.textBox_Apellido);
@@ -247,7 +313,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox_Mail;
         private System.Windows.Forms.TextBox textBox_Direccion;
-        private System.Windows.Forms.TextBox textBox_FechaNac;
         private System.Windows.Forms.TextBox textBox_Telefono;
         private System.Windows.Forms.TextBox textBox_DNI;
         private System.Windows.Forms.TextBox textBox_Apellido;
@@ -260,5 +325,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private DateTimePicker dateTimePicker_FechaNacimiento;
+        private CheckBox checkBox_Estado;
+        private Label label8;
     }
 }
