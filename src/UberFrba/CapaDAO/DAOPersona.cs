@@ -46,21 +46,21 @@ namespace UberFrba.CapaDAO
         {
             executeProcedure("MODIFICAR_PERSONA",
                 id,
+                persona.Telefono,
                 persona.Nombre,
                 persona.Apellido,
                 persona.Dni,
                 persona.Direccion,
-                persona.FechaDeNacimiento,
+                Convert.ToDateTime(persona.FechaDeNacimiento),
                 persona.Mail,
-                persona.Telefono,
                 persona.Estado,
                 persona.CodigoPostal
                 );
         }
 
-        public static void bajarPersona(int id)
+        public static void bajaPersona(int id)
         {
-            executeProcedure("BORRAR_PERSONA", id);
+            executeProcedure("BAJA_PERSONA", id);
         }
 
     }

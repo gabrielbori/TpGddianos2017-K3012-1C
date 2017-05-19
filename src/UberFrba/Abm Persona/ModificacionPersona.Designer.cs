@@ -40,14 +40,9 @@ namespace UberFrba.Abm_Persona
             textBox_Mail.Text = persona.Mail;
             textBox_Nombre.Text = persona.Nombre;
             textBox_CodigoPostal.Text = persona.CodigoPostal;
-            checkBox_Estado.Checked = Convert.ToBoolean(persona.Estado);
-
-            if (checkBox_Estado.Checked) //Si está habilitado no permitir deshabilitar
-            {
+            if (persona.Estado == 1)
                 checkBox_Estado.Visible = false;
-                label2.Visible = false;
-            }
-
+                label8.Visible = false;            
             base.mostrar(parent);
         }
 
@@ -263,6 +258,7 @@ namespace UberFrba.Abm_Persona
             this.label8.Size = new System.Drawing.Size(40, 13);
             this.label8.TabIndex = 79;
             this.label8.Text = "Estado";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // checkBox_Estado
             // 
@@ -273,6 +269,7 @@ namespace UberFrba.Abm_Persona
             this.checkBox_Estado.TabIndex = 80;
             this.checkBox_Estado.Text = "Habilitado";
             this.checkBox_Estado.UseVisualStyleBackColor = true;
+            this.checkBox_Estado.CheckedChanged += new System.EventHandler(this.checkBox_Estado_CheckedChanged);
             // 
             // ModificacionPersona
             // 
@@ -331,6 +328,6 @@ namespace UberFrba.Abm_Persona
         private System.Windows.Forms.Label label1;
         private DateTimePicker dateTimePicker_FechaNacimiento;
         private Label label8;
-        private CheckBox checkBox_Estado;
+        private System.Windows.Forms.CheckBox checkBox_Estado;
     }
 }
