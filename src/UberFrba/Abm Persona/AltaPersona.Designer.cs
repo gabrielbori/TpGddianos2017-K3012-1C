@@ -43,13 +43,13 @@
             this.textBox_Apellido = new System.Windows.Forms.TextBox();
             this.textBox_DNI = new System.Windows.Forms.TextBox();
             this.textBox_Telefono = new System.Windows.Forms.TextBox();
-            this.textBox_FechaNac = new System.Windows.Forms.TextBox();
             this.textBox_Direccion = new System.Windows.Forms.TextBox();
             this.textBox_Mail = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.textBox_CodigoPostal = new System.Windows.Forms.TextBox();
+            this.dateTimePicker_FechaNacimiento = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // label1
@@ -128,54 +128,47 @@
             // 
             this.textBox_Nombre.Location = new System.Drawing.Point(167, 44);
             this.textBox_Nombre.Name = "textBox_Nombre";
-            this.textBox_Nombre.Size = new System.Drawing.Size(164, 20);
+            this.textBox_Nombre.Size = new System.Drawing.Size(226, 20);
             this.textBox_Nombre.TabIndex = 9;
             // 
             // textBox_Apellido
             // 
             this.textBox_Apellido.Location = new System.Drawing.Point(167, 70);
             this.textBox_Apellido.Name = "textBox_Apellido";
-            this.textBox_Apellido.Size = new System.Drawing.Size(164, 20);
+            this.textBox_Apellido.Size = new System.Drawing.Size(226, 20);
             this.textBox_Apellido.TabIndex = 10;
             // 
             // textBox_DNI
             // 
             this.textBox_DNI.Location = new System.Drawing.Point(167, 96);
             this.textBox_DNI.Name = "textBox_DNI";
-            this.textBox_DNI.Size = new System.Drawing.Size(164, 20);
+            this.textBox_DNI.Size = new System.Drawing.Size(226, 20);
             this.textBox_DNI.TabIndex = 11;
             // 
             // textBox_Telefono
             // 
             this.textBox_Telefono.Location = new System.Drawing.Point(167, 122);
             this.textBox_Telefono.Name = "textBox_Telefono";
-            this.textBox_Telefono.Size = new System.Drawing.Size(164, 20);
+            this.textBox_Telefono.Size = new System.Drawing.Size(226, 20);
             this.textBox_Telefono.TabIndex = 12;
-            // 
-            // textBox_FechaNac
-            // 
-            this.textBox_FechaNac.Location = new System.Drawing.Point(167, 152);
-            this.textBox_FechaNac.Name = "textBox_FechaNac";
-            this.textBox_FechaNac.Size = new System.Drawing.Size(164, 20);
-            this.textBox_FechaNac.TabIndex = 13;
             // 
             // textBox_Direccion
             // 
             this.textBox_Direccion.Location = new System.Drawing.Point(167, 182);
             this.textBox_Direccion.Name = "textBox_Direccion";
-            this.textBox_Direccion.Size = new System.Drawing.Size(164, 20);
+            this.textBox_Direccion.Size = new System.Drawing.Size(226, 20);
             this.textBox_Direccion.TabIndex = 14;
             // 
             // textBox_Mail
             // 
             this.textBox_Mail.Location = new System.Drawing.Point(167, 211);
             this.textBox_Mail.Name = "textBox_Mail";
-            this.textBox_Mail.Size = new System.Drawing.Size(164, 20);
+            this.textBox_Mail.Size = new System.Drawing.Size(226, 20);
             this.textBox_Mail.TabIndex = 15;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(274, 299);
+            this.button1.Location = new System.Drawing.Point(342, 299);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 17;
@@ -208,21 +201,28 @@
             // 
             this.textBox_CodigoPostal.Location = new System.Drawing.Point(167, 246);
             this.textBox_CodigoPostal.Name = "textBox_CodigoPostal";
-            this.textBox_CodigoPostal.Size = new System.Drawing.Size(164, 20);
+            this.textBox_CodigoPostal.Size = new System.Drawing.Size(226, 20);
             this.textBox_CodigoPostal.TabIndex = 20;
+            // 
+            // dateTimePicker_FechaNacimiento
+            // 
+            this.dateTimePicker_FechaNacimiento.Location = new System.Drawing.Point(167, 152);
+            this.dateTimePicker_FechaNacimiento.Name = "dateTimePicker_FechaNacimiento";
+            this.dateTimePicker_FechaNacimiento.Size = new System.Drawing.Size(226, 20);
+            this.dateTimePicker_FechaNacimiento.TabIndex = 79;
             // 
             // AltaPersona
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(361, 341);
+            this.ClientSize = new System.Drawing.Size(429, 341);
+            this.Controls.Add(this.dateTimePicker_FechaNacimiento);
             this.Controls.Add(this.textBox_CodigoPostal);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox_Mail);
             this.Controls.Add(this.textBox_Direccion);
-            this.Controls.Add(this.textBox_FechaNac);
             this.Controls.Add(this.textBox_Telefono);
             this.Controls.Add(this.textBox_DNI);
             this.Controls.Add(this.textBox_Apellido);
@@ -258,12 +258,12 @@
         private System.Windows.Forms.TextBox textBox_Apellido;
         private System.Windows.Forms.TextBox textBox_DNI;
         private System.Windows.Forms.TextBox textBox_Telefono;
-        private System.Windows.Forms.TextBox textBox_FechaNac;
         private System.Windows.Forms.TextBox textBox_Direccion;
         private System.Windows.Forms.TextBox textBox_Mail;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBox_CodigoPostal;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_FechaNacimiento;
     }
 }

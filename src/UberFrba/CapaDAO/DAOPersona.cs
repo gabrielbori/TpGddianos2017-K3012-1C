@@ -63,5 +63,36 @@ namespace UberFrba.CapaDAO
             executeProcedure("BAJA_PERSONA", id, tipo);
         }
 
+        public static void altaPersona(int telefono, string nombre, string apellido, int dni, DateTime fechaNacimineto, string direccion, string mail, string codPos, int tipoASetear)
+        {
+            executeProcedure("ALTA_PERSONA", telefono, nombre, apellido, dni, fechaNacimineto, direccion, mail, codPos, tipoASetear);
+        }
+
+        public static void actualizarPersona(int dni, int tipoASetear, string codPos, int rol)
+        {
+            executeProcedure("ACTUALIZAR_PERSONA", dni, tipoASetear, codPos, rol);
+        }
+        
+        public static int getTipo(int dni)
+        {
+
+            DataTable table = retrieveDataTable("GET_TIPO_POR_DNI", dni);
+            try
+            {
+                DataRow row = table.Rows[0];
+                return (Convert.ToInt32(row["PERS_TIPO"]));
+            }
+            catch {
+                return 0;
+            }
+
+
+        }
+
+        public static bool existePersona(int dni)
+        {
+            return checkIfExists("GET_PERSONA_POR_DNI", dni);
+        }
+
     }
 }
