@@ -49,10 +49,11 @@ namespace UberFrba.Abm_Persona
             int id = Convert.ToInt32(dataGridView_Seleccion.Rows[e.RowIndex].Cells[1].Value);
             DataTable table = DAOPersona.getPersona(id);
             Persona persona = DAOPersona.dataRowToPersona(table.Rows[0]);
+            RolUsuario rol = DAORol.getRolUsuario(persona.ID, tipoPersona);
 
             nombre = persona.Nombre + ' ' + persona.Apellido;
 
-            caller.mostrar(this.MdiParent, persona);
+            caller.mostrar(this.MdiParent, persona, rol);
 
             cerrar();
         }

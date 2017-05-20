@@ -40,13 +40,9 @@ namespace UberFrba.Abm_Persona
             textBox_Mail.Text = persona.Mail;
             textBox_Nombre.Text = persona.Nombre;
             textBox_CodigoPostal.Text = persona.CodigoPostal;
-            checkBox_Estado.Checked = Convert.ToBoolean(persona.Estado);
-
-            if (checkBox_Estado.Checked) //Si está habilitado no permitir deshabilitar
-            {
-                checkBox_Estado.Visible = false;
-                label2.Visible = false;
-            }
+            if (persona.Estado == 1)
+                checkBox_Estado.Visible = true;
+            label8.Visible = true; 
 
             base.mostrar(parent);
         }
@@ -175,7 +171,7 @@ namespace UberFrba.Abm_Persona
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(112, 9);
+            this.label9.Location = new System.Drawing.Point(169, 9);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(122, 20);
             this.label9.TabIndex = 47;
@@ -256,9 +252,9 @@ namespace UberFrba.Abm_Persona
             this.checkBox_Estado.AutoSize = true;
             this.checkBox_Estado.Location = new System.Drawing.Point(173, 259);
             this.checkBox_Estado.Name = "checkBox_Estado";
-            this.checkBox_Estado.Size = new System.Drawing.Size(73, 17);
+            this.checkBox_Estado.Size = new System.Drawing.Size(81, 17);
             this.checkBox_Estado.TabIndex = 82;
-            this.checkBox_Estado.Text = "Habilitado";
+            this.checkBox_Estado.Text = "Deshabilitar";
             this.checkBox_Estado.UseVisualStyleBackColor = true;
             // 
             // label8

@@ -96,7 +96,7 @@ namespace UberFrba.Abm_Persona
                 if (!Validaciones()) return;
                 try
                 {
-                    DAOPersona.ModificarPersona(GenerarPersona(), persona.ID);
+                    DAOPersona.ModificarPersona(GenerarPersona(), persona.ID, rol.RolId);
 
                     Mensaje_OK("Los datos han sido almacenados con éxito");
 
