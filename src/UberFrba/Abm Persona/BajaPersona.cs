@@ -42,7 +42,8 @@ namespace UberFrba.Abm_Persona
             if (resultado == DialogResult.Yes)
             {
                 int id = persona.ID;
-                DAOPersona.bajaPersona(id);
+                int tipo = persona.Tipo;
+                DAOPersona.bajaPersona(id, tipo);
                 Mensaje_OK("La persona ha sido dada de baja");
                 this.Close();
             }

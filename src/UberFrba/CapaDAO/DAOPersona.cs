@@ -19,7 +19,7 @@ namespace UberFrba.CapaDAO
         public static DataTable getPersona(int id)
         {
             return retrieveDataTable("GET_PERSONA", id);
-        }
+        } 
 
         public static Persona dataRowToPersona(DataRow row)
         {
@@ -42,7 +42,7 @@ namespace UberFrba.CapaDAO
             return checkIfExists("GET_TELEFONO", telefono, dni);
         }
 
-        public static void ModificarPersona(Persona persona, int id)
+        public static void ModificarPersona(Persona persona, int id, int rolId)
         {
             executeProcedure("MODIFICAR_PERSONA",
                 id,
@@ -54,13 +54,13 @@ namespace UberFrba.CapaDAO
                 Convert.ToDateTime(persona.FechaDeNacimiento),
                 persona.Mail,
                 persona.Estado,
-                persona.CodigoPostal
-                );
+                persona.CodigoPostal,
+                rolId);
         }
 
-        public static void bajaPersona(int id)
+        public static void bajaPersona(int id, int tipo)
         {
-            executeProcedure("BAJA_PERSONA", id);
+            executeProcedure("BAJA_PERSONA", id, tipo);
         }
 
     }
