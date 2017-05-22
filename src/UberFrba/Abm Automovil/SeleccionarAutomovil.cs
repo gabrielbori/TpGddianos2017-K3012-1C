@@ -9,16 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using UberFrba.Model;
 
-namespace UberFrba.Abm_Cliente
+namespace UberFrba.Abm_Automovil
 {
-    public partial class AltaCliente : FormBase
+    public partial class SeleccionarAutomovil : FormBase
     {
-        public AltaCliente()
+        public SeleccionarAutomovil()
         {
             InitializeComponent();
         }
 
-        private void AltaCliente_Load(object sender, EventArgs e)
+        private void seleccionarAutomovil_Load(object sender, EventArgs e)
         {
 
         }

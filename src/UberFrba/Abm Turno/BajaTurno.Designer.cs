@@ -1,6 +1,6 @@
-﻿namespace UberFrba.Abm_Cliente
+﻿namespace UberFrba.Abm_Turno
 {
-    partial class BajaCliente
+    partial class BajaTurno
     {
         /// <summary>
         /// Required designer variable.
@@ -30,15 +30,14 @@
         {
             this.SuspendLayout();
             // 
-            // BajaCliente
+            // BajaTurno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Name = "BajaCliente";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "BajaCliente";
-            this.Load += new System.EventHandler(this.BajaCliente_Load);
+            this.Name = "BajaTurno";
+            this.Text = "BajaTurno";
+            this.Load += new System.EventHandler(this.BajaTurno_Load);
             this.ResumeLayout(false);
 
         }

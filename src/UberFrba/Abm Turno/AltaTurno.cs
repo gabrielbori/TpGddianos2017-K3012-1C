@@ -9,16 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using UberFrba.Model;
 
-namespace UberFrba.Abm_Cliente
+namespace UberFrba.Abm_Turno
 {
-    public partial class ModificacionCliente : FormBase
+    public partial class AltaTurno : FormBase
     {
-        public ModificacionCliente()
+        public AltaTurno()
         {
             InitializeComponent();
         }
 
-        private void ModificacionCliente_Load(object sender, EventArgs e)
+        private void AltaTurno_Load(object sender, EventArgs e)
         {
 
         }

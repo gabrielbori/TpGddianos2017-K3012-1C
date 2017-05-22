@@ -1,6 +1,6 @@
-﻿namespace UberFrba.Abm_Cliente
+﻿namespace UberFrba.Abm_Automovil
 {
-    partial class ModificacionCliente
+    partial class SeleccionarAutomovil
     {
         /// <summary>
         /// Required designer variable.
@@ -30,15 +30,14 @@
         {
             this.SuspendLayout();
             // 
-            // ModificacionCliente
+            // seleccionarAutomovil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Name = "ModificacionCliente";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ModificacionCliente";
-            this.Load += new System.EventHandler(this.ModificacionCliente_Load);
+            this.Name = "seleccionarAutomovil";
+            this.Text = "seleccionarAutomovil";
+            this.Load += new System.EventHandler(this.seleccionarAutomovil_Load);
             this.ResumeLayout(false);
 
         }
