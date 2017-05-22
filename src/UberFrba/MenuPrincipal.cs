@@ -31,7 +31,7 @@ namespace UberFrba
             Login.Login login = new Login.Login();
             login.mostrar(this);
             this.menuStrip1.Visible = false;
-            controles = new ToolStripMenuItem[] {altaAutomovil,bajaAutomovil,modificacionAutomovil,altaChofer,bajaChofer,modificacionChofer,altaCliente,bajaCliente,modificacionCliente,facturacion,listadoEstadistico,registroDeViajes,rendicionDeViajes,altaRol,bajaRol,modificacionRol};
+            controles = new ToolStripMenuItem[] {altaAutomovil,bajaAutomovil,modificacionAutomovil,altaChofer,bajaChofer,modificacionChofer,altaCliente,bajaCliente,modificacionCliente,facturacion,listadoEstadistico,registroDeViajes,rendicionDeViajes,altaRol,bajaRol,modificacionRol,altaTurno,bajaTurno, modificacionTurno};
 
             foreach (ToolStripMenuItem tool in this.menuStrip1.Items/*Controls.OfType<ToolStripMenuItem>()*/)
                 allControles.Add(tool);
@@ -109,7 +109,7 @@ namespace UberFrba
         {
             if (noPuedeIngresar(5)) return;
             if (ActiveMdiChild != null) ActiveMdiChild.Close();
-            Abm_Persona.SeleccionDePersona seleccionPersona = new Abm_Persona.SeleccionDePersona(1,2);
+            Abm_Persona.SeleccionDePersona seleccionPersona = new Abm_Persona.SeleccionDePersona(new Abm_Persona.BajaPersona(),2);
             seleccionPersona.mostrar(this);
         }
 
@@ -117,7 +117,7 @@ namespace UberFrba
         {
             if (noPuedeIngresar(6)) return;
             if (ActiveMdiChild != null) ActiveMdiChild.Close();
-            Abm_Persona.SeleccionDePersona seleccionPersona = new Abm_Persona.SeleccionDePersona(1,2);
+            Abm_Persona.SeleccionDePersona seleccionPersona = new Abm_Persona.SeleccionDePersona(new Abm_Persona.ModificacionPersona(),2);
             seleccionPersona.mostrar(this);
         }
 
@@ -135,7 +135,7 @@ namespace UberFrba
         {
             if (noPuedeIngresar(8)) return;
             if (ActiveMdiChild != null) ActiveMdiChild.Close();
-            Abm_Persona.SeleccionDePersona seleccionPersona = new Abm_Persona.SeleccionDePersona(1,3);
+            Abm_Persona.SeleccionDePersona seleccionPersona = new Abm_Persona.SeleccionDePersona(new Abm_Persona.BajaPersona(),3);
             seleccionPersona.mostrar(this);
         }
 
@@ -143,7 +143,7 @@ namespace UberFrba
         {
             if (noPuedeIngresar(8)) return;
             if (ActiveMdiChild != null) ActiveMdiChild.Close();
-            Abm_Persona.SeleccionDePersona seleccionPersona = new Abm_Persona.SeleccionDePersona(1,3);
+            Abm_Persona.SeleccionDePersona seleccionPersona = new Abm_Persona.SeleccionDePersona(new Abm_Persona.ModificacionPersona(),3);
             seleccionPersona.mostrar(this);
         }
 
@@ -209,7 +209,7 @@ namespace UberFrba
                 {
                     controles[i].Visible = true;
                     if (controles[i].OwnerItem != null)
-                        controles[i].OwnerItem.Visible = true;
+                        controles[i].OwnerItem.Visible = true;     
                 }
             }
         }
@@ -237,6 +237,30 @@ namespace UberFrba
             if (ActiveMdiChild != null) ActiveMdiChild.Close();
             Rendicion_Viajes.RendirViaje rendirViaje = new Rendicion_Viajes.RendirViaje();
             rendirViaje.mostrar(this);     
+        }
+
+        private void altaTurno_Click(object sender, EventArgs e)
+        {
+            if (noPuedeIngresar(17)) return;
+            if (ActiveMdiChild != null) ActiveMdiChild.Close();
+            Abm_Turno.AltaTurno altaTurno = new Abm_Turno.AltaTurno();
+            altaTurno.mostrar(this);    
+        }
+
+        private void bajaTurno_Click(object sender, EventArgs e)
+        {
+            if (noPuedeIngresar(18)) return;
+            if (ActiveMdiChild != null) ActiveMdiChild.Close();
+            Abm_Turno.BajaTurno bajaTurno = new Abm_Turno.BajaTurno();
+            bajaTurno.mostrar(this);    
+        }
+
+        private void modificacionTurno_Click(object sender, EventArgs e)
+        {
+            if (noPuedeIngresar(19)) return;
+            if (ActiveMdiChild != null) ActiveMdiChild.Close();
+            Abm_Turno.ModificacionTurno modificacionTurno = new Abm_Turno.ModificacionTurno();
+            modificacionTurno.mostrar(this);     
         }
     }
 }

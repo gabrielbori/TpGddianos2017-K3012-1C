@@ -52,6 +52,7 @@
             this.button_Cerrar.TabIndex = 41;
             this.button_Cerrar.Text = "Cerrar";
             this.button_Cerrar.UseVisualStyleBackColor = true;
+            this.button_Cerrar.Click += new System.EventHandler(this.button_Cerrar_Click);
             // 
             // dataGridView_Seleccion
             // 
@@ -69,6 +70,7 @@
             this.dataGridView_Seleccion.ReadOnly = true;
             this.dataGridView_Seleccion.Size = new System.Drawing.Size(565, 168);
             this.dataGridView_Seleccion.TabIndex = 40;
+            this.dataGridView_Seleccion.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_Seleccion_CellContentClick);
             // 
             // Seleccionar
             // 
@@ -104,6 +106,7 @@
             this.textBox_Nombre.Name = "textBox_Nombre";
             this.textBox_Nombre.Size = new System.Drawing.Size(232, 20);
             this.textBox_Nombre.TabIndex = 0;
+            this.textBox_Nombre.TextChanged += new System.EventHandler(this.textBox_Nombre_TextChanged);
             // 
             // textBox_Apellido
             // 
@@ -120,6 +123,7 @@
             this.button_Limpiar.TabIndex = 6;
             this.button_Limpiar.Text = "Limpiar";
             this.button_Limpiar.UseVisualStyleBackColor = true;
+            this.button_Limpiar.Click += new System.EventHandler(this.button_Limpiar_Click);
             // 
             // label_Nombre
             // 
@@ -160,6 +164,7 @@
             this.textBox_Documento.Name = "textBox_Documento";
             this.textBox_Documento.Size = new System.Drawing.Size(129, 20);
             this.textBox_Documento.TabIndex = 4;
+            this.textBox_Documento.TextChanged += new System.EventHandler(this.textBox_Documento_TextChanged);
             // 
             // button_Buscar
             // 
@@ -175,7 +180,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(990, 261);
+            this.ClientSize = new System.Drawing.Size(990, 255);
             this.Controls.Add(this.button_Cerrar);
             this.Controls.Add(this.dataGridView_Seleccion);
             this.Controls.Add(this.paner_Filtros);
