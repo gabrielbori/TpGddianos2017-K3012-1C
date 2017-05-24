@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using UberFrba.Model;
+using UberFrba.CapaDAO;
 
 namespace UberFrba.Abm_Automovil
 {
@@ -16,6 +17,10 @@ namespace UberFrba.Abm_Automovil
         public ModificacionAutomovil()
         {
             InitializeComponent();
+            DataTable marcas = DAOAutomovil.getMarcas();
+
+            comboBox_Marca.DisplayMember = "COCHE_MARCA_NOMBRE";
+            comboBox_Marca.DataSource = marcas;         
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -40,7 +45,22 @@ namespace UberFrba.Abm_Automovil
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-
+            DataTable table = DAOAutomovil.getEstadoYChofer(textBox_Patente.Text);
+            DataRow row = table.Rows[0];
+            int estado = Convert.ToInt32(row["COCHE_ESTADO"]);
+            string mostrar = "";
+            // string chofer = row["COCHE_CHOFER"] as string;
+            if (estado != 1)
+            {
+                mostrar = "Deshabilitado";
+                textBox_Estado.Text = mostrar;
+            }
+            else
+            {
+                mostrar = "Habilitado";
+                textBox_Estado.Text = mostrar;
+                textBox_Estado.Enabled = false;
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -86,6 +106,20 @@ namespace UberFrba.Abm_Automovil
         private void button3_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void comboBox_Marca_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            DataTable modelos = DAOAutomovil.getModelos(comboBox_Marca.Text);
+            comboBox_Modelo.DisplayMember = "COCHE_MODELO_CODIGO";
+            comboBox_Modelo.DataSource = modelos;
+
+        }
+
+        private void comboBox_Modelo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }
