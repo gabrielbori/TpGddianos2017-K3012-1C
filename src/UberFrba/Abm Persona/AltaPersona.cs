@@ -75,8 +75,8 @@ namespace UberFrba.Abm_Persona
             var resultado = Mensaje_Pregunta("¿Está seguro que desea dar la alta de la persona al sistema?", "Alta Persona");
             if (resultado == DialogResult.Yes)
             {
-                int tipoChofer = 3;
-                int tipoCliente = 2;
+                int tipoChofer = 2;
+                int tipoCliente = 3;
                 int tipoAmbos = 1;
                 int tipoASetear = -1;
                 string mensaje;
@@ -90,8 +90,32 @@ namespace UberFrba.Abm_Persona
                 string codPos = textBox_CodigoPostal.Text;
 
                 if (!Validaciones()) return;
-
-                if (DAOPersona.existePersona(dni))
+                if (!(DAOPersona.existePersona(dni))) //Si NO existe la persona, lo agrego con el tipo de donde viene el formulario. 2=chofer 3=cliente 
+                {
+                    //Tipo: Variable que depende de donde viene el formulario (alta de chofer o cliente). Ese mismo tipo se usa para setearlo en la base.  
+                    DAOPersona.altaPersona(telefono, nombre, apellido, dni, dateTimePicker_FechaNacimiento.Value, direccion, mail, codPos, tipo);
+                    Mensaje_OK("La persona ha sido dada de alta");               
+                }
+                else //la persona ya existe en la base de datos. 
+                {
+                    if (DAOPersona.getTipo(dni) != tipo)//Si el tipo que quiero insertar es distinto al tipo grabado, lo actualizo a 3
+                    {
+                        DAOPersona.actualizarPersona(dni, tipoASetear, codPos, tipoChofer);
+                        Mensaje_OK("La persona ya existe, se actualizo la base y ahora es chofer/cliente");
+                    }
+                    else //Se quiere insertar la misma persona con el mismo tipo. Devuelvo error. 
+                    {
+                        mensaje = "La persona ya se encuentra ingresada"; Mensaje_Error(mensaje); return; 
+                    }
+                
+                
+                }
+                
+                
+                
+                
+                
+                /*if (DAOPersona.existePersona(dni))
                 {
                     if (!(DAOPersona.getTipo(dni) == tipoAmbos))
                     {
@@ -133,10 +157,10 @@ namespace UberFrba.Abm_Persona
                 {
                     tipoASetear = tipo;
                     DAOPersona.altaPersona(telefono, nombre, apellido, dni, dateTimePicker_FechaNacimiento.Value, direccion, mail, codPos, tipoASetear);
-                }
+                }*/
             }
-            Mensaje_OK("La persona ha sido dada de alta");
-            this.Close(); ;
+            //Mensaje_OK("La persona ha sido dada de alta");
+            this.Close(); 
         }
 
         private void label10_Click(object sender, EventArgs e)
