@@ -40,7 +40,7 @@ namespace UberFrba.Abm_Rol
             this.FUN_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Funcionalidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox_Roles = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -61,7 +61,7 @@ namespace UberFrba.Abm_Rol
             // 
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.dataGridView_ListaFuncionalidades);
-            this.groupBox1.Controls.Add(this.comboBox2);
+            this.groupBox1.Controls.Add(this.comboBox_Roles);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.checkBox1);
             this.groupBox1.Controls.Add(this.label1);
@@ -155,12 +155,12 @@ namespace UberFrba.Abm_Rol
             // 
             // comboBox2
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(122, 19);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(174, 21);
-            this.comboBox2.TabIndex = 10;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox_Roles_SelectedIndexChanged);
+            this.comboBox_Roles.FormattingEnabled = true;
+            this.comboBox_Roles.Location = new System.Drawing.Point(122, 19);
+            this.comboBox_Roles.Name = "comboBox2";
+            this.comboBox_Roles.Size = new System.Drawing.Size(174, 21);
+            this.comboBox_Roles.TabIndex = 10;
+            this.comboBox_Roles.SelectedIndexChanged += new System.EventHandler(this.comboBox_Roles_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -228,6 +228,7 @@ namespace UberFrba.Abm_Rol
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(174, 21);
             this.comboBox1.TabIndex = 5;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // button4
             // 
@@ -291,7 +292,7 @@ namespace UberFrba.Abm_Rol
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox_Roles;
         private System.Windows.Forms.DataGridView dataGridView_ListaFuncionalidades;
         private System.Windows.Forms.DataGridViewTextBoxColumn FUN_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Funcionalidad;

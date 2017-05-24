@@ -17,6 +17,13 @@ namespace UberFrba.Abm_Rol
         public ModificacionRol()
         {
             InitializeComponent();
+
+            DataTable roles = DAORol.getRoles();
+
+            comboBox_Roles.ValueMember = "ROL_ID";
+            comboBox_Roles.DisplayMember = "ROL_NOMBRE";
+            comboBox_Roles.DataSource = roles;
+
         }
 
         private void ModificacionRol_Load(object sender, EventArgs e)
@@ -34,10 +41,7 @@ namespace UberFrba.Abm_Rol
 
         }
 
-        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
 
         private void groupBox3_Enter(object sender, EventArgs e)
         {
@@ -46,13 +50,7 @@ namespace UberFrba.Abm_Rol
 
         private void comboBox_Roles_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DataTable roles = DAORol.getRoles();
 
-            comboBox1.ValueMember = "ROL_ID";
-            comboBox1.DisplayMember = "ROL_NOMBRE";
-            comboBox1.DataSource = roles;
-
-            rol.Nombre = Convert.ToString(comboBox1.SelectedItem);
         }
 
         private void button_Cancelar_Click(object sender, EventArgs e)
@@ -67,6 +65,11 @@ namespace UberFrba.Abm_Rol
 
 
         private void dataGridView_ListaFuncionalidades_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
