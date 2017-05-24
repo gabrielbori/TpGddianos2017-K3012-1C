@@ -127,6 +127,7 @@
             this.comboBox_Roles.Name = "comboBox_Roles";
             this.comboBox_Roles.Size = new System.Drawing.Size(140, 21);
             this.comboBox_Roles.TabIndex = 2;
+            this.comboBox_Roles.SelectedIndexChanged += new System.EventHandler(this.comboBox_Roles_SelectedIndexChanged);
             // 
             // textBox_password
             // 
