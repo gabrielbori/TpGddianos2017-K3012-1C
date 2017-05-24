@@ -33,18 +33,18 @@
         {
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox_Chofer = new System.Windows.Forms.TextBox();
+            this.textBox_Estado = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.comboBox_Marca = new System.Windows.Forms.ComboBox();
+            this.comboBox_Modelo = new System.Windows.Forms.ComboBox();
+            this.comboBox_Patente = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // button3
@@ -63,36 +63,26 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 43;
-            this.button4.Text = "Aceptar";
+            this.button4.Text = "Baja";
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // textBox5
+            // textBox_Chofer
             // 
-            this.textBox5.Location = new System.Drawing.Point(65, 159);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(130, 20);
-            this.textBox5.TabIndex = 42;
+            this.textBox_Chofer.Enabled = false;
+            this.textBox_Chofer.Location = new System.Drawing.Point(65, 159);
+            this.textBox_Chofer.Name = "textBox_Chofer";
+            this.textBox_Chofer.Size = new System.Drawing.Size(130, 20);
+            this.textBox_Chofer.TabIndex = 42;
+            this.textBox_Chofer.TextChanged += new System.EventHandler(this.textBox5_TextChanged_1);
             // 
-            // textBox4
+            // textBox_Estado
             // 
-            this.textBox4.Location = new System.Drawing.Point(65, 133);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(130, 20);
-            this.textBox4.TabIndex = 41;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(65, 107);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(130, 20);
-            this.textBox2.TabIndex = 40;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(65, 81);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(130, 20);
-            this.textBox1.TabIndex = 39;
+            this.textBox_Estado.Enabled = false;
+            this.textBox_Estado.Location = new System.Drawing.Point(65, 133);
+            this.textBox_Estado.Name = "textBox_Estado";
+            this.textBox_Estado.Size = new System.Drawing.Size(130, 20);
+            this.textBox_Estado.TabIndex = 41;
+            this.textBox_Estado.TextChanged += new System.EventHandler(this.textBox_Estado_TextChanged);
             // 
             // button5
             // 
@@ -102,13 +92,6 @@
             this.button5.TabIndex = 38;
             this.button5.Text = "Seleccionar";
             this.button5.UseVisualStyleBackColor = true;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(64, 55);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(130, 20);
-            this.textBox3.TabIndex = 37;
             // 
             // label5
             // 
@@ -164,19 +147,46 @@
             this.label1.TabIndex = 31;
             this.label1.Text = "Ingrese La Patente Del Automovil A Dar De Baja";
             // 
+            // comboBox_Marca
+            // 
+            this.comboBox_Marca.FormattingEnabled = true;
+            this.comboBox_Marca.Location = new System.Drawing.Point(65, 52);
+            this.comboBox_Marca.Name = "comboBox_Marca";
+            this.comboBox_Marca.Size = new System.Drawing.Size(130, 21);
+            this.comboBox_Marca.TabIndex = 45;
+            this.comboBox_Marca.SelectedIndexChanged += new System.EventHandler(this.comboBox_Marca_SelectedIndexChanged);
+            // 
+            // comboBox_Modelo
+            // 
+            this.comboBox_Modelo.FormattingEnabled = true;
+            this.comboBox_Modelo.Location = new System.Drawing.Point(65, 80);
+            this.comboBox_Modelo.Name = "comboBox_Modelo";
+            this.comboBox_Modelo.Size = new System.Drawing.Size(130, 21);
+            this.comboBox_Modelo.TabIndex = 46;
+            this.comboBox_Modelo.SelectedIndexChanged += new System.EventHandler(this.comboBox_Modelo_SelectedIndexChanged);
+            // 
+            // comboBox_Patente
+            // 
+            this.comboBox_Patente.FormattingEnabled = true;
+            this.comboBox_Patente.Location = new System.Drawing.Point(65, 106);
+            this.comboBox_Patente.Name = "comboBox_Patente";
+            this.comboBox_Patente.Size = new System.Drawing.Size(130, 21);
+            this.comboBox_Patente.TabIndex = 47;
+            this.comboBox_Patente.SelectedIndexChanged += new System.EventHandler(this.comboBox_Patente_SelectedIndexChanged);
+            // 
             // BajaAutomovil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.comboBox_Patente);
+            this.Controls.Add(this.comboBox_Modelo);
+            this.Controls.Add(this.comboBox_Marca);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBox_Chofer);
+            this.Controls.Add(this.textBox_Estado);
             this.Controls.Add(this.button5);
-            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -196,18 +206,18 @@
 
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox_Chofer;
+        private System.Windows.Forms.TextBox textBox_Estado;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBox_Marca;
+        private System.Windows.Forms.ComboBox comboBox_Modelo;
+        private System.Windows.Forms.ComboBox comboBox_Patente;
 
     }
 }
