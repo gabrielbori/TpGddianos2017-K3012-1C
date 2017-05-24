@@ -21,6 +21,8 @@ namespace UberFrba.CapaDAO
             return rol = dataRowToPersona(table.Rows[0]);
         }
 
+     
+
         public static RolUsuario dataRowToPersona(DataRow row)
         {
             RolUsuario rol = new RolUsuario (row["ROL_USUA_USERNAME"] as string,
@@ -29,6 +31,20 @@ namespace UberFrba.CapaDAO
             return rol;
 
         }
+
+        public static DataTable getRoles()
+        {
+             
+            return retrieveDataTable("GET_ROLES");
+            
+        }
+
+        public static void bajaRolSeleccionado (string rol)
+        {
+            executeProcedure("BAJA_ROL", rol);
+        }
+
+        
 
     }
 }
