@@ -21,6 +21,8 @@ namespace UberFrba.CapaDAO
             return rol = dataRowToPersona(table.Rows[0]);
         }
 
+     
+
         public static RolUsuario dataRowToPersona(DataRow row)
         {
             RolUsuario rol = new RolUsuario (row["ROL_USUA_USERNAME"] as string,
@@ -30,5 +32,36 @@ namespace UberFrba.CapaDAO
 
         }
 
+        public static DataTable getRoles()
+        {
+             
+            return retrieveDataTable("GET_ROLES");
+            
+        }
+
+        public static void bajaRolSeleccionado (string rol)
+        {
+            executeProcedure("BAJA_ROL", rol);
+        }
+
+        public static void altaRol(string nombre)
+        {
+            executeProcedure("ALTA_ROL", nombre);
+        }
+
+
+        internal static string getRol(string nombre)
+        {
+            DataTable table = retrieveDataTable("FIND_ROL",nombre);
+            try
+            {
+                DataRow row = table.Rows[0];
+                return (Convert.ToString(row["ROL_NOMBRE"]));
+            }
+            catch
+            {
+                return "El rol ya existe";
+            }
+        }
     }
 }
