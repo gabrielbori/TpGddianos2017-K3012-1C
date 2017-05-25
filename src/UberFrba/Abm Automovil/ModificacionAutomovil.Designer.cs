@@ -31,95 +31,70 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox_Estado = new System.Windows.Forms.TextBox();
-            this.textBox_Patente = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonCancelar = new System.Windows.Forms.Button();
+            this.buttonAceptar = new System.Windows.Forms.Button();
+            this.textBoxChofer = new System.Windows.Forms.TextBox();
+            this.buttonSeleccionar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox_Modelo = new System.Windows.Forms.ComboBox();
-            this.comboBox_Marca = new System.Windows.Forms.ComboBox();
+            this.comboBoxModelo = new System.Windows.Forms.ComboBox();
+            this.comboBoxMarca = new System.Windows.Forms.ComboBox();
+            this.checkBoxEstado = new System.Windows.Forms.CheckBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.comboBoxPatente = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
-            // button3
+            // buttonCancelar
             // 
-            this.button3.Location = new System.Drawing.Point(12, 197);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 30;
-            this.button3.Text = "Cancelar";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.buttonCancelar.Location = new System.Drawing.Point(12, 197);
+            this.buttonCancelar.Name = "buttonCancelar";
+            this.buttonCancelar.Size = new System.Drawing.Size(75, 23);
+            this.buttonCancelar.TabIndex = 30;
+            this.buttonCancelar.Text = "Cancelar";
+            this.buttonCancelar.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
-            // button2
+            // buttonAceptar
             // 
-            this.button2.Location = new System.Drawing.Point(197, 197);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 29;
-            this.button2.Text = "Aceptar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.buttonAceptar.Location = new System.Drawing.Point(197, 197);
+            this.buttonAceptar.Name = "buttonAceptar";
+            this.buttonAceptar.Size = new System.Drawing.Size(75, 23);
+            this.buttonAceptar.TabIndex = 29;
+            this.buttonAceptar.Text = "Aceptar";
+            this.buttonAceptar.UseVisualStyleBackColor = true;
+            this.buttonAceptar.Visible = false;
+            this.buttonAceptar.Click += new System.EventHandler(this.buttonAceptar_Click);
             // 
-            // textBox5
+            // textBoxChofer
             // 
-            this.textBox5.Location = new System.Drawing.Point(62, 143);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(130, 20);
-            this.textBox5.TabIndex = 28;
-            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
+            this.textBoxChofer.Location = new System.Drawing.Point(62, 117);
+            this.textBoxChofer.Name = "textBoxChofer";
+            this.textBoxChofer.Size = new System.Drawing.Size(130, 20);
+            this.textBoxChofer.TabIndex = 28;
+            this.textBoxChofer.TextChanged += new System.EventHandler(this.textBoxChofer_TextChanged);
             // 
-            // textBox4
+            // buttonSeleccionar
             // 
-            this.textBox_Estado.Location = new System.Drawing.Point(62, 117);
-            this.textBox_Estado.Name = "textBox4";
-            this.textBox_Estado.Size = new System.Drawing.Size(130, 20);
-            this.textBox_Estado.TabIndex = 27;
-            this.textBox_Estado.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
-            // 
-            // textBox2
-            // 
-            this.textBox_Patente.Location = new System.Drawing.Point(62, 91);
-            this.textBox_Patente.Name = "textBox_Patente";
-            this.textBox_Patente.Size = new System.Drawing.Size(130, 20);
-            this.textBox_Patente.TabIndex = 26;
-            this.textBox_Patente.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(197, 36);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 24;
-            this.button1.Text = "Seleccionar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonSeleccionar.Location = new System.Drawing.Point(197, 36);
+            this.buttonSeleccionar.Name = "buttonSeleccionar";
+            this.buttonSeleccionar.Size = new System.Drawing.Size(75, 23);
+            this.buttonSeleccionar.TabIndex = 24;
+            this.buttonSeleccionar.Text = "Seleccionar";
+            this.buttonSeleccionar.UseVisualStyleBackColor = true;
+            this.buttonSeleccionar.Click += new System.EventHandler(this.buttonSeleccionar_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 150);
+            this.label5.Location = new System.Drawing.Point(9, 124);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(38, 13);
             this.label5.TabIndex = 22;
             this.label5.Text = "Chofer";
             this.label5.Click += new System.EventHandler(this.label5_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(9, 124);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(40, 13);
-            this.label4.TabIndex = 21;
-            this.label4.Text = "Estado";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label3
             // 
@@ -161,39 +136,68 @@
             this.label1.Text = "Ingrese La Patente Del Automovil A Modificar";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // comboBox2
+            // comboBoxModelo
             // 
-            this.comboBox_Modelo.FormattingEnabled = true;
-            this.comboBox_Modelo.Location = new System.Drawing.Point(62, 64);
-            this.comboBox_Modelo.Name = "comboBox2";
-            this.comboBox_Modelo.Size = new System.Drawing.Size(130, 21);
-            this.comboBox_Modelo.TabIndex = 48;
-            this.comboBox_Modelo.SelectedIndexChanged += new System.EventHandler(this.comboBox_Modelo_SelectedIndexChanged);
+            this.comboBoxModelo.FormattingEnabled = true;
+            this.comboBoxModelo.Location = new System.Drawing.Point(62, 64);
+            this.comboBoxModelo.Name = "comboBoxModelo";
+            this.comboBoxModelo.Size = new System.Drawing.Size(130, 21);
+            this.comboBoxModelo.TabIndex = 48;
+            this.comboBoxModelo.SelectedIndexChanged += new System.EventHandler(this.comboBox_Modelo_SelectedIndexChanged);
             // 
-            // comboBox1
+            // comboBoxMarca
             // 
-            this.comboBox_Marca.FormattingEnabled = true;
-            this.comboBox_Marca.Location = new System.Drawing.Point(62, 36);
-            this.comboBox_Marca.Name = "comboBox_Marca";
-            this.comboBox_Marca.Size = new System.Drawing.Size(130, 21);
-            this.comboBox_Marca.TabIndex = 47;
-            this.comboBox_Marca.SelectedIndexChanged += new System.EventHandler(this.comboBox_Marca_SelectedIndexChanged);
+            this.comboBoxMarca.FormattingEnabled = true;
+            this.comboBoxMarca.Location = new System.Drawing.Point(62, 36);
+            this.comboBoxMarca.Name = "comboBoxMarca";
+            this.comboBoxMarca.Size = new System.Drawing.Size(130, 21);
+            this.comboBoxMarca.TabIndex = 47;
+            this.comboBoxMarca.SelectedIndexChanged += new System.EventHandler(this.comboBox_Marca_SelectedIndexChanged);
+            // 
+            // checkBoxEstado
+            // 
+            this.checkBoxEstado.AutoSize = true;
+            this.checkBoxEstado.Location = new System.Drawing.Point(62, 143);
+            this.checkBoxEstado.Name = "checkBoxEstado";
+            this.checkBoxEstado.Size = new System.Drawing.Size(73, 17);
+            this.checkBoxEstado.TabIndex = 51;
+            this.checkBoxEstado.Text = "Habilitado";
+            this.checkBoxEstado.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(9, 147);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(40, 13);
+            this.label7.TabIndex = 50;
+            this.label7.Text = "Estado";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
+            // 
+            // comboBoxPatente
+            // 
+            this.comboBoxPatente.FormattingEnabled = true;
+            this.comboBoxPatente.Location = new System.Drawing.Point(62, 90);
+            this.comboBoxPatente.Name = "comboBoxPatente";
+            this.comboBoxPatente.Size = new System.Drawing.Size(130, 21);
+            this.comboBoxPatente.TabIndex = 52;
+            this.comboBoxPatente.SelectedIndexChanged += new System.EventHandler(this.comboBoxPatente_SelectedIndexChanged);
             // 
             // ModificacionAutomovil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Controls.Add(this.comboBox_Modelo);
-            this.Controls.Add(this.comboBox_Marca);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox_Estado);
-            this.Controls.Add(this.textBox_Patente);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.comboBoxPatente);
+            this.Controls.Add(this.checkBoxEstado);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.comboBoxModelo);
+            this.Controls.Add(this.comboBoxMarca);
+            this.Controls.Add(this.buttonCancelar);
+            this.Controls.Add(this.buttonAceptar);
+            this.Controls.Add(this.textBoxChofer);
+            this.Controls.Add(this.buttonSeleccionar);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label2);
@@ -201,6 +205,7 @@
             this.Name = "ModificacionAutomovil";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Modificacion De Automovil";
+            this.Load += new System.EventHandler(this.ModificacionAutomovil_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -208,19 +213,19 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox_Estado;
-        private System.Windows.Forms.TextBox textBox_Patente;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonCancelar;
+        private System.Windows.Forms.Button buttonAceptar;
+        private System.Windows.Forms.TextBox textBoxChofer;
+        private System.Windows.Forms.Button buttonSeleccionar;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox_Modelo;
-        private System.Windows.Forms.ComboBox comboBox_Marca;
+        private System.Windows.Forms.ComboBox comboBoxModelo;
+        private System.Windows.Forms.ComboBox comboBoxMarca;
+        private System.Windows.Forms.CheckBox checkBoxEstado;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox comboBoxPatente;
     }
 }

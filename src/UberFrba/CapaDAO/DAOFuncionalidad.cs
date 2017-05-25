@@ -34,5 +34,5 @@ namespace UberFrba.CapaDAO
         {
             return retrieveDataTable("GET_FUNCIONALIDADES");
         }
-    }
+  }
 }
