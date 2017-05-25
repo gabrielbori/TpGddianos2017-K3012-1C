@@ -44,7 +44,24 @@ namespace UberFrba.CapaDAO
             executeProcedure("BAJA_ROL", rol);
         }
 
-        
+        public static void altaRol(string nombre)
+        {
+            executeProcedure("ALTA_ROL", nombre);
+        }
 
+
+        internal static string getRol(string nombre)
+        {
+            DataTable table = retrieveDataTable("FIND_ROL",nombre);
+            try
+            {
+                DataRow row = table.Rows[0];
+                return (Convert.ToString(row["ROL_NOMBRE"]));
+            }
+            catch
+            {
+                return "El rol ya existe";
+            }
+        }
     }
 }

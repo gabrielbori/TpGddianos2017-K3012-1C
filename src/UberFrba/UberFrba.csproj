@@ -139,6 +139,7 @@
     <Compile Include="CapaDAO\DAOChofer.cs" />
     <Compile Include="CapaDAO\DAOCLiente.cs" />
     <Compile Include="CapaDAO\DAOFacturacion.cs" />
+    <Compile Include="CapaDAO\DAOFuncionalidad.cs" />
     <Compile Include="CapaDAO\DAOListadoEstadistico.cs" />
     <Compile Include="CapaDAO\DAOLogin.cs" />
     <Compile Include="CapaDAO\DAOPersona.cs" />
