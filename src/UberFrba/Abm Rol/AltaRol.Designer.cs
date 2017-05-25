@@ -33,9 +33,6 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView_ListaFuncionalidades = new System.Windows.Forms.DataGridView();
-            this.FUN_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Funcionalidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.textBox_Nombre = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,6 +41,9 @@
             this.cancelar = new System.Windows.Forms.Button();
             this.limpiar = new System.Windows.Forms.Button();
             this.guardar = new System.Windows.Forms.Button();
+            this.FUN_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Funcionalidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ListaFuncionalidades)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -59,7 +59,7 @@
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Location = new System.Drawing.Point(34, 29);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(785, 354);
+            this.groupBox1.Size = new System.Drawing.Size(782, 328);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
@@ -112,30 +112,9 @@
             this.dataGridView_ListaFuncionalidades.Location = new System.Drawing.Point(353, 19);
             this.dataGridView_ListaFuncionalidades.Name = "dataGridView_ListaFuncionalidades";
             this.dataGridView_ListaFuncionalidades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridView_ListaFuncionalidades.Size = new System.Drawing.Size(408, 307);
+            this.dataGridView_ListaFuncionalidades.Size = new System.Drawing.Size(410, 294);
             this.dataGridView_ListaFuncionalidades.TabIndex = 3;
             this.dataGridView_ListaFuncionalidades.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_ListaFuncionalidades_CellContentClick);
-            // 
-            // FUN_ID
-            // 
-            this.FUN_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.FUN_ID.HeaderText = "Indice";
-            this.FUN_ID.Name = "FUN_ID";
-            this.FUN_ID.ReadOnly = true;
-            this.FUN_ID.Visible = false;
-            // 
-            // Funcionalidad
-            // 
-            this.Funcionalidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Funcionalidad.HeaderText = "Funcionalidad";
-            this.Funcionalidad.Name = "Funcionalidad";
-            // 
-            // Eliminar
-            // 
-            this.Eliminar.HeaderText = "Eliminar";
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.Text = "Eliminar Fila";
-            this.Eliminar.UseColumnTextForButtonValue = true;
             // 
             // textBox_Nombre
             // 
@@ -152,7 +131,7 @@
             this.groupBox2.Controls.Add(this.comboBox1);
             this.groupBox2.Location = new System.Drawing.Point(16, 182);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(299, 144);
+            this.groupBox2.Size = new System.Drawing.Size(299, 131);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Agregar Funcionalidad";
@@ -168,7 +147,7 @@
             // 
             // agregar
             // 
-            this.agregar.Location = new System.Drawing.Point(205, 98);
+            this.agregar.Location = new System.Drawing.Point(205, 90);
             this.agregar.Name = "agregar";
             this.agregar.Size = new System.Drawing.Size(75, 23);
             this.agregar.TabIndex = 6;
@@ -187,7 +166,7 @@
             // 
             // cancelar
             // 
-            this.cancelar.Location = new System.Drawing.Point(722, 398);
+            this.cancelar.Location = new System.Drawing.Point(722, 373);
             this.cancelar.Name = "cancelar";
             this.cancelar.Size = new System.Drawing.Size(75, 23);
             this.cancelar.TabIndex = 1;
@@ -197,7 +176,7 @@
             // 
             // limpiar
             // 
-            this.limpiar.Location = new System.Drawing.Point(609, 398);
+            this.limpiar.Location = new System.Drawing.Point(609, 373);
             this.limpiar.Name = "limpiar";
             this.limpiar.Size = new System.Drawing.Size(75, 23);
             this.limpiar.TabIndex = 2;
@@ -207,7 +186,7 @@
             // 
             // guardar
             // 
-            this.guardar.Location = new System.Drawing.Point(484, 398);
+            this.guardar.Location = new System.Drawing.Point(484, 373);
             this.guardar.Name = "guardar";
             this.guardar.Size = new System.Drawing.Size(75, 23);
             this.guardar.TabIndex = 3;
@@ -215,11 +194,35 @@
             this.guardar.UseVisualStyleBackColor = true;
             this.guardar.Click += new System.EventHandler(this.button4_Click);
             // 
+            // FUN_ID
+            // 
+            this.FUN_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.FUN_ID.DataPropertyName = "Indice";
+            this.FUN_ID.HeaderText = "Indice";
+            this.FUN_ID.Name = "FUN_ID";
+            this.FUN_ID.ReadOnly = true;
+            this.FUN_ID.Visible = false;
+            // 
+            // Funcionalidad
+            // 
+            this.Funcionalidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Funcionalidad.DataPropertyName = "Funcionalidad";
+            this.Funcionalidad.HeaderText = "Funcionalidad";
+            this.Funcionalidad.Name = "Funcionalidad";
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.DataPropertyName = "Eliminar";
+            this.Eliminar.HeaderText = "Eliminar";
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.Text = "Eliminar Fila";
+            this.Eliminar.UseColumnTextForButtonValue = true;
+            // 
             // AltaRol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(828, 427);
+            this.ClientSize = new System.Drawing.Size(813, 408);
             this.Controls.Add(this.guardar);
             this.Controls.Add(this.limpiar);
             this.Controls.Add(this.cancelar);
@@ -243,9 +246,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.DataGridView dataGridView_ListaFuncionalidades;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FUN_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Funcionalidad;
-        private System.Windows.Forms.DataGridViewButtonColumn Eliminar;
         private System.Windows.Forms.TextBox textBox_Nombre;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label2;
@@ -256,5 +256,8 @@
         private System.Windows.Forms.Button limpiar;
         private System.Windows.Forms.Button guardar;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FUN_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Funcionalidad;
+        private System.Windows.Forms.DataGridViewButtonColumn Eliminar;
     }
 }
