@@ -186,6 +186,7 @@
             this.Name = "BajaAutomovil";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Baja De Automovil";
+            this.Load += new System.EventHandler(this.BajaAutomovil_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

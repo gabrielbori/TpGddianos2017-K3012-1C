@@ -93,7 +93,7 @@ namespace UberFrba.Abm_Automovil
             int estado = 1;
             
             if (!(ValidarAutomovil(marca,modelo,patente,chofer))) {Mensaje_Error("Error al generar la alta"); Close();}
-            DAOAutomovil.altaAutomovil(marca,modelo,patente,chofer,estado);
+            DAOAutomovil.altaAutomovil(marca,modelo,patente,/*chofer,*/estado);
             Mensaje_OK("El automovil fue dado de baja");
             this.Close();
             }
