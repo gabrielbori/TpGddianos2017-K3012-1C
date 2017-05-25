@@ -36,7 +36,22 @@ namespace UberFrba.CapaDAO
         {
              
             return retrieveDataTable("GET_ROLES");
+                        
+        }
+
+        public static int getEstado()
+        {
+            int estado;
+
+            DataTable table = retrieveDataTable("GET_ROLES");
             
+            return estado = dataRowToEstado(table.Rows[0]);
+        }
+
+        public static int dataRowToEstado(DataRow row)
+        {
+            return Convert.ToInt32(row["ROL_ESTADO"]);
+                              
         }
 
         public static void bajaRolSeleccionado (string rol)

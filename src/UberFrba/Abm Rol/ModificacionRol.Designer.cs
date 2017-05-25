@@ -4,7 +4,6 @@ namespace UberFrba.Abm_Rol
 {
     partial class ModificacionRol
     {
-        private Rol rol;
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -71,6 +70,7 @@ namespace UberFrba.Abm_Rol
             this.groupBox1.Size = new System.Drawing.Size(843, 365);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // groupBox3
             // 
@@ -91,6 +91,7 @@ namespace UberFrba.Abm_Rol
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(174, 20);
             this.textBox1.TabIndex = 9;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label4
             // 
@@ -153,11 +154,11 @@ namespace UberFrba.Abm_Rol
             this.Eliminar.Text = "Eliminar Fila";
             this.Eliminar.UseColumnTextForButtonValue = true;
             // 
-            // comboBox2
+            // comboBox_Roles
             // 
             this.comboBox_Roles.FormattingEnabled = true;
             this.comboBox_Roles.Location = new System.Drawing.Point(122, 19);
-            this.comboBox_Roles.Name = "comboBox2";
+            this.comboBox_Roles.Name = "comboBox_Roles";
             this.comboBox_Roles.Size = new System.Drawing.Size(174, 21);
             this.comboBox_Roles.TabIndex = 10;
             this.comboBox_Roles.SelectedIndexChanged += new System.EventHandler(this.comboBox_Roles_SelectedIndexChanged);
@@ -180,6 +181,7 @@ namespace UberFrba.Abm_Rol
             this.checkBox1.TabIndex = 4;
             this.checkBox1.Text = "Habilitado";
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // label1
             // 
@@ -238,6 +240,7 @@ namespace UberFrba.Abm_Rol
             this.button4.TabIndex = 6;
             this.button4.Text = "Guardar";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
