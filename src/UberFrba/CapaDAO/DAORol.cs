@@ -47,16 +47,17 @@ namespace UberFrba.CapaDAO
         public static void altaRol(string nombre)
         {
             executeProcedure("ALTA_ROL", nombre);
+            //executeProcedure("ALTA_FUNCIONALIDAD_POR_ROL",)
         }
 
 
-        internal static string getRol(string nombre)
+        public static string getRol(string nombre)
         {
-            DataTable table = retrieveDataTable("FIND_ROL",nombre);
+            DataTable table = retrieveDataTable("FIND_ROL", nombre);
             try
             {
                 DataRow row = table.Rows[0];
-                return (Convert.ToString(row["ROL_NOMBRE"]));
+                return ((row["ROL_NOMBRE"].ToString()));
             }
             catch
             {
