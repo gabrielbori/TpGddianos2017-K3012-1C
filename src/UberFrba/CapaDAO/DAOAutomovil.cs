@@ -50,9 +50,9 @@ namespace UberFrba.CapaDAO
             return false;
         }
 
-        public static void altaAutomovil(string marca, string modelo, string patente, string chofer, int estado)
+        public static void altaAutomovil(string marca, string modelo, string patente, /*string chofer,*/ int estado)
         {
-            executeProcedure("ALTA_AUTOMOVIL", marca, modelo, patente, chofer, estado);
+            executeProcedure("ALTA_AUTOMOVIL", marca, modelo, patente, /*chofer,*/ estado);
         }
     }
 }

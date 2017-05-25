@@ -73,5 +73,10 @@ namespace UberFrba.Abm_Automovil
             }
 
         }
+
+        private void BajaAutomovil_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

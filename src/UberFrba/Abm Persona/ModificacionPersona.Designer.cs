@@ -43,9 +43,16 @@ namespace UberFrba.Abm_Persona
             textBox_Mail.Text = persona.Mail;
             textBox_Nombre.Text = persona.Nombre;
             textBox_CodigoPostal.Text = persona.CodigoPostal;
-            if (rol.RolEstado == 1)
+            if (rol.RolEstado == 0)
+            {
+                checkBox_Estado.Visible = true;
+                label8.Visible = true;
+            }
+            else
+            {
                 checkBox_Estado.Visible = false;
-                label8.Visible = false;            
+                label8.Visible = false;
+            }
             base.mostrar(parent);
         }
 
