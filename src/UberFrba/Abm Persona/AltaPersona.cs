@@ -75,8 +75,6 @@ namespace UberFrba.Abm_Persona
             var resultado = Mensaje_Pregunta("¿Está seguro que desea dar la alta de la persona al sistema?", "Alta Persona");
             if (resultado == DialogResult.Yes)
             {
-                int tipoChofer = 2;
-                int tipoCliente = 3;
                 int tipoAmbos = 1;
                 int tipoASetear = -1;
                 string mensaje;
@@ -100,66 +98,15 @@ namespace UberFrba.Abm_Persona
                 {
                     if (DAOPersona.getTipo(dni) != tipo)//Si el tipo que quiero insertar es distinto al tipo grabado, lo actualizo a 3
                     {
-                        DAOPersona.actualizarPersona(dni, tipoASetear, codPos, tipoChofer);
+                        DAOPersona.actualizarPersona(dni, tipoASetear, codPos, tipoAmbos);
                         Mensaje_OK("La persona ya existe, se actualizo la base y ahora es chofer/cliente");
                     }
                     else //Se quiere insertar la misma persona con el mismo tipo. Devuelvo error. 
                     {
                         mensaje = "La persona ya se encuentra ingresada"; Mensaje_Error(mensaje); return; 
-                    }
-                
-                
+                    } 
                 }
-                
-                
-                
-                
-                
-                /*if (DAOPersona.existePersona(dni))
-                {
-                    if (!(DAOPersona.getTipo(dni) == tipoAmbos))
-                    {
-                        if (tipo == tipoChofer)
-                        {
-                            if (DAOPersona.getTipo(dni) == tipoCliente)
-                            {
-                                tipoASetear = tipoAmbos;
-                                DAOPersona.actualizarPersona(dni, tipoASetear, codPos, tipoChofer);
-                            }
-                            //                        else
-                            //                       {
-                            //                          tipoASetear = tipoChofer;
-                            //                         DAOPersona.altaPersona(telefono,nombre, apellido, dni, dateTimePicker_FechaNacimiento.Value, direccion, mail, codPos, tipoASetear);
-                            //                    }
-                        }
-                        else if (tipo == tipoCliente)
-                            if (DAOPersona.getTipo(dni) == tipoChofer)
-                            {
-                                tipoASetear = tipoAmbos;
-                                DAOPersona.actualizarPersona(dni, tipoASetear, codPos, tipoCliente);
-                                //                        }
-                                //                       else
-                                //                      {
-                                //                         tipoASetear = tipoCliente;
-                                //                        DAOPersona.altaPersona(telefono,nombre, apellido, dni, dateTimePicker_FechaNacimiento.Value, direccion, mail, codPos, tipoASetear);
-                            }
-                    } else
-                            { mensaje = "La persona ya se encuentra ingresada"; Mensaje_Error(mensaje); return; }
-                    
-                    
-
-
-                    
-                    //            DAOPersona.altaPersona(nombre, apellido, dni, fechaNacimineto, direccion, mail, codPos, tipoASetear);
-
-                }
-                else
-                {
-                    tipoASetear = tipo;
-                    DAOPersona.altaPersona(telefono, nombre, apellido, dni, dateTimePicker_FechaNacimiento.Value, direccion, mail, codPos, tipoASetear);
-                }*/
             }
-            //Mensaje_OK("La persona ha sido dada de alta");
             this.Close(); 
         }
 

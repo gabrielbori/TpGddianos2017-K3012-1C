@@ -84,5 +84,10 @@ namespace UberFrba.Login
 
         }
 
+        private void comboBox_Roles_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

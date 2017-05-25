@@ -129,6 +129,12 @@
     <Compile Include="Abm Turno\BajaTurno.Designer.cs">
       <DependentUpon>BajaTurno.cs</DependentUpon>
     </Compile>
+    <Compile Include="Abm Turno\ModificacionSeleccionTurno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Turno\ModificacionSeleccionTurno.Designer.cs">
+      <DependentUpon>ModificacionSeleccionTurno.cs</DependentUpon>
+    </Compile>
     <Compile Include="Abm Turno\ModificacionTurno.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,12 +145,14 @@
     <Compile Include="CapaDAO\DAOChofer.cs" />
     <Compile Include="CapaDAO\DAOCLiente.cs" />
     <Compile Include="CapaDAO\DAOFacturacion.cs" />
+    <Compile Include="CapaDAO\DAOFuncionalidad.cs" />
     <Compile Include="CapaDAO\DAOListadoEstadistico.cs" />
     <Compile Include="CapaDAO\DAOLogin.cs" />
     <Compile Include="CapaDAO\DAOPersona.cs" />
     <Compile Include="CapaDAO\DAORegistroViaje.cs" />
     <Compile Include="CapaDAO\DAORendicionViaje.cs" />
     <Compile Include="CapaDAO\DAORol.cs" />
+    <Compile Include="CapaDAO\DAOTurno.cs" />
     <Compile Include="CapaDAO\DAOUsuario.cs" />
     <Compile Include="CapaDAO\SqlConnector.cs" />
     <Compile Include="Facturacion\Facturar.cs">
@@ -186,6 +194,7 @@
     <Compile Include="Model\Persona.cs" />
     <Compile Include="Model\Rol.cs" />
     <Compile Include="Model\RolUsuario.cs" />
+    <Compile Include="Model\Turno.cs" />
     <Compile Include="Model\Usuario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -203,9 +212,11 @@
     </Compile>
     <EmbeddedResource Include="Abm Automovil\BajaAutomovil.resx">
       <DependentUpon>BajaAutomovil.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Automovil\AltaAutomovil.resx">
       <DependentUpon>AltaAutomovil.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Automovil\ModificacionAutomovil.resx">
       <DependentUpon>ModificacionAutomovil.cs</DependentUpon>
@@ -242,6 +253,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Turno\BajaTurno.resx">
       <DependentUpon>BajaTurno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Turno\ModificacionSeleccionTurno.resx">
+      <DependentUpon>ModificacionSeleccionTurno.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Turno\ModificacionTurno.resx">
       <DependentUpon>ModificacionTurno.cs</DependentUpon>

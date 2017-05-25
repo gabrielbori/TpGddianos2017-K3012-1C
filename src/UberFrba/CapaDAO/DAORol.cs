@@ -16,9 +16,17 @@ namespace UberFrba.CapaDAO
         {
             RolUsuario rol;
 
-            DataTable table = retrieveDataTable("GET_ROLES_USUARIO_POR_ID", id, tipo);
+            try
+            {
+                DataTable table = retrieveDataTable("GET_ROLES_USUARIO_POR_ID", id, tipo);
 
-            return rol = dataRowToPersona(table.Rows[0]);
+                return rol = dataRowToPersona(table.Rows[0]);
+            }
+            catch
+            {
+                MessageBox.Show("La persona seleccionada no posee roles asignados", "Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
         }
 
         public static RolUsuario dataRowToPersona(DataRow row)
@@ -30,5 +38,37 @@ namespace UberFrba.CapaDAO
 
         }
 
+        public static DataTable getRoles()
+        {
+             
+            return retrieveDataTable("GET_ROLES");
+            
+        }
+
+        public static void bajaRolSeleccionado (string rol)
+        {
+            executeProcedure("BAJA_ROL", rol);
+        }
+
+        public static void altaRol(string nombre)
+        {
+            executeProcedure("ALTA_ROL", nombre);
+            //executeProcedure("ALTA_FUNCIONALIDAD_POR_ROL",)
+        }
+
+
+        public static string getRol(string nombre)
+        {
+            DataTable table = retrieveDataTable("FIND_ROL", nombre);
+            try
+            {
+                DataRow row = table.Rows[0];
+                return ((row["ROL_NOMBRE"].ToString()));
+            }
+            catch
+            {
+                return "El rol ya existe";
+            }
+        }
     }
 }

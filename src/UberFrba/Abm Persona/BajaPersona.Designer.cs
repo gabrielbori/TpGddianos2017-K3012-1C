@@ -30,7 +30,8 @@ namespace UberFrba.Abm_Persona
         public override void mostrar(Form parent, params object[] values)
         {
             Persona persona = (Persona)values[0];
-            
+            RolUsuario rol = (RolUsuario)values[1];
+
             this.persona = persona;
             textBox_Direccion.Text = persona.Direccion;
             textBox_Apellido.Text = persona.Apellido;
@@ -40,10 +41,16 @@ namespace UberFrba.Abm_Persona
             textBox_Mail.Text = persona.Mail;
             textBox_Nombre.Text = persona.Nombre;
             textBox_CodigoPostal.Text = persona.CodigoPostal;
-            if (persona.Estado == 1)
+            if (rol.RolEstado == 1)
+            {
                 checkBox_Estado.Visible = true;
-            label8.Visible = true; 
-
+                label8.Visible = true;
+            }
+            else
+            {
+                checkBox_Estado.Visible = false;
+                label8.Visible = false;
+            }
             base.mostrar(parent);
         }
 
