@@ -16,6 +16,7 @@ namespace UberFrba.Abm_Rol
     {
        
         private int estado;
+        private string roles;
         private int idRol;
         private int idFun;
 
@@ -56,7 +57,8 @@ namespace UberFrba.Abm_Rol
 
             estado = Convert.ToInt32(comboBox_Roles.SelectedValue);
             idRol = DAORol.getId(comboBox_Roles.Text);
-
+           
+            
             //Tilda el check solo si está habilitado
             if (estado == 1)
             {
@@ -102,7 +104,8 @@ namespace UberFrba.Abm_Rol
         //Funcionalidades a agregar
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-           idFun = Convert.ToInt32(comboBox1.SelectedValue);
+            idFun = Convert.ToInt32(comboBox1.SelectedValue);            
+           
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -118,11 +121,13 @@ namespace UberFrba.Abm_Rol
         //Boton Guardar
         private void button_Guardar_Click(object sender, EventArgs e)
         {
+            
             if (!CamposCorrectos())
             {
                 Mensaje_Error("No están todos los datos obligatorios");
                 return;
             }
+
             var resultado = Mensaje_Pregunta("¿Está seguro que desea guardar los datos ingresados en el formulario?", "Guardar Rol");
             if (resultado == DialogResult.Yes)
             {
@@ -131,11 +136,17 @@ namespace UberFrba.Abm_Rol
                 {
                     estado = 1;
                 }
-
-                DAORol.modificarRol(idRol, textBox1.Text, dataGridView_ListaFuncionalidades.Rows, estado);
+                try 
+                {
+                DAORol.modificarRol(idRol, Convert.ToString(textBox1.Text), dataGridView_ListaFuncionalidades.Rows, estado);
 
                 Mensaje_OK("Los datos han sido actualizados con éxito");
                 this.Close();
+                }
+                catch
+                {
+                    Mensaje_Error("Falló la modificación del rol en la base de datos");
+                }
             }
         }
         private bool CamposCorrectos()
@@ -146,8 +157,9 @@ namespace UberFrba.Abm_Rol
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+           
         }
+        
 
         //Boton de agregar funcionalidad
         private void button1_Click(object sender, EventArgs e) 
