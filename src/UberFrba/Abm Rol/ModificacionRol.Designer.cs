@@ -4,7 +4,6 @@ namespace UberFrba.Abm_Rol
 {
     partial class ModificacionRol
     {
-        private Rol rol;
         /// <summary>
         /// Required designer variable.
         /// </summary>

@@ -29,32 +29,53 @@ namespace UberFrba.Abm_Turno
             Close();
         }
 
-        private bool validaciones(string descripcion, int hi, int hf, int valor, int precio)
+        private bool validaciones()
         {
-            if (descripcion == null) { Mensaje_Error("La descripcion se encuentra vacia"); return false; }
-            if (hi == null) { Mensaje_Error("La descripcion se encuentra vacia"); return false; }
-            if (hf == null) { Mensaje_Error("La descripcion se encuentra vacia"); return false; }
-            if (hi >= hf) { Mensaje_Error("La hora de inicio es mayor que la hora de fin "); return false; }
-            if (valor == null) { Mensaje_Error("La descripcion se encuentra vacia"); return false; }
-            if (precio == null) { Mensaje_Error("La descripcion se encuentra vacia"); return false; }
+            if (TextBoxDescripcion == null) { Mensaje_Error("Descripcion vacía"); return false; }
+            if (TextBoxHoraInicio.Text == "") { Mensaje_Error("Hora de inicio vacía"); return false; }
+            if (TextBoxHoraFin.Text == "") { Mensaje_Error("Hora de fin vacía"); return false; }
+            if (TextBoxValorKM.Text == "") { Mensaje_Error("Valor del kilometro vacío"); return false; }
+            if (TextBoxPrecioBase.Text == "") { Mensaje_Error("Precio base vacío"); return false; }
+            try
+            {
+                if ((Convert.ToDouble(TextBoxValorKM.Text) == 0)) { Mensaje_Error("El valor base es 0"); }
+                if ((Convert.ToDouble(TextBoxPrecioBase.Text) == 0)) { Mensaje_Error("El precio base es 0"); }
+                if ((Convert.ToDouble(TextBoxHoraInicio.Text) >= 0) && !(Convert.ToDouble(TextBoxHoraInicio.Text) < 24)) { Mensaje_Error("Hora de inicio fuera del rango de 24hs"); return false; }
+                if ((Convert.ToDouble(TextBoxHoraFin.Text) >= 0) && !(Convert.ToDouble(TextBoxHoraFin.Text) < 24)) { Mensaje_Error("Hora de fin fuera del rango de 24hs"); return false; }
+            }
+            catch
+            {
+                Mensaje_Error("Los horarios, el precio base y el valor por kilometro, deben ser números");
+                return false;
+            }
             return true;
         }
 
 
         private void Alta_Click(object sender, EventArgs e)
         {
-
-            string descripcion = TextBoxDescripcion.Text;
-            int hi = Convert.ToInt32(TextBoxHoraInicio.Text); 
-            int hf = Convert.ToInt32(TextBoxHoraFin.Text);
-            int valor = Convert.ToInt32(TextBoxValorKM.Text);
-            int pb = Convert.ToInt32(TextBoxPrecioBase.Text);
-
-            if (!(this.validaciones(descripcion, hi, hf, valor, pb))) { Mensaje_Error("El alta de turno no pudo ser dada"); Close(); }
-            DAOTurno.altaTurno(descripcion, hi, hf, valor, pb);
-            Mensaje_OK("El turno ha sido dada de alta");
-
-            Close();
+            if (!(validaciones()))
+            {
+                Mensaje_Error("El alta de turno no pudo ser dada");
+            }
+            else
+            {
+                string descripcion = TextBoxDescripcion.Text;
+                double hi = Convert.ToDouble(TextBoxHoraInicio.Text);
+                double hf = Convert.ToDouble(TextBoxHoraFin.Text);
+                double valor = Convert.ToDouble(TextBoxValorKM.Text);
+                double pb = Convert.ToDouble(TextBoxPrecioBase.Text);
+                int finalizo = DAOTurno.altaTurno(descripcion, hi, hf, valor, pb);
+                if (finalizo == 1)
+                {
+                    Mensaje_OK("El turno ha sido dada de alta");
+                    Close();
+                }
+                else
+                {
+                    Mensaje_Error("Los horarios del turno de alta está superpuesto a algun/os turno/s");
+                }
+            }
         }
 
     }

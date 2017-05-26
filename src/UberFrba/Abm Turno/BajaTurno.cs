@@ -17,26 +17,26 @@ namespace UberFrba.Abm_Turno
         public BajaTurno()
         {
             InitializeComponent();
-            DataTable turnos = DAOTurno.getDetalleTurnos();
+            DataTable detalles = DAOTurno.getDetalleTurnos();
 
             comboBoxDescripcion.DisplayMember = "TURNO_DESCRIPCION";
-            comboBoxDescripcion.DataSource = turnos;
+            comboBoxDescripcion.DataSource = detalles;
         }
         
         private void comboBoxDescripcion_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DataTable turnos = DAOTurno.getHoraInicioTurnos(comboBoxDescripcion.Text);
+            DataTable horasInicio = DAOTurno.getHoraInicioTurnos(comboBoxDescripcion.Text);
 
-            comboBoxDescripcion.DisplayMember = "TURNO_HORA_INICIO";
-            comboBoxDescripcion.DataSource = turnos;
+            comboBoxHoraInicio.DisplayMember = "TURNO_HORA_INICIO";
+            comboBoxHoraInicio.DataSource = horasInicio;
         }
 
-        private void comboBoxHoraFin_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBoxHoraInicio_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DataTable turnos = DAOTurno.getHoraFinTurnos(comboBoxDescripcion.Text);
+            DataTable horasFin = DAOTurno.getHoraFinTurnos(comboBoxDescripcion.Text);
 
-            comboBoxDescripcion.DisplayMember = "TURNO_HORA_INICIO";
-            comboBoxDescripcion.DataSource = turnos;
+            comboBoxHoraFin.DisplayMember = "TURNO_HORA_FIN";
+            comboBoxHoraFin.DataSource = horasFin;
         }
 
         private void buttonBaja_Click(object sender, EventArgs e)
@@ -54,5 +54,11 @@ namespace UberFrba.Abm_Turno
                 this.Close();
             }
         }
+
+        private void Cancelar_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
     }
 }
