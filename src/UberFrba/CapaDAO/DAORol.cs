@@ -42,7 +42,28 @@ namespace UberFrba.CapaDAO
         {
              
             return retrieveDataTable("GET_ROLES");
+                        
+        }
+
+        public static DataTable getFuncionalidades(int id)
+        {
+            return retrieveDataTable("GET_FUNCIONALIDADES_ROL",id);
+        }
+
+        public static int getId(string nombre)
+        {
+
+            DataTable table = retrieveDataTable("GET_ROL_POR_NOMBRE", nombre);
+
+  
             
+            return  dataRowToEstado(table.Rows[0]);
+        }
+
+        public static int dataRowToEstado(DataRow row)
+        {
+            return Convert.ToInt32(row["ROL_ID"]);
+                              
         }
 
         public static void bajaRolSeleccionado (string rol)
@@ -69,6 +90,14 @@ namespace UberFrba.CapaDAO
             {
                 return "El rol ya existe";
             }
+
+
+        }
+        public static Funcionalidad dataRowToFuncionalidad(DataRow row)
+        {
+            return new Funcionalidad (Convert.ToInt32(row["FUNCIONALIDAD_ID"]),                               
+                               row["Funcionalidad"] as string);
+
         }
     }
 }

@@ -1,10 +1,10 @@
 ﻿using UberFrba.Model;
+using UberFrba.CapaDAO;
 
 namespace UberFrba.Abm_Rol
 {
     partial class ModificacionRol
     {
-        private Rol rol;
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -14,6 +14,8 @@ namespace UberFrba.Abm_Rol
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+
+    
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -37,9 +39,6 @@ namespace UberFrba.Abm_Rol
             this.label4 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridView_ListaFuncionalidades = new System.Windows.Forms.DataGridView();
-            this.FUN_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Funcionalidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.comboBox_Roles = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -51,6 +50,9 @@ namespace UberFrba.Abm_Rol
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.FUN_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Funcionalidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ListaFuncionalidades)).BeginInit();
@@ -71,6 +73,7 @@ namespace UberFrba.Abm_Rol
             this.groupBox1.Size = new System.Drawing.Size(843, 365);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // groupBox3
             // 
@@ -91,6 +94,7 @@ namespace UberFrba.Abm_Rol
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(174, 20);
             this.textBox1.TabIndex = 9;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label4
             // 
@@ -132,32 +136,11 @@ namespace UberFrba.Abm_Rol
             this.dataGridView_ListaFuncionalidades.TabIndex = 11;
             this.dataGridView_ListaFuncionalidades.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_ListaFuncionalidades_CellContentClick_1);
             // 
-            // FUN_ID
-            // 
-            this.FUN_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.FUN_ID.HeaderText = "Indice";
-            this.FUN_ID.Name = "FUN_ID";
-            this.FUN_ID.ReadOnly = true;
-            this.FUN_ID.Visible = false;
-            // 
-            // Funcionalidad
-            // 
-            this.Funcionalidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Funcionalidad.HeaderText = "Funcionalidad";
-            this.Funcionalidad.Name = "Funcionalidad";
-            // 
-            // Eliminar
-            // 
-            this.Eliminar.HeaderText = "Eliminar";
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.Text = "Eliminar Fila";
-            this.Eliminar.UseColumnTextForButtonValue = true;
-            // 
-            // comboBox2
+            // comboBox_Roles
             // 
             this.comboBox_Roles.FormattingEnabled = true;
             this.comboBox_Roles.Location = new System.Drawing.Point(122, 19);
-            this.comboBox_Roles.Name = "comboBox2";
+            this.comboBox_Roles.Name = "comboBox_Roles";
             this.comboBox_Roles.Size = new System.Drawing.Size(174, 21);
             this.comboBox_Roles.TabIndex = 10;
             this.comboBox_Roles.SelectedIndexChanged += new System.EventHandler(this.comboBox_Roles_SelectedIndexChanged);
@@ -180,6 +163,7 @@ namespace UberFrba.Abm_Rol
             this.checkBox1.TabIndex = 4;
             this.checkBox1.Text = "Habilitado";
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // label1
             // 
@@ -238,6 +222,7 @@ namespace UberFrba.Abm_Rol
             this.button4.TabIndex = 6;
             this.button4.Text = "Guardar";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -258,6 +243,27 @@ namespace UberFrba.Abm_Rol
             this.button5.Text = "Cancelar";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button_Cancelar_Click);
+            // 
+            // FUN_ID
+            // 
+            this.FUN_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.FUN_ID.HeaderText = "Indice";
+            this.FUN_ID.Name = "FUN_ID";
+            this.FUN_ID.ReadOnly = true;
+            this.FUN_ID.Visible = false;
+            // 
+            // Funcionalidad
+            // 
+            this.Funcionalidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Funcionalidad.HeaderText = "Funcionalidad";
+            this.Funcionalidad.Name = "Funcionalidad";
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.HeaderText = "Eliminar";
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.Text = "Eliminar Fila";
+            this.Eliminar.UseColumnTextForButtonValue = true;
             // 
             // ModificacionRol
             // 
@@ -294,9 +300,6 @@ namespace UberFrba.Abm_Rol
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox_Roles;
         private System.Windows.Forms.DataGridView dataGridView_ListaFuncionalidades;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FUN_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Funcionalidad;
-        private System.Windows.Forms.DataGridViewButtonColumn Eliminar;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button2;
@@ -304,5 +307,8 @@ namespace UberFrba.Abm_Rol
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FUN_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Funcionalidad;
+        private System.Windows.Forms.DataGridViewButtonColumn Eliminar;
     }
 }
