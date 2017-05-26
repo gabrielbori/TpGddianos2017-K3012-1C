@@ -100,9 +100,6 @@ namespace UberFrba
             if (ActiveMdiChild != null) ActiveMdiChild.Close();
             Abm_Persona.AltaPersona altaChofer = new Abm_Persona.AltaPersona(2);
             altaChofer.mostrar(this);
-
-            //Abm_Chofer.AltaChofer altaChofer = new Abm_Chofer.AltaChofer();
-            //altaChofer.mostrar(this);
         }
 
         private void bajaChofer_click(object sender, EventArgs e)
@@ -127,8 +124,6 @@ namespace UberFrba
             if (ActiveMdiChild != null) ActiveMdiChild.Close();
             Abm_Persona.AltaPersona altaCliente = new Abm_Persona.AltaPersona(3);
             altaCliente.mostrar(this);
-            //Abm_Cliente.AltaCliente altaCliente = new Abm_Cliente.AltaCliente();
-            //altaCliente.mostrar(this);
         }
 
         private void bajaCliente_click(object sender, EventArgs e)

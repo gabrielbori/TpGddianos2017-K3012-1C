@@ -46,7 +46,7 @@
             // 
             // button_Cerrar
             // 
-            this.button_Cerrar.Location = new System.Drawing.Point(906, 230);
+            this.button_Cerrar.Location = new System.Drawing.Point(818, 225);
             this.button_Cerrar.Name = "button_Cerrar";
             this.button_Cerrar.Size = new System.Drawing.Size(75, 23);
             this.button_Cerrar.TabIndex = 41;
@@ -65,7 +65,7 @@
             this.dataGridView_Seleccion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_Seleccion.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Seleccionar});
-            this.dataGridView_Seleccion.Location = new System.Drawing.Point(416, 12);
+            this.dataGridView_Seleccion.Location = new System.Drawing.Point(328, 12);
             this.dataGridView_Seleccion.Name = "dataGridView_Seleccion";
             this.dataGridView_Seleccion.ReadOnly = true;
             this.dataGridView_Seleccion.Size = new System.Drawing.Size(565, 168);
@@ -95,14 +95,14 @@
             this.paner_Filtros.ForeColor = System.Drawing.SystemColors.ControlText;
             this.paner_Filtros.Location = new System.Drawing.Point(8, 8);
             this.paner_Filtros.Name = "paner_Filtros";
-            this.paner_Filtros.Size = new System.Drawing.Size(387, 172);
+            this.paner_Filtros.Size = new System.Drawing.Size(314, 172);
             this.paner_Filtros.TabIndex = 42;
             this.paner_Filtros.TabStop = false;
             this.paner_Filtros.Text = "Filtros de busqueda";
             // 
             // textBox_Nombre
             // 
-            this.textBox_Nombre.Location = new System.Drawing.Point(125, 39);
+            this.textBox_Nombre.Location = new System.Drawing.Point(63, 30);
             this.textBox_Nombre.Name = "textBox_Nombre";
             this.textBox_Nombre.Size = new System.Drawing.Size(232, 20);
             this.textBox_Nombre.TabIndex = 0;
@@ -110,14 +110,14 @@
             // 
             // textBox_Apellido
             // 
-            this.textBox_Apellido.Location = new System.Drawing.Point(125, 65);
+            this.textBox_Apellido.Location = new System.Drawing.Point(63, 56);
             this.textBox_Apellido.Name = "textBox_Apellido";
             this.textBox_Apellido.Size = new System.Drawing.Size(232, 20);
             this.textBox_Apellido.TabIndex = 1;
             // 
             // button_Limpiar
             // 
-            this.button_Limpiar.Location = new System.Drawing.Point(282, 138);
+            this.button_Limpiar.Location = new System.Drawing.Point(220, 143);
             this.button_Limpiar.Name = "button_Limpiar";
             this.button_Limpiar.Size = new System.Drawing.Size(75, 23);
             this.button_Limpiar.TabIndex = 6;
@@ -130,7 +130,7 @@
             this.label_Nombre.AutoSize = true;
             this.label_Nombre.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label_Nombre.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label_Nombre.Location = new System.Drawing.Point(75, 42);
+            this.label_Nombre.Location = new System.Drawing.Point(13, 33);
             this.label_Nombre.Name = "label_Nombre";
             this.label_Nombre.Size = new System.Drawing.Size(44, 13);
             this.label_Nombre.TabIndex = 23;
@@ -141,7 +141,7 @@
             this.label_Apellido.AutoSize = true;
             this.label_Apellido.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label_Apellido.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label_Apellido.Location = new System.Drawing.Point(75, 68);
+            this.label_Apellido.Location = new System.Drawing.Point(13, 59);
             this.label_Apellido.Name = "label_Apellido";
             this.label_Apellido.Size = new System.Drawing.Size(44, 13);
             this.label_Apellido.TabIndex = 24;
@@ -152,7 +152,7 @@
             this.label_Documento.AutoSize = true;
             this.label_Documento.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label_Documento.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label_Documento.Location = new System.Drawing.Point(57, 94);
+            this.label_Documento.Location = new System.Drawing.Point(-5, 85);
             this.label_Documento.Name = "label_Documento";
             this.label_Documento.Size = new System.Drawing.Size(62, 13);
             this.label_Documento.TabIndex = 25;
@@ -160,7 +160,7 @@
             // 
             // textBox_Documento
             // 
-            this.textBox_Documento.Location = new System.Drawing.Point(125, 91);
+            this.textBox_Documento.Location = new System.Drawing.Point(63, 82);
             this.textBox_Documento.Name = "textBox_Documento";
             this.textBox_Documento.Size = new System.Drawing.Size(129, 20);
             this.textBox_Documento.TabIndex = 4;
@@ -168,7 +168,7 @@
             // 
             // button_Buscar
             // 
-            this.button_Buscar.Location = new System.Drawing.Point(201, 138);
+            this.button_Buscar.Location = new System.Drawing.Point(139, 143);
             this.button_Buscar.Name = "button_Buscar";
             this.button_Buscar.Size = new System.Drawing.Size(75, 23);
             this.button_Buscar.TabIndex = 5;
@@ -180,11 +180,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(990, 255);
+            this.ClientSize = new System.Drawing.Size(903, 293);
             this.Controls.Add(this.button_Cerrar);
             this.Controls.Add(this.dataGridView_Seleccion);
             this.Controls.Add(this.paner_Filtros);
             this.Name = "SeleccionDePersona";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "SeleccionDePersona";
             this.Load += new System.EventHandler(this.SeleccionDePersona_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Seleccion)).EndInit();

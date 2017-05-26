@@ -23,56 +23,6 @@ namespace UberFrba.Abm_Automovil
             comboBox_Marca.DataSource = marcas;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button3_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -100,25 +50,31 @@ namespace UberFrba.Abm_Automovil
         {
             DataTable table = DAOAutomovil.getEstadoYChofer(comboBox_Patente.Text);
             DataRow row = table.Rows[0];
-            string mostrar = "";
-            int estado = Convert.ToInt32(row["COCHE_ESTADO"]);
-            // string chofer = row["COCHE_CHOFER"] as string;
-            if (estado == 1)
-                mostrar = "Habilitado";
+            checkBox_Estado.Enabled = false;
+            if (Convert.ToInt32(row["COCHE_ESTADO"]) == 1)
+            {
+                checkBox_Estado.Checked = true;
+                checkBox_Estado.Visible = true;
+            }
             else
-                mostrar = "Deshabilitado";
-            textBox_Estado.Text = mostrar;
-            // textBox_Chofer.Text = chofer;
-
-
+                checkBox_Estado.Visible = false;
         }
 
-        private void textBox5_TextChanged_1(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e)
         {
 
+            var resultado = Mensaje_Pregunta("¿Está seguro que desea dar la baja del automovil?", "Baja Automovil");
+            if (resultado == DialogResult.Yes)
+            {
+                string patente = comboBox_Patente.Text;
+                DAOAutomovil.bajaAutomovilPorPatente(patente);
+                Mensaje_OK("El automovil fue dado de baja");
+                this.Close();
+            }
+
         }
 
-        private void textBox_Estado_TextChanged(object sender, EventArgs e)
+        private void BajaAutomovil_Load(object sender, EventArgs e)
         {
 
         }
