@@ -24,8 +24,8 @@ namespace UberFrba.Abm_Rol
             //mostrar lista funcionalidades
             DataTable funcionalidades = DAORol.getFuncionalidades();
             comboBox1.DataSource = funcionalidades;
-            comboBox1.ValueMember = "FUNCIONALIDAD_ID";
-            comboBox1.DisplayMember = "DESCRIPCION";
+            comboBox1.ValueMember = "ID";
+            comboBox1.DisplayMember = "Funcionalidad";
             checkBox1.Checked = true;
         }
 
