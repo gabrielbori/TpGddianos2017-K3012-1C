@@ -39,18 +39,24 @@ namespace UberFrba.CapaDAO
                         
         }
 
-        public static int getEstado()
+        public static DataTable getFuncionalidades(int id)
         {
-            int estado;
+            return retrieveDataTable("GET_FUNCIONALIDADES_ROL",id);
+        }
 
-            DataTable table = retrieveDataTable("GET_ROLES");
+        public static int getId(string nombre)
+        {
+
+            DataTable table = retrieveDataTable("GET_ROL_POR_NOMBRE", nombre);
+
+  
             
-            return estado = dataRowToEstado(table.Rows[0]);
+            return  dataRowToEstado(table.Rows[0]);
         }
 
         public static int dataRowToEstado(DataRow row)
         {
-            return Convert.ToInt32(row["ROL_ESTADO"]);
+            return Convert.ToInt32(row["ROL_ID"]);
                               
         }
 
@@ -78,6 +84,14 @@ namespace UberFrba.CapaDAO
             {
                 return "El rol ya existe";
             }
+
+
+        }
+        public static Funcionalidad dataRowToFuncionalidad(DataRow row)
+        {
+            return new Funcionalidad (Convert.ToInt32(row["FUNCIONALIDAD_ID"]),                               
+                               row["Funcionalidad"] as string);
+
         }
     }
 }

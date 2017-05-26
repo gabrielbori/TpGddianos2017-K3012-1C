@@ -178,6 +178,7 @@
     <Compile Include="MenuPrincipal.Designer.cs">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Funcionalidad.cs" />
     <Compile Include="Model\Encriptacion.cs" />
     <Compile Include="Model\Error.cs" />
     <Compile Include="Model\FormBase.cs">
