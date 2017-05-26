@@ -16,7 +16,9 @@ namespace UberFrba.Abm_Rol
     {
        
         private int estado;
-        private int id;
+        private int idRol;
+        private int idFun;
+
         public ModificacionRol()
         {
             InitializeComponent();
@@ -27,8 +29,7 @@ namespace UberFrba.Abm_Rol
             comboBox_Roles.DisplayMember = "ROL_NOMBRE";
             comboBox_Roles.DataSource = roles;
 
-
-
+            
         }
 
         private void ModificacionRol_Load(object sender, EventArgs e)
@@ -43,17 +44,18 @@ namespace UberFrba.Abm_Rol
         }
 
 
-
+        //Panel Editar Nombre
         private void groupBox3_Enter(object sender, EventArgs e)
         {
 
         }
 
+        //ComboBox Roles
         private void comboBox_Roles_SelectedIndexChanged(object sender, EventArgs e)
         {
 
             estado = Convert.ToInt32(comboBox_Roles.SelectedValue);
-            id = DAORol.getId(comboBox_Roles.Text);
+            idRol = DAORol.getId(comboBox_Roles.Text);
 
             //Tilda el check solo si está habilitado
             if (estado == 1)
@@ -67,15 +69,13 @@ namespace UberFrba.Abm_Rol
 
             textBox1.Text = comboBox_Roles.Text;
 
-            DataTable funcionalidades = DAORol.getFuncionalidades(); //obtengo todas las funcionalidades que existen
-            //comboBox1.Text = "Seleccione la opcion";
+            DataTable funcionalidades = DAORol.getFuncionalidades(); //obtengo todas las funcionalidades que existen           
             comboBox1.ValueMember = "ID";
             comboBox1.DisplayMember = "Funcionalidad";
             comboBox1.DataSource = funcionalidades;
 
-            dataGridView_ListaFuncionalidades.DataSource = DAORol.getFuncionalidadesPorRol(id);
-            dataGridView_ListaFuncionalidades.Columns["FUN_ID"].Visible = false;
-           // dataGridView_ListaFuncionalidades.Columns[0].DisplayIndex = 2;
+            dataGridView_ListaFuncionalidades.DataSource = DAORol.getFuncionalidadesPorRol(idRol); //muestro solo las funcionalidades del rol
+            dataGridView_ListaFuncionalidades.Columns[0].DisplayIndex = 2;
 
             
 
@@ -86,7 +86,7 @@ namespace UberFrba.Abm_Rol
             this.Close();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button_Limpiar_Click(object sender, EventArgs e)
         {
             LimpiarCampos();
         }
@@ -94,13 +94,15 @@ namespace UberFrba.Abm_Rol
 
        private void dataGridView_ListaFuncionalidades_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0 || e.ColumnIndex != 0) return;
+            
             dataGridView_ListaFuncionalidades.Rows.RemoveAt(e.RowIndex);
+           
         }
-
+        
+        //Funcionalidades a agregar
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+           idFun = Convert.ToInt32(comboBox1.SelectedValue);
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -113,7 +115,8 @@ namespace UberFrba.Abm_Rol
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        //Boton Guardar
+        private void button_Guardar_Click(object sender, EventArgs e)
         {
             if (!CamposCorrectos())
             {
@@ -129,7 +132,7 @@ namespace UberFrba.Abm_Rol
                     estado = 1;
                 }
 
-                DAORol.modificarRol(id, textBox1.Text, dataGridView_ListaFuncionalidades.Rows, estado);
+                DAORol.modificarRol(idRol, textBox1.Text, dataGridView_ListaFuncionalidades.Rows, estado);
 
                 Mensaje_OK("Los datos han sido actualizados con éxito");
                 this.Close();
@@ -146,31 +149,55 @@ namespace UberFrba.Abm_Rol
 
         }
 
-        private void button1_Click(object sender, EventArgs e) //Boton de agregar funcionalidad
+        //Boton de agregar funcionalidad
+        private void button1_Click(object sender, EventArgs e) 
         {
-            List<string> indices = new List<string>();
-           
-            for (int i = 0; i < dataGridView_ListaFuncionalidades.Rows.Count; i++)
+             if (existeFuncionalidad())
             {
-                indices.Add(Convert.ToString(dataGridView_ListaFuncionalidades.Rows[i].Cells["FUN_ID"].Value));
+                Mensaje_Error("Ya existe la funcionalidad seleccionada");
+                return;
             }
-
-            if (!indices.Contains(Convert.ToString(comboBox1.SelectedValue)))
+            else
             {
                 DataTable funcs = (DataTable)dataGridView_ListaFuncionalidades.DataSource;
-                funcs.Rows.Add(id, comboBox1.Text);
+                funcs.Rows.Add(idFun, comboBox1.Text);
                 dataGridView_ListaFuncionalidades.DataSource = funcs;
+                
+                }
             }
+        
+
+       private bool existeFuncionalidad() 
+        {
+            List<int> ides = new List<int>();
+            int cantFilas;      
+            
+            cantFilas = dataGridView_ListaFuncionalidades.Rows.Count;           
+                       
+            //Recorre la grilla y arma una lista con los id de funcionalidades
+            for (int i = 0; i < cantFilas; i++)
+            {
+               ides.Add(Convert.ToInt32(dataGridView_ListaFuncionalidades.Rows[i].Cells["ID"].Value));                
+            }
+
+            //Se fija si el id de funcionalidad que se quiere agregar está en la lista          
+            return ides.Contains(idFun);
         }
+       
+     
+
         private void LimpiarCampos()
         {
             foreach (var control in this.groupBox1.Controls.OfType<ComboBox>()) control.Text = "";
-           // foreach (var control in this.paner_Alta.Controls.OfType<TextBox>()) control.Text = "";
+            foreach (var control in this.groupBox3.Controls.OfType<TextBox>()) control.Text = "";
             comboBox1.SelectedIndex = -1;
+            checkBox1.Checked = false;
             DataTable funcs = (DataTable)dataGridView_ListaFuncionalidades.DataSource;
             funcs.Rows.Clear();
             dataGridView_ListaFuncionalidades.DataSource = funcs;
             
         }
+
+      
     }
 }
