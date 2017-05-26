@@ -18,10 +18,11 @@ namespace UberFrba.Abm_Turno
         private FormBase caller;
         string descripcion;
         int idTurno;
-        
 
-        public ModificacionSeleccionTurno()
+
+        public ModificacionSeleccionTurno(FormBase caller)
         {
+            this.caller = caller;
             InitializeComponent();
         }
 
@@ -63,6 +64,11 @@ namespace UberFrba.Abm_Turno
             caller.mostrar(this.MdiParent, turno);
             cerrar();
             
+        }
+
+        private void buttonCancelar_Click(object sender, EventArgs e)
+        {
+            Close();
         }
 
     }

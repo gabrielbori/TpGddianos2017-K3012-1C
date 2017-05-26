@@ -19,7 +19,7 @@ namespace UberFrba.Abm_Automovil
             InitializeComponent();
             DataTable marcas = DAOAutomovil.getMarcas();
 
-            comboBox_Marca.DisplayMember = "COCHE_MARCA_NOMBRE";
+            comboBox_Marca.DisplayMember = "MARCA_NOMBRE";
             comboBox_Marca.DataSource = marcas;
         }
 

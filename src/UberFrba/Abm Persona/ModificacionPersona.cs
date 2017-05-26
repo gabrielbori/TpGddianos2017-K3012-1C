@@ -93,18 +93,19 @@ namespace UberFrba.Abm_Persona
             var resultado = Mensaje_Pregunta("¿Está seguro que desea guardar los datos ingresados en el formulario?", "Modificar Persona");
             if (resultado == DialogResult.Yes)
             {
-                if (!Validaciones()) return;
                 try
                 {
+                if (!Validaciones()) return;
+                
                     DAOPersona.ModificarPersona(GenerarPersona(), persona.ID, rol.RolId);
 
                     Mensaje_OK("Los datos han sido almacenados con éxito");
 
                     this.Close();
                 }
-                catch (Exception ex)
+                catch
                 {
-                    Mensaje_Error("ERROR: " + ex.Message);
+                    Mensaje_Error("El dni y el telefono son campos de numeros");
                 }
             }
         }

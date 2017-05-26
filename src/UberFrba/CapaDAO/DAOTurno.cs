@@ -11,9 +11,10 @@ namespace UberFrba.CapaDAO
 {
     class DAOTurno : SqlConnector
     {
-        public static void altaTurno(string descripcion, int hi, int hf, int valor, int precio)
+        public static int altaTurno(string descripcion, double hi, double hf, double valor, double precio)
         {
-            executeProcedure("ALTA_TURNO", descripcion, hi, hf, valor, precio);
+            return executeProcedureWithReturnValue("ALTA_TURNO", descripcion, hi, hf, valor, precio);
+            
         }
 
         public static DataTable getDetalleTurnos()
@@ -57,9 +58,9 @@ namespace UberFrba.CapaDAO
             return retrieveDataTable("FIND_TURNO_DESCRIPCION", descripcion);
         }
 
-        public static void modificarTurno(Turno turno, int id)
+        public static int modificarTurno(Turno turno, int id)
         {
-            executeProcedure("MODIFICAR_TURNO", id, turno.horaInicio, turno.horaFin, turno.descripcion, turno.valorKm, turno.precioBase, turno.estado);
+            return executeProcedureWithReturnValue("MODIFICAR_TURNO", id, turno.horaInicio, turno.horaFin, turno.descripcion, turno.valorKm, turno.precioBase, turno.estado);
         }
     }
 }
