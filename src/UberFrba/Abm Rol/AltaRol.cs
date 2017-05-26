@@ -25,6 +25,7 @@ namespace UberFrba.Abm_Rol
             DataTable funcionalidades = DAOFuncionalidad.getfuncionalidades();
             comboBox1.DataSource = funcionalidades;
             comboBox1.DisplayMember = "DESCRIPCION";
+            checkBox1.Checked = true;
         }
 
         private void textBox_Nombre_TextChanged(object sender, EventArgs e)
@@ -47,8 +48,11 @@ namespace UberFrba.Abm_Rol
 
         private void LimpiarCampos()
         {
-            foreach (var control in this.dataGridView_ListaFuncionalidades.Controls.OfType<TextBox>()) control.Text = "";
-            dataGridView_ListaFuncionalidades.DataSource = new DataTable(); /*mmmmmmm*/
+            foreach (var control in this.paner_Alta.Controls.OfType<TextBox>()) control.Text = "";
+            foreach (var control in this.paner_Alta.Controls.OfType<TextBox>()) control.Text = "";
+            comboBox1.SelectedIndex = -1;
+            checkBox1.Checked = true;
+            dataGridView_ListaFuncionalidades.Rows.Clear();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -66,18 +70,30 @@ namespace UberFrba.Abm_Rol
 
         private bool Validaciones()
         {
-            string mensaje = "";
             string nombre = textBox_Nombre.Text;
-            if (String.IsNullOrEmpty(nombre)) { mensaje = "El nombre está vacío"; Mensaje_Error(mensaje); return false; }
-            if (String.Equals(nombre.ToUpper(), DAORol.getRol(nombre))) { mensaje = "El rol ya existe"; Mensaje_Error(mensaje); return false; }
+            if (String.IsNullOrEmpty(nombre)) { Mensaje_Error("El nombre de rol está vacío"); return false; }
+            if (dataGridView_ListaFuncionalidades.Rows.Count < 1) { Mensaje_Error("Lista de funcionalidades vacía"); return false; }
+            if (String.Equals(nombre.ToUpper(), DAORol.getRol(nombre))) { Mensaje_Error("El rol ya existe"); return false; }
             return true;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string func_desc = Convert.ToString(comboBox1.SelectedItem);
+            List<String> indices = new List<String>();
 
-            dataGridView_ListaFuncionalidades.DataSource = DAOFuncionalidad.getfuncionalidades();//hacer un procedure para traer una fila?
+            for (int i = 0; i < dataGridView_ListaFuncionalidades.Rows.Count; i++)
+            {
+                indices.Add(Convert.ToString(dataGridView_ListaFuncionalidades.Rows[i].Cells[0].Value));
+            }
+            
+            if (!indices.Contains(Convert.ToString(comboBox1.SelectedValue)))
+            {
+                dataGridView_ListaFuncionalidades.Rows.Add(comboBox1.SelectedValue, comboBox1.Text);
+            }
+            else
+            {
+                Mensaje_Error("La funcionalidad ya esta seleccionada");
+            }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -91,7 +107,7 @@ namespace UberFrba.Abm_Rol
 
         private void dataGridView_ListaFuncionalidades_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            dataGridView_ListaFuncionalidades.Rows.RemoveAt(e.RowIndex);
         }
     }
 }
