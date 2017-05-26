@@ -37,7 +37,6 @@ namespace UberFrba.Abm_Rol
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.dataGridView_ListaFuncionalidades = new System.Windows.Forms.DataGridView();
             this.comboBox_Roles = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,13 +44,13 @@ namespace UberFrba.Abm_Rol
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button_Agregar = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.FUN_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button_Guardar = new System.Windows.Forms.Button();
+            this.button_Limpiar = new System.Windows.Forms.Button();
+            this.button_Cancelar = new System.Windows.Forms.Button();
             this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.FUN_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ListaFuncionalidades)).BeginInit();
@@ -78,7 +77,6 @@ namespace UberFrba.Abm_Rol
             // 
             this.groupBox3.Controls.Add(this.textBox1);
             this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Controls.Add(this.button2);
             this.groupBox3.Location = new System.Drawing.Point(16, 91);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(332, 117);
@@ -89,7 +87,7 @@ namespace UberFrba.Abm_Rol
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(106, 45);
+            this.textBox1.Location = new System.Drawing.Point(106, 52);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(174, 20);
             this.textBox1.TabIndex = 9;
@@ -98,20 +96,11 @@ namespace UberFrba.Abm_Rol
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 45);
+            this.label4.Location = new System.Drawing.Point(6, 52);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(44, 13);
             this.label4.TabIndex = 8;
             this.label4.Text = "Nombre";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(205, 88);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Editar";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // dataGridView_ListaFuncionalidades
             // 
@@ -124,8 +113,8 @@ namespace UberFrba.Abm_Rol
             this.dataGridView_ListaFuncionalidades.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView_ListaFuncionalidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_ListaFuncionalidades.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.FUN_ID,
-            this.Eliminar});
+            this.Eliminar,
+            this.FUN_ID});
             this.dataGridView_ListaFuncionalidades.GridColor = System.Drawing.SystemColors.ControlText;
             this.dataGridView_ListaFuncionalidades.Location = new System.Drawing.Point(365, 19);
             this.dataGridView_ListaFuncionalidades.Name = "dataGridView_ListaFuncionalidades";
@@ -176,7 +165,7 @@ namespace UberFrba.Abm_Rol
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.button_Agregar);
             this.groupBox2.Controls.Add(this.comboBox1);
             this.groupBox2.Location = new System.Drawing.Point(16, 223);
             this.groupBox2.Name = "groupBox2";
@@ -194,15 +183,15 @@ namespace UberFrba.Abm_Rol
             this.label2.TabIndex = 8;
             this.label2.Text = "Funcionalidad";
             // 
-            // button1
+            // button_Agregar
             // 
-            this.button1.Location = new System.Drawing.Point(205, 98);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Agregar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button_Agregar.Location = new System.Drawing.Point(205, 98);
+            this.button_Agregar.Name = "button_Agregar";
+            this.button_Agregar.Size = new System.Drawing.Size(75, 23);
+            this.button_Agregar.TabIndex = 6;
+            this.button_Agregar.Text = "Agregar";
+            this.button_Agregar.UseVisualStyleBackColor = true;
+            this.button_Agregar.Click += new System.EventHandler(this.button1_Click);
             // 
             // comboBox1
             // 
@@ -213,35 +202,44 @@ namespace UberFrba.Abm_Rol
             this.comboBox1.TabIndex = 5;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // button4
+            // button_Guardar
             // 
-            this.button4.Location = new System.Drawing.Point(561, 397);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "Guardar";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.button_Guardar.Location = new System.Drawing.Point(561, 397);
+            this.button_Guardar.Name = "button_Guardar";
+            this.button_Guardar.Size = new System.Drawing.Size(75, 23);
+            this.button_Guardar.TabIndex = 6;
+            this.button_Guardar.Text = "Guardar";
+            this.button_Guardar.UseVisualStyleBackColor = true;
+            this.button_Guardar.Click += new System.EventHandler(this.button_Guardar_Click);
             // 
-            // button3
+            // button_Limpiar
             // 
-            this.button3.Location = new System.Drawing.Point(686, 397);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Limpiar";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button_Limpiar.Location = new System.Drawing.Point(686, 397);
+            this.button_Limpiar.Name = "button_Limpiar";
+            this.button_Limpiar.Size = new System.Drawing.Size(75, 23);
+            this.button_Limpiar.TabIndex = 5;
+            this.button_Limpiar.Text = "Limpiar";
+            this.button_Limpiar.UseVisualStyleBackColor = true;
+            this.button_Limpiar.Click += new System.EventHandler(this.button_Limpiar_Click);
             // 
-            // button5
+            // button_Cancelar
             // 
-            this.button5.Location = new System.Drawing.Point(799, 397);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "Cancelar";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button_Cancelar_Click);
+            this.button_Cancelar.Location = new System.Drawing.Point(799, 397);
+            this.button_Cancelar.Name = "button_Cancelar";
+            this.button_Cancelar.Size = new System.Drawing.Size(75, 23);
+            this.button_Cancelar.TabIndex = 4;
+            this.button_Cancelar.Text = "Cancelar";
+            this.button_Cancelar.UseVisualStyleBackColor = true;
+            this.button_Cancelar.Click += new System.EventHandler(this.button_Cancelar_Click);
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Eliminar.HeaderText = "Eliminar";
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.Text = "Eliminar Fila";
+            this.Eliminar.UseColumnTextForButtonValue = true;
+            this.Eliminar.Width = 49;
             // 
             // FUN_ID
             // 
@@ -251,21 +249,14 @@ namespace UberFrba.Abm_Rol
             this.FUN_ID.ReadOnly = true;
             this.FUN_ID.Visible = false;
             // 
-            // Eliminar
-            // 
-            this.Eliminar.HeaderText = "Eliminar";
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.Text = "Eliminar Fila";
-            this.Eliminar.UseColumnTextForButtonValue = true;
-            // 
             // ModificacionRol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(887, 432);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button_Guardar);
+            this.Controls.Add(this.button_Limpiar);
+            this.Controls.Add(this.button_Cancelar);
             this.Controls.Add(this.groupBox1);
             this.Name = "ModificacionRol";
             this.Text = "ModificacionRol";
@@ -289,18 +280,17 @@ namespace UberFrba.Abm_Rol
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button_Agregar;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox_Roles;
         private System.Windows.Forms.DataGridView dataGridView_ListaFuncionalidades;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FUN_ID;
+        private System.Windows.Forms.Button button_Guardar;
+        private System.Windows.Forms.Button button_Limpiar;
+        private System.Windows.Forms.Button button_Cancelar;
         private System.Windows.Forms.DataGridViewButtonColumn Eliminar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FUN_ID;
     }
 }

@@ -99,7 +99,7 @@ namespace UberFrba.CapaDAO
             return retrieveDataTable("GET_FUNCIONALIDADES");
         }
 
-
+        //OBTENER FUNCIONALIDAD A PARTIR DEL ID DE ROL
         public static DataTable getFuncionalidadesPorRol(int id)
         {
             return retrieveDataTable("GET_FUNCIONALIDADES_ROL",id);
