@@ -16,12 +16,18 @@ namespace UberFrba.CapaDAO
         {
             RolUsuario rol;
 
-            DataTable table = retrieveDataTable("GET_ROLES_USUARIO_POR_ID", id, tipo);
+            try
+            {
+                DataTable table = retrieveDataTable("GET_ROLES_USUARIO_POR_ID", id, tipo);
 
-            return rol = dataRowToPersona(table.Rows[0]);
+                return rol = dataRowToPersona(table.Rows[0]);
+            }
+            catch
+            {
+                MessageBox.Show("La persona seleccionada no posee roles asignados", "Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
         }
-
-     
 
         public static RolUsuario dataRowToPersona(DataRow row)
         {

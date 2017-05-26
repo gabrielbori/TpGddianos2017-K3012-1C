@@ -22,5 +22,10 @@ namespace UberFrba.Registro_Viajes
         {
 
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

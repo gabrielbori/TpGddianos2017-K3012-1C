@@ -104,60 +104,9 @@ namespace UberFrba.Abm_Persona
                     else //Se quiere insertar la misma persona con el mismo tipo. Devuelvo error. 
                     {
                         mensaje = "La persona ya se encuentra ingresada"; Mensaje_Error(mensaje); return; 
-                    }
-                
-                
+                    } 
                 }
-                
-                
-                
-                
-                
-                /*if (DAOPersona.existePersona(dni))
-                {
-                    if (!(DAOPersona.getTipo(dni) == tipoAmbos))
-                    {
-                        if (tipo == tipoChofer)
-                        {
-                            if (DAOPersona.getTipo(dni) == tipoCliente)
-                            {
-                                tipoASetear = tipoAmbos;
-                                DAOPersona.actualizarPersona(dni, tipoASetear, codPos, tipoChofer);
-                            }
-                            //                        else
-                            //                       {
-                            //                          tipoASetear = tipoChofer;
-                            //                         DAOPersona.altaPersona(telefono,nombre, apellido, dni, dateTimePicker_FechaNacimiento.Value, direccion, mail, codPos, tipoASetear);
-                            //                    }
-                        }
-                        else if (tipo == tipoCliente)
-                            if (DAOPersona.getTipo(dni) == tipoChofer)
-                            {
-                                tipoASetear = tipoAmbos;
-                                DAOPersona.actualizarPersona(dni, tipoASetear, codPos, tipoCliente);
-                                //                        }
-                                //                       else
-                                //                      {
-                                //                         tipoASetear = tipoCliente;
-                                //                        DAOPersona.altaPersona(telefono,nombre, apellido, dni, dateTimePicker_FechaNacimiento.Value, direccion, mail, codPos, tipoASetear);
-                            }
-                    } else
-                            { mensaje = "La persona ya se encuentra ingresada"; Mensaje_Error(mensaje); return; }
-                    
-                    
-
-
-                    
-                    //            DAOPersona.altaPersona(nombre, apellido, dni, fechaNacimineto, direccion, mail, codPos, tipoASetear);
-
-                }
-                else
-                {
-                    tipoASetear = tipo;
-                    DAOPersona.altaPersona(telefono, nombre, apellido, dni, dateTimePicker_FechaNacimiento.Value, direccion, mail, codPos, tipoASetear);
-                }*/
             }
-            //Mensaje_OK("La persona ha sido dada de alta");
             this.Close(); 
         }
 
