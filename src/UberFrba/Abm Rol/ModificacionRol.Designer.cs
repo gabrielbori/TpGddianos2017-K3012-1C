@@ -38,6 +38,7 @@ namespace UberFrba.Abm_Rol
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.dataGridView_ListaFuncionalidades = new System.Windows.Forms.DataGridView();
+            this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.comboBox_Roles = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -49,7 +50,6 @@ namespace UberFrba.Abm_Rol
             this.button_Guardar = new System.Windows.Forms.Button();
             this.button_Limpiar = new System.Windows.Forms.Button();
             this.button_Cancelar = new System.Windows.Forms.Button();
-            this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ListaFuncionalidades)).BeginInit();
@@ -120,6 +120,15 @@ namespace UberFrba.Abm_Rol
             this.dataGridView_ListaFuncionalidades.Size = new System.Drawing.Size(454, 330);
             this.dataGridView_ListaFuncionalidades.TabIndex = 11;
             this.dataGridView_ListaFuncionalidades.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_ListaFuncionalidades_CellContentClick_1);
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Eliminar.HeaderText = "Eliminar";
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.Text = "Eliminar Fila";
+            this.Eliminar.UseColumnTextForButtonValue = true;
+            this.Eliminar.Width = 49;
             // 
             // comboBox_Roles
             // 
@@ -193,6 +202,7 @@ namespace UberFrba.Abm_Rol
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(106, 40);
             this.comboBox1.Name = "comboBox1";
@@ -229,15 +239,6 @@ namespace UberFrba.Abm_Rol
             this.button_Cancelar.Text = "Cancelar";
             this.button_Cancelar.UseVisualStyleBackColor = true;
             this.button_Cancelar.Click += new System.EventHandler(this.button_Cancelar_Click);
-            // 
-            // Eliminar
-            // 
-            this.Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Eliminar.HeaderText = "Eliminar";
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.Text = "Eliminar Fila";
-            this.Eliminar.UseColumnTextForButtonValue = true;
-            this.Eliminar.Width = 49;
             // 
             // ModificacionRol
             // 
