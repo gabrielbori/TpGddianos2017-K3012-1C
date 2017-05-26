@@ -12,6 +12,25 @@ namespace UberFrba.CapaDAO
     class DAORol : SqlConnector
     {
 
+        //ALTA BAJA Y MODIFICACION DEL ROL
+        public static void bajaRolSeleccionado(string rol)
+        {
+            executeProcedure("BAJA_ROL", rol);
+        }
+
+        public static void altaRol(string nombre)
+        {
+            executeProcedure("ALTA_ROL", nombre);
+            //executeProcedure("ALTA_FUNCIONALIDAD_POR_ROL",)
+        }
+
+        public static void modificarRol(int id, string nombre, DataGridViewRowCollection funcionalidades, int estado)
+        {
+            executeProcedure("MODIFICAR_ROL", id, nombre, crearData(funcionalidades), estado);
+        }
+
+
+        //ROL USUARIO
         public static RolUsuario getRolUsuario(int id, int tipo)
         {
             RolUsuario rol;
@@ -38,6 +57,7 @@ namespace UberFrba.CapaDAO
 
         }
 
+        //OBTENER TODOS LOS ROLES
         public static DataTable getRoles()
         {
              
@@ -45,39 +65,19 @@ namespace UberFrba.CapaDAO
                         
         }
 
-        public static DataTable getFuncionalidades(int id)
-        {
-            return retrieveDataTable("GET_FUNCIONALIDADES_ROL",id);
-        }
-
+        //OBTENER EL ID DE UN ROL SEGUN EL NOMBRE
         public static int getId(string nombre)
         {
-
             DataTable table = retrieveDataTable("GET_ROL_POR_NOMBRE", nombre);
-
-  
-            
-            return  dataRowToEstado(table.Rows[0]);
+            return dataRowToId(table.Rows[0]);
         }
 
-        public static int dataRowToEstado(DataRow row)
+        public static int dataRowToId(DataRow row)
         {
             return Convert.ToInt32(row["ROL_ID"]);
-                              
         }
 
-        public static void bajaRolSeleccionado (string rol)
-        {
-            executeProcedure("BAJA_ROL", rol);
-        }
-
-        public static void altaRol(string nombre)
-        {
-            executeProcedure("ALTA_ROL", nombre);
-            //executeProcedure("ALTA_FUNCIONALIDAD_POR_ROL",)
-        }
-
-
+        //VER SI EL ROL YA EXISTE SEGUN EL NOMBRE
         public static string getRol(string nombre)
         {
             DataTable table = retrieveDataTable("FIND_ROL", nombre);
@@ -90,14 +90,44 @@ namespace UberFrba.CapaDAO
             {
                 return "El rol ya existe";
             }
-
-
         }
+       
+        
+        //OBTENER TODAS LAS FUNCIONALIDADES
+        public static DataTable getFuncionalidades()
+        {
+            return retrieveDataTable("GET_FUNCIONALIDADES");
+        }
+
+
+        public static DataTable getFuncionalidadesPorRol(int id)
+        {
+            return retrieveDataTable("GET_FUNCIONALIDADES_ROL",id);
+        }
+
+       
         public static Funcionalidad dataRowToFuncionalidad(DataRow row)
         {
-            return new Funcionalidad (Convert.ToInt32(row["FUNCIONALIDAD_ID"]),                               
+            return new Funcionalidad(Convert.ToInt32(row["ID"]),
                                row["Funcionalidad"] as string);
 
+        }        
+    
+      
+
+       
+
+        //FUNCIONES AUXILIARES
+        private static DataTable crearData(DataGridViewRowCollection integers)
+        {
+            List<int> ints = new List<int>();
+
+            for (int i = 0; i < integers.Count; i++)
+            {
+                ints.Add((int)integers[i].Cells["FUN_ID"].Value);
+            }
+
+            return Globals.intsToDataTable(ints);
         }
     }
 }
