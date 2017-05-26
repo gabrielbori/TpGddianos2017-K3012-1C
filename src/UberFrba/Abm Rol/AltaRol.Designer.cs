@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.paner_Alta = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,28 +41,28 @@
             this.cancelar = new System.Windows.Forms.Button();
             this.limpiar = new System.Windows.Forms.Button();
             this.guardar = new System.Windows.Forms.Button();
-            this.FUN_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Funcionalidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.groupBox1.SuspendLayout();
+            this.paner_Alta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ListaFuncionalidades)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // paner_Alta
             // 
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.checkBox1);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.dataGridView_ListaFuncionalidades);
-            this.groupBox1.Controls.Add(this.textBox_Nombre);
-            this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Location = new System.Drawing.Point(34, 29);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(782, 328);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.paner_Alta.Controls.Add(this.label3);
+            this.paner_Alta.Controls.Add(this.checkBox1);
+            this.paner_Alta.Controls.Add(this.label1);
+            this.paner_Alta.Controls.Add(this.dataGridView_ListaFuncionalidades);
+            this.paner_Alta.Controls.Add(this.textBox_Nombre);
+            this.paner_Alta.Controls.Add(this.groupBox2);
+            this.paner_Alta.Location = new System.Drawing.Point(34, 29);
+            this.paner_Alta.Name = "paner_Alta";
+            this.paner_Alta.Size = new System.Drawing.Size(782, 328);
+            this.paner_Alta.TabIndex = 0;
+            this.paner_Alta.TabStop = false;
+            this.paner_Alta.Text = "Datos de Rol";
             // 
             // label3
             // 
@@ -105,7 +105,7 @@
             this.dataGridView_ListaFuncionalidades.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView_ListaFuncionalidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_ListaFuncionalidades.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.FUN_ID,
+            this.ID,
             this.Funcionalidad,
             this.Eliminar});
             this.dataGridView_ListaFuncionalidades.GridColor = System.Drawing.SystemColors.ControlText;
@@ -157,8 +157,10 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(106, 40);
+            this.comboBox1.MaxDropDownItems = 50;
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(174, 21);
             this.comboBox1.TabIndex = 5;
@@ -194,14 +196,14 @@
             this.guardar.UseVisualStyleBackColor = true;
             this.guardar.Click += new System.EventHandler(this.button4_Click);
             // 
-            // FUN_ID
+            // ID
             // 
-            this.FUN_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.FUN_ID.DataPropertyName = "Indice";
-            this.FUN_ID.HeaderText = "Indice";
-            this.FUN_ID.Name = "FUN_ID";
-            this.FUN_ID.ReadOnly = true;
-            this.FUN_ID.Visible = false;
+            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ID.DataPropertyName = "Indice";
+            this.ID.HeaderText = "Indice";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
             // 
             // Funcionalidad
             // 
@@ -226,14 +228,14 @@
             this.Controls.Add(this.guardar);
             this.Controls.Add(this.limpiar);
             this.Controls.Add(this.cancelar);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.paner_Alta);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AltaRol";
             this.Text = "AltaRol";
             this.Load += new System.EventHandler(this.AltaRol_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.paner_Alta.ResumeLayout(false);
+            this.paner_Alta.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ListaFuncionalidades)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -243,7 +245,7 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox paner_Alta;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.DataGridView dataGridView_ListaFuncionalidades;
         private System.Windows.Forms.TextBox textBox_Nombre;
@@ -256,7 +258,7 @@
         private System.Windows.Forms.Button limpiar;
         private System.Windows.Forms.Button guardar;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FUN_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Funcionalidad;
         private System.Windows.Forms.DataGridViewButtonColumn Eliminar;
     }
