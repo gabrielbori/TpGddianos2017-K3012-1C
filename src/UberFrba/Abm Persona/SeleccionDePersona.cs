@@ -39,7 +39,7 @@ namespace UberFrba.Abm_Persona
             apellido = textBox_Apellido.Text;
             doc = textBox_Documento.Text;
 
-            dataGridView_Seleccion.DataSource = DAOPersona.getPersona(nombre, apellido, doc, tipoPersona);
+            dataGridView_Seleccion.DataSource = DAOPersona.getPersona(nombre, apellido, doc, tipoPersona, tipoAmbos);
         }
 
         private void dataGridView_Seleccion_CellContentClick(object sender, DataGridViewCellEventArgs e)

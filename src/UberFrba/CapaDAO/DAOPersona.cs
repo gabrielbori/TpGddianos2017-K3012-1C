@@ -11,9 +11,9 @@ namespace UberFrba.CapaDAO
 {
     class DAOPersona : SqlConnector
     {
-        public static DataTable getPersona(string nombre, string apellido, string nroDoc,int tipoPersona)
+        public static DataTable getPersona(string nombre, string apellido, string nroDoc,int tipoPersona, int tipoAmbos)
         {
-            return retrieveDataTable("FIND_PERSONA", nombre, apellido, nroDoc, tipoPersona);
+            return retrieveDataTable("FIND_PERSONA", nombre, apellido, nroDoc, tipoPersona, tipoAmbos);
         }
 
         public static DataTable getPersona(int id)
