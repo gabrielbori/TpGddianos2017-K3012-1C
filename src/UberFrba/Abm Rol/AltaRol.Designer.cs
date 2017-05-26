@@ -33,9 +33,6 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView_ListaFuncionalidades = new System.Windows.Forms.DataGridView();
-            this.FUN_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Funcionalidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.textBox_Nombre = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,6 +41,9 @@
             this.cancelar = new System.Windows.Forms.Button();
             this.limpiar = new System.Windows.Forms.Button();
             this.guardar = new System.Windows.Forms.Button();
+            this.FUN_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Funcionalidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.paner_Alta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ListaFuncionalidades)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -116,30 +116,6 @@
             this.dataGridView_ListaFuncionalidades.TabIndex = 3;
             this.dataGridView_ListaFuncionalidades.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_ListaFuncionalidades_CellContentClick);
             // 
-            // FUN_ID
-            // 
-            this.FUN_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.FUN_ID.DataPropertyName = "Indice";
-            this.FUN_ID.HeaderText = "Indice";
-            this.FUN_ID.Name = "FUN_ID";
-            this.FUN_ID.ReadOnly = true;
-            this.FUN_ID.Visible = false;
-            // 
-            // Funcionalidad
-            // 
-            this.Funcionalidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Funcionalidad.DataPropertyName = "Funcionalidad";
-            this.Funcionalidad.HeaderText = "Funcionalidad";
-            this.Funcionalidad.Name = "Funcionalidad";
-            // 
-            // Eliminar
-            // 
-            this.Eliminar.DataPropertyName = "Eliminar";
-            this.Eliminar.HeaderText = "Eliminar";
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.Text = "Eliminar Fila";
-            this.Eliminar.UseColumnTextForButtonValue = true;
-            // 
             // textBox_Nombre
             // 
             this.textBox_Nombre.Location = new System.Drawing.Point(122, 83);
@@ -181,8 +157,10 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(106, 40);
+            this.comboBox1.MaxDropDownItems = 50;
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(174, 21);
             this.comboBox1.TabIndex = 5;
@@ -217,6 +195,30 @@
             this.guardar.Text = "Guardar";
             this.guardar.UseVisualStyleBackColor = true;
             this.guardar.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // FUN_ID
+            // 
+            this.FUN_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.FUN_ID.DataPropertyName = "Indice";
+            this.FUN_ID.HeaderText = "Indice";
+            this.FUN_ID.Name = "FUN_ID";
+            this.FUN_ID.ReadOnly = true;
+            this.FUN_ID.Visible = false;
+            // 
+            // Funcionalidad
+            // 
+            this.Funcionalidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Funcionalidad.DataPropertyName = "Funcionalidad";
+            this.Funcionalidad.HeaderText = "Funcionalidad";
+            this.Funcionalidad.Name = "Funcionalidad";
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.DataPropertyName = "Eliminar";
+            this.Eliminar.HeaderText = "Eliminar";
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.Text = "Eliminar Fila";
+            this.Eliminar.UseColumnTextForButtonValue = true;
             // 
             // AltaRol
             // 
