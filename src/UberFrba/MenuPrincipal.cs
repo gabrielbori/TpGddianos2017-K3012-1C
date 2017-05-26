@@ -254,7 +254,7 @@ namespace UberFrba
         {
             if (noPuedeIngresar(19)) return;
             if (ActiveMdiChild != null) ActiveMdiChild.Close();
-            Abm_Turno.ModificacionTurno modificacionTurno = new Abm_Turno.ModificacionTurno();
+            Abm_Turno.ModificacionSeleccionTurno modificacionTurno = new Abm_Turno.ModificacionSeleccionTurno(new Abm_Turno.ModificacionTurno());
             modificacionTurno.mostrar(this);     
         }
     }

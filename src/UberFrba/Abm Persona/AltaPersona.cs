@@ -79,35 +79,39 @@ namespace UberFrba.Abm_Persona
                 int tipoASetear = -1;
                 string mensaje;
 
-                int telefono = Convert.ToInt32(textBox_Telefono.Text);
-                string nombre = textBox_Nombre.Text;
-                string apellido = textBox_Apellido.Text;
-                int dni = Convert.ToInt32(textBox_DNI.Text);
-                string direccion = textBox_Direccion.Text;
-                string mail = textBox_Mail.Text;
-                string codPos = textBox_CodigoPostal.Text;
-
-                if (!Validaciones()) return;
-                if (!(DAOPersona.existePersona(dni))) //Si NO existe la persona, lo agrego con el tipo de donde viene el formulario. 2=chofer 3=cliente 
+                try
                 {
-                    //Tipo: Variable que depende de donde viene el formulario (alta de chofer o cliente). Ese mismo tipo se usa para setearlo en la base.  
-                    DAOPersona.altaPersona(telefono, nombre, apellido, dni, dateTimePicker_FechaNacimiento.Value, direccion, mail, codPos, tipo);
-                    Mensaje_OK("La persona ha sido dada de alta");               
-                }
-                else //la persona ya existe en la base de datos. 
-                {
-                    if (DAOPersona.getTipo(dni) != tipo)//Si el tipo que quiero insertar es distinto al tipo grabado, lo actualizo a 3
+                    int telefono = Convert.ToInt32(textBox_Telefono.Text);
+                    string nombre = textBox_Nombre.Text;
+                    string apellido = textBox_Apellido.Text;
+                    int dni = Convert.ToInt32(textBox_DNI.Text);
+                    string direccion = textBox_Direccion.Text;
+                    string mail = textBox_Mail.Text;
+                    string codPos = textBox_CodigoPostal.Text;
+                    
+                    if (!Validaciones()) return;
+                    if (!(DAOPersona.existePersona(dni))) //Si NO existe la persona, lo agrego con el tipo de donde viene el formulario. 2=chofer 3=cliente 
                     {
-                        DAOPersona.actualizarPersona(dni, tipoASetear, codPos, tipoAmbos);
-                        Mensaje_OK("La persona ya existe, se actualizo la base y ahora es chofer/cliente");
+                        //Tipo: Variable que depende de donde viene el formulario (alta de chofer o cliente). Ese mismo tipo se usa para setearlo en la base.  
+                        DAOPersona.altaPersona(telefono, nombre, apellido, dni, dateTimePicker_FechaNacimiento.Value, direccion, mail, codPos, tipo);
+                        Mensaje_OK("La persona ha sido dada de alta");
                     }
-                    else //Se quiere insertar la misma persona con el mismo tipo. Devuelvo error. 
+                    else //la persona ya existe en la base de datos. 
                     {
-                        mensaje = "La persona ya se encuentra ingresada"; Mensaje_Error(mensaje); return; 
-                    } 
+                        if (DAOPersona.getTipo(dni) != tipo)//Si el tipo que quiero insertar es distinto al tipo grabado, lo actualizo a 3
+                        {
+                            DAOPersona.actualizarPersona(dni, tipoASetear, codPos, tipoAmbos);
+                            Mensaje_OK("La persona ya existe, se actualizo la base y ahora es chofer/cliente");
+                        }
+                        else //Se quiere insertar la misma persona con el mismo tipo. Devuelvo error. 
+                        {
+                            mensaje = "La persona ya se encuentra ingresada"; Mensaje_Error(mensaje); return;
+                        }
+                    }
+                    this.Close();
                 }
-            }
-            this.Close(); 
+                catch { Mensaje_Error("El dni y el telefono son campos de numeros"); }
+           }
         }
 
         private void label10_Click(object sender, EventArgs e)
