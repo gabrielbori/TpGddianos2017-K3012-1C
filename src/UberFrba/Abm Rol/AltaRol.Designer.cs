@@ -41,7 +41,7 @@
             this.cancelar = new System.Windows.Forms.Button();
             this.limpiar = new System.Windows.Forms.Button();
             this.guardar = new System.Windows.Forms.Button();
-            this.FUN_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Funcionalidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.paner_Alta.SuspendLayout();
@@ -105,7 +105,7 @@
             this.dataGridView_ListaFuncionalidades.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView_ListaFuncionalidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_ListaFuncionalidades.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.FUN_ID,
+            this.ID,
             this.Funcionalidad,
             this.Eliminar});
             this.dataGridView_ListaFuncionalidades.GridColor = System.Drawing.SystemColors.ControlText;
@@ -196,14 +196,14 @@
             this.guardar.UseVisualStyleBackColor = true;
             this.guardar.Click += new System.EventHandler(this.button4_Click);
             // 
-            // FUN_ID
+            // ID
             // 
-            this.FUN_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.FUN_ID.DataPropertyName = "Indice";
-            this.FUN_ID.HeaderText = "Indice";
-            this.FUN_ID.Name = "FUN_ID";
-            this.FUN_ID.ReadOnly = true;
-            this.FUN_ID.Visible = false;
+            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ID.DataPropertyName = "Indice";
+            this.ID.HeaderText = "Indice";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
             // 
             // Funcionalidad
             // 
@@ -258,7 +258,7 @@
         private System.Windows.Forms.Button limpiar;
         private System.Windows.Forms.Button guardar;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FUN_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Funcionalidad;
         private System.Windows.Forms.DataGridViewButtonColumn Eliminar;
     }

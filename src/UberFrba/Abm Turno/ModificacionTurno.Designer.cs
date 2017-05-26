@@ -11,7 +11,7 @@ using UberFrba.CapaDAO;
 
 namespace UberFrba.Abm_Turno
 {
-    partial class ModificacionTurno
+    partial class ModificacionTurno : FormBase
     {
 
         private Turno turno;
@@ -101,6 +101,7 @@ namespace UberFrba.Abm_Turno
             this.Cancelar.TabIndex = 25;
             this.Cancelar.Text = "Cancelar";
             this.Cancelar.UseVisualStyleBackColor = true;
+            this.Cancelar.Click += new System.EventHandler(this.Cancelar_Click);
             // 
             // LabelPrecioBase
             // 

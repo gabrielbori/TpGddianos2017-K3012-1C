@@ -16,6 +16,7 @@ namespace UberFrba.Abm_Rol
     {
        
         private int estado;
+        private string roles;
         private int idRol;
         private int idFun;
 
@@ -120,6 +121,7 @@ namespace UberFrba.Abm_Rol
         //Boton Guardar
         private void button_Guardar_Click(object sender, EventArgs e)
         {
+            
             if (!CamposCorrectos())
             {
                 Mensaje_Error("No están todos los datos obligatorios");
@@ -157,6 +159,7 @@ namespace UberFrba.Abm_Rol
         {
            
         }
+        
 
         //Boton de agregar funcionalidad
         private void button1_Click(object sender, EventArgs e) 
