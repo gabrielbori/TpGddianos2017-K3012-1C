@@ -18,10 +18,9 @@ namespace UberFrba.CapaDAO
             executeProcedure("BAJA_ROL", rol);
         }
 
-        public static void altaRol(string nombre)
+        public static void altaRol(string nombre, DataGridViewRowCollection funcionalidades, int estado)
         {
-            executeProcedure("ALTA_ROL", nombre);
-            //executeProcedure("ALTA_FUNCIONALIDAD_POR_ROL",)
+            executeProcedure("ALTA_ROL", nombre, crearData(funcionalidades),estado);
         }
 
         public static void modificarRol(int id, string nombre, DataGridViewRowCollection funcionalidades, int estado)
@@ -54,15 +53,12 @@ namespace UberFrba.CapaDAO
                                Convert.ToInt32(row["ROL_ROL_ID"]),
                                Convert.ToInt32(row["ROL_ROL_ESTADO"]));
             return rol;
-
         }
 
         //OBTENER TODOS LOS ROLES
         public static DataTable getRoles()
         {
-             
-            return retrieveDataTable("GET_ROLES");
-                        
+            return retrieveDataTable("GET_ROLES");                      
         }
 
         //OBTENER EL ID DE UN ROL SEGUN EL NOMBRE
@@ -84,7 +80,7 @@ namespace UberFrba.CapaDAO
             try
             {
                 DataRow row = table.Rows[0];
-                return ((row["ROL_NOMBRE"].ToString()));
+                return ((row[0].ToString()));
             }
             catch
             {
