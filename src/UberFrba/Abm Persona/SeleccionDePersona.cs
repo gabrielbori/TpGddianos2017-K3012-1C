@@ -45,17 +45,17 @@ namespace UberFrba.Abm_Persona
         private void dataGridView_Seleccion_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex > 0 || e.RowIndex < 0) return;
-
             int id = Convert.ToInt32(dataGridView_Seleccion.Rows[e.RowIndex].Cells[1].Value);
             DataTable table = DAOPersona.getPersona(id);
             Persona persona = DAOPersona.dataRowToPersona(table.Rows[0]);
             RolUsuario rol = DAORol.getRolUsuario(persona.ID, tipoPersona);
-
-            nombre = persona.Nombre + ' ' + persona.Apellido;
-
-            caller.mostrar(this.MdiParent, persona, rol);
-
-            cerrar();
+            if (rol != null)
+            {
+                nombre = persona.Nombre + ' ' + persona.Apellido;
+                caller.mostrar(this.MdiParent, persona, rol);
+                cerrar();
+            }
+            
         }
 
         private void cerrar()

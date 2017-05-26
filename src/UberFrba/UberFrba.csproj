@@ -129,6 +129,12 @@
     <Compile Include="Abm Turno\BajaTurno.Designer.cs">
       <DependentUpon>BajaTurno.cs</DependentUpon>
     </Compile>
+    <Compile Include="Abm Turno\ModificacionSeleccionTurno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Turno\ModificacionSeleccionTurno.Designer.cs">
+      <DependentUpon>ModificacionSeleccionTurno.cs</DependentUpon>
+    </Compile>
     <Compile Include="Abm Turno\ModificacionTurno.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +152,7 @@
     <Compile Include="CapaDAO\DAORegistroViaje.cs" />
     <Compile Include="CapaDAO\DAORendicionViaje.cs" />
     <Compile Include="CapaDAO\DAORol.cs" />
+    <Compile Include="CapaDAO\DAOTurno.cs" />
     <Compile Include="CapaDAO\DAOUsuario.cs" />
     <Compile Include="CapaDAO\SqlConnector.cs" />
     <Compile Include="Facturacion\Facturar.cs">
@@ -187,6 +194,7 @@
     <Compile Include="Model\Persona.cs" />
     <Compile Include="Model\Rol.cs" />
     <Compile Include="Model\RolUsuario.cs" />
+    <Compile Include="Model\Turno.cs" />
     <Compile Include="Model\Usuario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -245,6 +253,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Turno\BajaTurno.resx">
       <DependentUpon>BajaTurno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Turno\ModificacionSeleccionTurno.resx">
+      <DependentUpon>ModificacionSeleccionTurno.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Turno\ModificacionTurno.resx">
       <DependentUpon>ModificacionTurno.cs</DependentUpon>
