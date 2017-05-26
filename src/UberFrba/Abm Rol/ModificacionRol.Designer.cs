@@ -50,7 +50,6 @@ namespace UberFrba.Abm_Rol
             this.button_Limpiar = new System.Windows.Forms.Button();
             this.button_Cancelar = new System.Windows.Forms.Button();
             this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.FUN_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ListaFuncionalidades)).BeginInit();
@@ -113,8 +112,7 @@ namespace UberFrba.Abm_Rol
             this.dataGridView_ListaFuncionalidades.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView_ListaFuncionalidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_ListaFuncionalidades.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Eliminar,
-            this.FUN_ID});
+            this.Eliminar});
             this.dataGridView_ListaFuncionalidades.GridColor = System.Drawing.SystemColors.ControlText;
             this.dataGridView_ListaFuncionalidades.Location = new System.Drawing.Point(365, 19);
             this.dataGridView_ListaFuncionalidades.Name = "dataGridView_ListaFuncionalidades";
@@ -241,14 +239,6 @@ namespace UberFrba.Abm_Rol
             this.Eliminar.UseColumnTextForButtonValue = true;
             this.Eliminar.Width = 49;
             // 
-            // FUN_ID
-            // 
-            this.FUN_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.FUN_ID.HeaderText = "Indice";
-            this.FUN_ID.Name = "FUN_ID";
-            this.FUN_ID.ReadOnly = true;
-            this.FUN_ID.Visible = false;
-            // 
             // ModificacionRol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -291,6 +281,5 @@ namespace UberFrba.Abm_Rol
         private System.Windows.Forms.Button button_Limpiar;
         private System.Windows.Forms.Button button_Cancelar;
         private System.Windows.Forms.DataGridViewButtonColumn Eliminar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FUN_ID;
     }
 }

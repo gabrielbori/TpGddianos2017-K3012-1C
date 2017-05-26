@@ -29,8 +29,7 @@ namespace UberFrba.Abm_Rol
             comboBox_Roles.DisplayMember = "ROL_NOMBRE";
             comboBox_Roles.DataSource = roles;
 
-
-
+            
         }
 
         private void ModificacionRol_Load(object sender, EventArgs e)
@@ -51,6 +50,7 @@ namespace UberFrba.Abm_Rol
 
         }
 
+        //ComboBox Roles
         private void comboBox_Roles_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -74,8 +74,7 @@ namespace UberFrba.Abm_Rol
             comboBox1.DisplayMember = "Funcionalidad";
             comboBox1.DataSource = funcionalidades;
 
-            dataGridView_ListaFuncionalidades.DataSource = DAORol.getFuncionalidadesPorRol(idRol);
-            dataGridView_ListaFuncionalidades.Columns["FUN_ID"].Visible = false;
+            dataGridView_ListaFuncionalidades.DataSource = DAORol.getFuncionalidadesPorRol(idRol); //muestro solo las funcionalidades del rol
             dataGridView_ListaFuncionalidades.Columns[0].DisplayIndex = 2;
 
             
@@ -95,9 +94,9 @@ namespace UberFrba.Abm_Rol
 
        private void dataGridView_ListaFuncionalidades_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0 || e.ColumnIndex != 0) return;
+            
             dataGridView_ListaFuncionalidades.Rows.RemoveAt(e.RowIndex);
-
+           
         }
         
         //Funcionalidades a agregar
@@ -153,49 +152,35 @@ namespace UberFrba.Abm_Rol
         //Boton de agregar funcionalidad
         private void button1_Click(object sender, EventArgs e) 
         {
-
-            if (existeFuncionalidad())
+             if (existeFuncionalidad())
             {
                 Mensaje_Error("Ya existe la funcionalidad seleccionada");
                 return;
             }
             else
             {
-                List<string> indices = new List<string>();
-
-                for (int i = 0; i < dataGridView_ListaFuncionalidades.Rows.Count; i++)
-                {
-                    indices.Add(Convert.ToString(dataGridView_ListaFuncionalidades.Rows[i].Cells["FUN_ID"].Value));
-                }
-
-                if (!indices.Contains(Convert.ToString(comboBox1.SelectedValue)))
-                {
-                    DataTable funcs = (DataTable)dataGridView_ListaFuncionalidades.DataSource;
-                    funcs.Rows.Add(idFun, comboBox1.Text);
-                    dataGridView_ListaFuncionalidades.DataSource = funcs;
+                DataTable funcs = (DataTable)dataGridView_ListaFuncionalidades.DataSource;
+                funcs.Rows.Add(idFun, comboBox1.Text);
+                dataGridView_ListaFuncionalidades.DataSource = funcs;
+                
                 }
             }
-        }
+        
 
-        private bool existeFuncionalidad() //NO FUNCIONA ESTA MIERDA DESPUES ME TENGO QUE FIJAR
+       private bool existeFuncionalidad() 
         {
             List<int> ides = new List<int>();
-            int id;
-            int cantFilas;            
+            int cantFilas;      
             
-
-            cantFilas = dataGridView_ListaFuncionalidades.Rows.Count;
-            
-           
+            cantFilas = dataGridView_ListaFuncionalidades.Rows.Count;           
+                       
             //Recorre la grilla y arma una lista con los id de funcionalidades
             for (int i = 0; i < cantFilas; i++)
             {
-                id = Convert.ToInt32(dataGridView_ListaFuncionalidades.Rows[i].Cells["FUN_ID"].Value);
-                ides.Add(id);
+               ides.Add(Convert.ToInt32(dataGridView_ListaFuncionalidades.Rows[i].Cells["ID"].Value));                
             }
 
-            //Se fija si el id de funcionalidad que se quiere agregar está en la lista
-            
+            //Se fija si el id de funcionalidad que se quiere agregar está en la lista          
             return ides.Contains(idFun);
         }
        
