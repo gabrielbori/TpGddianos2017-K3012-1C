@@ -59,7 +59,7 @@ namespace UberFrba.Abm_Rol
                         if (resultado == DialogResult.Yes)
                         {
                             string nombre = comboBox1.Text;
-                            DAORol.bajaRolSeleccionado(nombre);
+                            DAORol.bajaRolSeleccionado(nombre, DAORol.getId(nombre));
                             Mensaje_OK("El rol ha sido dado de baja");
                             this.Close();
                         }
