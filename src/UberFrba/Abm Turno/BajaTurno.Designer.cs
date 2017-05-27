@@ -55,6 +55,7 @@
             this.comboBoxHoraInicio.Name = "comboBoxHoraInicio";
             this.comboBoxHoraInicio.Size = new System.Drawing.Size(172, 21);
             this.comboBoxHoraInicio.TabIndex = 1;
+            this.comboBoxHoraInicio.SelectedIndexChanged += new System.EventHandler(this.comboBoxHoraInicio_SelectedIndexChanged);
             // 
             // comboBoxHoraFin
             // 
@@ -63,7 +64,6 @@
             this.comboBoxHoraFin.Name = "comboBoxHoraFin";
             this.comboBoxHoraFin.Size = new System.Drawing.Size(172, 21);
             this.comboBoxHoraFin.TabIndex = 2;
-            this.comboBoxHoraFin.SelectedIndexChanged += new System.EventHandler(this.comboBoxHoraFin_SelectedIndexChanged);
             // 
             // comboBoxDescripcion
             // 
@@ -109,6 +109,7 @@
             this.Cancelar.TabIndex = 13;
             this.Cancelar.Text = "Cancelar";
             this.Cancelar.UseVisualStyleBackColor = true;
+            this.Cancelar.Click += new System.EventHandler(this.Cancelar_Click);
             // 
             // buttonBaja
             // 
