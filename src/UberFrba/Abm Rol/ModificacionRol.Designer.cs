@@ -108,6 +108,9 @@ namespace UberFrba.Abm_Rol
             this.dataGridView_ListaFuncionalidades.AllowUserToDeleteRows = false;
             this.dataGridView_ListaFuncionalidades.AllowUserToResizeColumns = false;
             this.dataGridView_ListaFuncionalidades.AllowUserToResizeRows = false;
+            this.dataGridView_ListaFuncionalidades.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView_ListaFuncionalidades.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView_ListaFuncionalidades.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dataGridView_ListaFuncionalidades.BackgroundColor = System.Drawing.SystemColors.Control;
