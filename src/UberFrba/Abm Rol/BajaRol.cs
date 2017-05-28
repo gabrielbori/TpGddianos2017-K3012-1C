@@ -19,18 +19,18 @@ namespace UberFrba.Abm_Rol
         {
             InitializeComponent();
 
-            DataTable roles = DAORol.getRoles();
-
+            DataTable roles = DAORol.getRolesHabilitados();
+            
             comboBox1.ValueMember = "ROL_ESTADO";
             comboBox1.DisplayMember = "ROL_NOMBRE";
             comboBox1.DataSource = roles;
-     
+           
         }
 
 
         private void BajaRol_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void label2_Click(object sender, EventArgs e)

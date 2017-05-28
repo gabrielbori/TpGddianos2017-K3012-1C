@@ -61,6 +61,12 @@ namespace UberFrba.CapaDAO
             return retrieveDataTable("GET_ROLES");                      
         }
 
+       //OBTENER ROLES HABILITADOS
+        public static DataTable getRolesHabilitados()
+        {
+            return retrieveDataTable("GET_ROLES_HABILITADOS");
+        }
+
         //OBTENER EL ID DE UN ROL SEGUN EL NOMBRE
         public static int getId(string nombre)
         {
