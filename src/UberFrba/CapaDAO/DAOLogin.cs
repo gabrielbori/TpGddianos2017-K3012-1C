@@ -16,8 +16,6 @@ namespace UberFrba.CapaDAO
             return Globals.username;
         }
 
-        
-
         public static bool existeUsuario(string user)
         {
             return executeProcedureWithReturnValue("EXISTE_USUARIO", user) != 0;
@@ -28,11 +26,24 @@ namespace UberFrba.CapaDAO
         {
             if (contraseniaCorrecta(user, pass))
             {
-                //loginCorrecto(user);
+                setIntentosLoginCero(user);
                 return iniciarSesion(user, rol);
-                
+
             }
-            return false;
+            {
+                sumarIntentoFallidoAusuario(user);
+                return false;
+            }
+        }
+
+        private static void setIntentosLoginCero(string user)
+        { 
+           executeProcedure("setIntentosCero",user) ;
+        }
+
+        private static void sumarIntentoFallidoAusuario(string user)
+        {
+            executeProcedure("sumarIntentoLogin", user);
         }
 
         public static bool contraseniaCorrecta(string user, string pass)
