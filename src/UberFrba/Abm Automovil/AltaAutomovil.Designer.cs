@@ -36,12 +36,12 @@
             this.label6 = new System.Windows.Forms.Label();
             this.textBox_Chofer = new System.Windows.Forms.TextBox();
             this.textBox_Patente = new System.Windows.Forms.TextBox();
-            this.textBox_Marca = new System.Windows.Forms.TextBox();
-            this.textBox_Modelo = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.comboBox_Marca = new System.Windows.Forms.ComboBox();
+            this.comboBox_Modelo = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // button2
@@ -79,7 +79,6 @@
             this.textBox_Chofer.Name = "textBox_Chofer";
             this.textBox_Chofer.Size = new System.Drawing.Size(150, 20);
             this.textBox_Chofer.TabIndex = 22;
-            this.textBox_Chofer.TextChanged += new System.EventHandler(this.TextBox_Chofer_TextChanged_1);
             // 
             // textBox_Patente
             // 
@@ -87,23 +86,6 @@
             this.textBox_Patente.Name = "textBox_Patente";
             this.textBox_Patente.Size = new System.Drawing.Size(150, 20);
             this.textBox_Patente.TabIndex = 21;
-            this.textBox_Patente.TextChanged += new System.EventHandler(this.TextBox_Patente_TextChanged_1);
-            // 
-            // textBox_Marca
-            // 
-            this.textBox_Marca.Location = new System.Drawing.Point(76, 51);
-            this.textBox_Marca.Name = "textBox_Marca";
-            this.textBox_Marca.Size = new System.Drawing.Size(150, 20);
-            this.textBox_Marca.TabIndex = 20;
-            this.textBox_Marca.TextChanged += new System.EventHandler(this.textBox_Marca_TextChanged);
-            // 
-            // textBox_Modelo
-            // 
-            this.textBox_Modelo.Location = new System.Drawing.Point(76, 77);
-            this.textBox_Modelo.Name = "textBox_Modelo";
-            this.textBox_Modelo.Size = new System.Drawing.Size(150, 20);
-            this.textBox_Modelo.TabIndex = 19;
-            this.textBox_Modelo.TextChanged += new System.EventHandler(this.TextBox_Modelo_TextChanged_1);
             // 
             // label5
             // 
@@ -141,18 +123,36 @@
             this.label1.TabIndex = 13;
             this.label1.Text = "Marca";
             // 
+            // comboBox_Marca
+            // 
+            this.comboBox_Marca.FormattingEnabled = true;
+            this.comboBox_Marca.Location = new System.Drawing.Point(76, 49);
+            this.comboBox_Marca.Name = "comboBox_Marca";
+            this.comboBox_Marca.Size = new System.Drawing.Size(150, 21);
+            this.comboBox_Marca.TabIndex = 26;
+            this.comboBox_Marca.SelectedIndexChanged += new System.EventHandler(this.comboBox_Marca_SelectedIndexChanged);
+            // 
+            // comboBox_Modelo
+            // 
+            this.comboBox_Modelo.FormattingEnabled = true;
+            this.comboBox_Modelo.Location = new System.Drawing.Point(76, 76);
+            this.comboBox_Modelo.Name = "comboBox_Modelo";
+            this.comboBox_Modelo.Size = new System.Drawing.Size(150, 21);
+            this.comboBox_Modelo.TabIndex = 27;
+            this.comboBox_Modelo.SelectedIndexChanged += new System.EventHandler(this.comboBox_Modelo_SelectedIndexChanged);
+            // 
             // AltaAutomovil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.comboBox_Modelo);
+            this.Controls.Add(this.comboBox_Marca);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textBox_Chofer);
             this.Controls.Add(this.textBox_Patente);
-            this.Controls.Add(this.textBox_Marca);
-            this.Controls.Add(this.textBox_Modelo);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -173,12 +173,12 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox_Chofer;
         private System.Windows.Forms.TextBox textBox_Patente;
-        private System.Windows.Forms.TextBox textBox_Marca;
-        private System.Windows.Forms.TextBox textBox_Modelo;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBox_Marca;
+        private System.Windows.Forms.ComboBox comboBox_Modelo;
 
 
     }
