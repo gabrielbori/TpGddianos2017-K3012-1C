@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBoxHoraInicio = new System.Windows.Forms.ComboBox();
-            this.comboBoxHoraFin = new System.Windows.Forms.ComboBox();
             this.comboBoxDescripcion = new System.Windows.Forms.ComboBox();
             this.LabelHoraFin = new System.Windows.Forms.Label();
             this.LabelHoraInicio = new System.Windows.Forms.Label();
             this.LabelDescripcion = new System.Windows.Forms.Label();
             this.Cancelar = new System.Windows.Forms.Button();
             this.buttonBaja = new System.Windows.Forms.Button();
+            this.textBoxHoraInicio = new System.Windows.Forms.TextBox();
+            this.textBoxHoraFin = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -47,23 +47,6 @@
             this.label1.Size = new System.Drawing.Size(214, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Seleccione los datos del turno a dar de baja";
-            // 
-            // comboBoxHoraInicio
-            // 
-            this.comboBoxHoraInicio.FormattingEnabled = true;
-            this.comboBoxHoraInicio.Location = new System.Drawing.Point(98, 80);
-            this.comboBoxHoraInicio.Name = "comboBoxHoraInicio";
-            this.comboBoxHoraInicio.Size = new System.Drawing.Size(172, 21);
-            this.comboBoxHoraInicio.TabIndex = 1;
-            this.comboBoxHoraInicio.SelectedIndexChanged += new System.EventHandler(this.comboBoxHoraInicio_SelectedIndexChanged);
-            // 
-            // comboBoxHoraFin
-            // 
-            this.comboBoxHoraFin.FormattingEnabled = true;
-            this.comboBoxHoraFin.Location = new System.Drawing.Point(98, 107);
-            this.comboBoxHoraFin.Name = "comboBoxHoraFin";
-            this.comboBoxHoraFin.Size = new System.Drawing.Size(172, 21);
-            this.comboBoxHoraFin.TabIndex = 2;
             // 
             // comboBoxDescripcion
             // 
@@ -121,19 +104,35 @@
             this.buttonBaja.UseVisualStyleBackColor = true;
             this.buttonBaja.Click += new System.EventHandler(this.buttonBaja_Click);
             // 
+            // textBoxHoraInicio
+            // 
+            this.textBoxHoraInicio.Location = new System.Drawing.Point(98, 81);
+            this.textBoxHoraInicio.Name = "textBoxHoraInicio";
+            this.textBoxHoraInicio.Size = new System.Drawing.Size(172, 20);
+            this.textBoxHoraInicio.TabIndex = 15;
+            this.textBoxHoraInicio.ReadOnly = true;
+            // 
+            // textBoxHoraFin
+            // 
+            this.textBoxHoraFin.Location = new System.Drawing.Point(98, 107);
+            this.textBoxHoraFin.Name = "textBoxHoraFin";
+            this.textBoxHoraFin.Size = new System.Drawing.Size(172, 20);
+            this.textBoxHoraFin.TabIndex = 16;
+            this.textBoxHoraFin.ReadOnly = true;
+            // 
             // BajaTurno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(305, 206);
+            this.Controls.Add(this.textBoxHoraFin);
+            this.Controls.Add(this.textBoxHoraInicio);
             this.Controls.Add(this.buttonBaja);
             this.Controls.Add(this.Cancelar);
             this.Controls.Add(this.LabelHoraFin);
             this.Controls.Add(this.LabelHoraInicio);
             this.Controls.Add(this.LabelDescripcion);
             this.Controls.Add(this.comboBoxDescripcion);
-            this.Controls.Add(this.comboBoxHoraFin);
-            this.Controls.Add(this.comboBoxHoraInicio);
             this.Controls.Add(this.label1);
             this.Name = "BajaTurno";
             this.Text = "BajaTurno";
@@ -145,13 +144,13 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBoxHoraInicio;
-        private System.Windows.Forms.ComboBox comboBoxHoraFin;
         private System.Windows.Forms.ComboBox comboBoxDescripcion;
         private System.Windows.Forms.Label LabelHoraFin;
         private System.Windows.Forms.Label LabelHoraInicio;
         private System.Windows.Forms.Label LabelDescripcion;
         private System.Windows.Forms.Button Cancelar;
         private System.Windows.Forms.Button buttonBaja;
+        private System.Windows.Forms.TextBox textBoxHoraInicio;
+        private System.Windows.Forms.TextBox textBoxHoraFin;
     }
 }

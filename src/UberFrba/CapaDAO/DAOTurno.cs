@@ -22,14 +22,11 @@ namespace UberFrba.CapaDAO
             return retrieveDataTable("GET_DETALLE");
         }
 
-        public static DataTable getHoraInicioTurnos(string descripcion)
+        public static Turno getHoraInicioTurnos(string descripcion)
         {
-            return retrieveDataTable("GET_HORA_INICIO", descripcion);
-        }
+            DataTable table = retrieveDataTable("GET_HORARIOS", descripcion);
 
-        public static DataTable getHoraFinTurnos(string descripcion)
-        {
-            return retrieveDataTable("GET_HORA_FIN", descripcion);
+            return dataRowToTurno(table.Rows[0]);
         }
 
         public static void bajaTurnoPorDescripcionYHorarios(string descripcion, int hi, int hf)

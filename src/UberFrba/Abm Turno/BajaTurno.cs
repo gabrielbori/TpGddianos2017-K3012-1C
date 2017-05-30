@@ -25,26 +25,18 @@ namespace UberFrba.Abm_Turno
         
         private void comboBoxDescripcion_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DataTable horasInicio = DAOTurno.getHoraInicioTurnos(comboBoxDescripcion.Text);
+            Turno turno = DAOTurno.getHoraInicioTurnos(comboBoxDescripcion.Text);
 
-            comboBoxHoraInicio.DisplayMember = "TURNO_HORA_INICIO";
-            comboBoxHoraInicio.DataSource = horasInicio;
-        }
-
-        private void comboBoxHoraInicio_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            DataTable horasFin = DAOTurno.getHoraFinTurnos(comboBoxDescripcion.Text);
-
-            comboBoxHoraFin.DisplayMember = "TURNO_HORA_FIN";
-            comboBoxHoraFin.DataSource = horasFin;
+            textBoxHoraInicio.Text = Convert.ToString(turno.horaInicio);
+            textBoxHoraFin.Text = Convert.ToString(turno.horaFin);
         }
 
         private void buttonBaja_Click(object sender, EventArgs e)
         {
 
             string descripcion = comboBoxDescripcion.Text;
-            int hi = Convert.ToInt32(comboBoxHoraInicio.Text);
-            int hf = Convert.ToInt32(comboBoxHoraFin.Text);
+            int hi = Convert.ToInt32(textBoxHoraInicio.Text);
+            int hf = Convert.ToInt32(textBoxHoraFin.Text);
 
             var resultado = Mensaje_Pregunta("¿Está seguro que desea dar la baja del turno?", "Baja Turno");
             if (resultado == DialogResult.Yes)
