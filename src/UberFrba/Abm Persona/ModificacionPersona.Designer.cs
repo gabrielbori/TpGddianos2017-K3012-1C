@@ -32,6 +32,7 @@ namespace UberFrba.Abm_Persona
         {
             Persona persona = (Persona)values[0];
             RolUsuario rol = (RolUsuario)values[1];
+            
 
             this.persona = persona;
             this.rol = rol;
@@ -103,6 +104,7 @@ namespace UberFrba.Abm_Persona
             this.textBox_CodigoPostal.Name = "textBox_CodigoPostal";
             this.textBox_CodigoPostal.Size = new System.Drawing.Size(226, 20);
             this.textBox_CodigoPostal.TabIndex = 77;
+            this.textBox_CodigoPostal.ReadOnly = true;
             // 
             // label10
             // 
@@ -141,6 +143,7 @@ namespace UberFrba.Abm_Persona
             this.textBox_Mail.Name = "textBox_Mail";
             this.textBox_Mail.Size = new System.Drawing.Size(226, 20);
             this.textBox_Mail.TabIndex = 73;
+            this.textBox_Mail.ReadOnly = true;
             // 
             // textBox_Direccion
             // 
@@ -148,6 +151,7 @@ namespace UberFrba.Abm_Persona
             this.textBox_Direccion.Name = "textBox_Direccion";
             this.textBox_Direccion.Size = new System.Drawing.Size(226, 20);
             this.textBox_Direccion.TabIndex = 72;
+            this.textBox_Direccion.ReadOnly = true;
             // 
             // textBox_Telefono
             // 
@@ -155,6 +159,7 @@ namespace UberFrba.Abm_Persona
             this.textBox_Telefono.Name = "textBox_Telefono";
             this.textBox_Telefono.Size = new System.Drawing.Size(226, 20);
             this.textBox_Telefono.TabIndex = 70;
+            this.textBox_Telefono.ReadOnly = true;
             // 
             // textBox_DNI
             // 
@@ -163,6 +168,7 @@ namespace UberFrba.Abm_Persona
             this.textBox_DNI.Size = new System.Drawing.Size(226, 20);
             this.textBox_DNI.TabIndex = 69;
             this.textBox_DNI.TextChanged += new System.EventHandler(this.textBox_DNI_TextChanged);
+            this.textBox_DNI.ReadOnly = true;
             // 
             // textBox_Apellido
             // 
@@ -170,6 +176,7 @@ namespace UberFrba.Abm_Persona
             this.textBox_Apellido.Name = "textBox_Apellido";
             this.textBox_Apellido.Size = new System.Drawing.Size(226, 20);
             this.textBox_Apellido.TabIndex = 68;
+            this.textBox_Apellido.ReadOnly = true;
             // 
             // textBox_Nombre
             // 
@@ -178,6 +185,7 @@ namespace UberFrba.Abm_Persona
             this.textBox_Nombre.Size = new System.Drawing.Size(226, 20);
             this.textBox_Nombre.TabIndex = 67;
             this.textBox_Nombre.TextChanged += new System.EventHandler(this.textBox_Nombre_TextChanged);
+            this.textBox_Nombre.ReadOnly = true;
             // 
             // label9
             // 
@@ -259,6 +267,7 @@ namespace UberFrba.Abm_Persona
             this.dateTimePicker_FechaNacimiento.Name = "dateTimePicker_FechaNacimiento";
             this.dateTimePicker_FechaNacimiento.Size = new System.Drawing.Size(226, 20);
             this.dateTimePicker_FechaNacimiento.TabIndex = 78;
+            this.dateTimePicker_FechaNacimiento.Enabled = true;
             // 
             // label8
             // 
