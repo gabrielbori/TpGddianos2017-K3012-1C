@@ -157,7 +157,6 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.dateTimePicker1);
             this.Name = "RegistrarViaje";
-            this.Text = "Form1";
             this.Load += new System.EventHandler(this.RegistrarViaje_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
