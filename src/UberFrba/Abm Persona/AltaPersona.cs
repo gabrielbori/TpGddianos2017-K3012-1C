@@ -44,13 +44,13 @@ namespace UberFrba.Abm_Persona
 
         private bool ValidarTelefono(int telefono, int dni)
         {
-            if (!(DAOPersona.existeTelefono(telefono, dni)))
+            if ((DAOPersona.existeTelefono(telefono, dni)))
             {
-                return false;
+                return true;
             }
             else
             {
-                return true;
+                return false;
             }
         }
 
@@ -63,7 +63,7 @@ namespace UberFrba.Abm_Persona
             if (textBox_Apellido.Text == null) { mensaje = "El apellido está vacío"; Mensaje_Error(mensaje); return false; }
             if (textBox_DNI.Text == null) { mensaje = "El apellido está vacío"; Mensaje_Error(mensaje); return false; }
             if (dateTimePicker_FechaNacimiento.Text == null) { mensaje = "El apellido está vacío"; Mensaje_Error(mensaje); return false; }
-            if (ValidarTelefono(telefono, dni)) { mensaje = "El telefono ingresado pertenece a otra persona"; Mensaje_Error(mensaje); return false; }
+            if (!(ValidarTelefono(telefono, dni))) { mensaje = "El telefono ingresado pertenece a otra persona"; Mensaje_Error(mensaje); return false; }
             if (textBox_Nombre.Text == null) { mensaje = "El apellido está vacío"; Mensaje_Error(mensaje); return false; }
             if (textBox_CodigoPostal.Text == null) { mensaje = "El apellido está vacío"; Mensaje_Error(mensaje); return false; }
             return true;
@@ -88,8 +88,8 @@ namespace UberFrba.Abm_Persona
                     string direccion = textBox_Direccion.Text;
                     string mail = textBox_Mail.Text;
                     string codPos = textBox_CodigoPostal.Text;
-                    
-                    if (!Validaciones()) return;
+
+                    if (!Validaciones()) {return; };
                     if (!(DAOPersona.existePersona(dni))) //Si NO existe la persona, lo agrego con el tipo de donde viene el formulario. 2=chofer 3=cliente 
                     {
                         //Tipo: Variable que depende de donde viene el formulario (alta de chofer o cliente). Ese mismo tipo se usa para setearlo en la base.  
