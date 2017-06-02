@@ -233,6 +233,7 @@
             this.groupBox_Cliente.TabIndex = 14;
             this.groupBox_Cliente.TabStop = false;
             this.groupBox_Cliente.Text = "Cliente";
+            this.groupBox_Cliente.Enter += new System.EventHandler(this.groupBox_Cliente_Enter);
             // 
             // label5
             // 
@@ -287,6 +288,8 @@
             this.textBox_Telefono.Name = "textBox_Telefono";
             this.textBox_Telefono.Size = new System.Drawing.Size(151, 20);
             this.textBox_Telefono.TabIndex = 40;
+            this.textBox_Telefono.TextChanged += new System.EventHandler(this.textBox_Telefono_TextChanged);
+            this.textBox_Telefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_Telefono_KeyPress);
             // 
             // label4
             // 
@@ -307,6 +310,7 @@
             this.textBox_DNI.TabIndex = 38;
             this.textBox_DNI.TabStop = false;
             this.textBox_DNI.TextChanged += new System.EventHandler(this.textBox_DNI_TextChanged);
+            this.textBox_DNI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_DNI_KeyPress);
             // 
             // label3
             // 

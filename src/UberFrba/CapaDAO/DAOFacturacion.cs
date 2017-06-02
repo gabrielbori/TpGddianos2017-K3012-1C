@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UberFrba.Model;
 
 namespace UberFrba.CapaDAO
 {
@@ -49,9 +50,32 @@ namespace UberFrba.CapaDAO
             return Convert.ToString(row["PERS_APELLIDO"]);
         }
 
-        public static DataTable getViajes (int idPersona, int mes, int año){
+        //OBTIENE VIAJES A FACTURAR
+        public static DataTable getViajes (int idPersona, int mes, int año)
+        {
 
             return retrieveDataTable("GET_VIAJES_A_FACTURAR", idPersona, mes, año);
         }
+
+        //CREA FACTURA
+        public static long crearFactura(int idPersona, DateTime fecha, DataGridViewRowCollection viajes, Decimal montoTotal)
+        {
+            return executeProcedureWithLongReturnValue("CREAR_FACTURA", idPersona, Globals.getDateFechaSistema(), fecha, crearData(viajes), montoTotal);
+        }
+
+                //FUNCIONES AUXILIARES
+        private static DataTable crearData(DataGridViewRowCollection integers)
+        {
+            List<int> ints = new List<int>();
+
+            for (int i = 0; i < integers.Count; i++)
+            {
+                ints.Add((int)integers[i].Cells["ID"].Value); //es el id del viaje
+                ints.Add((int)integers[i].Cells["Precio Unitario"].Value);
+            }
+
+            return Globals.intsToDataTable(ints);
+        }
     }
+    
 }
