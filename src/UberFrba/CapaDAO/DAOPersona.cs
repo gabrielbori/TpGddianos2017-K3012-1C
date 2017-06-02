@@ -39,7 +39,13 @@ namespace UberFrba.CapaDAO
 
         public static bool existeTelefono(int telefono, int dni)
         {
-            return checkIfExists("GET_TELEFONO", telefono, dni);
+
+            int cant = (executeProcedureWithReturnValue("GET_TELEFONO", telefono, dni));
+
+            if ( cant == 0)
+                return false;
+            else
+                return true;
         }
 
         public static void ModificarPersona(Persona persona, int id, int rolId)

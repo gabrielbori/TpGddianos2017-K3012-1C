@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.buttonCancelar = new System.Windows.Forms.Button();
-            this.buttonAceptar = new System.Windows.Forms.Button();
             this.paner_Filtros = new System.Windows.Forms.GroupBox();
             this.textBoxDescripcion = new System.Windows.Forms.TextBox();
             this.button_Limpiar = new System.Windows.Forms.Button();
@@ -50,15 +49,6 @@
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
             this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
-            // 
-            // buttonAceptar
-            // 
-            this.buttonAceptar.Location = new System.Drawing.Point(324, 157);
-            this.buttonAceptar.Name = "buttonAceptar";
-            this.buttonAceptar.Size = new System.Drawing.Size(75, 23);
-            this.buttonAceptar.TabIndex = 3;
-            this.buttonAceptar.Text = "Aceptar";
-            this.buttonAceptar.UseVisualStyleBackColor = true;
             // 
             // paner_Filtros
             // 
@@ -149,7 +139,6 @@
             this.ClientSize = new System.Drawing.Size(897, 192);
             this.Controls.Add(this.dataGridView_Seleccion);
             this.Controls.Add(this.paner_Filtros);
-            this.Controls.Add(this.buttonAceptar);
             this.Controls.Add(this.buttonCancelar);
             this.Name = "ModificacionSeleccionTurno";
             this.Text = "ModificacionSeleccionTurno";
@@ -163,7 +152,6 @@
         #endregion
 
         private System.Windows.Forms.Button buttonCancelar;
-        private System.Windows.Forms.Button buttonAceptar;
         private System.Windows.Forms.GroupBox paner_Filtros;
         private System.Windows.Forms.TextBox textBoxDescripcion;
         private System.Windows.Forms.Button button_Limpiar;

@@ -73,6 +73,7 @@
             this.textBox_Chofer.Name = "textBox_Chofer";
             this.textBox_Chofer.Size = new System.Drawing.Size(195, 20);
             this.textBox_Chofer.TabIndex = 42;
+            this.textBox_Chofer.ReadOnly = true;
             // 
             // label5
             // 

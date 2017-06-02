@@ -18,7 +18,6 @@ namespace UberFrba.Abm_Automovil
         {
             InitializeComponent();
             DataTable marcas = DAOAutomovil.getMarcas();
-
             comboBox_Marca.DisplayMember = "MARCA_NOMBRE";
             comboBox_Marca.DataSource = marcas;
         }
@@ -43,7 +42,6 @@ namespace UberFrba.Abm_Automovil
             DataTable patentes = DAOAutomovil.getPatentes(comboBox_Modelo.Text);
             comboBox_Patente.DisplayMember = "COCHE_PATENTE";
             comboBox_Patente.DataSource = patentes;
-
         }
 
         private void comboBox_Patente_SelectedIndexChanged(object sender, EventArgs e)

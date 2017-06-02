@@ -41,6 +41,7 @@ namespace UberFrba.Abm_Turno
             {
                 checkBoxEstado.Visible = false;
                 labelEstado.Visible = false;
+                checkBoxEstado.Checked = true;
             }
             base.mostrar(parent);
         }

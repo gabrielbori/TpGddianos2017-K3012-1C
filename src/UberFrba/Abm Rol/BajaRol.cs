@@ -19,18 +19,18 @@ namespace UberFrba.Abm_Rol
         {
             InitializeComponent();
 
-            DataTable roles = DAORol.getRoles();
-
+            DataTable roles = DAORol.getRolesHabilitados();
+            
             comboBox1.ValueMember = "ROL_ESTADO";
             comboBox1.DisplayMember = "ROL_NOMBRE";
             comboBox1.DataSource = roles;
-     
+           
         }
 
 
         private void BajaRol_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -59,7 +59,7 @@ namespace UberFrba.Abm_Rol
                         if (resultado == DialogResult.Yes)
                         {
                             string nombre = comboBox1.Text;
-                            DAORol.bajaRolSeleccionado(nombre);
+                            DAORol.bajaRolSeleccionado(nombre, DAORol.getId(nombre));
                             Mensaje_OK("El rol ha sido dado de baja");
                             this.Close();
                         }

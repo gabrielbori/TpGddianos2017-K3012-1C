@@ -13,9 +13,9 @@ namespace UberFrba.CapaDAO
     {
 
         //ALTA BAJA Y MODIFICACION DEL ROL
-        public static void bajaRolSeleccionado(string rol)
+        public static void bajaRolSeleccionado(string rol, int id)
         {
-            executeProcedure("BAJA_ROL", rol);
+            executeProcedure("BAJA_ROL", rol, id);
         }
 
         public static void altaRol(string nombre, DataGridViewRowCollection funcionalidades, int estado)
@@ -59,6 +59,12 @@ namespace UberFrba.CapaDAO
         public static DataTable getRoles()
         {
             return retrieveDataTable("GET_ROLES");                      
+        }
+
+       //OBTENER ROLES HABILITADOS
+        public static DataTable getRolesHabilitados()
+        {
+            return retrieveDataTable("GET_ROLES_HABILITADOS");
         }
 
         //OBTENER EL ID DE UN ROL SEGUN EL NOMBRE

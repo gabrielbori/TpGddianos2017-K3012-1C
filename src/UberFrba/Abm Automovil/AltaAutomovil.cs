@@ -17,6 +17,9 @@ namespace UberFrba.Abm_Automovil
         public AltaAutomovil()
         {
             InitializeComponent();
+            DataTable marcas = DAOAutomovil.getMarcas();
+            comboBox_Marca.DisplayMember = "MARCA_NOMBRE";
+            comboBox_Marca.DataSource = marcas;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -83,40 +86,35 @@ namespace UberFrba.Abm_Automovil
 
         private void button2_Click(object sender, EventArgs e)
         {
-            var resultado = Mensaje_Pregunta("¿Está seguro que desea dar la baja del automovil?", "Baja Automovil");
+            var resultado = Mensaje_Pregunta("¿Está seguro que desea dar la alta del automovil?", "Alta Automovil");
             if (resultado == DialogResult.Yes)
             {
-            string marca = textBox_Marca.Text;
-            string modelo = textBox_Modelo.Text;
+            string marca = comboBox_Marca.Text;
+            string modelo = comboBox_Modelo.Text;
             string patente = textBox_Patente.Text;
             string chofer = textBox_Chofer.Text;
             int estado = 1;
             
             if (!(ValidarAutomovil(marca,modelo,patente,chofer))) {Mensaje_Error("Error al generar la alta"); Close();}
             DAOAutomovil.altaAutomovil(marca,modelo,patente,/*chofer,*/estado);
-            Mensaje_OK("El automovil fue dado de baja");
+            Mensaje_OK("El automovil fue dado de alta");
             this.Close();
             }
         }
 
-        private void textBox_Marca_TextChanged(object sender, EventArgs e)
+        private void comboBox_Marca_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            DataTable modelos = DAOAutomovil.getModelos(comboBox_Marca.Text);
+            comboBox_Modelo.DisplayMember = "COCHE_MODELO_CODIGO";
+            comboBox_Modelo.DataSource = modelos;
+
+        }
+
+        private void comboBox_Modelo_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void TextBox_Modelo_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox_Patente_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox_Chofer_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
     }
 }
