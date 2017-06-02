@@ -58,9 +58,10 @@ namespace UberFrba.CapaDAO
         }
 
         //CREA FACTURA
-        public static long crearFactura(int idPersona, DateTime fecha, DataGridViewRowCollection viajes, Decimal montoTotal)
+        public static long crearFactura(int idPersona, DateTime fecha_inicio, DateTime fecha_final, DataGridViewRowCollection viajes, Decimal montoTotal)
         {
-            return executeProcedureWithLongReturnValue("CREAR_FACTURA", idPersona, Globals.getDateFechaSistema(), fecha, crearData(viajes), montoTotal);
+            return executeProcedureWithLongReturnValue("CREAR_FACTURA", idPersona, Globals.getDateFechaSistema(), 
+                                                        fecha_inicio,fecha_final, crearData(viajes), montoTotal);
         }
 
                 //FUNCIONES AUXILIARES

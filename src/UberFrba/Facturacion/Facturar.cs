@@ -76,6 +76,7 @@ namespace UberFrba.Facturacion
             {
 
                dataGridView_Viajes.DataSource = DAOFacturacion.getViajes(idPersona, Convert.ToInt32(dateTimePicker_Inicio.Value.Month), Convert.ToInt32(dateTimePicker_Inicio.Value.Year));
+               this.dataGridView_Viajes.Columns["ID"].Visible = false;
                setTotal();
 
             }
@@ -147,7 +148,8 @@ namespace UberFrba.Facturacion
                 {
 
                     long numFactura = DAOFacturacion.crearFactura(idPersona, Convert.ToDateTime(dateTimePicker_Inicio.Text),
-                                                        dataGridView_Viajes.Rows, Convert.ToDecimal(textBox_montoTotal.Text));
+                                                        Convert.ToDateTime(dateTimePicker_Fin.Text),dataGridView_Viajes.Rows,
+                                                        Convert.ToDecimal(textBox_montoTotal.Text));
                     textBox_Numero.Text = Convert.ToString(numFactura);
                     //revisarViajes(); //Me tengo que fijar si los viajes estan facturados o no
                     Mensaje_OK("La facturación fue realizada con éxito");
