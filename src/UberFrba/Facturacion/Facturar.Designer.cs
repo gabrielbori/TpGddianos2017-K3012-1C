@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox_DatosFactura = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker_Fin = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker_Inicio = new System.Windows.Forms.DateTimePicker();
             this.textBox_Numero = new System.Windows.Forms.TextBox();
@@ -61,6 +63,8 @@
             // 
             // groupBox_DatosFactura
             // 
+            this.groupBox_DatosFactura.Controls.Add(this.label7);
+            this.groupBox_DatosFactura.Controls.Add(this.dateTimePicker1);
             this.groupBox_DatosFactura.Controls.Add(this.dateTimePicker_Fin);
             this.groupBox_DatosFactura.Controls.Add(this.dateTimePicker_Inicio);
             this.groupBox_DatosFactura.Controls.Add(this.textBox_Numero);
@@ -75,25 +79,49 @@
             this.groupBox_DatosFactura.TabStop = false;
             this.groupBox_DatosFactura.Text = "Datos de factura";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(15, 45);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(112, 13);
+            this.label7.TabIndex = 42;
+            this.label7.Text = "Ingrese mes a facturar";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CustomFormat = "MM/yyyy";
+            this.dateTimePicker1.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(133, 45);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(102, 20);
+            this.dateTimePicker1.TabIndex = 41;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
             // dateTimePicker_Fin
             // 
-            this.dateTimePicker_Fin.Location = new System.Drawing.Point(109, 90);
+            this.dateTimePicker_Fin.Enabled = false;
+            this.dateTimePicker_Fin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker_Fin.Location = new System.Drawing.Point(133, 113);
             this.dateTimePicker_Fin.Name = "dateTimePicker_Fin";
-            this.dateTimePicker_Fin.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker_Fin.Size = new System.Drawing.Size(102, 20);
             this.dateTimePicker_Fin.TabIndex = 40;
             // 
             // dateTimePicker_Inicio
             // 
             this.dateTimePicker_Inicio.CustomFormat = "";
-            this.dateTimePicker_Inicio.Location = new System.Drawing.Point(109, 64);
+            this.dateTimePicker_Inicio.Enabled = false;
+            this.dateTimePicker_Inicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker_Inicio.Location = new System.Drawing.Point(133, 87);
             this.dateTimePicker_Inicio.Name = "dateTimePicker_Inicio";
-            this.dateTimePicker_Inicio.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker_Inicio.Size = new System.Drawing.Size(102, 20);
             this.dateTimePicker_Inicio.TabIndex = 39;
             this.dateTimePicker_Inicio.ValueChanged += new System.EventHandler(this.dateTimePicker_Inicio_ValueChanged);
             // 
             // textBox_Numero
             // 
-            this.textBox_Numero.Location = new System.Drawing.Point(109, 41);
+            this.textBox_Numero.Location = new System.Drawing.Point(133, 19);
             this.textBox_Numero.Name = "textBox_Numero";
             this.textBox_Numero.ReadOnly = true;
             this.textBox_Numero.Size = new System.Drawing.Size(85, 20);
@@ -105,7 +133,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(59, 44);
+            this.label10.Location = new System.Drawing.Point(83, 22);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(44, 13);
             this.label10.TabIndex = 37;
@@ -114,7 +142,7 @@
             // 
             // button_Buscar_Viajes
             // 
-            this.button_Buscar_Viajes.Location = new System.Drawing.Point(197, 126);
+            this.button_Buscar_Viajes.Location = new System.Drawing.Point(201, 139);
             this.button_Buscar_Viajes.Name = "button_Buscar_Viajes";
             this.button_Buscar_Viajes.Size = new System.Drawing.Size(103, 23);
             this.button_Buscar_Viajes.TabIndex = 36;
@@ -125,7 +153,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(52, 96);
+            this.label1.Location = new System.Drawing.Point(76, 119);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 13);
             this.label1.TabIndex = 34;
@@ -135,7 +163,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(39, 70);
+            this.label8.Location = new System.Drawing.Point(63, 93);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(64, 13);
             this.label8.TabIndex = 25;
@@ -373,5 +401,7 @@
         private System.Windows.Forms.TextBox textBox_Nombre;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label7;
     }
 }
