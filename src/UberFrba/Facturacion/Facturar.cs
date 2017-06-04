@@ -23,7 +23,12 @@ namespace UberFrba.Facturacion
 
         private void Facturar_Load(object sender, EventArgs e)
         {
-            
+             DateTime fechaI = new DateTime(DateTime.Now.Year,DateTime.Now.Month,1);
+            dateTimePicker_Inicio.Value = fechaI;
+
+            DateTime fechaF = new DateTime(DateTime.Now.Year,DateTime.Now.Month,DateTime.DaysInMonth(DateTime.Now.Year,DateTime.Now.Month));
+            dateTimePicker_Fin.Value = fechaF;
+
         }
 
         private void button_Cargar_Persona_Click(object sender, EventArgs e)
@@ -71,8 +76,7 @@ namespace UberFrba.Facturacion
                 return;
                
             }
-            if (dateTimePicker_Inicio.Value.Month == dateTimePicker_Fin.Value.Month
-                && dateTimePicker_Inicio.Value.Year == dateTimePicker_Fin.Value.Year)
+            if ( dateTimePicker_Fin.Value <= DateTime.Today)
             {
 
                dataGridView_Viajes.DataSource = DAOFacturacion.getViajes(idPersona, Convert.ToInt32(dateTimePicker_Inicio.Value.Month), Convert.ToInt32(dateTimePicker_Inicio.Value.Year));
@@ -82,7 +86,7 @@ namespace UberFrba.Facturacion
             }
             else
             {
-                Mensaje_Error("La facturacion debe ser mensual");
+                Mensaje_Error("La fecha final es posterior a la fecha actual, la facturación no puede realizarse");
                 return;
             }
           
@@ -118,8 +122,11 @@ namespace UberFrba.Facturacion
             foreach (var control in this.groupBox_Cliente.Controls.OfType<TextBox>()) control.Text = "";
             textBox_Nombre.Visible = false;
             textBox_Apellido.Visible = false;
-            dateTimePicker_Inicio.Text = Globals.getFechaSistema();
-            dateTimePicker_Fin.Text = Globals.getFechaSistema();
+            dateTimePicker1.Text = Convert.ToString(DateTime.Today);
+            DateTime fechaI = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+            dateTimePicker_Inicio.Value = fechaI;
+            DateTime fechaF = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month));
+            dateTimePicker_Fin.Value = fechaF;
             dataGridView_Viajes.DataSource = new DataTable();
             textBox_Numero.Text = "A generar";
             textBox_montoTotal.Text = "";
@@ -138,12 +145,13 @@ namespace UberFrba.Facturacion
                 Mensaje_Error("Limpie los datos de la última operación");
                 return;
             }
+           // if (losViajesYaEstanFacturados()) { } //Me tengo que fijar si los viajes estan facturados o no
             
            
             var resultado = Mensaje_Pregunta("¿Está seguro que desea realizar la facturación?", "Generar Factura");
             if (resultado == DialogResult.Yes)
             {
-                if (!Validaciones()) return;
+               
                 try
                 {
 
@@ -151,12 +159,12 @@ namespace UberFrba.Facturacion
                                                         Convert.ToDateTime(dateTimePicker_Fin.Text),dataGridView_Viajes.Rows,
                                                         Convert.ToDecimal(textBox_montoTotal.Text));
                     textBox_Numero.Text = Convert.ToString(numFactura);
-                    //revisarViajes(); //Me tengo que fijar si los viajes estan facturados o no
+                    
                     Mensaje_OK("La facturación fue realizada con éxito");
                 }
                 catch 
                 {
-                    Mensaje_Error("Falló creación de la factura en la base de datos");
+                    Mensaje_Error("Falló la creación de la factura en la base de datos");
                 }
             }
         }
@@ -302,6 +310,16 @@ namespace UberFrba.Facturacion
             {
                 e.Handled = true;
             }
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime fechaI = new DateTime(dateTimePicker1.Value.Year, dateTimePicker1.Value.Month, 1);
+            dateTimePicker_Inicio.Value = fechaI;
+            
+
+            DateTime fechaF = new DateTime(dateTimePicker1.Value.Year, dateTimePicker1.Value.Month, DateTime.DaysInMonth(dateTimePicker1.Value.Year, dateTimePicker1.Value.Month));
+            dateTimePicker_Fin.Value = fechaF;
         }
         
     }
