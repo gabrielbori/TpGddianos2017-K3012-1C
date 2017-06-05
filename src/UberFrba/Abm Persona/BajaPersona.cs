@@ -48,5 +48,10 @@ namespace UberFrba.Abm_Persona
                 this.Close();
             }
         }
+
+        private void textBox_Nombre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
