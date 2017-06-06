@@ -84,6 +84,8 @@ namespace UberFrba.Rendicion_Viajes
             this.button_Cerrar = new System.Windows.Forms.Button();
             this.button_Buscar_Viajes = new System.Windows.Forms.Button();
             this.button_Buscar = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox_Viajes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Viajes)).BeginInit();
             this.groupBox_Chofer.SuspendLayout();
@@ -92,6 +94,8 @@ namespace UberFrba.Rendicion_Viajes
             // 
             // groupBox_Viajes
             // 
+            this.groupBox_Viajes.Controls.Add(this.label1);
+            this.groupBox_Viajes.Controls.Add(this.textBox1);
             this.groupBox_Viajes.Controls.Add(this.textBox_montoTotal);
             this.groupBox_Viajes.Controls.Add(this.label6);
             this.groupBox_Viajes.Controls.Add(this.dataGridView_Viajes);
@@ -301,6 +305,26 @@ namespace UberFrba.Rendicion_Viajes
             this.button_Buscar.UseVisualStyleBackColor = true;
             this.button_Buscar.Click += new System.EventHandler(this.button_Buscar_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.textBox1.Enabled = false;
+            this.textBox1.Location = new System.Drawing.Point(174, 297);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 25;
+            this.textBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 300);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(162, 13);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "Porcentaje aplicado a cada viaje";
+            // 
             // RendirViaje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -349,5 +373,7 @@ namespace UberFrba.Rendicion_Viajes
         private System.Windows.Forms.Label label9;
         private Button button_Buscar_Viajes;
         private Button button_Buscar;
+        private Label label1;
+        private TextBox textBox1;
     }
 }

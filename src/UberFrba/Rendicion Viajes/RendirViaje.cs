@@ -15,7 +15,7 @@ namespace UberFrba.Rendicion_Viajes
 {
     public partial class RendirViaje : FormBase
     {
-       
+        public double total;
 
         public RendirViaje()
         {
@@ -43,13 +43,56 @@ namespace UberFrba.Rendicion_Viajes
         private void button_Aceptar_Click(object sender, EventArgs e)
         {
             
-           //DAORendicionViaje.crearRendicion(Convert.ToInt32(persona.ID)); 
+            //if que vea si ya se realizo el pago de los viajes seleccionados
+
+            if (Validaciones())
+            {
+                Mensaje_Error("No están todos los datos obligatorios");
+                return;
+            }
+
+              var resultado = Mensaje_Pregunta("¿Está seguro que desea realizar el pago?", "Generar Pago");
+              if (resultado == DialogResult.Yes)
+              {
+
+                  try
+                 {
+                      DAORendicionViaje.crearRendicion(Convert.ToDateTime(dateTimePicker1.Value), Convert.ToInt32(persona.ID),
+                                                Convert.ToInt32(comboBox1.SelectedValue),this.total,
+                                                dataGridView_Viajes.Rows); 
+
+
+                      Mensaje_OK("El pago fue realizado con éxito");
+                  }
+                  catch
+                  {
+                      Mensaje_Error("Falló la creación del pago en la base de datos");
+                  }
+              }
 
         }
 
+        private bool Validaciones()
+        {
+            bool vacio = false;
+            if (textBox_montoTotal.Text == "" && dataGridView_Viajes.Rows.Count == 0)
+            {
+                vacio = true;
+            }
+
+
+            return vacio;
+        }
+           
+
         private void button_Buscar_Viajes_Click(object sender, EventArgs e)
         {
+            if ((textBox_Nombre.Text == "") && (textBox_Apellido.Text == "") && (textBox_DNI.Text == ""))
+            {
+                Mensaje_Error("Cargue el Cliente");
+                return;
 
+            }
             if (dateTimePicker1.Value <= DateTime.Today)
             {
 
@@ -68,7 +111,7 @@ namespace UberFrba.Rendicion_Viajes
 
         private void setTotal()
         {
-            double total = 0;
+            this.total = 0;
             foreach (DataGridViewRow row in dataGridView_Viajes.Rows)
             {
                 total += Convert.ToDouble(row.Cells["Precio Unitario"].Value);
