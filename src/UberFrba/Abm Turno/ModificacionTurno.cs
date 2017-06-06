@@ -69,9 +69,15 @@ namespace UberFrba.Abm_Turno
             }
         }
 
+
+        private void TextBoxDescripcion_TextChanged(object sender, EventArgs e)
+        {
+
+        }
         private void Cancelar_Click(object sender, EventArgs e)
         {
             Close();
+
         }
     }
 }

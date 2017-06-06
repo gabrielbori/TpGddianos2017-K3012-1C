@@ -38,10 +38,10 @@ namespace UberFrba.Login
             string user = textBox_Username.Text;
             if (!DAOLogin.existeUsuario(user))
             {
-                Mensaje_Error("El usuario no existe");
+                Mensaje_Error("El usuario no existe o esta inhabilitado");
                 return;
                
-            }
+            } 
 
             if (comboBox_Roles.SelectedIndex == -1)
             {

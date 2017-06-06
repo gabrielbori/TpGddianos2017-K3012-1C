@@ -155,17 +155,17 @@
     <Compile Include="CapaDAO\DAOTurno.cs" />
     <Compile Include="CapaDAO\DAOUsuario.cs" />
     <Compile Include="CapaDAO\SqlConnector.cs" />
-    <Compile Include="Facturacion\Facturar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion\Facturar.Designer.cs">
-      <DependentUpon>Facturar.cs</DependentUpon>
-    </Compile>
     <Compile Include="Abm Persona\AltaPersona.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Abm Persona\AltaPersona.Designer.cs">
       <DependentUpon>AltaPersona.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\Facturar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\Facturar.Designer.cs">
+      <DependentUpon>Facturar.cs</DependentUpon>
     </Compile>
     <Compile Include="Listado Estadistico\ListadoEstadistico.cs">
       <SubType>Form</SubType>
@@ -185,6 +185,7 @@
     <Compile Include="MenuPrincipal.Designer.cs">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Funcionalidad.cs" />
     <Compile Include="Model\Encriptacion.cs" />
     <Compile Include="Model\Error.cs" />
     <Compile Include="Model\FormBase.cs">

@@ -197,7 +197,6 @@ namespace UberFrba
         {
             strip.Visible = true;
             hideControls();
-
             for (int i = 0; i < controles.Count(); i++)
             {
                 if (Globals.tieneFuncionalidad(i + 1))
@@ -230,8 +229,10 @@ namespace UberFrba
         {
             if (noPuedeIngresar(13)) return;
             if (ActiveMdiChild != null) ActiveMdiChild.Close();
-            Rendicion_Viajes.RendirViaje rendirViaje = new Rendicion_Viajes.RendirViaje();
-            rendirViaje.mostrar(this);     
+            //Rendicion_Viajes.RendirViaje rendirViaje = new Rendicion_Viajes.RendirViaje();
+            //rendirViaje.mostrar(this); 
+            Abm_Persona.SeleccionDePersona seleccionPersona = new Abm_Persona.SeleccionDePersona(new Rendicion_Viajes.RendirViaje(), 2);
+            seleccionPersona.mostrar(this);
         }
 
         private void altaTurno_Click(object sender, EventArgs e)

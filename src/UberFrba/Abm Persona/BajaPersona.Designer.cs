@@ -181,6 +181,7 @@ namespace UberFrba.Abm_Persona
             this.textBox_Nombre.ReadOnly = true;
             this.textBox_Nombre.Size = new System.Drawing.Size(226, 20);
             this.textBox_Nombre.TabIndex = 67;
+            this.textBox_Nombre.TextChanged += new System.EventHandler(this.textBox_Nombre_TextChanged);
             // 
             // label9
             // 
