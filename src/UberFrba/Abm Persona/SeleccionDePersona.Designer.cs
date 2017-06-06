@@ -102,7 +102,7 @@
             // 
             // textBox_Nombre
             // 
-            this.textBox_Nombre.Location = new System.Drawing.Point(63, 30);
+            this.textBox_Nombre.Location = new System.Drawing.Point(76, 30);
             this.textBox_Nombre.Name = "textBox_Nombre";
             this.textBox_Nombre.Size = new System.Drawing.Size(232, 20);
             this.textBox_Nombre.TabIndex = 0;
@@ -110,7 +110,7 @@
             // 
             // textBox_Apellido
             // 
-            this.textBox_Apellido.Location = new System.Drawing.Point(63, 56);
+            this.textBox_Apellido.Location = new System.Drawing.Point(76, 56);
             this.textBox_Apellido.Name = "textBox_Apellido";
             this.textBox_Apellido.Size = new System.Drawing.Size(232, 20);
             this.textBox_Apellido.TabIndex = 1;
@@ -130,7 +130,7 @@
             this.label_Nombre.AutoSize = true;
             this.label_Nombre.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label_Nombre.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label_Nombre.Location = new System.Drawing.Point(13, 33);
+            this.label_Nombre.Location = new System.Drawing.Point(26, 33);
             this.label_Nombre.Name = "label_Nombre";
             this.label_Nombre.Size = new System.Drawing.Size(44, 13);
             this.label_Nombre.TabIndex = 23;
@@ -141,7 +141,7 @@
             this.label_Apellido.AutoSize = true;
             this.label_Apellido.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label_Apellido.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label_Apellido.Location = new System.Drawing.Point(13, 59);
+            this.label_Apellido.Location = new System.Drawing.Point(26, 59);
             this.label_Apellido.Name = "label_Apellido";
             this.label_Apellido.Size = new System.Drawing.Size(44, 13);
             this.label_Apellido.TabIndex = 24;
@@ -152,7 +152,7 @@
             this.label_Documento.AutoSize = true;
             this.label_Documento.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label_Documento.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label_Documento.Location = new System.Drawing.Point(-5, 85);
+            this.label_Documento.Location = new System.Drawing.Point(8, 85);
             this.label_Documento.Name = "label_Documento";
             this.label_Documento.Size = new System.Drawing.Size(62, 13);
             this.label_Documento.TabIndex = 25;
@@ -160,7 +160,7 @@
             // 
             // textBox_Documento
             // 
-            this.textBox_Documento.Location = new System.Drawing.Point(63, 82);
+            this.textBox_Documento.Location = new System.Drawing.Point(76, 82);
             this.textBox_Documento.Name = "textBox_Documento";
             this.textBox_Documento.Size = new System.Drawing.Size(129, 20);
             this.textBox_Documento.TabIndex = 4;
