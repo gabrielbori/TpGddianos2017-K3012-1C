@@ -51,32 +51,48 @@ namespace UberFrba.CapaDAO
         }
 
         //OBTIENE VIAJES A FACTURAR
-        public static DataTable getViajes (int idPersona, int mes, int año)
+        public static DataTable getViajes(int idPersona, int mes, int año)
         {
 
             return retrieveDataTable("GET_VIAJES_A_FACTURAR", idPersona, mes, año);
         }
 
         //CREA FACTURA
-        public static long crearFactura(int idPersona, DateTime fecha_inicio, DateTime fecha_final, DataGridViewRowCollection viajes, Decimal montoTotal)
+        public static int crearFactura(int idPersona, DateTime fecha_inicio, DateTime fecha_final, DataGridViewRowCollection viajes, Decimal montoTotal)
         {
-            return executeProcedureWithLongReturnValue("CREAR_FACTURA", idPersona, DateTime.Today,
-                                                        fecha_inicio,fecha_final, crearData(viajes), montoTotal);
+            return (executeProcedureWithReturnValue("CREAR_FACTURA", idPersona, DateTime.Today,
+                                                        fecha_inicio, fecha_final, crearData(viajes), montoTotal));
         }
 
-                //FUNCIONES AUXILIARES
-        private static DataTable crearData(DataGridViewRowCollection integers)
+        public static int buscarIDFacturaInsertado()
         {
-            List<int> ints = new List<int>();
+            return executeProcedureWithReturnValue("GET_ID_FACTURA_INSERTADO");
+        }
 
-            for (int i = 0; i < integers.Count; i++)
+        //FUNCIONES AUXILIARES
+        private static DataTable crearData(DataGridViewRowCollection viajes)
+        {
+            DataTable data = new DataTable();
+            data.Columns.Add("ID");
+            data.Columns.Add("Precio unitario");
+
+            for (int i = 0; i < viajes.Count; i++)
             {
-                ints.Add((int)integers[i].Cells["ID"].Value); //es el id del viaje
-                ints.Add((int)integers[i].Cells["Precio Unitario"].Value);
-            }
+                var row = data.NewRow();
 
-            return Globals.intsToDataTable(ints);
+                row["ID"] = Convert.ToInt32(viajes[i].Cells["ID"].Value);
+                row["Precio unitario"] = Convert.ToInt32(viajes[i].Cells["Precio unitario"].Value); //cambiar el convert
+
+                data.Rows.Add(row);
+            }
+            return data;
         }
+
+        public static int viajeYaFacturado(DataGridViewRowCollection viajes)
+        {
+            return executeProcedureWithReturnValue("VIAJE_YA_FACTURADO",crearData(viajes));
+        }
+
     }
-    
+
 }

@@ -16,6 +16,7 @@ namespace UberFrba.Abm_Persona
     public partial class SeleccionDePersona : FormBase
     {
         private FormBase caller;
+      
 
         private int tipoAmbos = 1, tipoPersona = 0;
 
@@ -89,6 +90,7 @@ namespace UberFrba.Abm_Persona
 
         }
 
+      
 
     }
 }

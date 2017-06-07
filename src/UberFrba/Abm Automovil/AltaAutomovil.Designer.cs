@@ -42,11 +42,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox_Marca = new System.Windows.Forms.ComboBox();
             this.comboBox_Modelo = new System.Windows.Forms.ComboBox();
+            this.labelTurno = new System.Windows.Forms.Label();
+            this.Turno = new System.Windows.Forms.CheckedListBox();
             this.SuspendLayout();
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(197, 227);
+            this.button2.Location = new System.Drawing.Point(274, 273);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 25;
@@ -56,7 +58,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 227);
+            this.button1.Location = new System.Drawing.Point(12, 273);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 24;
@@ -77,14 +79,14 @@
             // 
             this.textBox_Chofer.Location = new System.Drawing.Point(76, 129);
             this.textBox_Chofer.Name = "textBox_Chofer";
-            this.textBox_Chofer.Size = new System.Drawing.Size(150, 20);
+            this.textBox_Chofer.Size = new System.Drawing.Size(181, 20);
             this.textBox_Chofer.TabIndex = 22;
             // 
             // textBox_Patente
             // 
             this.textBox_Patente.Location = new System.Drawing.Point(76, 103);
             this.textBox_Patente.Name = "textBox_Patente";
-            this.textBox_Patente.Size = new System.Drawing.Size(150, 20);
+            this.textBox_Patente.Size = new System.Drawing.Size(181, 20);
             this.textBox_Patente.TabIndex = 21;
             // 
             // label5
@@ -128,7 +130,7 @@
             this.comboBox_Marca.FormattingEnabled = true;
             this.comboBox_Marca.Location = new System.Drawing.Point(76, 49);
             this.comboBox_Marca.Name = "comboBox_Marca";
-            this.comboBox_Marca.Size = new System.Drawing.Size(150, 21);
+            this.comboBox_Marca.Size = new System.Drawing.Size(181, 21);
             this.comboBox_Marca.TabIndex = 26;
             this.comboBox_Marca.SelectedIndexChanged += new System.EventHandler(this.comboBox_Marca_SelectedIndexChanged);
             // 
@@ -137,15 +139,33 @@
             this.comboBox_Modelo.FormattingEnabled = true;
             this.comboBox_Modelo.Location = new System.Drawing.Point(76, 76);
             this.comboBox_Modelo.Name = "comboBox_Modelo";
-            this.comboBox_Modelo.Size = new System.Drawing.Size(150, 21);
+            this.comboBox_Modelo.Size = new System.Drawing.Size(181, 21);
             this.comboBox_Modelo.TabIndex = 27;
-            this.comboBox_Modelo.SelectedIndexChanged += new System.EventHandler(this.comboBox_Modelo_SelectedIndexChanged);
+            // 
+            // labelTurno
+            // 
+            this.labelTurno.AutoSize = true;
+            this.labelTurno.Location = new System.Drawing.Point(35, 166);
+            this.labelTurno.Name = "labelTurno";
+            this.labelTurno.Size = new System.Drawing.Size(35, 13);
+            this.labelTurno.TabIndex = 28;
+            this.labelTurno.Text = "Turno";
+            // 
+            // Turno
+            // 
+            this.Turno.FormattingEnabled = true;
+            this.Turno.Location = new System.Drawing.Point(76, 155);
+            this.Turno.Name = "Turno";
+            this.Turno.Size = new System.Drawing.Size(181, 94);
+            this.Turno.TabIndex = 31;
             // 
             // AltaAutomovil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(361, 308);
+            this.Controls.Add(this.Turno);
+            this.Controls.Add(this.labelTurno);
             this.Controls.Add(this.comboBox_Modelo);
             this.Controls.Add(this.comboBox_Marca);
             this.Controls.Add(this.button2);
@@ -160,7 +180,6 @@
             this.Name = "AltaAutomovil";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Alta De Automovil";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -179,6 +198,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox_Marca;
         private System.Windows.Forms.ComboBox comboBox_Modelo;
+        private System.Windows.Forms.Label labelTurno;
+        private System.Windows.Forms.CheckedListBox Turno;
 
 
     }
