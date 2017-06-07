@@ -221,8 +221,10 @@ namespace UberFrba
         {
             if (noPuedeIngresar(10)) return;
             if (ActiveMdiChild != null) ActiveMdiChild.Close();
-            Facturacion.Facturar facturar = new Facturacion.Facturar();
-            facturar.mostrar(this);   
+            //Facturacion.Facturar facturar = new Facturacion.Facturar();
+            //facturar.mostrar(this);   
+            Abm_Persona.SeleccionDePersona seleccionPersona = new Abm_Persona.SeleccionDePersona(new Facturacion.Facturar(), 3);
+            seleccionPersona.mostrar(this);
         }
 
         private void rendicionDeViajesToolStripMenuItem_Click(object sender, EventArgs e)
