@@ -40,8 +40,8 @@ namespace UberFrba.Abm_Turno
             {
                 if ((Convert.ToDouble(TextBoxValorKM.Text) == 0)) { Mensaje_Error("El valor base es 0"); }
                 if ((Convert.ToDouble(TextBoxPrecioBase.Text) == 0)) { Mensaje_Error("El precio base es 0"); }
-                if ((Convert.ToDouble(TextBoxHoraInicio.Text) >= 0) && !(Convert.ToDouble(TextBoxHoraInicio.Text) < 24)) { Mensaje_Error("Hora de inicio fuera del rango de 24hs"); return false; }
-                if ((Convert.ToDouble(TextBoxHoraFin.Text) >= 0) && !(Convert.ToDouble(TextBoxHoraFin.Text) < 24)) { Mensaje_Error("Hora de fin fuera del rango de 24hs"); return false; }
+                if ((Convert.ToDouble(TextBoxHoraInicio.Text) >= 0) && !(Convert.ToDouble(TextBoxHoraInicio.Text) <= 24)) { Mensaje_Error("Hora de inicio fuera del rango de 24hs"); return false; }
+                if ((Convert.ToDouble(TextBoxHoraFin.Text) >= 0) && !(Convert.ToDouble(TextBoxHoraFin.Text) <= 24)) { Mensaje_Error("Hora de fin fuera del rango de 24hs"); return false; }
             }
             catch
             {
@@ -54,11 +54,7 @@ namespace UberFrba.Abm_Turno
 
         private void Alta_Click(object sender, EventArgs e)
         {
-            if (!(validaciones()))
-            {
-                Mensaje_Error("El alta de turno no pudo ser dada");
-            }
-            else
+            if ((validaciones()))
             {
                 string descripcion = TextBoxDescripcion.Text;
                 double hi = Convert.ToDouble(TextBoxHoraInicio.Text);
