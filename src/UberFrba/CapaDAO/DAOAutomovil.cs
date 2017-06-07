@@ -40,19 +40,24 @@ namespace UberFrba.CapaDAO
             return checkIfExists("GET_AUTOMOVIL_POR_PATENTE", patente);
         }
 
-        public static void modificarAutomovilPorPatente(string patente, int estado /*,chofer*/ )
+        public static void modificarAutomovilPorPatente(string patente, int estado, string chofer)
         {
-            executeProcedure("MODIFICAR_AUTOMOVIL_POR_PATENTE", patente, estado /*, chofer*/);
+            executeProcedure("MODIFICAR_AUTOMOVIL_POR_PATENTE", patente, estado, chofer);
         }
 
-        public static bool validarChofer(string chofer)
+        public static void modificarTurnoAutomovilPorPatente(string patente, string detalle, int estado)
         {
-            return false;
+            executeProcedure("MODIFICAR_TURNO_AUTOMOVIL_POR_PATENTE", patente, detalle, estado);
         }
 
-        public static void altaAutomovil(string marca, string modelo, string patente, /*string chofer,*/ int estado)
+        public static bool choferAsignado (string chofer, string patente)
         {
-            executeProcedure("ALTA_AUTOMOVIL", marca, modelo, patente, /*chofer,*/ estado);
+            return checkIfExists("CHOFER_ASIGNADO", chofer, patente);
+        }
+
+        public static void altaAutomovil(string marca, string modelo, string patente, string chofer, int estado)
+        {
+            executeProcedure("ALTA_AUTOMOVIL", marca, modelo, patente, chofer, estado);
         }
     }
 }

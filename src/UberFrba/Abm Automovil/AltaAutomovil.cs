@@ -22,51 +22,6 @@ namespace UberFrba.Abm_Automovil
             comboBox_Marca.DataSource = marcas;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -79,7 +34,8 @@ namespace UberFrba.Abm_Automovil
             if (patente == null) { Mensaje_Error("Patente del automovil vacia"); return false; }
             if (chofer == null) { Mensaje_Error("Chofer del automovil vacio"); return false; }
             if (DAOAutomovil.validarPatente(patente)) { Mensaje_Error("La patente ya existe"); return false; }
-            if (DAOAutomovil.validarChofer(chofer)) { Mensaje_Error("El chofer ya posee automovil"); return false; }
+            if (DAOAutomovil.choferAsignado(chofer, patente)) { Mensaje_Error("El chofer ya posee automovil"); return false; }
+            if (Turno.CheckedItems.Count == 0) { Mensaje_Error("No se ha/n seleccionado turno/s"); return false; }
             return true;
 
         }
@@ -94,11 +50,28 @@ namespace UberFrba.Abm_Automovil
             string patente = textBox_Patente.Text;
             string chofer = textBox_Chofer.Text;
             int estado = 1;
-            
-            if (!(ValidarAutomovil(marca,modelo,patente,chofer))) {Mensaje_Error("Error al generar la alta"); Close();}
-            DAOAutomovil.altaAutomovil(marca,modelo,patente,/*chofer,*/estado);
-            Mensaje_OK("El automovil fue dado de alta");
-            this.Close();
+
+            if (!(ValidarAutomovil(marca, modelo, patente, chofer))) { Mensaje_Error("Error al generar la alta"); }
+                else
+                {
+                DAOAutomovil.altaAutomovil(marca, modelo, patente,chofer,estado);
+                this.actualizarTurnosAutomovil(patente);
+                Mensaje_OK("El automovil fue dado de alta");
+                this.Close();
+                }
+            }
+        }
+
+        private void actualizarTurnosAutomovil(string patente)
+        {
+            DataRow row;
+            int cont;
+            for (cont = 0; cont < Turno.Items.Count; cont++)
+            {
+                int estadoTurno = Convert.ToInt32(Turno.GetItemChecked(cont));
+                row = ((DataRowView)this.Turno.Items[cont]).Row;
+                string detalle = (row[this.Turno.ValueMember]).ToString();
+                DAOAutomovil.modificarTurnoAutomovilPorPatente(patente, detalle, estadoTurno);
             }
         }
 
@@ -108,13 +81,11 @@ namespace UberFrba.Abm_Automovil
             DataTable modelos = DAOAutomovil.getModelos(comboBox_Marca.Text);
             comboBox_Modelo.DisplayMember = "COCHE_MODELO_CODIGO";
             comboBox_Modelo.DataSource = modelos;
+            Turno.DataSource = DAOTurno.getTurnoDescripcionHabilitado();
+            Turno.ValueMember = "TURNO_DESCRIPCION";
 
         }
 
-        private void comboBox_Modelo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
 
     }
 }

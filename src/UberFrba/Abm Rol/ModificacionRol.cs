@@ -16,7 +16,6 @@ namespace UberFrba.Abm_Rol
     {
        
         private int estado;
-        private string roles;
         private int idRol;
         private int idFun;
 

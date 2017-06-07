@@ -49,6 +49,7 @@ namespace UberFrba.Abm_Automovil
             DataTable table = DAOAutomovil.getEstadoYChofer(comboBox_Patente.Text);
             DataRow row = table.Rows[0];
             checkBox_Estado.Enabled = false;
+            textBox_Chofer.Text = ((row["PERSONA"]) as string);
             if (Convert.ToInt32(row["COCHE_ESTADO"]) == 1)
             {
                 checkBox_Estado.Checked = true;

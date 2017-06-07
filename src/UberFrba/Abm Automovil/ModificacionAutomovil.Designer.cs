@@ -45,11 +45,13 @@
             this.checkBoxEstado = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
             this.comboBoxPatente = new System.Windows.Forms.ComboBox();
+            this.Turno = new System.Windows.Forms.CheckedListBox();
+            this.labelTurno = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonCancelar
             // 
-            this.buttonCancelar.Location = new System.Drawing.Point(12, 197);
+            this.buttonCancelar.Location = new System.Drawing.Point(12, 277);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(75, 23);
             this.buttonCancelar.TabIndex = 30;
@@ -59,7 +61,7 @@
             // 
             // buttonAceptar
             // 
-            this.buttonAceptar.Location = new System.Drawing.Point(197, 197);
+            this.buttonAceptar.Location = new System.Drawing.Point(197, 277);
             this.buttonAceptar.Name = "buttonAceptar";
             this.buttonAceptar.Size = new System.Drawing.Size(75, 23);
             this.buttonAceptar.TabIndex = 29;
@@ -74,7 +76,6 @@
             this.textBoxChofer.Name = "textBoxChofer";
             this.textBoxChofer.Size = new System.Drawing.Size(130, 20);
             this.textBoxChofer.TabIndex = 28;
-            this.textBoxChofer.TextChanged += new System.EventHandler(this.textBoxChofer_TextChanged);
             // 
             // buttonSeleccionar
             // 
@@ -94,7 +95,6 @@
             this.label5.Size = new System.Drawing.Size(38, 13);
             this.label5.TabIndex = 22;
             this.label5.Text = "Chofer";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label3
             // 
@@ -104,7 +104,6 @@
             this.label3.Size = new System.Drawing.Size(44, 13);
             this.label3.TabIndex = 20;
             this.label3.Text = "Patente";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label6
             // 
@@ -114,7 +113,6 @@
             this.label6.Size = new System.Drawing.Size(42, 13);
             this.label6.TabIndex = 19;
             this.label6.Text = "Modelo";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label2
             // 
@@ -124,7 +122,6 @@
             this.label2.Size = new System.Drawing.Size(37, 13);
             this.label2.TabIndex = 18;
             this.label2.Text = "Marca";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -134,7 +131,6 @@
             this.label1.Size = new System.Drawing.Size(221, 13);
             this.label1.TabIndex = 17;
             this.label1.Text = "Ingrese La Patente Del Automovil A Modificar";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // comboBoxModelo
             // 
@@ -157,7 +153,7 @@
             // checkBoxEstado
             // 
             this.checkBoxEstado.AutoSize = true;
-            this.checkBoxEstado.Location = new System.Drawing.Point(62, 143);
+            this.checkBoxEstado.Location = new System.Drawing.Point(62, 243);
             this.checkBoxEstado.Name = "checkBoxEstado";
             this.checkBoxEstado.Size = new System.Drawing.Size(73, 17);
             this.checkBoxEstado.TabIndex = 51;
@@ -167,12 +163,11 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(9, 147);
+            this.label7.Location = new System.Drawing.Point(9, 247);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(40, 13);
             this.label7.TabIndex = 50;
             this.label7.Text = "Estado";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // comboBoxPatente
             // 
@@ -181,13 +176,33 @@
             this.comboBoxPatente.Name = "comboBoxPatente";
             this.comboBoxPatente.Size = new System.Drawing.Size(130, 21);
             this.comboBoxPatente.TabIndex = 52;
-            this.comboBoxPatente.SelectedIndexChanged += new System.EventHandler(this.comboBoxPatente_SelectedIndexChanged);
+            // 
+            // Turno
+            // 
+            this.Turno.FormattingEnabled = true;
+            this.Turno.Location = new System.Drawing.Point(62, 143);
+            this.Turno.Name = "Turno";
+            this.Turno.Size = new System.Drawing.Size(130, 94);
+            this.Turno.TabIndex = 53;
+            this.Turno.Visible = false;
+            // 
+            // labelTurno
+            // 
+            this.labelTurno.AutoSize = true;
+            this.labelTurno.Location = new System.Drawing.Point(9, 143);
+            this.labelTurno.Name = "labelTurno";
+            this.labelTurno.Size = new System.Drawing.Size(35, 13);
+            this.labelTurno.TabIndex = 54;
+            this.labelTurno.Text = "Turno";
+            this.labelTurno.Visible = false;
             // 
             // ModificacionAutomovil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(284, 312);
+            this.Controls.Add(this.labelTurno);
+            this.Controls.Add(this.Turno);
             this.Controls.Add(this.comboBoxPatente);
             this.Controls.Add(this.checkBoxEstado);
             this.Controls.Add(this.label7);
@@ -205,7 +220,6 @@
             this.Name = "ModificacionAutomovil";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Modificacion De Automovil";
-            this.Load += new System.EventHandler(this.ModificacionAutomovil_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -227,5 +241,7 @@
         private System.Windows.Forms.CheckBox checkBoxEstado;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox comboBoxPatente;
+        private System.Windows.Forms.CheckedListBox Turno;
+        private System.Windows.Forms.Label labelTurno;
     }
 }
