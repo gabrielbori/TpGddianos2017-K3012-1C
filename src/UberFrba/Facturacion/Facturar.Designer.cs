@@ -1,7 +1,19 @@
-﻿namespace UberFrba.Facturacion
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using UberFrba.Model;
+using UberFrba.CapaDAO;
+
+namespace UberFrba.Facturacion
 {
     partial class Facturar
     {
+        private Persona persona;
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -11,6 +23,27 @@
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// 
+
+
+        public override void mostrar(Form parent, params object[] values)
+        {
+            Persona persona = (Persona)values[0];
+
+
+            this.persona = persona;
+
+            textBox_Nombre.Text = persona.Nombre;
+            textBox_Apellido.Text = persona.Apellido;
+            textBox_DNI.Text = Convert.ToString(persona.Dni);
+
+
+
+            base.mostrar(parent);
+        }
+
+
+
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -46,15 +79,13 @@
             this.button_Aceptar = new System.Windows.Forms.Button();
             this.button_Cerrar = new System.Windows.Forms.Button();
             this.groupBox_Cliente = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.button_Buscar = new System.Windows.Forms.Button();
+            this.textBox_DNI = new System.Windows.Forms.TextBox();
             this.textBox_Apellido = new System.Windows.Forms.TextBox();
             this.textBox_Nombre = new System.Windows.Forms.TextBox();
-            this.button_Cargar_Persona = new System.Windows.Forms.Button();
-            this.textBox_Telefono = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox_DNI = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.groupBox_DatosFactura.SuspendLayout();
             this.groupBox_Viajes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Viajes)).BeginInit();
@@ -246,15 +277,13 @@
             // 
             // groupBox_Cliente
             // 
-            this.groupBox_Cliente.Controls.Add(this.label5);
-            this.groupBox_Cliente.Controls.Add(this.label2);
+            this.groupBox_Cliente.Controls.Add(this.button_Buscar);
+            this.groupBox_Cliente.Controls.Add(this.textBox_DNI);
             this.groupBox_Cliente.Controls.Add(this.textBox_Apellido);
             this.groupBox_Cliente.Controls.Add(this.textBox_Nombre);
-            this.groupBox_Cliente.Controls.Add(this.button_Cargar_Persona);
-            this.groupBox_Cliente.Controls.Add(this.textBox_Telefono);
             this.groupBox_Cliente.Controls.Add(this.label4);
-            this.groupBox_Cliente.Controls.Add(this.textBox_DNI);
-            this.groupBox_Cliente.Controls.Add(this.label3);
+            this.groupBox_Cliente.Controls.Add(this.label2);
+            this.groupBox_Cliente.Controls.Add(this.label9);
             this.groupBox_Cliente.Location = new System.Drawing.Point(12, 12);
             this.groupBox_Cliente.Name = "groupBox_Cliente";
             this.groupBox_Cliente.Size = new System.Drawing.Size(327, 136);
@@ -263,92 +292,69 @@
             this.groupBox_Cliente.Text = "Cliente";
             this.groupBox_Cliente.Enter += new System.EventHandler(this.groupBox_Cliente_Enter);
             // 
-            // label5
+            // button_Buscar
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(34, 74);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(44, 13);
-            this.label5.TabIndex = 45;
-            this.label5.Text = "Nombre";
+            this.button_Buscar.Location = new System.Drawing.Point(201, 107);
+            this.button_Buscar.Name = "button_Buscar";
+            this.button_Buscar.Size = new System.Drawing.Size(103, 23);
+            this.button_Buscar.TabIndex = 83;
+            this.button_Buscar.Text = "Buscar cliente";
+            this.button_Buscar.UseVisualStyleBackColor = true;
+            this.button_Buscar.Click += new System.EventHandler(this.button_Buscar_Click);
             // 
-            // label2
+            // textBox_DNI
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(34, 100);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 13);
-            this.label2.TabIndex = 44;
-            this.label2.Text = "Apellido";
+            this.textBox_DNI.Location = new System.Drawing.Point(78, 74);
+            this.textBox_DNI.Name = "textBox_DNI";
+            this.textBox_DNI.ReadOnly = true;
+            this.textBox_DNI.Size = new System.Drawing.Size(226, 20);
+            this.textBox_DNI.TabIndex = 82;
+            this.textBox_DNI.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox_Apellido
             // 
-            this.textBox_Apellido.Location = new System.Drawing.Point(84, 97);
+            this.textBox_Apellido.Location = new System.Drawing.Point(78, 48);
             this.textBox_Apellido.Name = "textBox_Apellido";
             this.textBox_Apellido.ReadOnly = true;
-            this.textBox_Apellido.Size = new System.Drawing.Size(151, 20);
-            this.textBox_Apellido.TabIndex = 43;
-            this.textBox_Apellido.Visible = false;
+            this.textBox_Apellido.Size = new System.Drawing.Size(226, 20);
+            this.textBox_Apellido.TabIndex = 81;
+            this.textBox_Apellido.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox_Nombre
             // 
-            this.textBox_Nombre.Location = new System.Drawing.Point(84, 71);
+            this.textBox_Nombre.Location = new System.Drawing.Point(78, 22);
             this.textBox_Nombre.Name = "textBox_Nombre";
             this.textBox_Nombre.ReadOnly = true;
-            this.textBox_Nombre.Size = new System.Drawing.Size(151, 20);
-            this.textBox_Nombre.TabIndex = 42;
-            this.textBox_Nombre.Visible = false;
-            this.textBox_Nombre.TextChanged += new System.EventHandler(this.textBox_Nombre_TextChanged_1);
-            // 
-            // button_Cargar_Persona
-            // 
-            this.button_Cargar_Persona.Location = new System.Drawing.Point(246, 42);
-            this.button_Cargar_Persona.Name = "button_Cargar_Persona";
-            this.button_Cargar_Persona.Size = new System.Drawing.Size(75, 23);
-            this.button_Cargar_Persona.TabIndex = 41;
-            this.button_Cargar_Persona.Text = "Cargar";
-            this.button_Cargar_Persona.UseVisualStyleBackColor = true;
-            this.button_Cargar_Persona.Click += new System.EventHandler(this.button_Cargar_Persona_Click);
-            // 
-            // textBox_Telefono
-            // 
-            this.textBox_Telefono.Location = new System.Drawing.Point(84, 45);
-            this.textBox_Telefono.MaxLength = 10;
-            this.textBox_Telefono.Name = "textBox_Telefono";
-            this.textBox_Telefono.Size = new System.Drawing.Size(151, 20);
-            this.textBox_Telefono.TabIndex = 40;
-            this.textBox_Telefono.TextChanged += new System.EventHandler(this.textBox_Telefono_TextChanged);
-            this.textBox_Telefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_Telefono_KeyPress);
+            this.textBox_Nombre.Size = new System.Drawing.Size(226, 20);
+            this.textBox_Nombre.TabIndex = 80;
+            this.textBox_Nombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(29, 48);
+            this.label4.Location = new System.Drawing.Point(28, 77);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 13);
-            this.label4.TabIndex = 39;
-            this.label4.Text = "Telefono";
+            this.label4.Size = new System.Drawing.Size(26, 13);
+            this.label4.TabIndex = 79;
+            this.label4.Text = "DNI";
             // 
-            // textBox_DNI
+            // label2
             // 
-            this.textBox_DNI.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox_DNI.Location = new System.Drawing.Point(84, 19);
-            this.textBox_DNI.MaxLength = 8;
-            this.textBox_DNI.Name = "textBox_DNI";
-            this.textBox_DNI.Size = new System.Drawing.Size(151, 20);
-            this.textBox_DNI.TabIndex = 38;
-            this.textBox_DNI.TabStop = false;
-            this.textBox_DNI.TextChanged += new System.EventHandler(this.textBox_DNI_TextChanged);
-            this.textBox_DNI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_DNI_KeyPress);
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(28, 51);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(44, 13);
+            this.label2.TabIndex = 78;
+            this.label2.Text = "Apellido";
             // 
-            // label3
+            // label9
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(52, 22);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(26, 13);
-            this.label3.TabIndex = 36;
-            this.label3.Text = "DNI";
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(28, 25);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(44, 13);
+            this.label9.TabIndex = 77;
+            this.label9.Text = "Nombre";
             // 
             // Facturar
             // 
@@ -389,20 +395,18 @@
         private System.Windows.Forms.Button button_Aceptar;
         private System.Windows.Forms.Button button_Cerrar;
         private System.Windows.Forms.GroupBox groupBox_Cliente;
-        private System.Windows.Forms.TextBox textBox_DNI;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox_Numero;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DateTimePicker dateTimePicker_Fin;
         private System.Windows.Forms.DateTimePicker dateTimePicker_Inicio;
-        private System.Windows.Forms.TextBox textBox_Telefono;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button_Cargar_Persona;
-        private System.Windows.Forms.TextBox textBox_Apellido;
-        private System.Windows.Forms.TextBox textBox_Nombre;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button button_Buscar;
+        private System.Windows.Forms.TextBox textBox_DNI;
+        private System.Windows.Forms.TextBox textBox_Apellido;
+        private System.Windows.Forms.TextBox textBox_Nombre;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label9;
     }
 }
