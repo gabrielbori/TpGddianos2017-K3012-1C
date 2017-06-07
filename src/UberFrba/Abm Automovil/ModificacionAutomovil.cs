@@ -29,15 +29,10 @@ namespace UberFrba.Abm_Automovil
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private bool ValidarChofer(string chofer, string patente)
         {
-
-        }
-
-        private bool ValidarChofer(/*, string chofer*/)
-        {
-//            if (chofer == null) Mensaje_Errr("El chofer se encuentra vacio"); return false;
-//            if (choferAsignado(chofer) Mensaje_Error ("El chofer ya posee auto"); return false;
+            if (chofer == null) {Mensaje_Error("El chofer se encuentra vacio"); return false;}
+            if (DAOAutomovil.choferAsignado(chofer, patente) == true) { Mensaje_Error("El chofer ya posee auto"); return false; }
             return true;
         }
 
@@ -46,34 +41,47 @@ namespace UberFrba.Abm_Automovil
 
             string patente = comboBoxPatente.Text;
             int estado = Convert.ToInt32(checkBoxEstado.Checked);
-//            string chofer = textBoxChofer.Text;
+            string chofer = textBoxChofer.Text;
 
             var resultado = Mensaje_Pregunta("¿Está seguro que desea modificar el automovil?", "Modificar Automovil");
             if (resultado == DialogResult.Yes)
             {
-                if (!ValidarChofer(/*, chofer*/)) { Mensaje_Error("Modificacion no valida"); Close(); }
-                DAOAutomovil.modificarAutomovilPorPatente(patente, estado /*,chofer*/ );
-                Mensaje_OK("El automovil fue modificado");
-                this.Close();
+                if (!ValidarChofer(chofer, patente)) { Mensaje_Error("Modificacion no valida"); }
+                else
+                {
+                    DAOAutomovil.modificarAutomovilPorPatente(patente, estado, chofer);
+                    this.actualizarTurnosAutomovil(patente);
+                    Mensaje_OK("El automovil fue modificado");
+                    this.Close();
+                }
             }
         }
-
-        private void textBoxChofer_TextChanged(object sender, EventArgs e)
+        private void actualizarTurnosAutomovil(string patente)
         {
-
+            DataRow row;
+            int cont;
+            for (cont = 0; cont < Turno.Items.Count; cont++)
+            {
+            int estadoTurno = Convert.ToInt32(Turno.GetItemChecked(cont));
+            row = ((DataRowView)this.Turno.Items[cont]).Row;
+            string detalle = (row[this.Turno.ValueMember]).ToString();
+            DAOAutomovil.modificarTurnoAutomovilPorPatente(patente, detalle, estadoTurno);
+            } 
         }
 
-        private void textBox4_TextChanged(object sender, EventArgs e)
+        private void cargarTurnos(DataTable table)
         {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
+            int cont = 0;
+            Turno.DataSource = table;
+            DataRow row = table.Rows[cont];
+            while (row != null)
+            {
+                Turno.ValueMember = "TURNO_DESCRIPCION";
+                Turno.SetItemChecked(cont, Convert.ToBoolean(row["TURNO_TURNO_ESTADO"]));
+                cont++;
+                try { row = table.Rows[cont]; }
+                catch { row = null; }
+            }
 
         }
 
@@ -88,13 +96,17 @@ namespace UberFrba.Abm_Automovil
                 label5.Visible = true;
                 label7.Visible = true;
                 int estado = Convert.ToInt32(row["COCHE_ESTADO"]);
-                // string chofer = row["COCHE_CHOFER"] as string;
-                // textoBox_Chofer = chofer;
+                string chofer = row["PERSONA"] as string;
+                textBoxChofer.Text = chofer;
                 if (estado == 1)
                 {
                     checkBoxEstado.Visible = false;
                     label7.Visible = false;
                     textBoxChofer.Enabled = true;
+                    checkBoxEstado.Checked = true;
+                    labelTurno.Visible = true;
+                    Turno.Visible = true;
+                    this.cargarTurnos(DAOTurno.getTurnoDeCoche(comboBoxPatente.Text));
                 }
                 else
                 {
@@ -105,36 +117,6 @@ namespace UberFrba.Abm_Automovil
                     buttonAceptar.Visible = true;
                     
             }catch{Mensaje_Error("El automovil ingresado no existe");}
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void buttonCancelar_Click(object sender, EventArgs e)
@@ -160,19 +142,5 @@ namespace UberFrba.Abm_Automovil
 
         }
 
-        private void ModificacionAutomovil_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBoxPatente_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
