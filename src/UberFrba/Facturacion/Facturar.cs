@@ -9,13 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using UberFrba.Model;
 using UberFrba.CapaDAO;
+using UberFrba.Abm_Persona;
 
 namespace UberFrba.Facturacion
 {
     public partial class Facturar : FormBase
     {
 
-        private int idPersona;
+        
         public Facturar()
         {
             InitializeComponent();
@@ -30,33 +31,7 @@ namespace UberFrba.Facturacion
             dateTimePicker_Fin.Value = fechaF;
         }
 
-        private void button_Cargar_Persona_Click(object sender, EventArgs e)
-        {
-            if ((textBox_Nombre.Visible == false) && (textBox_Apellido.Visible == false))
-            {
-                try
-                {
-                    int dni = Convert.ToInt32(textBox_DNI.Text);
-                    int telefono = Convert.ToInt32(textBox_Telefono.Text);
-                    idPersona = DAOFacturacion.getIDPersona(dni, telefono);
-                    string nombre = DAOFacturacion.getNombrePersona(dni, telefono);
-                    string apellido = DAOFacturacion.getApellidoPersona(dni, telefono);
-
-                    textBox_Nombre.Visible = true;
-                    textBox_Apellido.Visible = true;
-                    textBox_Nombre.SelectedText = nombre;
-                    textBox_Apellido.SelectedText = apellido;
-                }
-
-                catch { Mensaje_Error("La persona no se encuentra en la base de datos"); }
-            }
-            else
-            {
-                Mensaje_Error("Los datos ya fueron cargados");
-                return;
-            }
-
-        }
+       
 
         private void button_Buscar_Viajes_Click(object sender, EventArgs e)
         {
@@ -65,14 +40,14 @@ namespace UberFrba.Facturacion
                 Mensaje_Error("Limpie los datos de la última operación");
                 return;
             }
-            if ((textBox_Nombre.Visible == false) && (textBox_Apellido.Visible == false))
+            if ((textBox_Nombre.Text == "") && (textBox_Apellido.Text == "") && (textBox_DNI.Text == ""))
             {
                 Mensaje_Error("Cargue el Cliente");
                 return;
             }
             if (dateTimePicker_Fin.Value <= DateTime.Today)
             {
-                dataGridView_Viajes.DataSource = DAOFacturacion.getViajes(idPersona, Convert.ToInt32(dateTimePicker_Inicio.Value.Month), Convert.ToInt32(dateTimePicker_Inicio.Value.Year));
+                dataGridView_Viajes.DataSource = DAOFacturacion.getViajes(Convert.ToInt32(persona.ID), Convert.ToInt32(dateTimePicker_Inicio.Value.Month), Convert.ToInt32(dateTimePicker_Inicio.Value.Year));
                 this.dataGridView_Viajes.Columns["ID"].Visible = false;
                 setTotal();
             }
@@ -108,8 +83,7 @@ namespace UberFrba.Facturacion
         private void LimpiarCampos()
         {
             foreach (var control in this.groupBox_Cliente.Controls.OfType<TextBox>()) control.Text = "";
-            textBox_Nombre.Visible = false;
-            textBox_Apellido.Visible = false;
+            
             dateTimePicker1.Text = Convert.ToString(DateTime.Today);
             DateTime fechaI = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
             dateTimePicker_Inicio.Value = fechaI;
@@ -141,7 +115,7 @@ namespace UberFrba.Facturacion
                     int numFactura;
                     try
                     {
-                        DAOFacturacion.crearFactura(idPersona, Convert.ToDateTime(dateTimePicker_Inicio.Value),
+                        DAOFacturacion.crearFactura(Convert.ToInt32(persona.ID), Convert.ToDateTime(dateTimePicker_Inicio.Value),
                                                             Convert.ToDateTime(dateTimePicker_Fin.Value), dataGridView_Viajes.Rows,
                                                             Convert.ToDecimal(textBox_montoTotal.Text));
                         numFactura = DAOFacturacion.buscarIDFacturaInsertado();
@@ -169,49 +143,7 @@ namespace UberFrba.Facturacion
             }
             return false;
         }
-
-
-        //NO PERMITE ESCRIBIR LETRAS EN EL TEXTBOX DNI
-        private void textBox_DNI_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (Char.IsDigit(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else if (Char.IsControl(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else if (Char.IsSeparator(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-            }
-        }
-
-        //NO PERMITE ESCRIBIR LETRAS EN EL TEXTBOX TELEFONO
-        private void textBox_Telefono_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (Char.IsDigit(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else if (Char.IsControl(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else if (Char.IsSeparator(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-            }
-        }
+       
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
@@ -223,10 +155,24 @@ namespace UberFrba.Facturacion
             dateTimePicker_Fin.Value = fechaF;
         }
 
+        private void button_Buscar_Click(object sender, EventArgs e)
+        {
+            foreach (var control in this.groupBox_Cliente.Controls.OfType<TextBox>()) control.Text = "";
+
+            dateTimePicker1.Text = Convert.ToString(DateTime.Today);
+            DateTime fechaI = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+            dateTimePicker_Inicio.Value = fechaI;
+            DateTime fechaF = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month));
+            dateTimePicker_Fin.Value = fechaF;
+            dataGridView_Viajes.DataSource = new DataTable();
+            textBox_Numero.Text = "A generar";
+            textBox_montoTotal.Text = "";
+
+            SeleccionDePersona frm = new SeleccionDePersona(this, 3);
+            frm.Show();
+        }
 
         private void label10_Click(object sender, EventArgs e) { }
-
-        private void textBox_Nombre_TextChanged(object sender, EventArgs e) { }
 
         private void textBox_Fecha_Inicio_TextChanged(object sender, EventArgs e) { }
 
@@ -255,5 +201,8 @@ namespace UberFrba.Facturacion
         private void groupBox_Cliente_Enter(object sender, EventArgs e) { }
 
         private void textBox_Telefono_TextChanged(object sender, EventArgs e) { }
+
+      
+        }
     }
-}
+

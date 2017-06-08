@@ -103,6 +103,12 @@
     <Compile Include="Abm Persona\BajaPersona.Designer.cs">
       <DependentUpon>BajaPersona.cs</DependentUpon>
     </Compile>
+    <Compile Include="Abm Persona\SeleccionPersonaActiva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Persona\SeleccionPersonaActiva.Designer.cs">
+      <DependentUpon>SeleccionPersonaActiva.cs</DependentUpon>
+    </Compile>
     <Compile Include="Abm Persona\ModificacionPersona.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -249,6 +255,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Persona\BajaPersona.resx">
       <DependentUpon>BajaPersona.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Persona\SeleccionPersonaActiva.resx">
+      <DependentUpon>SeleccionPersonaActiva.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Persona\ModificacionPersona.resx">
       <DependentUpon>ModificacionPersona.cs</DependentUpon>
