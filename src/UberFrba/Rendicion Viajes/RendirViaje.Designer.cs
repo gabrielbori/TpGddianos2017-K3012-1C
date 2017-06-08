@@ -64,10 +64,13 @@ namespace UberFrba.Rendicion_Viajes
         private void InitializeComponent()
         {
             this.groupBox_Viajes = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox_montoTotal = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.dataGridView_Viajes = new System.Windows.Forms.DataGridView();
             this.groupBox_Chofer = new System.Windows.Forms.GroupBox();
+            this.button_Buscar = new System.Windows.Forms.Button();
             this.textBox_DNI = new System.Windows.Forms.TextBox();
             this.textBox_Apellido = new System.Windows.Forms.TextBox();
             this.textBox_Nombre = new System.Windows.Forms.TextBox();
@@ -79,13 +82,10 @@ namespace UberFrba.Rendicion_Viajes
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.groupBox_Pago = new System.Windows.Forms.GroupBox();
+            this.button_Buscar_Viajes = new System.Windows.Forms.Button();
             this.button_Limpiar = new System.Windows.Forms.Button();
             this.button_Aceptar = new System.Windows.Forms.Button();
             this.button_Cerrar = new System.Windows.Forms.Button();
-            this.button_Buscar_Viajes = new System.Windows.Forms.Button();
-            this.button_Buscar = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.groupBox_Viajes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Viajes)).BeginInit();
             this.groupBox_Chofer.SuspendLayout();
@@ -105,6 +105,26 @@ namespace UberFrba.Rendicion_Viajes
             this.groupBox_Viajes.TabIndex = 4;
             this.groupBox_Viajes.TabStop = false;
             this.groupBox_Viajes.Text = "Viajes a rendir";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 300);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(162, 13);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "Porcentaje aplicado a cada viaje";
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.textBox1.Enabled = false;
+            this.textBox1.Location = new System.Drawing.Point(174, 297);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 25;
+            this.textBox1.TabStop = false;
             // 
             // textBox_montoTotal
             // 
@@ -152,6 +172,16 @@ namespace UberFrba.Rendicion_Viajes
             this.groupBox_Chofer.TabIndex = 5;
             this.groupBox_Chofer.TabStop = false;
             this.groupBox_Chofer.Text = "Chofer";
+            // 
+            // button_Buscar
+            // 
+            this.button_Buscar.Location = new System.Drawing.Point(196, 118);
+            this.button_Buscar.Name = "button_Buscar";
+            this.button_Buscar.Size = new System.Drawing.Size(103, 23);
+            this.button_Buscar.TabIndex = 76;
+            this.button_Buscar.Text = "Buscar chofer";
+            this.button_Buscar.UseVisualStyleBackColor = true;
+            this.button_Buscar.Click += new System.EventHandler(this.button_Buscar_Click);
             // 
             // textBox_DNI
             // 
@@ -255,6 +285,16 @@ namespace UberFrba.Rendicion_Viajes
             this.groupBox_Pago.TabStop = false;
             this.groupBox_Pago.Text = "Datos de pago";
             // 
+            // button_Buscar_Viajes
+            // 
+            this.button_Buscar_Viajes.Location = new System.Drawing.Point(196, 137);
+            this.button_Buscar_Viajes.Name = "button_Buscar_Viajes";
+            this.button_Buscar_Viajes.Size = new System.Drawing.Size(103, 23);
+            this.button_Buscar_Viajes.TabIndex = 49;
+            this.button_Buscar_Viajes.Text = "Buscar Viajes";
+            this.button_Buscar_Viajes.UseVisualStyleBackColor = true;
+            this.button_Buscar_Viajes.Click += new System.EventHandler(this.button_Buscar_Viajes_Click);
+            // 
             // button_Limpiar
             // 
             this.button_Limpiar.Location = new System.Drawing.Point(723, 341);
@@ -284,46 +324,6 @@ namespace UberFrba.Rendicion_Viajes
             this.button_Cerrar.Text = "Cerrar";
             this.button_Cerrar.UseVisualStyleBackColor = true;
             this.button_Cerrar.Click += new System.EventHandler(this.button_Cerrar_Click);
-            // 
-            // button_Buscar_Viajes
-            // 
-            this.button_Buscar_Viajes.Location = new System.Drawing.Point(196, 137);
-            this.button_Buscar_Viajes.Name = "button_Buscar_Viajes";
-            this.button_Buscar_Viajes.Size = new System.Drawing.Size(103, 23);
-            this.button_Buscar_Viajes.TabIndex = 49;
-            this.button_Buscar_Viajes.Text = "Buscar Viajes";
-            this.button_Buscar_Viajes.UseVisualStyleBackColor = true;
-            this.button_Buscar_Viajes.Click += new System.EventHandler(this.button_Buscar_Viajes_Click);
-            // 
-            // button_Buscar
-            // 
-            this.button_Buscar.Location = new System.Drawing.Point(196, 118);
-            this.button_Buscar.Name = "button_Buscar";
-            this.button_Buscar.Size = new System.Drawing.Size(103, 23);
-            this.button_Buscar.TabIndex = 76;
-            this.button_Buscar.Text = "Buscar chofer";
-            this.button_Buscar.UseVisualStyleBackColor = true;
-            this.button_Buscar.Click += new System.EventHandler(this.button_Buscar_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(174, 297);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 25;
-            this.textBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 300);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(162, 13);
-            this.label1.TabIndex = 26;
-            this.label1.Text = "Porcentaje aplicado a cada viaje";
             // 
             // RendirViaje
             // 
