@@ -223,8 +223,8 @@ namespace UberFrba
             if (ActiveMdiChild != null) ActiveMdiChild.Close();
             //Facturacion.Facturar facturar = new Facturacion.Facturar();
             //facturar.mostrar(this);   
-            Abm_Persona.SeleccionDePersona seleccionPersona = new Abm_Persona.SeleccionDePersona(new Facturacion.Facturar(), 3);
-            seleccionPersona.mostrar(this);
+            Abm_Persona.SeleccionPersonaActiva seleccionPersonaActiva = new Abm_Persona.SeleccionPersonaActiva(new Facturacion.Facturar(), 3);
+            seleccionPersonaActiva.mostrar(this);
         }
 
         private void rendicionDeViajesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -233,8 +233,8 @@ namespace UberFrba
             if (ActiveMdiChild != null) ActiveMdiChild.Close();
             //Rendicion_Viajes.RendirViaje rendirViaje = new Rendicion_Viajes.RendirViaje();
             //rendirViaje.mostrar(this); 
-            Abm_Persona.SeleccionDePersona seleccionPersona = new Abm_Persona.SeleccionDePersona(new Rendicion_Viajes.RendirViaje(), 2);
-            seleccionPersona.mostrar(this);
+            Abm_Persona.SeleccionPersonaActiva seleccionPersonaActiva = new Abm_Persona.SeleccionPersonaActiva(new Rendicion_Viajes.RendirViaje(), 2);
+            seleccionPersonaActiva.mostrar(this);
         }
 
         private void altaTurno_Click(object sender, EventArgs e)
