@@ -97,7 +97,8 @@ namespace UberFrba.Rendicion_Viajes
             {
 
                 dataGridView_Viajes.DataSource = DAORendicionViaje.getViajes(Convert.ToInt32(persona.ID), Convert.ToDateTime(dateTimePicker1.Value), Convert.ToInt32(comboBox1.SelectedValue) );
-                this.dataGridView_Viajes.Columns["ID"].Visible = false;
+                this.dataGridView_Viajes.Columns["ID"].Visible = false;               
+                textBox1.Text = Convert.ToString(0.3);
                 setTotal();
 
             }

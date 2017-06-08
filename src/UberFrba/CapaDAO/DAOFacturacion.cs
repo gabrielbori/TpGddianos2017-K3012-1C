@@ -12,71 +12,51 @@ namespace UberFrba.CapaDAO
     class DAOFacturacion : SqlConnector
     {
 
-        //OBTIENE ID DE LA PERSONA SEGUN EL DNI Y EL TELEFONO
-        public static int getIDPersona(int dni, int telefono)
-        {
-            DataTable table = retrieveDataTable("GET_PERSONA_POR_DNI_TELEFONO", dni, telefono);
-            return dataRowToID(table.Rows[0]);
-        }
-
-        public static int dataRowToID(DataRow row)
-        {
-            return Convert.ToInt32(row["PERS_ID"]);
-        }
-
-
-        //OBTIENE EL NOMBRE DEL CLIENTE SEGUN EL DNI Y EL TELEFONO
-        public static String getNombrePersona(int dni, int telefono)
-        {
-            DataTable table = retrieveDataTable("GET_PERSONA_POR_DNI_TELEFONO", dni, telefono);
-            return dataRowToNombre(table.Rows[0]);
-        }
-
-        public static string dataRowToNombre(DataRow row)
-        {
-            return Convert.ToString(row["PERS_NOMBRE"]);
-        }
-
-
-        //OBTIENE EL APELLIDO DEL CLIENTE SEGUN EL DNIY EL TELEFONO
-        public static String getApellidoPersona(int dni, int telefono)
-        {
-            DataTable table = retrieveDataTable("GET_PERSONA_POR_DNI_TELEFONO", dni, telefono);
-            return dataRowToApellido(table.Rows[0]);
-        }
-
-        public static string dataRowToApellido(DataRow row)
-        {
-            return Convert.ToString(row["PERS_APELLIDO"]);
-        }
+       
 
         //OBTIENE VIAJES A FACTURAR
-        public static DataTable getViajes (int idPersona, int mes, int año)
+        public static DataTable getViajes(int idPersona, int mes, int año)
         {
 
             return retrieveDataTable("GET_VIAJES_A_FACTURAR", idPersona, mes, año);
         }
 
         //CREA FACTURA
-        public static long crearFactura(int idPersona, DateTime fecha_inicio, DateTime fecha_final, DataGridViewRowCollection viajes, Decimal montoTotal)
+        public static int crearFactura(int idPersona, DateTime fecha_inicio, DateTime fecha_final, DataGridViewRowCollection viajes, Decimal montoTotal)
         {
-            return executeProcedureWithLongReturnValue("CREAR_FACTURA", idPersona, DateTime.Today,
-                                                        fecha_inicio,fecha_final, crearData(viajes), montoTotal);
+            return (executeProcedureWithReturnValue("CREAR_FACTURA", idPersona, DateTime.Today,
+                                                        fecha_inicio, fecha_final, crearData(viajes), montoTotal));
         }
 
-                //FUNCIONES AUXILIARES
-        private static DataTable crearData(DataGridViewRowCollection integers)
+        public static int buscarIDFacturaInsertado()
         {
-            List<int> ints = new List<int>();
+            return executeProcedureWithReturnValue("GET_ID_FACTURA_INSERTADO");
+        }
 
-            for (int i = 0; i < integers.Count; i++)
+        //FUNCIONES AUXILIARES
+        private static DataTable crearData(DataGridViewRowCollection viajes)
+        {
+            DataTable data = new DataTable();
+            data.Columns.Add("ID");
+            data.Columns.Add("Precio unitario");
+
+            for (int i = 0; i < viajes.Count; i++)
             {
-                ints.Add((int)integers[i].Cells["ID"].Value); //es el id del viaje
-                ints.Add((int)integers[i].Cells["Precio Unitario"].Value);
-            }
+                var row = data.NewRow();
 
-            return Globals.intsToDataTable(ints);
+                row["ID"] = Convert.ToInt32(viajes[i].Cells["ID"].Value);
+                row["Precio unitario"] = Convert.ToInt32(viajes[i].Cells["Precio unitario"].Value); //cambiar el convert
+
+                data.Rows.Add(row);
+            }
+            return data;
         }
+
+        public static int viajeYaFacturado(DataGridViewRowCollection viajes)
+        {
+            return executeProcedureWithReturnValue("VIAJE_YA_FACTURADO",crearData(viajes));
+        }
+
     }
-    
+
 }
