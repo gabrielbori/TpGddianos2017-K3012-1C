@@ -13,25 +13,23 @@ using UberFrba.CapaDAO;
 
 namespace UberFrba.Abm_Persona
 {
-    public partial class SeleccionDePersona : FormBase
+    public partial class SeleccionPersonaActiva : FormBase
     {
+
         private FormBase caller;
-      
-
         private int tipoAmbos = 1, tipoPersona = 0;
-
         string nombre, apellido, doc;
 
-        public SeleccionDePersona(FormBase caller, int tipoS2)
+         public SeleccionPersonaActiva(FormBase caller, int tipoS2)
         {
             this.caller = caller;
             tipoPersona = tipoS2;
             InitializeComponent();
         }
 
-        private void SeleccionDePersona_Load(object sender, EventArgs e)
+        public SeleccionPersonaActiva()
         {
-
+            InitializeComponent();
         }
 
         private void button_Buscar_Click(object sender, EventArgs e)
@@ -40,7 +38,7 @@ namespace UberFrba.Abm_Persona
             apellido = textBox_Apellido.Text;
             doc = textBox_Documento.Text;
 
-            dataGridView_Seleccion.DataSource = DAOPersona.getPersona(nombre, apellido, doc, tipoPersona, tipoAmbos);
+            dataGridView_Seleccion.DataSource = DAOPersona.getPersonaActiva(nombre, apellido, doc, tipoPersona, tipoAmbos);
         }
 
         private void dataGridView_Seleccion_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -49,13 +47,10 @@ namespace UberFrba.Abm_Persona
             int id = Convert.ToInt32(dataGridView_Seleccion.Rows[e.RowIndex].Cells[1].Value);
             DataTable table = DAOPersona.getPersona(id);
             Persona persona = DAOPersona.dataRowToPersona(table.Rows[0]);
-            RolUsuario rol =DAORol.getRolUsuario(persona.ID, tipoPersona);
-            if (rol != null)
-            {
+            
                 nombre = persona.Nombre + ' ' + persona.Apellido;
-                caller.mostrar(this.MdiParent, persona, rol);
+                caller.mostrar(this.MdiParent, persona);
                 cerrar();
-            }
             
         }
 
@@ -69,28 +64,15 @@ namespace UberFrba.Abm_Persona
             cerrar();
         }
 
-        private void button_Limpiar_Click(object sender, EventArgs e)
-        {
-            LimpiarCampos();
-        }
-
         private void LimpiarCampos()
         {
             foreach (var control in this.paner_Filtros.Controls.OfType<TextBox>()) control.Text = "";
             dataGridView_Seleccion.DataSource = new DataTable();
         }
 
-        private void textBox_Nombre_TextChanged(object sender, EventArgs e)
+        private void button_Limpiar_Click(object sender, EventArgs e)
         {
-
+            LimpiarCampos();
         }
-
-        private void textBox_Documento_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-      
-
     }
 }

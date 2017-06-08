@@ -16,6 +16,12 @@ namespace UberFrba.CapaDAO
             return retrieveDataTable("FIND_PERSONA", nombre, apellido, nroDoc, tipoPersona, tipoAmbos);
         }
 
+        public static DataTable getPersonaActiva(string nombre, string apellido, string nroDoc, int tipoPersona, int tipoAmbos)
+        {
+            return retrieveDataTable("FIND_PERSONA_ACTIVA", nombre, apellido, nroDoc, tipoPersona, tipoAmbos);
+        }
+
+
         public static DataTable getPersona(int id)
         {
             return retrieveDataTable("GET_PERSONA", id);
