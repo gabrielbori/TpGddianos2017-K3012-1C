@@ -22,10 +22,10 @@ namespace UberFrba.CapaDAO
         }
 
         //CREA FACTURA
-        public static int crearFactura(int idPersona, DateTime fecha_inicio, DateTime fecha_final, DataGridViewRowCollection viajes, Decimal montoTotal)
+        public static int crearFactura(int idPersona, DateTime fecha_inicio, DateTime fecha_final, Decimal montoTotal)
         {
             return (executeProcedureWithReturnValue("CREAR_FACTURA", idPersona, DateTime.Today,
-                                                        fecha_inicio, fecha_final, crearData(viajes), montoTotal));
+                                                        fecha_inicio, fecha_final, montoTotal));
         }
 
         public static int buscarIDFacturaInsertado()

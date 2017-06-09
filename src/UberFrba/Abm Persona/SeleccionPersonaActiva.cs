@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using UberFrba.Model;
 using UberFrba.Abm_Persona;
+using UberFrba.Registro_Viajes;
 using UberFrba.CapaDAO;
 
 namespace UberFrba.Abm_Persona
@@ -17,8 +18,15 @@ namespace UberFrba.Abm_Persona
     {
 
         private FormBase caller;
+        
         private int tipoAmbos = 1, tipoPersona = 0;
         string nombre, apellido, doc;
+        private int abm = 0;
+       
+       
+
+        
+
 
          public SeleccionPersonaActiva(FormBase caller, int tipoS2)
         {
@@ -26,6 +34,14 @@ namespace UberFrba.Abm_Persona
             tipoPersona = tipoS2;
             InitializeComponent();
         }
+
+         public SeleccionPersonaActiva(FormBase caller, int tipoS2, int id) //para que sepa que es registro viaje=1
+         {
+             this.caller = caller;
+             tipoPersona = tipoS2;
+             abm = id;
+             InitializeComponent();
+         }
 
         public SeleccionPersonaActiva()
         {
@@ -47,10 +63,20 @@ namespace UberFrba.Abm_Persona
             int id = Convert.ToInt32(dataGridView_Seleccion.Rows[e.RowIndex].Cells[1].Value);
             DataTable table = DAOPersona.getPersona(id);
             Persona persona = DAOPersona.dataRowToPersona(table.Rows[0]);
-            
-                nombre = persona.Nombre + ' ' + persona.Apellido;
-                caller.mostrar(this.MdiParent, persona);
-                cerrar();
+                       
+
+                if (abm == 1) //SI VIENE DE REGISTRAR VIAJE EL ABM ES 1 Y HACE ESTO
+                {
+                    RegistrarViaje fm = new RegistrarViaje(persona, this.tipoPersona);//ACA ESTA EL PROBLEMA, TENDRIA QUE SER UNA INSTANCIA DEL FORM YA ABIERTO
+                    fm.Show();
+                    cerrar();
+                }
+                else
+                {
+                    nombre = persona.Nombre + ' ' + persona.Apellido;
+                    caller.mostrar(this.MdiParent, persona);
+                    cerrar();
+                }
             
         }
 
