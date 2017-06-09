@@ -185,6 +185,7 @@
             this.Controls.Add(this.paner_Filtros);
             this.Name = "SeleccionPersonaActiva";
             this.Text = "Selección de persona activa";
+            this.Load += new System.EventHandler(this.SeleccionPersonaActiva_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Seleccion)).EndInit();
             this.paner_Filtros.ResumeLayout(false);
             this.paner_Filtros.PerformLayout();
