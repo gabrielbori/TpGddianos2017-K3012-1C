@@ -50,9 +50,18 @@ namespace UberFrba.CapaDAO
         public static RolUsuario dataRowToPersona(DataRow row)
         {
             RolUsuario rol = new RolUsuario (row["ROL_USUA_USERNAME"] as string,
-                               Convert.ToInt32(row["ROL_ROL_ID"]),
-                               Convert.ToInt32(row["ROL_ROL_ESTADO"]));
+                               Convert.ToInt32(row["ROL_ROL_ID"]));
             return rol;
+        }
+
+        //CHEQUEA SI UN USUARIO TIENE O NO HABILITADO UN ROL
+        public static bool rolHabilitado(string usuario, int idRol)
+        {
+            int valor = executeProcedureWithReturnValue("ROL_HABILITADO_POR_USUARIO", usuario, idRol);
+            if (valor == 0)
+                return true;
+            else
+                return false;
         }
 
         //OBTENER TODOS LOS ROLES

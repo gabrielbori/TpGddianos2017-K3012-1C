@@ -62,7 +62,7 @@ namespace UberFrba.Abm_Turno
                 double valor = Convert.ToDouble(TextBoxValorKM.Text);
                 double pb = Convert.ToDouble(TextBoxPrecioBase.Text);
                 int finalizo = DAOTurno.altaTurno(descripcion, hi, hf, valor, pb);
-                if (finalizo == 1)
+                if ((finalizo*(-1)) == 1)
                 {
                     Mensaje_OK("El turno ha sido dada de alta");
                     Close();
