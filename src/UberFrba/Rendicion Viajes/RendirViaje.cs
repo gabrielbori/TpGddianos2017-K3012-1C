@@ -147,7 +147,7 @@ namespace UberFrba.Rendicion_Viajes
             textBox_Apellido.Text = "";
             textBox_DNI.Text = "";
 
-            SeleccionDePersona frm = new SeleccionDePersona(this, 2);
+            SeleccionPersonaActiva frm = new SeleccionPersonaActiva(this, 2);
             frm.Show();
         }
 

@@ -67,8 +67,8 @@ namespace UberFrba
             if (ActiveMdiChild != null) ActiveMdiChild.Close();
                Registro_Viajes.RegistrarViaje registrarViaje = new Registro_Viajes.RegistrarViaje();
                registrarViaje.mostrar(this);
-              // Abm_Persona.SeleccionDePersona seleccionPersona = new Abm_Persona.SeleccionDePersona(new Registro_Viajes.RegistrarViaje(), 2);
-               // seleccionPersona.mostrar(this);
+               //Abm_Persona.SeleccionDePersona seleccionPersona = new Abm_Persona.SeleccionDePersona(new Registro_Viajes.RegistrarViaje(), 2);
+               //seleccionPersona.mostrar(this);
 
 
         }
