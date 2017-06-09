@@ -75,11 +75,6 @@ namespace UberFrba.Abm_Persona
             LimpiarCampos();
         }
 
-        private void textBox_Documento_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void textBox_Documento_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar))

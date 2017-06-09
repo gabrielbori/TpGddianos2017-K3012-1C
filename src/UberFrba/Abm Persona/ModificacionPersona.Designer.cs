@@ -15,7 +15,6 @@ namespace UberFrba.Abm_Persona
     {
 
         private Persona persona;
-        private RolUsuario rol;
 
         /// <summary>
         /// Required designer variable.
@@ -31,11 +30,10 @@ namespace UberFrba.Abm_Persona
         public override void mostrar(Form parent, params object[] values)
         {
             Persona persona = (Persona)values[0];
-            RolUsuario rol = (RolUsuario)values[1];
-            
+            string usuario = values[1] as string;
+            int rol = Convert.ToInt32(values[2]);
 
             this.persona = persona;
-            this.rol = rol;
             textBox_Direccion.Text = persona.Direccion;
             textBox_Apellido.Text = persona.Apellido;
             textBox_DNI.Text = Convert.ToString(persona.Dni);
@@ -44,7 +42,7 @@ namespace UberFrba.Abm_Persona
             textBox_Mail.Text = persona.Mail;
             textBox_Nombre.Text = persona.Nombre;
             textBox_CodigoPostal.Text = persona.CodigoPostal;
-            if (rol.RolEstado == 0)
+            if (!(DAORol.rolHabilitado(usuario, rol)))
             {
                 checkBox_Estado.Visible = true;
                 label8.Visible = true;
@@ -115,7 +113,6 @@ namespace UberFrba.Abm_Persona
             this.label10.Size = new System.Drawing.Size(72, 13);
             this.label10.TabIndex = 76;
             this.label10.Text = "Codigo Postal";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // button2
             // 
@@ -167,7 +164,6 @@ namespace UberFrba.Abm_Persona
             this.textBox_DNI.Name = "textBox_DNI";
             this.textBox_DNI.Size = new System.Drawing.Size(226, 20);
             this.textBox_DNI.TabIndex = 69;
-            this.textBox_DNI.TextChanged += new System.EventHandler(this.textBox_DNI_TextChanged);
             this.textBox_DNI.ReadOnly = true;
             // 
             // textBox_Apellido
@@ -184,7 +180,6 @@ namespace UberFrba.Abm_Persona
             this.textBox_Nombre.Name = "textBox_Nombre";
             this.textBox_Nombre.Size = new System.Drawing.Size(226, 20);
             this.textBox_Nombre.TabIndex = 67;
-            this.textBox_Nombre.TextChanged += new System.EventHandler(this.textBox_Nombre_TextChanged);
             this.textBox_Nombre.ReadOnly = true;
             // 
             // label9
@@ -223,7 +218,6 @@ namespace UberFrba.Abm_Persona
             this.label5.Size = new System.Drawing.Size(110, 13);
             this.label5.TabIndex = 63;
             this.label5.Text = "Fecha De Nacimiento";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label4
             // 
@@ -277,7 +271,6 @@ namespace UberFrba.Abm_Persona
             this.label8.Size = new System.Drawing.Size(40, 13);
             this.label8.TabIndex = 79;
             this.label8.Text = "Estado";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // checkBox_Estado
             // 
@@ -288,7 +281,6 @@ namespace UberFrba.Abm_Persona
             this.checkBox_Estado.TabIndex = 80;
             this.checkBox_Estado.Text = "Habilitado";
             this.checkBox_Estado.UseVisualStyleBackColor = true;
-            this.checkBox_Estado.CheckedChanged += new System.EventHandler(this.checkBox_Estado_CheckedChanged);
             // 
             // ModificacionPersona
             // 
@@ -319,7 +311,6 @@ namespace UberFrba.Abm_Persona
             this.Name = "ModificacionPersona";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ModificacionPersona";
-            this.Load += new System.EventHandler(this.ModificacionPersona_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

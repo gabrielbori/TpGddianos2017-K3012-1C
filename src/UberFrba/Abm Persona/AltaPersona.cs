@@ -16,25 +16,16 @@ namespace UberFrba.Abm_Persona
     public partial class AltaPersona : FormBase
     {
         private int tipo = 0;
+        private int tipoA = 1;
 
-        public AltaPersona(int tipoA)
+        public AltaPersona(int tipoF)
         {
-            tipo = tipoA;
+            tipo = tipoF;
             InitializeComponent();
             if (tipo == 2 ) 
             { 
                 this.textBox_CodigoPostal.Enabled = false;
             }
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void AltaPersona_Load(object sender, EventArgs e)
-        {
-         
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -63,7 +54,7 @@ namespace UberFrba.Abm_Persona
             if (textBox_Apellido.Text == null) { mensaje = "El apellido está vacío"; Mensaje_Error(mensaje); return false; }
             if (textBox_DNI.Text == null) { mensaje = "El apellido está vacío"; Mensaje_Error(mensaje); return false; }
             if (dateTimePicker_FechaNacimiento.Text == null) { mensaje = "El apellido está vacío"; Mensaje_Error(mensaje); return false; }
-            if (!(ValidarTelefono(telefono, dni))) { mensaje = "El telefono ingresado pertenece a otra persona"; Mensaje_Error(mensaje); return false; }
+            if (ValidarTelefono(telefono, dni)) { mensaje = "El telefono ingresado pertenece a otra persona"; Mensaje_Error(mensaje); return false; }
             if (textBox_Nombre.Text == null) { mensaje = "El apellido está vacío"; Mensaje_Error(mensaje); return false; }
             if (textBox_CodigoPostal.Text == null) { mensaje = "El apellido está vacío"; Mensaje_Error(mensaje); return false; }
             return true;
@@ -75,48 +66,53 @@ namespace UberFrba.Abm_Persona
             var resultado = Mensaje_Pregunta("¿Está seguro que desea dar la alta de la persona al sistema?", "Alta Persona");
             if (resultado == DialogResult.Yes)
             {
-                int tipoAmbos = 1;
-                int tipoASetear = -1;
-                string mensaje;
 
                 try
                 {
-                    int telefono = Convert.ToInt32(textBox_Telefono.Text);
-                    string nombre = textBox_Nombre.Text;
-                    string apellido = textBox_Apellido.Text;
-                    int dni = Convert.ToInt32(textBox_DNI.Text);
-                    string direccion = textBox_Direccion.Text;
-                    string mail = textBox_Mail.Text;
-                    string codPos = textBox_CodigoPostal.Text;
+                    Convert.ToInt32(textBox_Telefono.Text);
+                    Convert.ToInt32(textBox_DNI.Text);
+                }
+                catch { Mensaje_Error("El dni y el telefono son campos de numeros"); }
 
-                    if (!Validaciones()) {return; };
-                    if (!(DAOPersona.existePersona(dni))) //Si NO existe la persona, lo agrego con el tipo de donde viene el formulario. 2=chofer 3=cliente 
+                int tipoAmbos = 1;
+                string mensaje;
+                int telefono = Convert.ToInt32(textBox_Telefono.Text);
+                int dni = Convert.ToInt32(textBox_DNI.Text);
+                string nombre = textBox_Nombre.Text;
+                string apellido = textBox_Apellido.Text;
+                string direccion = textBox_Direccion.Text;
+                string mail = textBox_Mail.Text;
+                string codPos = textBox_CodigoPostal.Text;
+
+                if (!Validaciones()) { return; };
+                if (!(DAOPersona.existePersona(dni))) //Si NO existe la persona, lo agrego con el tipo de donde viene el formulario. 2=chofer 3=cliente 
+                {
+                    //Tipo: Variable que depende de donde viene el formulario (alta de chofer o cliente). Ese mismo tipo se usa para setearlo en la base.  
+                    DAOPersona.altaPersona(telefono, nombre, apellido, dni, dateTimePicker_FechaNacimiento.Value, direccion, mail, codPos, tipo);
+                    Mensaje_OK("La persona ha sido dada de alta");
+                }
+                else //la persona ya existe en la base de datos. 
+                {
+                    if (DAOPersona.getTipo(dni) == tipoA)//Si el tipo que quiero insertar es distinto al tipo grabado, lo actualizo a 3
                     {
-                        //Tipo: Variable que depende de donde viene el formulario (alta de chofer o cliente). Ese mismo tipo se usa para setearlo en la base.  
-                        DAOPersona.altaPersona(telefono, nombre, apellido, dni, dateTimePicker_FechaNacimiento.Value, direccion, mail, codPos, tipo);
-                        Mensaje_OK("La persona ha sido dada de alta");
+                        mensaje = "La persona ya se encuentra ingresada"; Mensaje_Error(mensaje); return;
                     }
-                    else //la persona ya existe en la base de datos. 
+                    else //Se quiere insertar la misma persona con el mismo tipo. Devuelvo error. 
                     {
-                        if (DAOPersona.getTipo(dni) != tipo)//Si el tipo que quiero insertar es distinto al tipo grabado, lo actualizo a 3
-                        {
-                            DAOPersona.actualizarPersona(dni, tipoASetear, codPos, tipoAmbos);
-                            Mensaje_OK("La persona ya existe, se actualizo la base y ahora es chofer/cliente");
-                        }
-                        else //Se quiere insertar la misma persona con el mismo tipo. Devuelvo error. 
+                        if (DAOPersona.getTipo(dni) == tipo)
                         {
                             mensaje = "La persona ya se encuentra ingresada"; Mensaje_Error(mensaje); return;
                         }
+                        else
+                        {
+                            DAOPersona.actualizarPersona(dni, tipoAmbos, codPos, tipo);
+                            Mensaje_OK("La persona ya existe, se actualizo la base y ahora es chofer/cliente");
+                        }
                     }
-                    this.Close();
                 }
-                catch { Mensaje_Error("El dni y el telefono son campos de numeros"); }
-           }
+                this.Close();
+            }
         }
 
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

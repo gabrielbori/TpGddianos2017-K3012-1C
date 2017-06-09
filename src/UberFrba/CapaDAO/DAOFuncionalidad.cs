@@ -24,8 +24,7 @@ namespace UberFrba.CapaDAO
         public static RolUsuario dataRowToPersona(DataRow row)
         {
             RolUsuario rol = new RolUsuario(row["ROL_USUA_USERNAME"] as string,
-                               Convert.ToInt32(row["ROL_ROL_ID"]),
-                               Convert.ToInt32(row["ROL_ROL_ESTADO"]));
+                               Convert.ToInt32(row["ROL_ROL_ID"]));
             return rol;
 
         }

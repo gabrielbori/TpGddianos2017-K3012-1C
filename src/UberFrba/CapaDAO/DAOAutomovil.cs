@@ -45,6 +45,11 @@ namespace UberFrba.CapaDAO
             executeProcedure("MODIFICAR_AUTOMOVIL_POR_PATENTE", patente, estado, chofer);
         }
 
+        public static void ingresarTurnoAutomovilPorPatente(string patente, string detalle)
+        {
+            executeProcedure("INGRESAR_TURNO_AUTOMOVIL_POR_PATENTE", patente, detalle);
+        }
+
         public static void modificarTurnoAutomovilPorPatente(string patente, string detalle, int estado)
         {
             executeProcedure("MODIFICAR_TURNO_AUTOMOVIL_POR_PATENTE", patente, detalle, estado);
