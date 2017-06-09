@@ -116,7 +116,7 @@ namespace UberFrba.Facturacion
                     try
                     {
                         DAOFacturacion.crearFactura(Convert.ToInt32(persona.ID), Convert.ToDateTime(dateTimePicker_Inicio.Value),
-                                                            Convert.ToDateTime(dateTimePicker_Fin.Value), dataGridView_Viajes.Rows,
+                                                            Convert.ToDateTime(dateTimePicker_Fin.Value),
                                                             Convert.ToDecimal(textBox_montoTotal.Text));
                         numFactura = DAOFacturacion.buscarIDFacturaInsertado();
                         if (numFactura != -1)
@@ -168,7 +168,7 @@ namespace UberFrba.Facturacion
             textBox_Numero.Text = "A generar";
             textBox_montoTotal.Text = "";
 
-            SeleccionDePersona frm = new SeleccionDePersona(this, 3);
+            SeleccionPersonaActiva frm = new SeleccionPersonaActiva(this, 3);
             frm.Show();
         }
 

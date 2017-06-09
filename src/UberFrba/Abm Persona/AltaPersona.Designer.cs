@@ -195,7 +195,6 @@
             this.label10.Size = new System.Drawing.Size(72, 13);
             this.label10.TabIndex = 19;
             this.label10.Text = "Codigo Postal";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // textBox_CodigoPostal
             // 
@@ -238,7 +237,6 @@
             this.Name = "AltaPersona";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Alta De Persona";
-            this.Load += new System.EventHandler(this.AltaPersona_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

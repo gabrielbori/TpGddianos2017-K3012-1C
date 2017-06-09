@@ -106,7 +106,6 @@
             this.textBox_Nombre.Name = "textBox_Nombre";
             this.textBox_Nombre.Size = new System.Drawing.Size(232, 20);
             this.textBox_Nombre.TabIndex = 0;
-            this.textBox_Nombre.TextChanged += new System.EventHandler(this.textBox_Nombre_TextChanged);
             // 
             // textBox_Apellido
             // 
@@ -164,7 +163,6 @@
             this.textBox_Documento.Name = "textBox_Documento";
             this.textBox_Documento.Size = new System.Drawing.Size(129, 20);
             this.textBox_Documento.TabIndex = 4;
-            this.textBox_Documento.TextChanged += new System.EventHandler(this.textBox_Documento_TextChanged);
             // 
             // button_Buscar
             // 

@@ -163,7 +163,6 @@
             this.textBox_Documento.Name = "textBox_Documento";
             this.textBox_Documento.Size = new System.Drawing.Size(129, 20);
             this.textBox_Documento.TabIndex = 4;
-            this.textBox_Documento.TextChanged += new System.EventHandler(this.textBox_Documento_TextChanged);
             this.textBox_Documento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_Documento_KeyPress);
             // 
             // button_Buscar
@@ -186,6 +185,7 @@
             this.Controls.Add(this.paner_Filtros);
             this.Name = "SeleccionPersonaActiva";
             this.Text = "Selección de persona activa";
+            this.Load += new System.EventHandler(this.SeleccionPersonaActiva_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Seleccion)).EndInit();
             this.paner_Filtros.ResumeLayout(false);
             this.paner_Filtros.PerformLayout();

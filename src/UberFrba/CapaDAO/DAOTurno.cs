@@ -60,9 +60,14 @@ namespace UberFrba.CapaDAO
         return retrieveDataTable("FIND_TURNO_HABILITADO");
         }
 
-        public static DataTable getTurnoDeCoche(string patente)
+        public static DataTable getTurnoAsignadoACoche(string patente)
         {
-            return retrieveDataTable("FIND_TURNO_PARA_COCHE", patente);
+            return retrieveDataTable("FIND_TURNO_ASIGNADO_PARA_COCHE", patente);
+        }
+
+        public static DataTable getTurnoNoAsignadoACoche(string patente)
+        {
+            return retrieveDataTable("FIND_TURNO_NO_ASIGNADO_PARA_COCHE", patente);
         }
 
         public static int modificarTurno(Turno turno, int id)

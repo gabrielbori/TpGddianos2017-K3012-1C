@@ -62,34 +62,70 @@ namespace UberFrba.Abm_Automovil
             int cont;
             for (cont = 0; cont < Turno.Items.Count; cont++)
             {
-            int estadoTurno = Convert.ToInt32(Turno.GetItemChecked(cont));
-            row = ((DataRowView)this.Turno.Items[cont]).Row;
-            string detalle = (row[this.Turno.ValueMember]).ToString();
-            DAOAutomovil.modificarTurnoAutomovilPorPatente(patente, detalle, estadoTurno);
-            } 
+                int estadoTurno = Convert.ToInt32(Turno.GetItemChecked(cont));
+                if (estadoTurno == 0)
+                {
+                    row = ((DataRowView)this.Turno.Items[cont]).Row;
+                    string detalle = (row[this.Turno.ValueMember]).ToString();
+                    DAOAutomovil.modificarTurnoAutomovilPorPatente(patente, detalle, estadoTurno);
+                }
+            }
+
+            for (cont = 0; cont < TurnoDeshabilitado.Items.Count; cont++)
+            {
+                int estadoTurno = Convert.ToInt32(TurnoDeshabilitado.GetItemChecked(cont));
+                if (estadoTurno == 1)
+                {
+                    row = ((DataRowView)this.TurnoDeshabilitado.Items[cont]).Row;
+                    string detalle = (row[this.TurnoDeshabilitado.ValueMember]).ToString();
+                    DAOAutomovil.modificarTurnoAutomovilPorPatente(patente, detalle, estadoTurno);
+                }
+            }
+
         }
 
-        private void cargarTurnos(DataTable table)
+        private void cargarTurnosDeshabilitados(DataTable table, int estado)
+        {
+            int cont = 0;
+            TurnoDeshabilitado.DataSource = table;
+            try
+            {
+                DataRow row = table.Rows[cont];
+                while (row != null)
+                {
+                    TurnoDeshabilitado.ValueMember = "TURNO_DESCRIPCION";
+                    TurnoDeshabilitado.SetItemChecked(cont, Convert.ToBoolean(estado));
+                    cont++;
+                    try { row = table.Rows[cont]; }
+                    catch { row = null; }
+                }
+            }catch
+            { Mensaje_OK("No existen turnos a asignar");}
+        }
+
+        private void cargarTurnosHabilitados(DataTable table, int estado)
         {
             int cont = 0;
             Turno.DataSource = table;
+            try
+            {
             DataRow row = table.Rows[cont];
             while (row != null)
             {
                 Turno.ValueMember = "TURNO_DESCRIPCION";
-                Turno.SetItemChecked(cont, Convert.ToBoolean(row["TURNO_TURNO_ESTADO"]));
+                Turno.SetItemChecked(cont, Convert.ToBoolean(estado));
                 cont++;
                 try { row = table.Rows[cont]; }
                 catch { row = null; }
             }
-
+            }
+            catch
+            { Mensaje_OK("No existen turnos asignados"); }
         }
 
         private void buttonSeleccionar_Click(object sender, EventArgs e)
         {
             DataTable table = DAOAutomovil.getEstadoYChofer(comboBoxPatente.Text);
-            try
-            {
                 DataRow row = table.Rows[0];
                 textBoxChofer.Visible = true;
                 checkBoxEstado.Visible = true;
@@ -104,9 +140,12 @@ namespace UberFrba.Abm_Automovil
                     label7.Visible = false;
                     textBoxChofer.Enabled = true;
                     checkBoxEstado.Checked = true;
-                    labelTurno.Visible = true;
+                    labelTurnoHabilitado.Visible = true;
                     Turno.Visible = true;
-                    this.cargarTurnos(DAOTurno.getTurnoDeCoche(comboBoxPatente.Text));
+                    label4.Visible = true;
+                    TurnoDeshabilitado.Visible = true;
+                    this.cargarTurnosHabilitados(DAOTurno.getTurnoAsignadoACoche(comboBoxPatente.Text), 1);
+                    this.cargarTurnosDeshabilitados(DAOTurno.getTurnoNoAsignadoACoche(comboBoxPatente.Text), 0);
                 }
                 else
                 {
@@ -116,7 +155,6 @@ namespace UberFrba.Abm_Automovil
                 }
                     buttonAceptar.Visible = true;
                     
-            }catch{Mensaje_Error("El automovil ingresado no existe");}
         }
 
         private void buttonCancelar_Click(object sender, EventArgs e)
