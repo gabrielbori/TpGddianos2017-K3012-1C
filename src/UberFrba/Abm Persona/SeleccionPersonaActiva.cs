@@ -22,7 +22,8 @@ namespace UberFrba.Abm_Persona
         private int tipoAmbos = 1, tipoPersona = 0;
         string nombre, apellido, doc;
         private int abm = 0;
-       
+        private RegistrarViaje otro;
+
        
 
         
@@ -35,9 +36,9 @@ namespace UberFrba.Abm_Persona
             InitializeComponent();
         }
 
-         public SeleccionPersonaActiva(FormBase caller, int tipoS2, int id) //para que sepa que es registro viaje=1
+         public SeleccionPersonaActiva(RegistrarViaje caller, int tipoS2, int id) //para que sepa que es registro viajechofer=1 viajecliente=2
          {
-             this.caller = caller;
+             this.otro = caller;
              tipoPersona = tipoS2;
              abm = id;
              InitializeComponent();
@@ -67,8 +68,19 @@ namespace UberFrba.Abm_Persona
 
                 if (abm == 1) //SI VIENE DE REGISTRAR VIAJE EL ABM ES 1 Y HACE ESTO
                 {
-                    RegistrarViaje fm = new RegistrarViaje(persona, this.tipoPersona);//ACA ESTA EL PROBLEMA, TENDRIA QUE SER UNA INSTANCIA DEL FORM YA ABIERTO
-                    fm.Show();
+                    //ACA ESTA EL PROBLEMA, TENDRIA QUE SER UNA INSTANCIA DEL FORM YA ABIERTO
+                    otro.setnombreChofer = persona.Nombre;
+                    otro.setapellidoChofer = persona.Apellido;
+                    otro.setndniChofer = persona.Dni.ToString();
+                    
+                    //fm.Show();
+                    cerrar();
+                } else
+                if (abm == 2)
+                {
+                    otro.setnombreCliente = persona.Nombre;
+                    otro.setapellidoCliente = persona.Apellido;
+                    otro.setndniCliente = persona.Dni.ToString();
                     cerrar();
                 }
                 else
@@ -119,6 +131,11 @@ namespace UberFrba.Abm_Persona
             {
                 e.Handled = true;
             }
+        }
+
+        private void SeleccionPersonaActiva_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

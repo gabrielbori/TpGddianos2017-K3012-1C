@@ -63,11 +63,11 @@ namespace UberFrba.Registro_Viajes
             this.panel2 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox_dni_cliente = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox_nombre_cliente = new System.Windows.Forms.TextBox();
+            this.textBox_apellido_cliente = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -243,11 +243,11 @@ namespace UberFrba.Registro_Viajes
             // 
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.textBox2);
+            this.panel2.Controls.Add(this.textBox_dni_cliente);
             this.panel2.Controls.Add(this.label18);
             this.panel2.Controls.Add(this.label20);
-            this.panel2.Controls.Add(this.textBox5);
-            this.panel2.Controls.Add(this.textBox8);
+            this.panel2.Controls.Add(this.textBox_nombre_cliente);
+            this.panel2.Controls.Add(this.textBox_apellido_cliente);
             this.panel2.Controls.Add(this.label19);
             this.panel2.Location = new System.Drawing.Point(451, 29);
             this.panel2.Name = "panel2";
@@ -273,14 +273,14 @@ namespace UberFrba.Registro_Viajes
             this.label6.TabIndex = 0;
             this.label6.Text = "Seleccion de Cliente";
             // 
-            // textBox2
+            // textBox_dni_cliente
             // 
-            this.textBox2.Location = new System.Drawing.Point(92, 101);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(226, 20);
-            this.textBox2.TabIndex = 82;
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox_dni_cliente.Location = new System.Drawing.Point(92, 101);
+            this.textBox_dni_cliente.Name = "textBox_dni_cliente";
+            this.textBox_dni_cliente.ReadOnly = true;
+            this.textBox_dni_cliente.Size = new System.Drawing.Size(226, 20);
+            this.textBox_dni_cliente.TabIndex = 82;
+            this.textBox_dni_cliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label18
             // 
@@ -300,23 +300,24 @@ namespace UberFrba.Registro_Viajes
             this.label20.TabIndex = 77;
             this.label20.Text = "Nombre";
             // 
-            // textBox5
+            // textBox_nombre_cliente
             // 
-            this.textBox5.Location = new System.Drawing.Point(92, 49);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(226, 20);
-            this.textBox5.TabIndex = 80;
-            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox_nombre_cliente.Location = new System.Drawing.Point(92, 49);
+            this.textBox_nombre_cliente.Name = "textBox_nombre_cliente";
+            this.textBox_nombre_cliente.ReadOnly = true;
+            this.textBox_nombre_cliente.Size = new System.Drawing.Size(226, 20);
+            this.textBox_nombre_cliente.TabIndex = 80;
+            this.textBox_nombre_cliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox_nombre_cliente.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
-            // textBox8
+            // textBox_apellido_cliente
             // 
-            this.textBox8.Location = new System.Drawing.Point(92, 75);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.ReadOnly = true;
-            this.textBox8.Size = new System.Drawing.Size(226, 20);
-            this.textBox8.TabIndex = 81;
-            this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox_apellido_cliente.Location = new System.Drawing.Point(92, 75);
+            this.textBox_apellido_cliente.Name = "textBox_apellido_cliente";
+            this.textBox_apellido_cliente.ReadOnly = true;
+            this.textBox_apellido_cliente.Size = new System.Drawing.Size(226, 20);
+            this.textBox_apellido_cliente.TabIndex = 81;
+            this.textBox_apellido_cliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label19
             // 
@@ -552,11 +553,11 @@ namespace UberFrba.Registro_Viajes
         private System.Windows.Forms.TextBox textBox_Apellido;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox_dni_cliente;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox textBox_nombre_cliente;
+        private System.Windows.Forms.TextBox textBox_apellido_cliente;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label17;

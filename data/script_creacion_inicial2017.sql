@@ -1594,8 +1594,5 @@ INSERT INTO GDDIANOS.FACTURA ([FACT_ID]
       ,Factura_Fecha_Fin
 	  ,0
 	  ,PERSONA.PERS_ID FROM GD_ESQUEMA.MAESTRA,GDDIANOS.PERSONA PERSONA WHERE CLIENTE_TELEFONO=PERS_TELEFONO
-
-						AND Factura_Nro IS NOT NULL AND Factura_Fecha IS NOT NULL AND Factura_Fecha_Inicio IS NOT NULL AND Factura_Fecha_Fin IS NOT NULL and 5 is not null;
-
-						AND Factura_Nro IS NOT NULL AND Factura_Fecha IS NOT NULL AND Factura_Fecha_Inicio IS NOT NULL AND Factura_Fecha_Fin IS NOT NULL and 5 is not null;
-
+	  AND Factura_Nro IS NOT NULL AND Factura_Fecha IS NOT NULL AND Factura_Fecha_Inicio IS NOT NULL AND Factura_Fecha_Fin IS NOT NULL and 5 is not null;
+	
