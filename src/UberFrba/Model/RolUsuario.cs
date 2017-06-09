@@ -11,13 +11,11 @@ namespace UberFrba.Model
 
         public string Usuario { get; set; }
         public int RolId { get; set; }
-        public int RolEstado { get; set; }
 
-        public RolUsuario (string usuario, int rolId, int rolEstado)
+        public RolUsuario (string usuario, int rolId)
         {
             Usuario = usuario;
             RolId = rolId;
-            RolEstado = rolEstado;
         }
     }
 }

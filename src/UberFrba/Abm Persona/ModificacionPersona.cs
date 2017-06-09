@@ -15,34 +15,13 @@ namespace UberFrba.Abm_Persona
 {
     public partial class ModificacionPersona : FormBase
     {
-        public ModificacionPersona()
+
+        private int rolTipo = 0;
+
+        public ModificacionPersona(int tipo)
         {
             InitializeComponent();
-        }
-
-        private void ModificacionPersona_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox_FechaNac_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox_Nombre_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
+            rolTipo = tipo;
         }
 
         private bool Validaciones()
@@ -97,7 +76,7 @@ namespace UberFrba.Abm_Persona
                 {
                 if (!Validaciones()) return;
                 
-                    DAOPersona.ModificarPersona(GenerarPersona(), persona.ID, rol.RolId);
+                    DAOPersona.ModificarPersona(GenerarPersona(), persona.ID, rolTipo);
 
                     Mensaje_OK("Los datos han sido almacenados con éxito");
 
@@ -110,11 +89,6 @@ namespace UberFrba.Abm_Persona
             }
         }
 
-        private void textBox_DNI_TextChanged(object sender, EventArgs e)
-        {
-        
-        }
-
         private void cerrar()
         {
             this.Close();
@@ -123,16 +97,6 @@ namespace UberFrba.Abm_Persona
         private void button2_Click(object sender, EventArgs e)
         {
             cerrar();
-        }
-
-        private void checkBox_Estado_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
         }
         
     }

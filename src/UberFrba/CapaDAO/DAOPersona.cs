@@ -70,9 +70,9 @@ namespace UberFrba.CapaDAO
                 rolId);
         }
 
-        public static void bajaPersona(int id, int tipo)
+        public static void bajaPersona(int id, int rolTipo)
         {
-            executeProcedure("BAJA_PERSONA", id, tipo);
+            executeProcedure("BAJA_PERSONA", id, rolTipo);
         }
 
         public static void altaPersona(int telefono, string nombre, string apellido, int dni, DateTime fechaNacimineto, string direccion, string mail, string codPos, int tipoASetear)

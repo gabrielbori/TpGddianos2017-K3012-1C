@@ -46,12 +46,14 @@
             this.label7 = new System.Windows.Forms.Label();
             this.comboBoxPatente = new System.Windows.Forms.ComboBox();
             this.Turno = new System.Windows.Forms.CheckedListBox();
-            this.labelTurno = new System.Windows.Forms.Label();
+            this.labelTurnoHabilitado = new System.Windows.Forms.Label();
+            this.TurnoDeshabilitado = new System.Windows.Forms.CheckedListBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonCancelar
             // 
-            this.buttonCancelar.Location = new System.Drawing.Point(12, 277);
+            this.buttonCancelar.Location = new System.Drawing.Point(10, 287);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(75, 23);
             this.buttonCancelar.TabIndex = 30;
@@ -61,7 +63,7 @@
             // 
             // buttonAceptar
             // 
-            this.buttonAceptar.Location = new System.Drawing.Point(197, 277);
+            this.buttonAceptar.Location = new System.Drawing.Point(259, 287);
             this.buttonAceptar.Name = "buttonAceptar";
             this.buttonAceptar.Size = new System.Drawing.Size(75, 23);
             this.buttonAceptar.TabIndex = 29;
@@ -72,14 +74,14 @@
             // 
             // textBoxChofer
             // 
-            this.textBoxChofer.Location = new System.Drawing.Point(62, 117);
+            this.textBoxChofer.Location = new System.Drawing.Point(124, 117);
             this.textBoxChofer.Name = "textBoxChofer";
             this.textBoxChofer.Size = new System.Drawing.Size(130, 20);
             this.textBoxChofer.TabIndex = 28;
             // 
             // buttonSeleccionar
             // 
-            this.buttonSeleccionar.Location = new System.Drawing.Point(197, 36);
+            this.buttonSeleccionar.Location = new System.Drawing.Point(259, 36);
             this.buttonSeleccionar.Name = "buttonSeleccionar";
             this.buttonSeleccionar.Size = new System.Drawing.Size(75, 23);
             this.buttonSeleccionar.TabIndex = 24;
@@ -135,7 +137,7 @@
             // comboBoxModelo
             // 
             this.comboBoxModelo.FormattingEnabled = true;
-            this.comboBoxModelo.Location = new System.Drawing.Point(62, 64);
+            this.comboBoxModelo.Location = new System.Drawing.Point(124, 64);
             this.comboBoxModelo.Name = "comboBoxModelo";
             this.comboBoxModelo.Size = new System.Drawing.Size(130, 21);
             this.comboBoxModelo.TabIndex = 48;
@@ -144,7 +146,7 @@
             // comboBoxMarca
             // 
             this.comboBoxMarca.FormattingEnabled = true;
-            this.comboBoxMarca.Location = new System.Drawing.Point(62, 36);
+            this.comboBoxMarca.Location = new System.Drawing.Point(124, 36);
             this.comboBoxMarca.Name = "comboBoxMarca";
             this.comboBoxMarca.Size = new System.Drawing.Size(130, 21);
             this.comboBoxMarca.TabIndex = 47;
@@ -153,7 +155,7 @@
             // checkBoxEstado
             // 
             this.checkBoxEstado.AutoSize = true;
-            this.checkBoxEstado.Location = new System.Drawing.Point(62, 243);
+            this.checkBoxEstado.Location = new System.Drawing.Point(124, 253);
             this.checkBoxEstado.Name = "checkBoxEstado";
             this.checkBoxEstado.Size = new System.Drawing.Size(73, 17);
             this.checkBoxEstado.TabIndex = 51;
@@ -163,7 +165,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(9, 247);
+            this.label7.Location = new System.Drawing.Point(9, 257);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(40, 13);
             this.label7.TabIndex = 50;
@@ -172,7 +174,7 @@
             // comboBoxPatente
             // 
             this.comboBoxPatente.FormattingEnabled = true;
-            this.comboBoxPatente.Location = new System.Drawing.Point(62, 90);
+            this.comboBoxPatente.Location = new System.Drawing.Point(124, 90);
             this.comboBoxPatente.Name = "comboBoxPatente";
             this.comboBoxPatente.Size = new System.Drawing.Size(130, 21);
             this.comboBoxPatente.TabIndex = 52;
@@ -180,28 +182,49 @@
             // Turno
             // 
             this.Turno.FormattingEnabled = true;
-            this.Turno.Location = new System.Drawing.Point(62, 143);
+            this.Turno.Location = new System.Drawing.Point(124, 143);
             this.Turno.Name = "Turno";
-            this.Turno.Size = new System.Drawing.Size(130, 94);
+            this.Turno.Size = new System.Drawing.Size(130, 49);
             this.Turno.TabIndex = 53;
             this.Turno.Visible = false;
             // 
-            // labelTurno
+            // labelTurnoHabilitado
             // 
-            this.labelTurno.AutoSize = true;
-            this.labelTurno.Location = new System.Drawing.Point(9, 143);
-            this.labelTurno.Name = "labelTurno";
-            this.labelTurno.Size = new System.Drawing.Size(35, 13);
-            this.labelTurno.TabIndex = 54;
-            this.labelTurno.Text = "Turno";
-            this.labelTurno.Visible = false;
+            this.labelTurnoHabilitado.AutoSize = true;
+            this.labelTurnoHabilitado.Location = new System.Drawing.Point(9, 143);
+            this.labelTurnoHabilitado.Name = "labelTurnoHabilitado";
+            this.labelTurnoHabilitado.Size = new System.Drawing.Size(85, 13);
+            this.labelTurnoHabilitado.TabIndex = 54;
+            this.labelTurnoHabilitado.Text = "Turno Habilitado";
+            this.labelTurnoHabilitado.Visible = false;
+            // 
+            // TurnoDeshabilitado
+            // 
+            this.TurnoDeshabilitado.FormattingEnabled = true;
+            this.TurnoDeshabilitado.Location = new System.Drawing.Point(124, 198);
+            this.TurnoDeshabilitado.Name = "TurnoDeshabilitado";
+            this.TurnoDeshabilitado.Size = new System.Drawing.Size(130, 49);
+            this.TurnoDeshabilitado.TabIndex = 55;
+            this.TurnoDeshabilitado.Visible = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(9, 198);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(102, 13);
+            this.label4.TabIndex = 56;
+            this.label4.Text = "Turno Deshabilitado";
+            this.label4.Visible = false;
             // 
             // ModificacionAutomovil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 312);
-            this.Controls.Add(this.labelTurno);
+            this.ClientSize = new System.Drawing.Size(354, 326);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.TurnoDeshabilitado);
+            this.Controls.Add(this.labelTurnoHabilitado);
             this.Controls.Add(this.Turno);
             this.Controls.Add(this.comboBoxPatente);
             this.Controls.Add(this.checkBoxEstado);
@@ -242,6 +265,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox comboBoxPatente;
         private System.Windows.Forms.CheckedListBox Turno;
-        private System.Windows.Forms.Label labelTurno;
+        private System.Windows.Forms.Label labelTurnoHabilitado;
+        private System.Windows.Forms.CheckedListBox TurnoDeshabilitado;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -69,9 +69,12 @@ namespace UberFrba.Abm_Automovil
             for (cont = 0; cont < Turno.Items.Count; cont++)
             {
                 int estadoTurno = Convert.ToInt32(Turno.GetItemChecked(cont));
-                row = ((DataRowView)this.Turno.Items[cont]).Row;
-                string detalle = (row[this.Turno.ValueMember]).ToString();
-                DAOAutomovil.modificarTurnoAutomovilPorPatente(patente, detalle, estadoTurno);
+                if (estadoTurno == 1)
+                {
+                    row = ((DataRowView)this.Turno.Items[cont]).Row;
+                    string detalle = (row[this.Turno.ValueMember]).ToString();
+                    DAOAutomovil.ingresarTurnoAutomovilPorPatente(patente, detalle);
+                }
             }
         }
 

@@ -30,7 +30,8 @@ namespace UberFrba.Abm_Persona
         public override void mostrar(Form parent, params object[] values)
         {
             Persona persona = (Persona)values[0];
-            RolUsuario rol = (RolUsuario)values[1];
+            string usuario = values[1] as string;
+            int rol = Convert.ToInt32(values[2]);
 
             this.persona = persona;
             textBox_Direccion.Text = persona.Direccion;
@@ -42,7 +43,7 @@ namespace UberFrba.Abm_Persona
             textBox_Mail.Text = persona.Mail;
             textBox_Nombre.Text = persona.Nombre;
             textBox_CodigoPostal.Text = persona.CodigoPostal;
-            if (rol.RolEstado == 1)
+            if ((DAORol.rolHabilitado(usuario, rol)))
             {
                 checkBox_Estado.Visible = true;
                 label8.Visible = true;
@@ -130,7 +131,7 @@ namespace UberFrba.Abm_Persona
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 74;
-            this.button1.Text = "Modificar";
+            this.button1.Text = "Baja";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -181,17 +182,16 @@ namespace UberFrba.Abm_Persona
             this.textBox_Nombre.ReadOnly = true;
             this.textBox_Nombre.Size = new System.Drawing.Size(226, 20);
             this.textBox_Nombre.TabIndex = 67;
-            this.textBox_Nombre.TextChanged += new System.EventHandler(this.textBox_Nombre_TextChanged);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(13, 9);
+            this.label9.Location = new System.Drawing.Point(113, 9);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(338, 20);
+            this.label9.Size = new System.Drawing.Size(228, 20);
             this.label9.TabIndex = 66;
-            this.label9.Text = "Modifique Los Campos Correspondientes";
+            this.label9.Text = "Información De La Persona";
             // 
             // label7
             // 
@@ -310,7 +310,7 @@ namespace UberFrba.Abm_Persona
             this.Controls.Add(this.label1);
             this.Name = "BajaPersona";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ModificacionPersona";
+            this.Text = "BajaPersona";
             this.ResumeLayout(false);
             this.PerformLayout();
 
