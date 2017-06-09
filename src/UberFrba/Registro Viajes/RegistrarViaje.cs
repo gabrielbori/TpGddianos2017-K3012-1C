@@ -18,8 +18,7 @@ namespace UberFrba.Registro_Viajes
         
         private string choferNombre, choferApellido, clienteNombre, clienteApellido;
         private int choferDoc , clienteDoc ;
-
-
+        
 
         
         public RegistrarViaje(Persona persona, int tipo) 
@@ -57,6 +56,11 @@ namespace UberFrba.Registro_Viajes
             textBox8.Text = clienteApellido;
             textBox2.Text = Convert.ToString(clienteDoc);
 
+            DataTable turnos = DAORegistroViaje.getTurnos();
+
+            comboBox1.ValueMember = "TURNO_ID";
+            comboBox1.DisplayMember = "TURNO_DESCRIPCION";
+            comboBox1.DataSource = turnos;
 
         }
 
@@ -71,7 +75,7 @@ namespace UberFrba.Registro_Viajes
             //ABRE EL FORM DE SELECCION DE PERSONA
             SeleccionPersonaActiva frm = new SeleccionPersonaActiva(this, 2, 1);
             frm.Show();
-            //Close();
+            Close();
             
 
             
@@ -83,7 +87,23 @@ namespace UberFrba.Registro_Viajes
             //ABRE EL FORM DE SELECCION DE PERSONA
             SeleccionPersonaActiva frm = new SeleccionPersonaActiva(this, 3, 1);
             frm.Show();
-            //Close();
+            Close();
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RegistrarViaje_Shown(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void RegistrarViaje_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            
+            
         }
     }
 }

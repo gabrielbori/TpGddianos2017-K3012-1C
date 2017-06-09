@@ -149,6 +149,7 @@ namespace UberFrba.Registro_Viajes
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(100, 21);
             this.comboBox2.TabIndex = 13;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // panel1
             // 
@@ -496,7 +497,9 @@ namespace UberFrba.Registro_Viajes
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel4);
             this.Name = "RegistrarViaje";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RegistrarViaje_FormClosed);
             this.Load += new System.EventHandler(this.RegistrarViaje_Load);
+            this.Shown += new System.EventHandler(this.RegistrarViaje_Shown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

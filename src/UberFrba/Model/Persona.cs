@@ -53,5 +53,12 @@ namespace UberFrba.Model
             CodigoPostal = codPost;
         }
 
+        public Persona(string nombre, string apellido, int dni)
+        {
+            Nombre = nombre;
+            Apellido = apellido;
+            Dni = dni;
+            
+        }
     }
 }

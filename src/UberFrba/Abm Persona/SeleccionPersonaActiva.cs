@@ -68,7 +68,7 @@ namespace UberFrba.Abm_Persona
                 if (abm == 1) //SI VIENE DE REGISTRAR VIAJE EL ABM ES 1 Y HACE ESTO
                 {
                     RegistrarViaje fm = new RegistrarViaje(persona, this.tipoPersona);//ACA ESTA EL PROBLEMA, TENDRIA QUE SER UNA INSTANCIA DEL FORM YA ABIERTO
-                    fm.Show(caller);
+                    fm.Show();
                     cerrar();
                 }
                 else
