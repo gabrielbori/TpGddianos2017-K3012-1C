@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UberFrba.Model
 {
-    class Persona
+    public class Persona
     {
 
         public int ID { get; set; }
