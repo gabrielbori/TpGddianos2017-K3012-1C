@@ -26,7 +26,7 @@ namespace UberFrba.CapaDAO
         }
 
         //CREA LA RENDICION FALTA LO DEL PORCENTAJE
-        public static void crearRendicion(DateTime fecha, int chofer, int turno, double importeTotal, DataGridViewRowCollection viajes)
+        public static void crearRendicion(DateTime fecha, int chofer, int turno, decimal importeTotal, DataGridViewRowCollection viajes)
         {
             executeProcedure("CREAR_PAGO", fecha, chofer, turno, importeTotal, crearData(viajes));
         }
