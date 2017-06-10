@@ -45,16 +45,11 @@ namespace UberFrba.Registro_Viajes
             //ABRE EL FORM DE SELECCION DE PERSONA para cliente
             SeleccionPersonaActiva frm2 = new SeleccionPersonaActiva(this, 3, 2);
             frm2.Show();
-
+           
         }
         private void textBox_DNI_TextChanged(object sender, EventArgs e)
         {
-            DataTable turnos = DAORegistroViaje.getTurnos();
-
-            comboBox2.ValueMember = "TURNO_ID";
-            comboBox2.DisplayMember = "TURNO_DESCRIPCION";
-            comboBox2.DataSource = turnos;
-
+           
 
             choferDoc = Convert.ToInt32(textBox_DNI.Text);
 
@@ -177,50 +172,83 @@ namespace UberFrba.Registro_Viajes
 
         private void guardar_Click(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(textBox3.Text) == 0)
+            if (textBox3.Text != "" && Convert.ToInt32(textBox3.Text) == 0)
             {
                 Mensaje_Error("Los kilometros no pueden ser cero");
                 return;
             }
-           
+            if(Convert.ToDateTime(dateTimePicker2.Value) == Convert.ToDateTime(dateTimePicker3.Value) )
+            {
+                Mensaje_Error("La hora de inicio no puede ser igual a la hora final");
+                return;
+            }
+            if (Validaciones())
+            {
+                Mensaje_Error("No están todos los datos obligatorios");
+                return;
+            }
 
-            var resultado = Mensaje_Pregunta("¿Está seguro que desea registrar el viaje ingresado?", "Registro viaje");
-            if (resultado == DialogResult.Yes)
+            if (DAORegistroViaje.viajeYaRegistrado(Convert.ToDateTime(dateTimePicker1.Value),
+                                  Convert.ToDateTime(dateTimePicker2.Value),                                 
+                                  Convert.ToInt32(textBox_dni_cliente.Text)) == 0)
+            { Mensaje_Error("El viaje ya fue registrado"); }
+            else
             {
 
-                try
-                {                           //turno,  fecha,  horaI, horaF, km,  chofer,  cliente
-                    DAORegistroViaje.registrarViaje(Convert.ToInt32(comboBox2.SelectedValue),
-                                                    Convert.ToDateTime(dateTimePicker1.Value),
-                                                    Convert.ToDateTime(dateTimePicker2.Value),
-                                                    Convert.ToDateTime(dateTimePicker3.Value),
-                                                    Convert.ToDecimal(textBox3.Text),
-                                                    Convert.ToInt32(textBox_DNI.Text),
-                                                    Convert.ToInt32(textBox_dni_cliente.Text));
-
-                    Mensaje_OK("Los datos han sido actualizados con éxito");
-                    this.Close();
-                }
-                catch
+                var resultado = Mensaje_Pregunta("¿Está seguro que desea registrar el viaje ingresado?", "Registro viaje");
+                if (resultado == DialogResult.Yes)
                 {
-                    Mensaje_Error("Falló la modificación del rol en la base de datos");
+
+                    try
+                    {                           //turno,  fecha,  horaI, horaF, km,  chofer,  cliente
+                        DAORegistroViaje.registrarViaje(Convert.ToInt32(comboBox2.SelectedValue),
+                                                        Convert.ToDateTime(dateTimePicker1.Value),
+                                                        Convert.ToDateTime(dateTimePicker2.Value),
+                                                        Convert.ToDateTime(dateTimePicker3.Value),  
+                                                        Convert.ToDecimal(textBox3.Text),
+                                                        Convert.ToInt32(textBox_DNI.Text),
+                                                        Convert.ToInt32(textBox_dni_cliente.Text));
+
+                        Mensaje_OK("Los datos han sido actualizados con éxito");
+                        this.Close();
+                    }
+                    catch
+                    {
+                        Mensaje_Error("Falló la modificación del rol en la base de datos");
+                    }
                 }
+            }        
+
+        }
+
+        private bool Validaciones()
+        {
+            bool vacio = false;
+            if (textBox_Nombre.Text == "" || textBox_nombre_cliente.Text == "" )
+            {
+                vacio = true;
             }
 
 
-
-
-
-
-
-
-
+            return vacio;
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+            DataTable turnos = DAORegistroViaje.getTurnosAuto(Convert.ToString(comboBox1.Text));
+                        
+            comboBox2.ValueMember = "TURNO_TURNO_ID";
+            comboBox2.DisplayMember = "TURNO_DESCRIPCION";
+            comboBox2.DataSource = turnos;
+
         }
+
+       
+              
+
+       
+        
 
     }
 }
