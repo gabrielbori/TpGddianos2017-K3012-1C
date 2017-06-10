@@ -50,13 +50,13 @@ namespace UberFrba.Abm_Persona
             string mensaje = "";
             int telefono = Convert.ToInt32(textBox_Telefono.Text);
             int dni = Convert.ToInt32(textBox_DNI.Text);
-            if (textBox_Direccion.Text == null) { mensaje = "La direccion esta vacía"; Mensaje_Error(mensaje); return false; }
-            if (textBox_Apellido.Text == null) { mensaje = "El apellido está vacío"; Mensaje_Error(mensaje); return false; }
-            if (textBox_DNI.Text == null) { mensaje = "El apellido está vacío"; Mensaje_Error(mensaje); return false; }
-            if (dateTimePicker_FechaNacimiento.Text == null) { mensaje = "El apellido está vacío"; Mensaje_Error(mensaje); return false; }
-            if (ValidarTelefono(telefono, dni)) { mensaje = "El telefono ingresado pertenece a otra persona"; Mensaje_Error(mensaje); return false; }
-            if (textBox_Nombre.Text == null) { mensaje = "El apellido está vacío"; Mensaje_Error(mensaje); return false; }
-            if (textBox_CodigoPostal.Text == null) { mensaje = "El apellido está vacío"; Mensaje_Error(mensaje); return false; }
+            if (textBox_Direccion.Text == "") { mensaje = "La direccion esta vacía"; Mensaje_Error(mensaje); return false; }
+            if (textBox_Apellido.Text == "") { mensaje = "El apellido está vacío"; Mensaje_Error(mensaje); return false; }
+            if (textBox_DNI.Text == "") { mensaje = "El dni está vacío"; Mensaje_Error(mensaje); return false; }
+            if (dateTimePicker_FechaNacimiento.Text == "") { mensaje = "El apellido está vacío"; Mensaje_Error(mensaje); return false; }
+            if (ValidarTelefono(telefono, dni)) { mensaje = "El telefono ingresado o el dni pertenece a otra persona"; Mensaje_Error(mensaje); return false; }
+            if (textBox_Nombre.Text == "") { mensaje = "El nombre está vacío"; Mensaje_Error(mensaje); return false; }
+            if (textBox_CodigoPostal.Text == "") { mensaje = "El codigo postal está vacío"; Mensaje_Error(mensaje); return false; }
             return true;
         }
 
