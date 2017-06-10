@@ -35,13 +35,15 @@ namespace UberFrba.Abm_Persona
          public SeleccionPersonaActiva(FormBase caller, int tipoS2)
         {
             this.caller = caller;
-            tipoPersona = tipoS2;
+            caller.Hide();
+             tipoPersona = tipoS2;
             InitializeComponent();
         }
 
          public SeleccionPersonaActiva(RegistrarViaje caller, int tipoS2, int id) //para que sepa que es registro registro de viaje chofer=1 registro de viaje cliente=2 , abm automovil seleccionarChofer=3
          {
              this.otro = caller;
+             otro.Hide();
              tipoPersona = tipoS2;
              abm = id;
              InitializeComponent();
@@ -50,6 +52,7 @@ namespace UberFrba.Abm_Persona
          public SeleccionPersonaActiva(AltaAutomovil caller, int tipoS2, int id) // abm automovil seleccionarChofer=3
          {
              this.altaAutomovil = caller;
+             altaAutomovil.Hide();
              tipoPersona = tipoS2;
              abm = id;
              InitializeComponent();
@@ -57,6 +60,7 @@ namespace UberFrba.Abm_Persona
 
          public SeleccionPersonaActiva(ModificacionAutomovil caller, int tipoS2, int id) // abm automovil seleccionarChofer=4
          {
+             caller.Hide();
              this.modificacionAutomovil = caller;
              tipoPersona = tipoS2;
              abm = id;
@@ -90,7 +94,7 @@ namespace UberFrba.Abm_Persona
                     otro.setnombreChofer = persona.Nombre;
                     otro.setapellidoChofer = persona.Apellido;
                     otro.setndniChofer = persona.Dni.ToString();
-                    
+                    otro.Show();
                     //fm.Show();
                     cerrar();
                 } else
@@ -100,24 +104,28 @@ namespace UberFrba.Abm_Persona
                     otro.setapellidoCliente = persona.Apellido;
                     otro.setndniCliente = persona.Dni.ToString();
                     cerrar();
+                    otro.Show();
                 }
                 else
                 if (abm == 3)
-                {
+                {   
                     altaAutomovil.settextBox_Chofer_dni = persona.Dni.ToString();
                     altaAutomovil.settextBox_Chofer = persona.Nombre + ' ' + persona.Apellido;
                     cerrar();
+                    altaAutomovil.Show();
                 } else
                  if (abm == 4)
                  {
                      modificacionAutomovil.settextBox_Chofer_dni = persona.Dni.ToString();
                      modificacionAutomovil.settextBox_Chofer = persona.Nombre + ' ' + persona.Apellido;
-                     cerrar(); 
+                     cerrar();
+                     modificacionAutomovil.Show();
                  } else
                 {
                     nombre = persona.Nombre + ' ' + persona.Apellido;
                     caller.mostrar(this.MdiParent, persona);
                     cerrar();
+                    caller.Show();
                 }
             
         }

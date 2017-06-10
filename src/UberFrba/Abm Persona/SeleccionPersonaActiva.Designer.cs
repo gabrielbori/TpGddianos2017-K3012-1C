@@ -185,6 +185,7 @@
             this.Controls.Add(this.dataGridView_Seleccion);
             this.Controls.Add(this.paner_Filtros);
             this.Name = "SeleccionPersonaActiva";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Selección de persona activa";
             this.Load += new System.EventHandler(this.SeleccionPersonaActiva_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Seleccion)).EndInit();
