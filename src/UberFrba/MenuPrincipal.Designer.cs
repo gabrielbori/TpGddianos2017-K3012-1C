@@ -245,21 +245,21 @@
             // altaTurno
             // 
             this.altaTurno.Name = "altaTurno";
-            this.altaTurno.Size = new System.Drawing.Size(152, 22);
+            this.altaTurno.Size = new System.Drawing.Size(144, 22);
             this.altaTurno.Text = "Alta";
             this.altaTurno.Click += new System.EventHandler(this.altaTurno_Click);
             // 
             // bajaTurno
             // 
             this.bajaTurno.Name = "bajaTurno";
-            this.bajaTurno.Size = new System.Drawing.Size(152, 22);
+            this.bajaTurno.Size = new System.Drawing.Size(144, 22);
             this.bajaTurno.Text = "Baja";
             this.bajaTurno.Click += new System.EventHandler(this.bajaTurno_Click);
             // 
             // modificacionTurno
             // 
             this.modificacionTurno.Name = "modificacionTurno";
-            this.modificacionTurno.Size = new System.Drawing.Size(152, 22);
+            this.modificacionTurno.Size = new System.Drawing.Size(144, 22);
             this.modificacionTurno.Text = "Modificacion";
             this.modificacionTurno.Click += new System.EventHandler(this.modificacionTurno_Click);
             // 
@@ -288,6 +288,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::UberFrba.Properties.Resources.mario;
             this.ClientSize = new System.Drawing.Size(1093, 620);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
