@@ -42,7 +42,8 @@ namespace UberFrba.Abm_Automovil
             var resultado = Mensaje_Pregunta("¿Está seguro que desea modificar el automovil?", "Modificar Automovil");
             if (resultado == DialogResult.Yes)
             {
-                if (DAOAutomovil.choferAsignado(chofer, patente) == true) { Mensaje_Error("El chofer ya posee auto"); }
+                if (Turno.CheckedItems.Count == 0) { Mensaje_Error("No se ha/n seleccionado turno/s"); return; }
+                if (DAOAutomovil.choferAsignado(chofer, patente) == true ) { Mensaje_Error("El chofer ya posee auto"); }
                 else
                 {
                     DAOAutomovil.modificarAutomovilPorPatente(patente, estado, chofer);
