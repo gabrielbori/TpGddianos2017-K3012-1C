@@ -112,7 +112,7 @@ namespace UberFrba.Registro_Viajes
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(129, 74);
+            this.comboBox2.Location = new System.Drawing.Point(132, 120);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(100, 21);
             this.comboBox2.TabIndex = 13;
@@ -258,7 +258,7 @@ namespace UberFrba.Registro_Viajes
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(40, 122);
+            this.label17.Location = new System.Drawing.Point(43, 81);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(53, 13);
             this.label17.TabIndex = 14;
@@ -267,7 +267,7 @@ namespace UberFrba.Registro_Viajes
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(58, 77);
+            this.label7.Location = new System.Drawing.Point(61, 123);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(35, 13);
             this.label7.TabIndex = 0;
@@ -330,10 +330,11 @@ namespace UberFrba.Registro_Viajes
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(129, 119);
+            this.comboBox1.Location = new System.Drawing.Point(132, 78);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(100, 21);
             this.comboBox1.TabIndex = 15;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // groupBox4
             // 
@@ -362,6 +363,7 @@ namespace UberFrba.Registro_Viajes
             // 
             // dateTimePicker3
             // 
+            this.dateTimePicker3.CustomFormat = "HH:mm";
             this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dateTimePicker3.Location = new System.Drawing.Point(21, 36);
             this.dateTimePicker3.Name = "dateTimePicker3";
@@ -380,10 +382,11 @@ namespace UberFrba.Registro_Viajes
             // 
             // dateTimePicker2
             // 
+            this.dateTimePicker2.CustomFormat = "HH:mm";
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dateTimePicker2.Location = new System.Drawing.Point(19, 36);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(87, 20);
+            this.dateTimePicker2.Size = new System.Drawing.Size(84, 20);
             this.dateTimePicker2.TabIndex = 23;
             // 
             // guardar

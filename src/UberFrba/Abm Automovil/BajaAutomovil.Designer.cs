@@ -71,9 +71,9 @@
             this.textBox_Chofer.Enabled = false;
             this.textBox_Chofer.Location = new System.Drawing.Point(65, 133);
             this.textBox_Chofer.Name = "textBox_Chofer";
+            this.textBox_Chofer.ReadOnly = true;
             this.textBox_Chofer.Size = new System.Drawing.Size(195, 20);
             this.textBox_Chofer.TabIndex = 42;
-            this.textBox_Chofer.ReadOnly = true;
             // 
             // label5
             // 
@@ -122,6 +122,7 @@
             // 
             // comboBox_Marca
             // 
+            this.comboBox_Marca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_Marca.FormattingEnabled = true;
             this.comboBox_Marca.Location = new System.Drawing.Point(65, 52);
             this.comboBox_Marca.Name = "comboBox_Marca";
@@ -131,6 +132,7 @@
             // 
             // comboBox_Modelo
             // 
+            this.comboBox_Modelo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_Modelo.FormattingEnabled = true;
             this.comboBox_Modelo.Location = new System.Drawing.Point(65, 80);
             this.comboBox_Modelo.Name = "comboBox_Modelo";
@@ -140,6 +142,7 @@
             // 
             // comboBox_Patente
             // 
+            this.comboBox_Patente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_Patente.FormattingEnabled = true;
             this.comboBox_Patente.Location = new System.Drawing.Point(65, 106);
             this.comboBox_Patente.Name = "comboBox_Patente";
@@ -152,9 +155,9 @@
             this.checkBox_Estado.AutoSize = true;
             this.checkBox_Estado.Location = new System.Drawing.Point(65, 159);
             this.checkBox_Estado.Name = "checkBox_Estado";
-            this.checkBox_Estado.Size = new System.Drawing.Size(73, 17);
+            this.checkBox_Estado.Size = new System.Drawing.Size(81, 17);
             this.checkBox_Estado.TabIndex = 49;
-            this.checkBox_Estado.Text = "Habilitado";
+            this.checkBox_Estado.Text = "Deshabilitar";
             this.checkBox_Estado.UseVisualStyleBackColor = true;
             // 
             // label7

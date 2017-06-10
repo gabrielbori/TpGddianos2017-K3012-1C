@@ -99,6 +99,7 @@
             this.paner_Filtros.TabIndex = 45;
             this.paner_Filtros.TabStop = false;
             this.paner_Filtros.Text = "Filtros de busqueda";
+            this.paner_Filtros.Enter += new System.EventHandler(this.paner_Filtros_Enter);
             // 
             // textBox_Nombre
             // 
@@ -184,6 +185,7 @@
             this.Controls.Add(this.dataGridView_Seleccion);
             this.Controls.Add(this.paner_Filtros);
             this.Name = "SeleccionPersonaActiva";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Selección de persona activa";
             this.Load += new System.EventHandler(this.SeleccionPersonaActiva_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Seleccion)).EndInit();
