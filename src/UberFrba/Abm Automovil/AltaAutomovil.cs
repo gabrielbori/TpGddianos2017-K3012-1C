@@ -9,9 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using UberFrba.Model;
 using UberFrba.CapaDAO;
+using UberFrba.Abm_Persona;
 
 namespace UberFrba.Abm_Automovil
 {
+    
     public partial class AltaAutomovil : FormBase
     {
         public AltaAutomovil()
@@ -89,6 +91,34 @@ namespace UberFrba.Abm_Automovil
 
         }
 
+        private void button_buscar_chofer_Click(object sender, EventArgs e)
+        {
+            Abm_Persona.SeleccionPersonaActiva seleccionarPersonaActiva = new Abm_Persona.SeleccionPersonaActiva(this,2,3);
+            seleccionarPersonaActiva.Show();
+        }
 
+        private void AltaAutomovil_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        public string settextBox_Chofer
+        {
+            set
+            {
+                this.textBox_Chofer.Text = value;
+            }
+
+        }
+
+         public string settextBox_Chofer_dni
+        {
+            set
+            {
+                this.textBox_chofer_dni.Text = value;
+            }
+
+        }
+        
     }
 }

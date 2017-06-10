@@ -99,6 +99,7 @@
             this.paner_Filtros.TabIndex = 45;
             this.paner_Filtros.TabStop = false;
             this.paner_Filtros.Text = "Filtros de busqueda";
+            this.paner_Filtros.Enter += new System.EventHandler(this.paner_Filtros_Enter);
             // 
             // textBox_Nombre
             // 

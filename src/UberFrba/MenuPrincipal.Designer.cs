@@ -53,6 +53,7 @@
             this.altaTurno = new System.Windows.Forms.ToolStripMenuItem();
             this.bajaTurno = new System.Windows.Forms.ToolStripMenuItem();
             this.modificacionTurno = new System.Windows.Forms.ToolStripMenuItem();
+            this.cambiarPassword = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesiònToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
@@ -70,6 +71,7 @@
             this.rendicionDeViajes,
             this.rolToolStripMenuItem,
             this.turnosToolStripMenuItem,
+            this.cambiarPassword,
             this.cerrarSesiònToolStripMenuItem,
             this.salirToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -261,6 +263,13 @@
             this.modificacionTurno.Text = "Modificacion";
             this.modificacionTurno.Click += new System.EventHandler(this.modificacionTurno_Click);
             // 
+            // cambiarPassword
+            // 
+            this.cambiarPassword.Name = "cambiarPassword";
+            this.cambiarPassword.Size = new System.Drawing.Size(119, 20);
+            this.cambiarPassword.Text = "Cambiar_Password";
+            this.cambiarPassword.Click += new System.EventHandler(this.cambiarPassword_Click);
+            // 
             // cerrarSesiònToolStripMenuItem
             // 
             this.cerrarSesiònToolStripMenuItem.Name = "cerrarSesiònToolStripMenuItem";
@@ -323,5 +332,6 @@
         private System.Windows.Forms.ToolStripMenuItem altaTurno;
         private System.Windows.Forms.ToolStripMenuItem bajaTurno;
         private System.Windows.Forms.ToolStripMenuItem modificacionTurno;
+        private System.Windows.Forms.ToolStripMenuItem cambiarPassword;
     }
 }
