@@ -55,19 +55,19 @@ namespace UberFrba.Rendicion_Viajes
               if (resultado == DialogResult.Yes)
               {
 
-                  //try
-               //  {
+                  try
+                 {
                       DAORendicionViaje.crearRendicion(Convert.ToDateTime(dateTimePicker1.Value), Convert.ToInt32(persona.ID),
                                                 Convert.ToInt32(comboBox1.SelectedValue),this.total,
                                                 dataGridView_Viajes.Rows); 
 
 
-                    //  Mensaje_OK("El pago fue realizado con éxito");
-                 // }
-                 // catch
-                 // {
-                    //  Mensaje_Error("Falló la creación del pago en la base de datos");
-                  //}
+                      Mensaje_OK("El pago fue realizado con éxito");
+                  }
+                  catch
+                  {
+                      Mensaje_Error("Falló la creación del pago en la base de datos");
+                  }
               }
 
         }
