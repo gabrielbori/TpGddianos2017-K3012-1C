@@ -11,6 +11,7 @@ using UberFrba;
 using UberFrba.Model;
 using UberFrba.Abm_Automovil;
 using UberFrba.Abm_Persona;
+using UberFrba.Abm_usuario;
 
 namespace UberFrba
 {
@@ -31,7 +32,7 @@ namespace UberFrba
             Login.Login login = new Login.Login();
             login.mostrar(this);
             this.menuStrip1.Visible = false;
-            controles = new ToolStripMenuItem[] {altaAutomovil,bajaAutomovil,modificacionAutomovil,altaChofer,bajaChofer,modificacionChofer,altaCliente,bajaCliente,modificacionCliente,facturacion,listadoEstadistico,registroDeViajes,rendicionDeViajes,altaRol,bajaRol,modificacionRol,altaTurno,bajaTurno, modificacionTurno};
+            controles = new ToolStripMenuItem[] { altaAutomovil, bajaAutomovil, modificacionAutomovil, altaChofer, bajaChofer, modificacionChofer, altaCliente, bajaCliente, modificacionCliente, facturacion, listadoEstadistico, registroDeViajes, rendicionDeViajes, altaRol, bajaRol, modificacionRol, altaTurno, bajaTurno, modificacionTurno, cambiarPassword };
 
             foreach (ToolStripMenuItem tool in this.menuStrip1.Items/*Controls.OfType<ToolStripMenuItem>()*/)
                 allControles.Add(tool);
@@ -263,6 +264,14 @@ namespace UberFrba
             if (ActiveMdiChild != null) ActiveMdiChild.Close();
             Abm_Turno.ModificacionSeleccionTurno modificacionTurno = new Abm_Turno.ModificacionSeleccionTurno(new Abm_Turno.ModificacionTurno());
             modificacionTurno.mostrar(this);     
+        }
+
+        private void cambiarPassword_Click(object sender, EventArgs e)
+        {
+            if (noPuedeIngresar(20)) return;
+            if (ActiveMdiChild != null) ActiveMdiChild.Close();
+            Abm_usuario.CambiarPassword cambiarPassword = new Abm_usuario.CambiarPassword();
+            cambiarPassword.mostrar(this);   
         }
     }
 }
