@@ -13,9 +13,9 @@ namespace UberFrba.CapaDAO
     {
 
        
-        public static DataTable getTurnos()
+        public static DataTable getTurnosAuto(string patente)
         {
-            return retrieveDataTable("GET_TURNOS");
+            return retrieveDataTable("GET_TURNOS_AUTO", patente);
         }
         
         public static DataTable getAutos(int choferDNI)
@@ -28,6 +28,9 @@ namespace UberFrba.CapaDAO
             executeProcedure("REGISTRAR_VIAJE", turno,  fecha,  horaI,  horaF, km,  chofer,  cliente);
         }
 
-       
+        public static int viajeYaRegistrado(DateTime fecha, DateTime horaI, int cliente)
+        {
+            return executeProcedureWithReturnValue("VIAJE_YA_REGISTRADO", fecha, horaI, cliente);
+        }
     }
 }
