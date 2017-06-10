@@ -33,7 +33,7 @@
         {
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.buttonAceptar = new System.Windows.Forms.Button();
-            this.textBoxChofer = new System.Windows.Forms.TextBox();
+            this.textBox_chofer_dni = new System.Windows.Forms.TextBox();
             this.buttonSeleccionar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -49,11 +49,14 @@
             this.labelTurnoHabilitado = new System.Windows.Forms.Label();
             this.TurnoDeshabilitado = new System.Windows.Forms.CheckedListBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.button_buscar_Chofer = new System.Windows.Forms.Button();
+            this.textBox_chofer_nombre = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonCancelar
             // 
-            this.buttonCancelar.Location = new System.Drawing.Point(10, 287);
+            this.buttonCancelar.Location = new System.Drawing.Point(10, 334);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(75, 23);
             this.buttonCancelar.TabIndex = 30;
@@ -63,7 +66,7 @@
             // 
             // buttonAceptar
             // 
-            this.buttonAceptar.Location = new System.Drawing.Point(259, 287);
+            this.buttonAceptar.Location = new System.Drawing.Point(259, 334);
             this.buttonAceptar.Name = "buttonAceptar";
             this.buttonAceptar.Size = new System.Drawing.Size(75, 23);
             this.buttonAceptar.TabIndex = 29;
@@ -72,12 +75,12 @@
             this.buttonAceptar.Visible = false;
             this.buttonAceptar.Click += new System.EventHandler(this.buttonAceptar_Click);
             // 
-            // textBoxChofer
+            // textBox_chofer_dni
             // 
-            this.textBoxChofer.Location = new System.Drawing.Point(124, 117);
-            this.textBoxChofer.Name = "textBoxChofer";
-            this.textBoxChofer.Size = new System.Drawing.Size(130, 20);
-            this.textBoxChofer.TabIndex = 28;
+            this.textBox_chofer_dni.Location = new System.Drawing.Point(124, 117);
+            this.textBox_chofer_dni.Name = "textBox_chofer_dni";
+            this.textBox_chofer_dni.Size = new System.Drawing.Size(130, 20);
+            this.textBox_chofer_dni.TabIndex = 28;
             // 
             // buttonSeleccionar
             // 
@@ -94,9 +97,9 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(9, 124);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(38, 13);
+            this.label5.Size = new System.Drawing.Size(57, 13);
             this.label5.TabIndex = 22;
-            this.label5.Text = "Chofer";
+            this.label5.Text = "Chofer Dni";
             // 
             // label3
             // 
@@ -155,7 +158,7 @@
             // checkBoxEstado
             // 
             this.checkBoxEstado.AutoSize = true;
-            this.checkBoxEstado.Location = new System.Drawing.Point(124, 253);
+            this.checkBoxEstado.Location = new System.Drawing.Point(124, 300);
             this.checkBoxEstado.Name = "checkBoxEstado";
             this.checkBoxEstado.Size = new System.Drawing.Size(73, 17);
             this.checkBoxEstado.TabIndex = 51;
@@ -165,7 +168,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(9, 257);
+            this.label7.Location = new System.Drawing.Point(9, 304);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(40, 13);
             this.label7.TabIndex = 50;
@@ -182,7 +185,7 @@
             // Turno
             // 
             this.Turno.FormattingEnabled = true;
-            this.Turno.Location = new System.Drawing.Point(124, 143);
+            this.Turno.Location = new System.Drawing.Point(124, 190);
             this.Turno.Name = "Turno";
             this.Turno.Size = new System.Drawing.Size(130, 49);
             this.Turno.TabIndex = 53;
@@ -191,7 +194,7 @@
             // labelTurnoHabilitado
             // 
             this.labelTurnoHabilitado.AutoSize = true;
-            this.labelTurnoHabilitado.Location = new System.Drawing.Point(9, 143);
+            this.labelTurnoHabilitado.Location = new System.Drawing.Point(9, 190);
             this.labelTurnoHabilitado.Name = "labelTurnoHabilitado";
             this.labelTurnoHabilitado.Size = new System.Drawing.Size(85, 13);
             this.labelTurnoHabilitado.TabIndex = 54;
@@ -201,7 +204,7 @@
             // TurnoDeshabilitado
             // 
             this.TurnoDeshabilitado.FormattingEnabled = true;
-            this.TurnoDeshabilitado.Location = new System.Drawing.Point(124, 198);
+            this.TurnoDeshabilitado.Location = new System.Drawing.Point(124, 245);
             this.TurnoDeshabilitado.Name = "TurnoDeshabilitado";
             this.TurnoDeshabilitado.Size = new System.Drawing.Size(130, 49);
             this.TurnoDeshabilitado.TabIndex = 55;
@@ -210,18 +213,47 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(9, 198);
+            this.label4.Location = new System.Drawing.Point(9, 245);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(102, 13);
             this.label4.TabIndex = 56;
             this.label4.Text = "Turno Deshabilitado";
             this.label4.Visible = false;
             // 
+            // button_buscar_Chofer
+            // 
+            this.button_buscar_Chofer.Location = new System.Drawing.Point(267, 117);
+            this.button_buscar_Chofer.Name = "button_buscar_Chofer";
+            this.button_buscar_Chofer.Size = new System.Drawing.Size(75, 23);
+            this.button_buscar_Chofer.TabIndex = 57;
+            this.button_buscar_Chofer.Text = "Buscar Chofer";
+            this.button_buscar_Chofer.UseVisualStyleBackColor = true;
+            this.button_buscar_Chofer.Click += new System.EventHandler(this.button_buscar_Chofer_Click);
+            // 
+            // textBox_chofer_nombre
+            // 
+            this.textBox_chofer_nombre.Location = new System.Drawing.Point(124, 152);
+            this.textBox_chofer_nombre.Name = "textBox_chofer_nombre";
+            this.textBox_chofer_nombre.Size = new System.Drawing.Size(130, 20);
+            this.textBox_chofer_nombre.TabIndex = 58;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(9, 152);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(76, 13);
+            this.label8.TabIndex = 59;
+            this.label8.Text = "Chofer nombre";
+            // 
             // ModificacionAutomovil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(354, 326);
+            this.ClientSize = new System.Drawing.Size(354, 395);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.textBox_chofer_nombre);
+            this.Controls.Add(this.button_buscar_Chofer);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.TurnoDeshabilitado);
             this.Controls.Add(this.labelTurnoHabilitado);
@@ -233,7 +265,7 @@
             this.Controls.Add(this.comboBoxMarca);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonAceptar);
-            this.Controls.Add(this.textBoxChofer);
+            this.Controls.Add(this.textBox_chofer_dni);
             this.Controls.Add(this.buttonSeleccionar);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
@@ -252,7 +284,7 @@
 
         private System.Windows.Forms.Button buttonCancelar;
         private System.Windows.Forms.Button buttonAceptar;
-        private System.Windows.Forms.TextBox textBoxChofer;
+        private System.Windows.Forms.TextBox textBox_chofer_dni;
         private System.Windows.Forms.Button buttonSeleccionar;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
@@ -268,5 +300,8 @@
         private System.Windows.Forms.Label labelTurnoHabilitado;
         private System.Windows.Forms.CheckedListBox TurnoDeshabilitado;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button_buscar_Chofer;
+        private System.Windows.Forms.TextBox textBox_chofer_nombre;
+        private System.Windows.Forms.Label label8;
     }
 }
