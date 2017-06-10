@@ -30,24 +30,17 @@ namespace UberFrba.Abm_Automovil
 
         }
 
-        private bool ValidarChofer(string chofer, string patente)
-        {
-            if (chofer == null) {Mensaje_Error("El chofer se encuentra vacio"); return false;}
-            if (DAOAutomovil.choferAsignado(chofer, patente) == true) { Mensaje_Error("El chofer ya posee auto"); return false; }
-            return true;
-        }
-
         private void buttonAceptar_Click(object sender, EventArgs e)
         {
 
             string patente = comboBoxPatente.Text;
             int estado = Convert.ToInt32(checkBoxEstado.Checked);
-            string chofer = textBox_chofer_dni.Text;
+            int chofer = Convert.ToInt32(textBox_chofer_dni.Text);
 
             var resultado = Mensaje_Pregunta("¿Está seguro que desea modificar el automovil?", "Modificar Automovil");
             if (resultado == DialogResult.Yes)
             {
-                if (!ValidarChofer(chofer, patente)) { Mensaje_Error("Modificacion no valida"); }
+                if (DAOAutomovil.choferAsignado(chofer, patente) == true) { Mensaje_Error("El chofer ya posee auto"); }
                 else
                 {
                     DAOAutomovil.modificarAutomovilPorPatente(patente, estado, chofer);
@@ -134,7 +127,9 @@ namespace UberFrba.Abm_Automovil
                 label7.Visible = true;
                 int estado = Convert.ToInt32(row["COCHE_ESTADO"]);
                 string chofer = row["PERSONA"] as string;
-                textBox_chofer_dni.Text = chofer;
+                string dni = Convert.ToString(row["PERS_DNI"]);
+                textBox_chofer_nombre.Text = chofer;
+                textBox_chofer_dni.Text = dni;
                 if (estado == 1)
                 {
                     checkBoxEstado.Visible = false;
