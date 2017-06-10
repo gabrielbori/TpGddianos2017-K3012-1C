@@ -22,9 +22,11 @@ namespace UberFrba.Abm_Automovil
 
             comboBoxMarca.DisplayMember = "MARCA_NOMBRE";
             comboBoxMarca.DataSource = marcas;
-
+            button_buscar_Chofer.Visible = false;
+            textBox_chofer_nombre.Visible = false;
             textBox_chofer_dni.Visible = false;
             checkBoxEstado.Visible = false;
+            label8.Visible = false;
             label5.Visible = false;
             label7.Visible = false;
 
@@ -128,8 +130,14 @@ namespace UberFrba.Abm_Automovil
                 int estado = Convert.ToInt32(row["COCHE_ESTADO"]);
                 string chofer = row["PERSONA"] as string;
                 string dni = Convert.ToString(row["PERS_DNI"]);
+                button_buscar_Chofer.Visible = true;
+                textBox_chofer_nombre.Visible = true;
+                textBox_chofer_dni.Visible = true;
+                label8.Visible = true;
                 textBox_chofer_nombre.Text = chofer;
+                textBox_chofer_nombre.ReadOnly = true;
                 textBox_chofer_dni.Text = dni;
+                textBox_chofer_dni.ReadOnly = true;           
                 if (estado == 1)
                 {
                     checkBoxEstado.Visible = false;
