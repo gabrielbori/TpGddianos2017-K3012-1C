@@ -163,6 +163,12 @@
     <Compile Include="Abm Turno\ModificacionTurno.Designer.cs">
       <DependentUpon>ModificacionTurno.cs</DependentUpon>
     </Compile>
+    <Compile Include="Abm usuario\CambiarPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm usuario\CambiarPassword.Designer.cs">
+      <DependentUpon>CambiarPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="CapaDAO\DAOAutomovil.cs" />
     <Compile Include="CapaDAO\DAOChofer.cs" />
     <Compile Include="CapaDAO\DAOCLiente.cs" />
@@ -285,6 +291,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Turno\ModificacionTurno.resx">
       <DependentUpon>ModificacionTurno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm usuario\CambiarPassword.resx">
+      <DependentUpon>CambiarPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\Facturar.resx">
       <DependentUpon>Facturar.cs</DependentUpon>
