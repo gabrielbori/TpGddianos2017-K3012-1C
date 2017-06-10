@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using UberFrba.Model;
 using UberFrba.CapaDAO;
+using UberFrba.Abm_Persona;
 
 namespace UberFrba.Abm_Automovil
 {
@@ -22,7 +23,7 @@ namespace UberFrba.Abm_Automovil
             comboBoxMarca.DisplayMember = "MARCA_NOMBRE";
             comboBoxMarca.DataSource = marcas;
 
-            textBoxChofer.Visible = false;
+            textBox_chofer_dni.Visible = false;
             checkBoxEstado.Visible = false;
             label5.Visible = false;
             label7.Visible = false;
@@ -41,7 +42,7 @@ namespace UberFrba.Abm_Automovil
 
             string patente = comboBoxPatente.Text;
             int estado = Convert.ToInt32(checkBoxEstado.Checked);
-            string chofer = textBoxChofer.Text;
+            string chofer = textBox_chofer_dni.Text;
 
             var resultado = Mensaje_Pregunta("¿Está seguro que desea modificar el automovil?", "Modificar Automovil");
             if (resultado == DialogResult.Yes)
@@ -127,18 +128,18 @@ namespace UberFrba.Abm_Automovil
         {
             DataTable table = DAOAutomovil.getEstadoYChofer(comboBoxPatente.Text);
                 DataRow row = table.Rows[0];
-                textBoxChofer.Visible = true;
+                textBox_chofer_dni.Visible = true;
                 checkBoxEstado.Visible = true;
                 label5.Visible = true;
                 label7.Visible = true;
                 int estado = Convert.ToInt32(row["COCHE_ESTADO"]);
                 string chofer = row["PERSONA"] as string;
-                textBoxChofer.Text = chofer;
+                textBox_chofer_dni.Text = chofer;
                 if (estado == 1)
                 {
                     checkBoxEstado.Visible = false;
                     label7.Visible = false;
-                    textBoxChofer.Enabled = true;
+                    textBox_chofer_dni.Enabled = true;
                     checkBoxEstado.Checked = true;
                     labelTurnoHabilitado.Visible = true;
                     Turno.Visible = true;
@@ -151,7 +152,7 @@ namespace UberFrba.Abm_Automovil
                 {
                     checkBoxEstado.Visible = true;
                     label7.Visible = true;
-                    textBoxChofer.Enabled = false;
+                    textBox_chofer_dni.Enabled = false;
                 }
                     buttonAceptar.Visible = true;
                     
@@ -180,5 +181,28 @@ namespace UberFrba.Abm_Automovil
 
         }
 
+        private void button_buscar_Chofer_Click(object sender, EventArgs e)
+        {
+            Abm_Persona.SeleccionPersonaActiva seleccionarPersonaActiva = new Abm_Persona.SeleccionPersonaActiva(this, 2, 4);
+            seleccionarPersonaActiva.Show();
+        }
+
+        public string settextBox_Chofer
+        {
+            set
+            {
+                this.textBox_chofer_nombre.Text = value;
+            }
+
+        }
+
+        public string settextBox_Chofer_dni
+        {
+            set
+            {
+                this.textBox_chofer_dni.Text = value;
+            }
+
+        }
     }
 }
