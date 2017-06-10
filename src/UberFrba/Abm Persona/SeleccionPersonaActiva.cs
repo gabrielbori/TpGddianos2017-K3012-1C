@@ -67,8 +67,7 @@ namespace UberFrba.Abm_Persona
                        
 
                 if (abm == 1) //SI VIENE DE REGISTRAR VIAJE EL ABM ES 1 Y HACE ESTO
-                {
-                    //ACA ESTA EL PROBLEMA, TENDRIA QUE SER UNA INSTANCIA DEL FORM YA ABIERTO
+                {                    
                     otro.setnombreChofer = persona.Nombre;
                     otro.setapellidoChofer = persona.Apellido;
                     otro.setndniChofer = persona.Dni.ToString();
