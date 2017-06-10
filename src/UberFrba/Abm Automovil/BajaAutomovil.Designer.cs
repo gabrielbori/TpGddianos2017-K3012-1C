@@ -122,6 +122,7 @@
             // 
             // comboBox_Marca
             // 
+            this.comboBox_Marca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_Marca.FormattingEnabled = true;
             this.comboBox_Marca.Location = new System.Drawing.Point(65, 52);
             this.comboBox_Marca.Name = "comboBox_Marca";
@@ -131,6 +132,7 @@
             // 
             // comboBox_Modelo
             // 
+            this.comboBox_Modelo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_Modelo.FormattingEnabled = true;
             this.comboBox_Modelo.Location = new System.Drawing.Point(65, 80);
             this.comboBox_Modelo.Name = "comboBox_Modelo";
@@ -140,6 +142,7 @@
             // 
             // comboBox_Patente
             // 
+            this.comboBox_Patente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_Patente.FormattingEnabled = true;
             this.comboBox_Patente.Location = new System.Drawing.Point(65, 106);
             this.comboBox_Patente.Name = "comboBox_Patente";
