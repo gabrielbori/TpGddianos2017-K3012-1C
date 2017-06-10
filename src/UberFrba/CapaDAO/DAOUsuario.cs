@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using UberFrba.Model;
+using UberFrba.CapaDAO;
 
 namespace UberFrba.CapaDAO
 {
@@ -17,5 +18,13 @@ namespace UberFrba.CapaDAO
             DataRow row = table.Rows[0];
             return row["USUA_USERNAME"] as string;
         }
+
+        public static void cambiarPassword(String usuario,String nuevaPassword)
+        {
+            executeProcedure("CAMBIAR_PASSWORD",usuario,nuevaPassword); 
+            
+        }
+
+
     }
 }
