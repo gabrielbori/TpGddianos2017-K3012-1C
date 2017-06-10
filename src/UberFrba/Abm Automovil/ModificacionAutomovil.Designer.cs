@@ -77,7 +77,7 @@
             // 
             // textBox_chofer_dni
             // 
-            this.textBox_chofer_dni.Location = new System.Drawing.Point(124, 117);
+            this.textBox_chofer_dni.Location = new System.Drawing.Point(124, 143);
             this.textBox_chofer_dni.Name = "textBox_chofer_dni";
             this.textBox_chofer_dni.Size = new System.Drawing.Size(130, 20);
             this.textBox_chofer_dni.TabIndex = 28;
@@ -95,7 +95,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 124);
+            this.label5.Location = new System.Drawing.Point(9, 150);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(57, 13);
             this.label5.TabIndex = 22;
@@ -158,7 +158,7 @@
             // checkBoxEstado
             // 
             this.checkBoxEstado.AutoSize = true;
-            this.checkBoxEstado.Location = new System.Drawing.Point(124, 300);
+            this.checkBoxEstado.Location = new System.Drawing.Point(124, 279);
             this.checkBoxEstado.Name = "checkBoxEstado";
             this.checkBoxEstado.Size = new System.Drawing.Size(73, 17);
             this.checkBoxEstado.TabIndex = 51;
@@ -168,7 +168,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(9, 304);
+            this.label7.Location = new System.Drawing.Point(9, 283);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(40, 13);
             this.label7.TabIndex = 50;
@@ -185,7 +185,7 @@
             // Turno
             // 
             this.Turno.FormattingEnabled = true;
-            this.Turno.Location = new System.Drawing.Point(124, 190);
+            this.Turno.Location = new System.Drawing.Point(124, 169);
             this.Turno.Name = "Turno";
             this.Turno.Size = new System.Drawing.Size(130, 49);
             this.Turno.TabIndex = 53;
@@ -194,7 +194,7 @@
             // labelTurnoHabilitado
             // 
             this.labelTurnoHabilitado.AutoSize = true;
-            this.labelTurnoHabilitado.Location = new System.Drawing.Point(9, 190);
+            this.labelTurnoHabilitado.Location = new System.Drawing.Point(9, 169);
             this.labelTurnoHabilitado.Name = "labelTurnoHabilitado";
             this.labelTurnoHabilitado.Size = new System.Drawing.Size(85, 13);
             this.labelTurnoHabilitado.TabIndex = 54;
@@ -204,7 +204,7 @@
             // TurnoDeshabilitado
             // 
             this.TurnoDeshabilitado.FormattingEnabled = true;
-            this.TurnoDeshabilitado.Location = new System.Drawing.Point(124, 245);
+            this.TurnoDeshabilitado.Location = new System.Drawing.Point(124, 224);
             this.TurnoDeshabilitado.Name = "TurnoDeshabilitado";
             this.TurnoDeshabilitado.Size = new System.Drawing.Size(130, 49);
             this.TurnoDeshabilitado.TabIndex = 55;
@@ -213,7 +213,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(9, 245);
+            this.label4.Location = new System.Drawing.Point(9, 224);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(102, 13);
             this.label4.TabIndex = 56;
@@ -232,7 +232,7 @@
             // 
             // textBox_chofer_nombre
             // 
-            this.textBox_chofer_nombre.Location = new System.Drawing.Point(124, 152);
+            this.textBox_chofer_nombre.Location = new System.Drawing.Point(124, 117);
             this.textBox_chofer_nombre.Name = "textBox_chofer_nombre";
             this.textBox_chofer_nombre.Size = new System.Drawing.Size(130, 20);
             this.textBox_chofer_nombre.TabIndex = 58;
@@ -240,7 +240,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(9, 152);
+            this.label8.Location = new System.Drawing.Point(7, 124);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(76, 13);
             this.label8.TabIndex = 59;

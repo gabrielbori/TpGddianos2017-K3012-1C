@@ -29,12 +29,11 @@ namespace UberFrba.Abm_Automovil
             this.Close();
         }
 
-        private bool ValidarAutomovil(string marca, string modelo, string patente, string chofer)
+        private bool ValidarAutomovil(string marca, string modelo, string patente, int chofer)
         {
             if (marca == null) { Mensaje_Error("Marca del automovil vacia"); return false; }
             if (modelo == null) { Mensaje_Error("Modelo del automovil vacio"); return false; }
             if (patente == null) { Mensaje_Error("Patente del automovil vacia"); return false; }
-            if (chofer == null) { Mensaje_Error("Chofer del automovil vacio"); return false; }
             if (DAOAutomovil.validarPatente(patente)) { Mensaje_Error("La patente ya existe"); return false; }
             if (DAOAutomovil.choferAsignado(chofer, patente)) { Mensaje_Error("El chofer ya posee automovil"); return false; }
             if (Turno.CheckedItems.Count == 0) { Mensaje_Error("No se ha/n seleccionado turno/s"); return false; }
@@ -50,7 +49,7 @@ namespace UberFrba.Abm_Automovil
             string marca = comboBox_Marca.Text;
             string modelo = comboBox_Modelo.Text;
             string patente = textBox_Patente.Text;
-            string chofer = textBox_Chofer.Text;
+            int chofer = Convert.ToInt32(textBox_chofer_dni.Text);
             int estado = 1;
 
             if (!(ValidarAutomovil(marca, modelo, patente, chofer))) { Mensaje_Error("Error al generar la alta"); }

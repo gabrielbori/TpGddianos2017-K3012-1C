@@ -71,9 +71,9 @@
             this.textBox_Chofer.Enabled = false;
             this.textBox_Chofer.Location = new System.Drawing.Point(65, 133);
             this.textBox_Chofer.Name = "textBox_Chofer";
+            this.textBox_Chofer.ReadOnly = true;
             this.textBox_Chofer.Size = new System.Drawing.Size(195, 20);
             this.textBox_Chofer.TabIndex = 42;
-            this.textBox_Chofer.ReadOnly = true;
             // 
             // label5
             // 
@@ -152,9 +152,9 @@
             this.checkBox_Estado.AutoSize = true;
             this.checkBox_Estado.Location = new System.Drawing.Point(65, 159);
             this.checkBox_Estado.Name = "checkBox_Estado";
-            this.checkBox_Estado.Size = new System.Drawing.Size(73, 17);
+            this.checkBox_Estado.Size = new System.Drawing.Size(81, 17);
             this.checkBox_Estado.TabIndex = 49;
-            this.checkBox_Estado.Text = "Habilitado";
+            this.checkBox_Estado.Text = "Deshabilitar";
             this.checkBox_Estado.UseVisualStyleBackColor = true;
             // 
             // label7
