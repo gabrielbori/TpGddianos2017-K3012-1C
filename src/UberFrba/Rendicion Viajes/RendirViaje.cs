@@ -43,6 +43,8 @@ namespace UberFrba.Rendicion_Viajes
 
         private void button_Aceptar_Click(object sender, EventArgs e)
         {
+            Mensaje_Error(Convert.ToDateTime(dateTimePicker1.Value).ToString()+'-'+ Convert.ToInt32(persona.ID)+'-'+
+                                                  Convert.ToInt32(comboBox1.SelectedValue)+'-'+ this.total, Convert.ToDecimal(textBox1.Text).ToString());
 
             if (textBox_Numero.Text != "A generar") 
             {
