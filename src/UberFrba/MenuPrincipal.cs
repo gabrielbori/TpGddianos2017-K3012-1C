@@ -32,12 +32,13 @@ namespace UberFrba
             Login.Login login = new Login.Login();
             login.mostrar(this);
             this.menuStrip1.Visible = false;
-            controles = new ToolStripMenuItem[] { altaAutomovil, bajaAutomovil, modificacionAutomovil, altaChofer, bajaChofer, modificacionChofer, altaCliente, bajaCliente, modificacionCliente, facturacion, listadoEstadistico, registroDeViajes, rendicionDeViajes, altaRol, bajaRol, modificacionRol, altaTurno, bajaTurno, modificacionTurno, cambiarPassword };
+            controles = new ToolStripMenuItem[] { altaAutomovil, bajaAutomovil, modificacionAutomovil, altaChofer, bajaChofer, modificacionChofer, altaCliente, bajaCliente, modificacionCliente, facturacion, listadoEstadistico, registroDeViajes, rendicionDeViajes, altaRol, bajaRol, modificacionRol, altaTurno, bajaTurno, modificacionTurno };
 
             foreach (ToolStripMenuItem tool in this.menuStrip1.Items/*Controls.OfType<ToolStripMenuItem>()*/)
                 allControles.Add(tool);
             allControles.Remove(cerrarSesiònToolStripMenuItem);
             allControles.Remove(salirToolStripMenuItem);
+            allControles.Remove(cambiarPassword);
 
             strip = this.menuStrip1; 
         }
@@ -268,7 +269,7 @@ namespace UberFrba
 
         private void cambiarPassword_Click(object sender, EventArgs e)
         {
-            if (noPuedeIngresar(20)) return;
+            
             if (ActiveMdiChild != null) ActiveMdiChild.Close();
             Abm_usuario.CambiarPassword cambiarPassword = new Abm_usuario.CambiarPassword();
             cambiarPassword.mostrar(this);   
