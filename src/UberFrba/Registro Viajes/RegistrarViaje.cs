@@ -206,7 +206,7 @@ namespace UberFrba.Registro_Viajes
 
             if (DAORegistroViaje.viajeYaRegistrado(Convert.ToDateTime(dateTimePicker1.Value),
                                   Convert.ToDateTime(dateTimePicker2.Value), Convert.ToDateTime(dateTimePicker3.Value),                             
-                                  Convert.ToInt32(textBox_dni_cliente.Text)) == 0)
+                                  Convert.ToInt32(textBox_DNI.Text)) == 0)
             { Mensaje_Error("El viaje ya fue registrado"); }
             else
             {
