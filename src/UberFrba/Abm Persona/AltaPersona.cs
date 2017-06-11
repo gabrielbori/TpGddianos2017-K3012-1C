@@ -45,19 +45,16 @@ namespace UberFrba.Abm_Persona
             }
         }
 
-        private bool Validaciones()
+        private bool Validaciones(int tipo)
         {
             string mensaje = "";
-            int telefono = Convert.ToInt32(textBox_Telefono.Text);
-            int dni = Convert.ToInt32(textBox_DNI.Text);
-            if (textBox_Direccion.Text == "") { mensaje = "La direccion esta vacía"; Mensaje_Error(mensaje); return false; }
-            if (textBox_Apellido.Text == "") { mensaje = "El apellido está vacío"; Mensaje_Error(mensaje); return false; }
-            if (textBox_DNI.Text == "") { mensaje = "El dni está vacío"; Mensaje_Error(mensaje); return false; }
-            if (dateTimePicker_FechaNacimiento.Text == "") { mensaje = "El apellido está vacío"; Mensaje_Error(mensaje); return false; }
-            if (ValidarTelefono(telefono, dni)) { mensaje = "El telefono ingresado o el dni pertenece a otra persona"; Mensaje_Error(mensaje); return false; }
-            if (textBox_Nombre.Text == "") { mensaje = "El nombre está vacío"; Mensaje_Error(mensaje); return false; }
-            if (textBox_CodigoPostal.Text == "") { mensaje = "El codigo postal está vacío"; Mensaje_Error(mensaje); return false; }
-            return true;
+            int tipoCliente = 3;
+            int cont = 0;
+            if ((String.IsNullOrEmpty(textBox_Direccion.Text)) || (textBox_Direccion.Text == "")) { mensaje = "La direccion esta vacía"; Mensaje_Error(mensaje); cont++; }
+            if ((String.IsNullOrEmpty(textBox_Apellido.Text)) || (textBox_Apellido.Text == "")) { mensaje = "El apellido está vacío"; Mensaje_Error(mensaje); cont++; }
+            if ((String.IsNullOrEmpty(textBox_Nombre.Text)) || (textBox_Nombre.Text == "")) { mensaje = "El nombre está vacío"; Mensaje_Error(mensaje); cont++; }
+            if ((tipo == tipoCliente) & (String.IsNullOrEmpty(textBox_CodigoPostal.Text)) & (textBox_CodigoPostal.Text == "")) { mensaje = "El codigo postal está vacío"; Mensaje_Error(mensaje); cont++; }
+            if (cont == 0) { return true; } else { return false; }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -69,10 +66,13 @@ namespace UberFrba.Abm_Persona
 
                 try
                 {
-                    Convert.ToInt32(textBox_Telefono.Text);
-                    Convert.ToInt32(textBox_DNI.Text);
+                    if (textBox_DNI.Text == "") { string mensaje1 = "El dni está vacío"; Mensaje_Error(mensaje1);}
+                    if (textBox_Telefono.Text == "") { string mensaje1 = "El telefono está vacío"; Mensaje_Error(mensaje1);}
+                    int telefono1 = Convert.ToInt32(textBox_Telefono.Text);
+                    int dni1 = Convert.ToInt32(textBox_DNI.Text);
+                    if (ValidarTelefono(telefono1, dni1)) { string mensaje1 = "El telefono ingresado o el dni pertenece a otra persona"; Mensaje_Error(mensaje1);}
                 }
-                catch { Mensaje_Error("El dni y el telefono son campos de numeros"); }
+                catch { Mensaje_Error("El dni y el telefono son campos de numeros"); return; }
 
                 int tipoAmbos = 1;
                 string mensaje;
@@ -84,7 +84,7 @@ namespace UberFrba.Abm_Persona
                 string mail = textBox_Mail.Text;
                 string codPos = textBox_CodigoPostal.Text;
 
-                if (!Validaciones()) { return; };
+                if (!Validaciones(tipo)) { return; };
                 if (!(DAOPersona.existePersona(dni))) //Si NO existe la persona, lo agrego con el tipo de donde viene el formulario. 2=chofer 3=cliente 
                 {
                     //Tipo: Variable que depende de donde viene el formulario (alta de chofer o cliente). Ese mismo tipo se usa para setearlo en la base.  
