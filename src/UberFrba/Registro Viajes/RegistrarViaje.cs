@@ -202,8 +202,7 @@ namespace UberFrba.Registro_Viajes
 
         private void LimpiarCampos()
         {
-            foreach (var control in this.groupBox1.Controls.OfType<TextBox>()) control.Text = "";
-            foreach (var control in this.groupBox2.Controls.OfType<TextBox>()) control.Text = "";
+            
             foreach (var control in this.groupBox3.Controls.OfType<ComboBox>()) control.Text = "";
             foreach (var control in this.groupBox5.Controls.OfType<TextBox>()) control.Text = "";
             foreach (var control in this.groupBox6.Controls.OfType<TextBox>()) control.Text = "";
@@ -216,7 +215,7 @@ namespace UberFrba.Registro_Viajes
             dateTimePicker2.Value = dateTimePicker2.Value.Date + time;
             dateTimePicker3.Value = dateTimePicker2.Value.Date + time;
 
-
+            
         }
 
         private void cancelar_Click(object sender, EventArgs e)
@@ -315,6 +314,7 @@ namespace UberFrba.Registro_Viajes
 
         }
 
+
         private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar))
@@ -338,6 +338,7 @@ namespace UberFrba.Registro_Viajes
                 e.Handled = true;
             }
         }
+
 
        
               
