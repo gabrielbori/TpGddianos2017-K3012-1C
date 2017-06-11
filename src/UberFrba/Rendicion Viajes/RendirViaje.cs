@@ -20,6 +20,7 @@ namespace UberFrba.Rendicion_Viajes
         public RendirViaje()
         {
             InitializeComponent();
+            textBox1.Text = Convert.ToString(30);
         }
 
        
@@ -42,9 +43,12 @@ namespace UberFrba.Rendicion_Viajes
 
         private void button_Aceptar_Click(object sender, EventArgs e)
         {
-            
-            //if que vea si ya se realizo el pago de los viajes seleccionados
 
+            if (textBox_Numero.Text != "A generar") 
+            {
+                Mensaje_Error("Limpie los datos de la última operación");
+                return;
+            }
             if (Validaciones())
             {
                 Mensaje_Error("No están todos los datos obligatorios");
@@ -58,11 +62,16 @@ namespace UberFrba.Rendicion_Viajes
                   try
                  {
                       DAORendicionViaje.crearRendicion(Convert.ToDateTime(dateTimePicker1.Value), Convert.ToInt32(persona.ID),
-                                                Convert.ToInt32(comboBox1.SelectedValue),this.total,
-                                                dataGridView_Viajes.Rows); 
+                                                Convert.ToInt32(comboBox1.SelectedValue), this.total, Convert.ToDecimal(textBox1.Text)); 
 
 
-                      Mensaje_OK("El pago fue realizado con éxito");
+                      
+                      int numPago = DAORendicionViaje.buscarIDPagoInsertado();
+                      if (numPago != -1)
+                      {
+                          textBox_Numero.Text = Convert.ToString(numPago);
+                          Mensaje_OK("El pago fue realizado con éxito");
+                      }
                   }
                   catch
                   {
@@ -96,9 +105,12 @@ namespace UberFrba.Rendicion_Viajes
             if (dateTimePicker1.Value <= DateTime.Today)
             {
 
-                dataGridView_Viajes.DataSource = DAORendicionViaje.getViajes(Convert.ToInt32(persona.ID), Convert.ToDateTime(dateTimePicker1.Value), Convert.ToInt32(comboBox1.SelectedValue) );
-                this.dataGridView_Viajes.Columns["ID"].Visible = false;               
-                textBox1.Text = Convert.ToString(0.3);
+                dataGridView_Viajes.DataSource = DAORendicionViaje.getViajes(Convert.ToInt32(persona.ID), 
+                                                                Convert.ToDateTime(dateTimePicker1.Value), 
+                                                                   Convert.ToInt32(comboBox1.SelectedValue), 
+                                                                   Convert.ToDecimal(textBox1.Text));
+                this.dataGridView_Viajes.Columns["ID"].Visible = false;        
+                
                 setTotal();
 
             }
@@ -134,6 +146,7 @@ namespace UberFrba.Rendicion_Viajes
             textBox_Nombre.Text = "";
             textBox_Apellido.Text = "";
             textBox_DNI.Text = "";
+            textBox_Numero.Text = "A generar";
                       
         
         }
@@ -149,6 +162,11 @@ namespace UberFrba.Rendicion_Viajes
 
             SeleccionPersonaActiva frm = new SeleccionPersonaActiva(this, 2);
             frm.Show();
+        }
+
+        private void groupBox_Pago_Enter(object sender, EventArgs e)
+        {
+
         }
 
 
