@@ -15,7 +15,6 @@ namespace UberFrba.Registro_Viajes
     partial class RegistrarViaje
     {
 
-        private Persona persona;
         /// <summary>
         /// Required designer variable.
         /// </summary>
