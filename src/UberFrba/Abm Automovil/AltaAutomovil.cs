@@ -29,15 +29,14 @@ namespace UberFrba.Abm_Automovil
             this.Close();
         }
 
-        private bool ValidarAutomovil(string marca, string modelo, string patente, int chofer)
+        private bool ValidarAutomovil(string patente, int chofer)
         {
-            if (marca == null) { Mensaje_Error("Marca del automovil vacia"); return false; }
-            if (modelo == null) { Mensaje_Error("Modelo del automovil vacio"); return false; }
-            if (patente == null) { Mensaje_Error("Patente del automovil vacia"); return false; }
-            if (DAOAutomovil.validarPatente(patente)) { Mensaje_Error("La patente ya existe"); return false; }
-            if (DAOAutomovil.choferAsignado(chofer, patente)) { Mensaje_Error("El chofer ya posee automovil"); return false; }
-            if (Turno.CheckedItems.Count == 0) { Mensaje_Error("No se ha/n seleccionado turno/s"); return false; }
-            return true;
+            int cont = 0;
+            if ((String.IsNullOrEmpty(patente)) || (patente == "")) { Mensaje_Error("Patente del automovil vacia"); cont++;}
+            if (DAOAutomovil.validarPatente(patente)) { Mensaje_Error("La patente ya existe"); cont++; }
+            if (DAOAutomovil.choferAsignado(chofer, patente)) { Mensaje_Error("El chofer ya posee automovil"); cont++; }
+            if (Turno.CheckedItems.Count == 0) { Mensaje_Error("No se ha/n seleccionado turno/s"); cont++; }
+            if (cont == 0) { return true; } else { return false; }
 
         }
 
@@ -52,7 +51,7 @@ namespace UberFrba.Abm_Automovil
             int chofer = Convert.ToInt32(textBox_chofer_dni.Text);
             int estado = 1;
 
-            if (!(ValidarAutomovil(marca, modelo, patente, chofer))) { Mensaje_Error("Error al generar la alta"); }
+            if (!(ValidarAutomovil(patente, chofer))) {return; }
                 else
                 {
                 DAOAutomovil.altaAutomovil(marca, modelo, patente,chofer,estado);
