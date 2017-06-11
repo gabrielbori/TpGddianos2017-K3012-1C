@@ -173,7 +173,7 @@ namespace UberFrba.Abm_Persona
 
         private void SeleccionPersonaActiva_Load(object sender, EventArgs e)
         {
-
+            dataGridView_Seleccion.DataSource = DAOPersona.getPersonaActiva(nombre, apellido, doc, tipoPersona, tipoAmbos);
         }
 
         private void paner_Filtros_Enter(object sender, EventArgs e)
