@@ -45,7 +45,7 @@ namespace UberFrba.Facturacion
                 Mensaje_Error("Cargue el Cliente");
                 return;
             }
-            if (dateTimePicker_Fin.Value <= Globals.getFechaSistemaEnTipoDate())
+            if (dateTimePicker_Fin.Value < Globals.getFechaSistemaEnTipoDate())
             {
                 dataGridView_Viajes.DataSource = DAOFacturacion.getViajes(Convert.ToInt32(persona.ID), Convert.ToInt32(dateTimePicker_Inicio.Value.Month), Convert.ToInt32(dateTimePicker_Inicio.Value.Year));
                 this.dataGridView_Viajes.Columns["ID"].Visible = false;

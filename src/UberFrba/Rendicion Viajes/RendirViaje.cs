@@ -32,6 +32,8 @@ namespace UberFrba.Rendicion_Viajes
             comboBox1.ValueMember = "TURNO_ID";
             comboBox1.DisplayMember = "TURNO_DESCRIPCION";
             comboBox1.DataSource = turnos;
+            dateTimePicker1.Value = Globals.getDateFechaSistema();
+            
         }
 
         
@@ -43,6 +45,7 @@ namespace UberFrba.Rendicion_Viajes
 
         private void button_Aceptar_Click(object sender, EventArgs e)
         {
+            
 
             if (textBox_Numero.Text != "A generar") 
             {
@@ -55,9 +58,9 @@ namespace UberFrba.Rendicion_Viajes
                 return;
             }
 
-            if ((DAORendicionViaje.viajeYaRendido(dataGridView_Viajes.Rows)) == 0)
+            if (dataGridView_Viajes.RowCount == 0)
             {
-                Mensaje_Error("Los viajes ya fueron rendidos");
+                Mensaje_Error("No hay viajes para rendir");
                 return;
             }
             else
@@ -76,6 +79,8 @@ namespace UberFrba.Rendicion_Viajes
                         textBox_Numero.Text = Convert.ToString(numPago);
 
                         Mensaje_OK("El pago fue realizado con éxito");
+                        button_Buscar_Viajes_Click(sender, e);
+                        
 
                     }
                     catch
@@ -107,7 +112,9 @@ namespace UberFrba.Rendicion_Viajes
                 return;
 
             }
-            if (dateTimePicker1.Value <= Globals.getFechaSistemaEnTipoDate())
+
+            
+            if (dateTimePicker1.Value < Globals.getDateFechaSistema())
             {
 
                 dataGridView_Viajes.DataSource = DAORendicionViaje.getViajes(Convert.ToInt32(persona.ID), 
@@ -167,11 +174,47 @@ namespace UberFrba.Rendicion_Viajes
 
             SeleccionPersonaActiva frm = new SeleccionPersonaActiva(this, 2);
             frm.Show();
+            
         }
 
         private void groupBox_Pago_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //dataGridView_Viajes.DataSource = null;
+            button_Buscar_Viajes_Click(sender, e);
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void keypressporcentaje(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsPunctuation(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
         }
 
 
