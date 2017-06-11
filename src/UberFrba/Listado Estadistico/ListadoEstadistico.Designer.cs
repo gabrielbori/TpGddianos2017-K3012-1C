@@ -79,7 +79,6 @@
             // 
             // textBox_Anio
             // 
-            this.textBox_Anio.AllowDrop = true;
             this.textBox_Anio.Location = new System.Drawing.Point(104, 126);
             this.textBox_Anio.MaxLength = 4;
             this.textBox_Anio.Name = "textBox_Anio";

@@ -13,29 +13,27 @@ namespace UberFrba.CapaDAO
     {
         public static string[] getCampos(string persona, string consulta)
         {
-            string[] campos = new string[1];
+            string[] campos;
 
             if (String.Equals(persona, "Chofer"))
             {
                 //listado de cosas de chofer
                 if (String.Equals(consulta, "Recaudacion"))
                 {
-                    campos = new string[5];
-                    campos[0] = "Chofer nombre";
-                    campos[1] = "Chofer apellido";
+                    campos = new string[4];
+                    campos[0] = "Chofer Nombre";
+                    campos[1] = "Chofer Apellido";
                     campos[2] = "Chofer DNI";
-                    campos[3] = "Chofer recaudacion";
-                    campos[4] = "Fecha";
+                    campos[3] = "Chofer Recaudacion";
                     return campos;
                 }
                 if (String.Equals(consulta, "Viaje"))
                 {
-                    campos = new string[5];
-                    campos[0] = "Chofer nombre";
-                    campos[1] = "Chofer apellido";
+                    campos = new string[4];
+                    campos[0] = "Chofer Nombre";
+                    campos[1] = "Chofer Apellido";
                     campos[2] = "Chofer DNI";
                     campos[3] = "KM";
-                    campos[4] = "Fecha";
                     return campos;
                 }
             }
@@ -46,27 +44,26 @@ namespace UberFrba.CapaDAO
                 //listado de cosas de cliente
                 if (String.Equals(consulta, "Consumo"))
                 {
-                    campos = new string[5];
-                    campos[0] = "Cliente nombre";
-                    campos[1] = "Cliente apellido";
+                    campos = new string[4];
+                    campos[0] = "Cliente Nombre";
+                    campos[1] = "Cliente Apellido";
                     campos[2] = "Cliente DNI";
                     campos[3] = "Cliente Consumo";
-                    campos[4] = "Fecha";
                     return campos;
                 }
                 if (String.Equals(consulta, "Viaje"))
                 {
                     campos = new string[5];
-                    campos[0] = "Cliente nombre";
-                    campos[1] = "Cliente apellido";
+                    campos[0] = "Cliente Nombre";
+                    campos[1] = "Cliente Apellido";
                     campos[2] = "Cliente DNI";
                     campos[3] = "Automovil";
-                    campos[4] = "Cantidad viajes";
+                    campos[4] = "Cantidad Viajes";
                     return campos;
                 }
             }
 
-            return campos;
+            return campos = new string [1];
         }
 
         public static DataTable showListado(int idConsulta,int anio,int trimestre)
