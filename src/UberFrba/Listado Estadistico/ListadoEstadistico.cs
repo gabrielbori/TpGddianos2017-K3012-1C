@@ -69,7 +69,12 @@ namespace UberFrba.Listado_Estadistico
         {
             textBox_Anio.Text = "";
             DataTable lista = (DataTable)dataGridView_Listado.DataSource;
-            lista.Rows.Clear();
+            if (lista != null)
+            {
+                lista.Rows.Clear();  
+            }
+          
+            
             dataGridView_Listado.DataSource = lista;
         }
 
@@ -94,6 +99,11 @@ namespace UberFrba.Listado_Estadistico
             
             dataGridView_Listado.Sort(dataGridView_Listado.Columns[orderBy-1], ListSortDirection.Descending);
             }   
+        }
+
+        private void buttonCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
     }
