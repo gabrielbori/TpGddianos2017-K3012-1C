@@ -15,7 +15,7 @@ namespace UberFrba.Listado_Estadistico
     public partial class ListadoEstadistico : FormBase
     {
         string[] listado = new string[4];
-        int idConsulta = 0;
+        int idConsulta = 1;
 
         public ListadoEstadistico()
         {
@@ -30,7 +30,7 @@ namespace UberFrba.Listado_Estadistico
             listado[3] = "Cliente que utilizó mas veces el mismo automovil";
 
             comboBox_Listado.DataSource = listado;
-
+            
             if (String.Equals(Convert.ToString(comboBox_Listado.SelectedValue),listado[0])) { comboBox_Campo.DataSource = DAOListadoEstadistico.getCampos("Chofer", "Recaudacion"); }
 
             comboBoxTrimestre.SelectedItem = "1";
@@ -79,19 +79,19 @@ namespace UberFrba.Listado_Estadistico
             else{
             int orderBy=4;
 
-            if (String.Equals(Convert.ToString(comboBox_Campo.SelectedValue), "Chofer nombre") | String.Equals(Convert.ToString(comboBox_Campo.SelectedValue), "Cliente nombre"))
+            if (String.Equals(Convert.ToString(comboBox_Campo.SelectedValue), "Chofer Nombre") | String.Equals(Convert.ToString(comboBox_Campo.SelectedValue), "Cliente Nombre"))
             { orderBy = 1; };
-            if (String.Equals(Convert.ToString(comboBox_Campo.SelectedValue), "Chofer apellido") | String.Equals(Convert.ToString(comboBox_Campo.SelectedValue), "Cliente apellido"))
+            if (String.Equals(Convert.ToString(comboBox_Campo.SelectedValue), "Chofer Apellido") | String.Equals(Convert.ToString(comboBox_Campo.SelectedValue), "Cliente Apellido"))
             { orderBy = 2; };
             if (String.Equals(Convert.ToString(comboBox_Campo.SelectedValue), "Chofer DNI") | String.Equals(Convert.ToString(comboBox_Campo.SelectedValue), "Cliente DNI"))
             { orderBy = 3; };
-            if (String.Equals(Convert.ToString(comboBox_Campo.SelectedValue), "Chofer recaudacion") | String.Equals(Convert.ToString(comboBox_Campo.SelectedValue), "KM") | String.Equals(Convert.ToString(comboBox_Campo.SelectedValue), "Cliente Consumo") | String.Equals(Convert.ToString(comboBox_Campo.SelectedValue), "Automovil"))
+            if (String.Equals(Convert.ToString(comboBox_Campo.SelectedValue), "Chofer Recaudacion") | String.Equals(Convert.ToString(comboBox_Campo.SelectedValue), "KM") | String.Equals(Convert.ToString(comboBox_Campo.SelectedValue), "Cliente Consumo") | String.Equals(Convert.ToString(comboBox_Campo.SelectedValue), "Automovil"))
             { orderBy = 4; };
-            if (String.Equals(Convert.ToString(comboBox_Campo.SelectedValue), "Fecha") | String.Equals(Convert.ToString(comboBox_Campo.SelectedValue), "Cantidad viajes"))
-            { orderBy = 5; };
+            if (String.Equals(Convert.ToString(comboBox_Campo.SelectedValue), "Cantidad Viajes"))
+            { orderBy = 5; }
 
-            dataGridView_Listado.DataSource = DAOListadoEstadistico.showListado(idConsulta,Convert.ToInt32(textBox_Anio.Text),Convert.ToInt32(comboBoxTrimestre.SelectedValue));
-            
+            dataGridView_Listado.DataSource = DAOListadoEstadistico.showListado(idConsulta, Convert.ToInt32(textBox_Anio.Text), Convert.ToInt32(comboBoxTrimestre.SelectedItem));
+
             dataGridView_Listado.Sort(dataGridView_Listado.Columns[orderBy-1], ListSortDirection.Descending);
             }   
         }
