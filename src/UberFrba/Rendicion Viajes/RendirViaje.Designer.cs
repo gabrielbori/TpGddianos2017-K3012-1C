@@ -82,12 +82,12 @@ namespace UberFrba.Rendicion_Viajes
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.groupBox_Pago = new System.Windows.Forms.GroupBox();
+            this.textBox_Numero = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.button_Buscar_Viajes = new System.Windows.Forms.Button();
             this.button_Limpiar = new System.Windows.Forms.Button();
             this.button_Aceptar = new System.Windows.Forms.Button();
             this.button_Cerrar = new System.Windows.Forms.Button();
-            this.textBox_Numero = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.groupBox_Viajes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Viajes)).BeginInit();
             this.groupBox_Chofer.SuspendLayout();
@@ -258,11 +258,13 @@ namespace UberFrba.Rendicion_Viajes
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(59, 100);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(212, 21);
             this.comboBox1.TabIndex = 47;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // dateTimePicker1
             // 
@@ -287,6 +289,26 @@ namespace UberFrba.Rendicion_Viajes
             this.groupBox_Pago.TabStop = false;
             this.groupBox_Pago.Text = "Datos de pago";
             this.groupBox_Pago.Enter += new System.EventHandler(this.groupBox_Pago_Enter);
+            // 
+            // textBox_Numero
+            // 
+            this.textBox_Numero.Enabled = false;
+            this.textBox_Numero.Location = new System.Drawing.Point(132, 31);
+            this.textBox_Numero.Name = "textBox_Numero";
+            this.textBox_Numero.ReadOnly = true;
+            this.textBox_Numero.Size = new System.Drawing.Size(85, 20);
+            this.textBox_Numero.TabIndex = 51;
+            this.textBox_Numero.TabStop = false;
+            this.textBox_Numero.Text = "A generar";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(82, 34);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(44, 13);
+            this.label10.TabIndex = 50;
+            this.label10.Text = "Numero";
             // 
             // button_Buscar_Viajes
             // 
@@ -327,25 +349,6 @@ namespace UberFrba.Rendicion_Viajes
             this.button_Cerrar.Text = "Cerrar";
             this.button_Cerrar.UseVisualStyleBackColor = true;
             this.button_Cerrar.Click += new System.EventHandler(this.button_Cerrar_Click);
-            // 
-            // textBox_Numero
-            // 
-            this.textBox_Numero.Location = new System.Drawing.Point(132, 31);
-            this.textBox_Numero.Name = "textBox_Numero";
-            this.textBox_Numero.ReadOnly = true;
-            this.textBox_Numero.Size = new System.Drawing.Size(85, 20);
-            this.textBox_Numero.TabIndex = 51;
-            this.textBox_Numero.TabStop = false;
-            this.textBox_Numero.Text = "A generar";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(82, 34);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(44, 13);
-            this.label10.TabIndex = 50;
-            this.label10.Text = "Numero";
             // 
             // RendirViaje
             // 

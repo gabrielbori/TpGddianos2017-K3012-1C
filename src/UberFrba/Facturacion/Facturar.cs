@@ -24,10 +24,10 @@ namespace UberFrba.Facturacion
 
         private void Facturar_Load(object sender, EventArgs e)
         {
-            DateTime fechaI = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+            DateTime fechaI = new DateTime(Globals.getFechaSistemaEnTipoDate().Year, Globals.getFechaSistemaEnTipoDate().Month, 1);
             dateTimePicker_Inicio.Value = fechaI;
 
-            DateTime fechaF = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month));
+            DateTime fechaF = new DateTime(Globals.getFechaSistemaEnTipoDate().Year, Globals.getFechaSistemaEnTipoDate().Month, DateTime.DaysInMonth(Globals.getFechaSistemaEnTipoDate().Year, Globals.getFechaSistemaEnTipoDate().Month));
             dateTimePicker_Fin.Value = fechaF;
         }
 
@@ -45,7 +45,7 @@ namespace UberFrba.Facturacion
                 Mensaje_Error("Cargue el Cliente");
                 return;
             }
-            if (dateTimePicker_Fin.Value <= DateTime.Today)
+            if (dateTimePicker_Fin.Value < Globals.getFechaSistemaEnTipoDate())
             {
                 dataGridView_Viajes.DataSource = DAOFacturacion.getViajes(Convert.ToInt32(persona.ID), Convert.ToInt32(dateTimePicker_Inicio.Value.Month), Convert.ToInt32(dateTimePicker_Inicio.Value.Year));
                 this.dataGridView_Viajes.Columns["ID"].Visible = false;
@@ -84,10 +84,10 @@ namespace UberFrba.Facturacion
         {
             foreach (var control in this.groupBox_Cliente.Controls.OfType<TextBox>()) control.Text = "";
             
-            dateTimePicker1.Text = Convert.ToString(DateTime.Today);
-            DateTime fechaI = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+            dateTimePicker1.Value = Globals.getFechaSistemaEnTipoDate();
+            DateTime fechaI = new DateTime(Globals.getFechaSistemaEnTipoDate().Year, Globals.getFechaSistemaEnTipoDate().Month, 1);
             dateTimePicker_Inicio.Value = fechaI;
-            DateTime fechaF = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month));
+            DateTime fechaF = new DateTime(Globals.getFechaSistemaEnTipoDate().Year, Globals.getFechaSistemaEnTipoDate().Month, DateTime.DaysInMonth(Globals.getFechaSistemaEnTipoDate().Year, Globals.getFechaSistemaEnTipoDate().Month));
             dateTimePicker_Fin.Value = fechaF;
             dataGridView_Viajes.DataSource = new DataTable();
             textBox_Numero.Text = "A generar";
@@ -106,7 +106,11 @@ namespace UberFrba.Facturacion
                 Mensaje_Error("Limpie los datos de la última operación");
                 return;
             }
-            if ((DAOFacturacion.viajeYaFacturado(dataGridView_Viajes.Rows)) == 0) { Mensaje_Error("Los viajes ya han sido facturados"); }
+            if ((DAOFacturacion.viajeYaFacturado(dataGridView_Viajes.Rows)) == 0) 
+            { 
+                Mensaje_Error("Los viajes ya han sido facturados");            
+                return;
+            }
             else
             {
                 var resultado = Mensaje_Pregunta("¿Está seguro que desea realizar la facturación?", "Generar Factura");
@@ -118,13 +122,12 @@ namespace UberFrba.Facturacion
                         DAOFacturacion.crearFactura(Convert.ToInt32(persona.ID), Convert.ToDateTime(dateTimePicker_Inicio.Value),
                                                             Convert.ToDateTime(dateTimePicker_Fin.Value),
                                                             Convert.ToDecimal(textBox_montoTotal.Text));
-                        numFactura = DAOFacturacion.buscarIDFacturaInsertado();
-                        if (numFactura != -1)
-                        {
-                            textBox_Numero.Text = Convert.ToString(numFactura);
-                            Mensaje_OK("La facturación fue realizada con éxito");
-                        }
-                        else { Mensaje_Error("Falló la creación de la factura en la base de datos"); }
+                        
+                        numFactura = DAOFacturacion.buscarIDFacturaInsertado();                        
+                        textBox_Numero.Text = Convert.ToString(numFactura);
+                        Mensaje_OK("La facturación fue realizada con éxito");
+                        
+                       
                     }
                     catch
                     {
@@ -159,10 +162,10 @@ namespace UberFrba.Facturacion
         {
             foreach (var control in this.groupBox_Cliente.Controls.OfType<TextBox>()) control.Text = "";
 
-            dateTimePicker1.Text = Convert.ToString(DateTime.Today);
-            DateTime fechaI = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+            dateTimePicker1.Value = Globals.getFechaSistemaEnTipoDate();
+            DateTime fechaI = new DateTime(Globals.getFechaSistemaEnTipoDate().Year, Globals.getFechaSistemaEnTipoDate().Month, 1);
             dateTimePicker_Inicio.Value = fechaI;
-            DateTime fechaF = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month));
+            DateTime fechaF = new DateTime(Globals.getFechaSistemaEnTipoDate().Year, Globals.getFechaSistemaEnTipoDate().Month, DateTime.DaysInMonth(Globals.getFechaSistemaEnTipoDate().Year, Globals.getFechaSistemaEnTipoDate().Month));
             dateTimePicker_Fin.Value = fechaF;
             dataGridView_Viajes.DataSource = new DataTable();
             textBox_Numero.Text = "A generar";

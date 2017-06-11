@@ -28,9 +28,9 @@ namespace UberFrba.CapaDAO
             executeProcedure("REGISTRAR_VIAJE", turno,  fecha,  horaI,  horaF, km,  chofer,  cliente);
         }
 
-        public static int viajeYaRegistrado(DateTime fecha, DateTime horaI, int cliente)
+        public static int viajeYaRegistrado(DateTime fecha, DateTime horaI, DateTime horaF, int chofer)
         {
-            return executeProcedureWithReturnValue("VIAJE_YA_REGISTRADO", fecha, horaI, cliente);
+            return executeProcedureWithReturnValue("VIAJE_YA_REGISTRADO", fecha, horaI, horaF, chofer);
         }
     }
 }
