@@ -38,14 +38,14 @@ namespace UberFrba.CapaDAO
         {
             DataTable data = new DataTable();
             data.Columns.Add("ID");
-            data.Columns.Add("Precio unitario");
+            
 
             for (int i = 0; i < viajes.Count; i++)
             {
                 var row = data.NewRow();
 
                 row["ID"] = Convert.ToInt32(viajes[i].Cells["ID"].Value);
-                row["Precio unitario"] = Convert.ToInt32(viajes[i].Cells["Precio unitario"].Value); //cambiar el convert
+                
 
                 data.Rows.Add(row);
             }
