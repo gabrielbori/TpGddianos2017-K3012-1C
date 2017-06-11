@@ -26,8 +26,11 @@ namespace UberFrba.Registro_Viajes
         }
 
         private void RegistrarViaje_Load(object sender, EventArgs e)
-        {            
-
+        {
+            TimeSpan time = new TimeSpan(12, 00, 00);
+            dateTimePicker2.Value = dateTimePicker2.Value.Date + time;
+            dateTimePicker3.Value = dateTimePicker2.Value.Date + time;
+            dateTimePicker1.Value = Globals.getFechaSistemaEnTipoDate();
         }               
 
         private void button_Buscar_Click(object sender, EventArgs e)
@@ -158,9 +161,11 @@ namespace UberFrba.Registro_Viajes
             foreach (var control in this.groupBox5.Controls.OfType<TextBox>()) control.Text = "";
             foreach (var control in this.groupBox6.Controls.OfType<TextBox>()) control.Text = "";
             textBox3.Text = "";
-            dateTimePicker1.Text = Convert.ToString(DateTime.Today);
-            dateTimePicker2.Text = Convert.ToString(DateTime.Today);
-            dateTimePicker3.Text = Convert.ToString(DateTime.Today);
+            dateTimePicker1.Value = Globals.getFechaSistemaEnTipoDate();
+            
+            TimeSpan time = new TimeSpan(12, 00, 00);
+            dateTimePicker2.Value = dateTimePicker2.Value.Date + time;
+            dateTimePicker3.Value = dateTimePicker2.Value.Date + time;
 
 
         }
@@ -172,9 +177,20 @@ namespace UberFrba.Registro_Viajes
 
         private void guardar_Click(object sender, EventArgs e)
         {
+
+            if (Validaciones())
+            {
+                Mensaje_Error("No están todos los datos obligatorios");
+                return;
+            }
             if (textBox3.Text != "" && Convert.ToInt32(textBox3.Text) == 0)
             {
                 Mensaje_Error("Los kilometros no pueden ser cero");
+                return;
+            }
+            if (dateTimePicker1.Value > Globals.getFechaSistemaEnTipoDate()) 
+            {
+                Mensaje_Error("No se puede registrar un viaje con fecha futura");
                 return;
             }
             if(Convert.ToDateTime(dateTimePicker2.Value) == Convert.ToDateTime(dateTimePicker3.Value) )
@@ -182,14 +198,14 @@ namespace UberFrba.Registro_Viajes
                 Mensaje_Error("La hora de inicio no puede ser igual a la hora final");
                 return;
             }
-            if (Validaciones())
+            if (Convert.ToDateTime(dateTimePicker3.Value) < Convert.ToDateTime(dateTimePicker2.Value))
             {
-                Mensaje_Error("No están todos los datos obligatorios");
+                Mensaje_Error("La hora final no puede ser menor a la hora de inicio");
                 return;
             }
 
             if (DAORegistroViaje.viajeYaRegistrado(Convert.ToDateTime(dateTimePicker1.Value),
-                                  Convert.ToDateTime(dateTimePicker2.Value),                                 
+                                  Convert.ToDateTime(dateTimePicker2.Value), Convert.ToDateTime(dateTimePicker3.Value),                             
                                   Convert.ToInt32(textBox_dni_cliente.Text)) == 0)
             { Mensaje_Error("El viaje ya fue registrado"); }
             else
@@ -224,7 +240,7 @@ namespace UberFrba.Registro_Viajes
         private bool Validaciones()
         {
             bool vacio = false;
-            if (textBox_Nombre.Text == "" || textBox_nombre_cliente.Text == "" )
+            if (textBox_Nombre.Text == "" || textBox_nombre_cliente.Text == "" || textBox3.Text == "")
             {
                 vacio = true;
             }

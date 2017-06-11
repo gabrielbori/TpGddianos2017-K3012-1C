@@ -160,7 +160,6 @@ namespace UberFrba.Registro_Viajes
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.CustomFormat = "HH:mm";
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dateTimePicker2.Location = new System.Drawing.Point(19, 36);
             this.dateTimePicker2.Name = "dateTimePicker2";
