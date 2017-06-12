@@ -49,11 +49,13 @@ namespace UberFrba.Abm_Persona
         {
             string mensaje = "";
             int tipoCliente = 3;
+            int tipoChofer = 2;
             int cont = 0;
             if ((String.IsNullOrEmpty(textBox_Direccion.Text)) || (textBox_Direccion.Text == "")) { mensaje = "La direccion esta vacía"; Mensaje_Error(mensaje); cont++; }
             if ((String.IsNullOrEmpty(textBox_Apellido.Text)) || (textBox_Apellido.Text == "")) { mensaje = "El apellido está vacío"; Mensaje_Error(mensaje); cont++; }
             if ((String.IsNullOrEmpty(textBox_Nombre.Text)) || (textBox_Nombre.Text == "")) { mensaje = "El nombre está vacío"; Mensaje_Error(mensaje); cont++; }
             if ((tipo == tipoCliente) & (String.IsNullOrEmpty(textBox_CodigoPostal.Text)) & (textBox_CodigoPostal.Text == "")) { mensaje = "El codigo postal está vacío"; Mensaje_Error(mensaje); cont++; }
+            if ((tipo == tipoChofer) & (String.IsNullOrEmpty(textBox_Mail.Text)) & (textBox_Mail.Text == "")) { mensaje = "El mail está vacío"; Mensaje_Error(mensaje); cont++; }
             if (cont == 0) { return true; } else { return false; }
         }
 

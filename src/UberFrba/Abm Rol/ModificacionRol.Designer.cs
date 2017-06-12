@@ -254,6 +254,7 @@ namespace UberFrba.Abm_Rol
             this.Controls.Add(this.button_Cancelar);
             this.Controls.Add(this.groupBox1);
             this.Name = "ModificacionRol";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ModificacionRol";
             this.Load += new System.EventHandler(this.ModificacionRol_Load);
             this.groupBox1.ResumeLayout(false);

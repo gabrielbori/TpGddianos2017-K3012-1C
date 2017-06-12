@@ -24,10 +24,11 @@ namespace UberFrba.Facturacion
 
         private void Facturar_Load(object sender, EventArgs e)
         {
-            DateTime fechaI = new DateTime(Globals.getFechaSistemaEnTipoDate().Year, Globals.getFechaSistemaEnTipoDate().Month, 1);
+            dateTimePicker1.Value = Globals.getDateFechaSistema();
+            DateTime fechaI = new DateTime(Globals.getDateFechaSistema().Year, Globals.getDateFechaSistema().Month, 1);
             dateTimePicker_Inicio.Value = fechaI;
 
-            DateTime fechaF = new DateTime(Globals.getFechaSistemaEnTipoDate().Year, Globals.getFechaSistemaEnTipoDate().Month, DateTime.DaysInMonth(Globals.getFechaSistemaEnTipoDate().Year, Globals.getFechaSistemaEnTipoDate().Month));
+            DateTime fechaF = new DateTime(Globals.getDateFechaSistema().Year, Globals.getDateFechaSistema().Month, DateTime.DaysInMonth(Globals.getDateFechaSistema().Year, Globals.getDateFechaSistema().Month));
             dateTimePicker_Fin.Value = fechaF;
         }
 
@@ -45,7 +46,7 @@ namespace UberFrba.Facturacion
                 Mensaje_Error("Cargue el Cliente");
                 return;
             }
-            if (dateTimePicker_Fin.Value < Globals.getFechaSistemaEnTipoDate())
+            if (dateTimePicker_Fin.Value < Globals.getDateFechaSistema())
             {
                 dataGridView_Viajes.DataSource = DAOFacturacion.getViajes(Convert.ToInt32(persona.ID), Convert.ToInt32(dateTimePicker_Inicio.Value.Month), Convert.ToInt32(dateTimePicker_Inicio.Value.Year));
                 this.dataGridView_Viajes.Columns["ID"].Visible = false;
@@ -83,11 +84,11 @@ namespace UberFrba.Facturacion
         private void LimpiarCampos()
         {
             foreach (var control in this.groupBox_Cliente.Controls.OfType<TextBox>()) control.Text = "";
-            
-            dateTimePicker1.Value = Globals.getFechaSistemaEnTipoDate();
-            DateTime fechaI = new DateTime(Globals.getFechaSistemaEnTipoDate().Year, Globals.getFechaSistemaEnTipoDate().Month, 1);
+
+            dateTimePicker1.Value = Globals.getDateFechaSistema();
+            DateTime fechaI = new DateTime(Globals.getDateFechaSistema().Year, Globals.getDateFechaSistema().Month, 1);
             dateTimePicker_Inicio.Value = fechaI;
-            DateTime fechaF = new DateTime(Globals.getFechaSistemaEnTipoDate().Year, Globals.getFechaSistemaEnTipoDate().Month, DateTime.DaysInMonth(Globals.getFechaSistemaEnTipoDate().Year, Globals.getFechaSistemaEnTipoDate().Month));
+            DateTime fechaF = new DateTime(Globals.getDateFechaSistema().Year, Globals.getDateFechaSistema().Month, DateTime.DaysInMonth(Globals.getDateFechaSistema().Year, Globals.getDateFechaSistema().Month));
             dateTimePicker_Fin.Value = fechaF;
             dataGridView_Viajes.DataSource = new DataTable();
             textBox_Numero.Text = "A generar";
@@ -162,10 +163,10 @@ namespace UberFrba.Facturacion
         {
             foreach (var control in this.groupBox_Cliente.Controls.OfType<TextBox>()) control.Text = "";
 
-            dateTimePicker1.Value = Globals.getFechaSistemaEnTipoDate();
-            DateTime fechaI = new DateTime(Globals.getFechaSistemaEnTipoDate().Year, Globals.getFechaSistemaEnTipoDate().Month, 1);
+            dateTimePicker1.Value = Globals.getDateFechaSistema();
+            DateTime fechaI = new DateTime(Globals.getDateFechaSistema().Year, Globals.getDateFechaSistema().Month, 1);
             dateTimePicker_Inicio.Value = fechaI;
-            DateTime fechaF = new DateTime(Globals.getFechaSistemaEnTipoDate().Year, Globals.getFechaSistemaEnTipoDate().Month, DateTime.DaysInMonth(Globals.getFechaSistemaEnTipoDate().Year, Globals.getFechaSistemaEnTipoDate().Month));
+            DateTime fechaF = new DateTime(Globals.getDateFechaSistema().Year, Globals.getDateFechaSistema().Month, DateTime.DaysInMonth(Globals.getDateFechaSistema().Year, Globals.getDateFechaSistema().Month));
             dateTimePicker_Fin.Value = fechaF;
             dataGridView_Viajes.DataSource = new DataTable();
             textBox_Numero.Text = "A generar";
