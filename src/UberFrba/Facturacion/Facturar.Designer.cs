@@ -368,6 +368,7 @@ namespace UberFrba.Facturacion
             this.Controls.Add(this.groupBox_Viajes);
             this.Controls.Add(this.groupBox_DatosFactura);
             this.Name = "Facturar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Facturación de clientes";
             this.Load += new System.EventHandler(this.Facturar_Load);
             this.groupBox_DatosFactura.ResumeLayout(false);
