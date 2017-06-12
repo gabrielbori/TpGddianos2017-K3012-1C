@@ -235,6 +235,7 @@ namespace UberFrba.Abm_Turno
             this.Controls.Add(this.TextBoxHoraInicio);
             this.Controls.Add(this.TextBoxDescripcion);
             this.Name = "ModificacionTurno";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ModificacionTurno";
             this.ResumeLayout(false);
             this.PerformLayout();

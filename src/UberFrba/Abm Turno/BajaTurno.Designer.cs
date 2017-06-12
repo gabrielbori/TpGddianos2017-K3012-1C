@@ -108,17 +108,17 @@
             // 
             this.textBoxHoraInicio.Location = new System.Drawing.Point(98, 81);
             this.textBoxHoraInicio.Name = "textBoxHoraInicio";
+            this.textBoxHoraInicio.ReadOnly = true;
             this.textBoxHoraInicio.Size = new System.Drawing.Size(172, 20);
             this.textBoxHoraInicio.TabIndex = 15;
-            this.textBoxHoraInicio.ReadOnly = true;
             // 
             // textBoxHoraFin
             // 
             this.textBoxHoraFin.Location = new System.Drawing.Point(98, 107);
             this.textBoxHoraFin.Name = "textBoxHoraFin";
+            this.textBoxHoraFin.ReadOnly = true;
             this.textBoxHoraFin.Size = new System.Drawing.Size(172, 20);
             this.textBoxHoraFin.TabIndex = 16;
-            this.textBoxHoraFin.ReadOnly = true;
             // 
             // BajaTurno
             // 
@@ -135,6 +135,7 @@
             this.Controls.Add(this.comboBoxDescripcion);
             this.Controls.Add(this.label1);
             this.Name = "BajaTurno";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BajaTurno";
             this.ResumeLayout(false);
             this.PerformLayout();

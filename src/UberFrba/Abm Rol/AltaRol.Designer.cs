@@ -233,6 +233,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AltaRol";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AltaRol";
             this.Load += new System.EventHandler(this.AltaRol_Load);
             this.paner_Alta.ResumeLayout(false);
