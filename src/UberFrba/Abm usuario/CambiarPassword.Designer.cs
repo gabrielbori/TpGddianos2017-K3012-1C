@@ -146,6 +146,7 @@
             this.Controls.Add(this.nuevaPassword);
             this.Controls.Add(this.textbox_usuario);
             this.Name = "CambiarPassword";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CambiarPassword";
             this.Load += new System.EventHandler(this.CambiarPassword_Load);
             this.ResumeLayout(false);

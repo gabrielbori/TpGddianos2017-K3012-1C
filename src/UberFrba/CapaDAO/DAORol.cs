@@ -89,6 +89,7 @@ namespace UberFrba.CapaDAO
         }
 
         //VER SI EL ROL YA EXISTE SEGUN EL NOMBRE
+        //SI DEVUELVE UN CAMPO SIGNIFICA QUE EXISTE UN ROL CON ESE NOMBRE
         public static string getRol(string nombre)
         {
             DataTable table = retrieveDataTable("FIND_ROL", nombre);
@@ -99,7 +100,7 @@ namespace UberFrba.CapaDAO
             }
             catch
             {
-                return "El rol ya existe";
+                return "El rol no existe";
             }
         }
        

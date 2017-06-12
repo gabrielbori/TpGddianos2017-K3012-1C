@@ -126,7 +126,12 @@ namespace UberFrba.Abm_Rol
                 Mensaje_Error("No están todos los datos obligatorios");
                 return;
             }
-            if (String.Equals(textBox1.Text.ToUpper(), DAORol.getRol(textBox1.Text))) { Mensaje_Error("El rol ya existe"); return; }
+            if (textBox1.Text.ToUpper() != comboBox_Roles.Text)
+            {
+                string mensaje = DAORol.getRol(textBox1.Text);
+                if (textBox1.Text.ToUpper() == mensaje) { Mensaje_Error("El rol ya existe"); return; }
+
+            }
             var resultado = Mensaje_Pregunta("¿Está seguro que desea guardar los datos ingresados en el formulario?", "Guardar Rol");
             if (resultado == DialogResult.Yes)
             {

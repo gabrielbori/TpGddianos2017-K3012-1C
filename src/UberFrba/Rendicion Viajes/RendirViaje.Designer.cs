@@ -364,6 +364,7 @@ namespace UberFrba.Rendicion_Viajes
             this.Controls.Add(this.groupBox_Chofer);
             this.Controls.Add(this.groupBox_Viajes);
             this.Name = "RendirViaje";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RendirViaje";
             this.Load += new System.EventHandler(this.RendirViaje_Load);
             this.groupBox_Viajes.ResumeLayout(false);
