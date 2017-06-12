@@ -70,52 +70,13 @@ namespace UberFrba.Registro_Viajes
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+
+            TimeSpan time = new TimeSpan(12, 00, 00);
+            dateTimePicker2.Value = dateTimePicker2.Value.Date + time;
+            dateTimePicker3.Value = dateTimePicker2.Value.Date + time;
+                 
             
-            if (Convert.ToString(comboBox2.SelectedValue) == "1")
-            {                              
-                TimeSpan timespan = new TimeSpan(16, 00, 00);
-                DateTime timeMax = DateTime.Today.Add(timespan);
-                string displayTimeMax = timeMax.ToString("hh:mm tt"); 
-
-                dateTimePicker2.Text = displayTimeMax;
-
-                TimeSpan timespan2 = new TimeSpan(23, 00, 00);
-                DateTime timeMin = DateTime.Today.Add(timespan2);
-                string displayTimeMin = timeMin.ToString("hh:mm tt");
-
-                dateTimePicker3.Text = displayTimeMin;
-                 
-            }
-            if (Convert.ToString(comboBox2.SelectedValue) == "2")
-            {
-                TimeSpan timespan = new TimeSpan(8, 00, 00);
-                DateTime timeMax = DateTime.Today.Add(timespan);
-                string displayTimeMax = timeMax.ToString("hh:mm tt");
-
-                dateTimePicker2.Text = displayTimeMax;
-
-                TimeSpan timespan2 = new TimeSpan(16, 00, 00);
-                DateTime timeMin = DateTime.Today.Add(timespan2);
-                string displayTimeMin = timeMin.ToString("hh:mm tt");
-
-                dateTimePicker3.Text = displayTimeMin;
-                 
-            }
-            if (Convert.ToString(comboBox2.SelectedValue) == "3")
-            {
-                TimeSpan timespan = new TimeSpan(01, 00, 00);
-                DateTime timeMax = DateTime.Today.Add(timespan);
-                string displayTimeMax = timeMax.ToString("hh:mm tt");
-
-                dateTimePicker2.Text = displayTimeMax;
-
-                TimeSpan timespan2 = new TimeSpan(08, 00, 00);
-                DateTime timeMin = DateTime.Today.Add(timespan2);
-                string displayTimeMin = timeMin.ToString("hh:mm tt");
-
-                dateTimePicker3.Text = displayTimeMin;
-
-            }
         }
 
         private void RegistrarViaje_Shown(object sender, EventArgs e)
@@ -231,7 +192,7 @@ namespace UberFrba.Registro_Viajes
                 Mensaje_Error("No están todos los datos obligatorios");
                 return;
             }
-            if (textBox3.Text != "" && Convert.ToInt32(textBox3.Text) == 0)
+            if (textBox3.Text != "" && Convert.ToDecimal(textBox3.Text) == 0)
             {
                 Mensaje_Error("Los kilometros no pueden ser cero");
                 return;
