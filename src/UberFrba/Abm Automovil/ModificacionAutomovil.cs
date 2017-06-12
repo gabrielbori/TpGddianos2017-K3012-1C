@@ -15,6 +15,9 @@ namespace UberFrba.Abm_Automovil
 {
     public partial class ModificacionAutomovil : FormBase
     {
+
+        private int modificacionDeEstado = 0;
+
         public ModificacionAutomovil()
         {
             InitializeComponent();
@@ -42,7 +45,7 @@ namespace UberFrba.Abm_Automovil
             var resultado = Mensaje_Pregunta("¿Está seguro que desea modificar el automovil?", "Modificar Automovil");
             if (resultado == DialogResult.Yes)
             {
-                if (Convert.ToInt32(checkBoxEstado.Checked) == 0)
+                if (modificacionDeEstado == 0)
                 {
                     if (Turno.CheckedItems.Count == 0) { Mensaje_Error("No se ha/n seleccionado turno/s"); return; }
                 }
@@ -144,6 +147,7 @@ namespace UberFrba.Abm_Automovil
                 textBox_chofer_dni.ReadOnly = true;           
                 if (estado == 1)
                 {
+                    modificacionDeEstado = 0;
                     checkBoxEstado.Visible = false;
                     label7.Visible = false;
                     textBox_chofer_dni.Enabled = true;
@@ -160,6 +164,7 @@ namespace UberFrba.Abm_Automovil
                     checkBoxEstado.Visible = true;
                     label7.Visible = true;
                     textBox_chofer_dni.Enabled = false;
+                    modificacionDeEstado = 1;
                 }
                     buttonAceptar.Visible = true;
                     
