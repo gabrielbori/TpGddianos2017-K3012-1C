@@ -141,9 +141,11 @@
             // textBox_DNI
             // 
             this.textBox_DNI.Location = new System.Drawing.Point(167, 96);
+            this.textBox_DNI.MaxLength = 9;
             this.textBox_DNI.Name = "textBox_DNI";
             this.textBox_DNI.Size = new System.Drawing.Size(226, 20);
             this.textBox_DNI.TabIndex = 11;
+            this.textBox_DNI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_DNI_KeyPress);
             // 
             // textBox_Telefono
             // 
@@ -151,6 +153,7 @@
             this.textBox_Telefono.Name = "textBox_Telefono";
             this.textBox_Telefono.Size = new System.Drawing.Size(226, 20);
             this.textBox_Telefono.TabIndex = 12;
+            this.textBox_Telefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_Telefono_KeyPress);
             // 
             // textBox_Direccion
             // 
@@ -199,9 +202,11 @@
             // textBox_CodigoPostal
             // 
             this.textBox_CodigoPostal.Location = new System.Drawing.Point(167, 246);
+            this.textBox_CodigoPostal.MaxLength = 10;
             this.textBox_CodigoPostal.Name = "textBox_CodigoPostal";
             this.textBox_CodigoPostal.Size = new System.Drawing.Size(226, 20);
             this.textBox_CodigoPostal.TabIndex = 20;
+            this.textBox_CodigoPostal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_CodigoPostal_KeyPress);
             // 
             // dateTimePicker_FechaNacimiento
             // 

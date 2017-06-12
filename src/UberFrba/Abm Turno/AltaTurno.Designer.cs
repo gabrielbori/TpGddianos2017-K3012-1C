@@ -70,6 +70,7 @@
             this.TextBoxValorKM.Name = "TextBoxValorKM";
             this.TextBoxValorKM.Size = new System.Drawing.Size(182, 20);
             this.TextBoxValorKM.TabIndex = 4;
+            this.TextBoxValorKM.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxValorKM_KeyPress);
             // 
             // TextBoxPrecioBase
             // 
@@ -77,6 +78,7 @@
             this.TextBoxPrecioBase.Name = "TextBoxPrecioBase";
             this.TextBoxPrecioBase.Size = new System.Drawing.Size(182, 20);
             this.TextBoxPrecioBase.TabIndex = 5;
+            this.TextBoxPrecioBase.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxPrecioBase_KeyPress);
             // 
             // label1
             // 
