@@ -167,7 +167,6 @@ namespace UberFrba.Registro_Viajes
             this.dateTimePicker2.ShowUpDown = true;
             this.dateTimePicker2.Size = new System.Drawing.Size(84, 20);
             this.dateTimePicker2.TabIndex = 23;
-            
             // 
             // label8
             // 
@@ -192,9 +191,7 @@ namespace UberFrba.Registro_Viajes
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 20);
             this.textBox3.TabIndex = 3;
-
             this.textBox3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox3_KeyPress);
-
             // 
             // label3
             // 
@@ -438,6 +435,7 @@ namespace UberFrba.Registro_Viajes
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "RegistrarViaje";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RegistrarViaje_FormClosed);
             this.Load += new System.EventHandler(this.RegistrarViaje_Load);
             this.Shown += new System.EventHandler(this.RegistrarViaje_Shown);

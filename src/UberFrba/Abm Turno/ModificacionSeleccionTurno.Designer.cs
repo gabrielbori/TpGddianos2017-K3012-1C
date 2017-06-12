@@ -141,6 +141,7 @@
             this.Controls.Add(this.paner_Filtros);
             this.Controls.Add(this.buttonCancelar);
             this.Name = "ModificacionSeleccionTurno";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ModificacionSeleccionTurno";
             this.paner_Filtros.ResumeLayout(false);
             this.paner_Filtros.PerformLayout();

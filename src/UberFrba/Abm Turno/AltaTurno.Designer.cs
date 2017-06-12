@@ -173,6 +173,7 @@
             this.Controls.Add(this.TextBoxHoraInicio);
             this.Controls.Add(this.TextBoxDescripcion);
             this.Name = "AltaTurno";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AltaTurno";
             this.Load += new System.EventHandler(this.AltaTurno_Load);
             this.ResumeLayout(false);
