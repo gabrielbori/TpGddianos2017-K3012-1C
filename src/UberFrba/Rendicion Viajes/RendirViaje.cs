@@ -33,7 +33,7 @@ namespace UberFrba.Rendicion_Viajes
             comboBox1.DisplayMember = "TURNO_DESCRIPCION";
             comboBox1.DataSource = turnos;
             dateTimePicker1.Value = Globals.getDateFechaSistema();
-            
+            button_Buscar_Viajes_Click(sender, e);
         }
 
         
@@ -45,8 +45,7 @@ namespace UberFrba.Rendicion_Viajes
 
         private void button_Aceptar_Click(object sender, EventArgs e)
         {
-            Mensaje_Error(Convert.ToDateTime(dateTimePicker1.Value).ToString()+'-'+ Convert.ToInt32(persona.ID)+'-'+
-                                                  Convert.ToInt32(comboBox1.SelectedValue)+'-'+ this.total, Convert.ToDecimal(textBox1.Text).ToString());
+            
 
             if (textBox_Numero.Text != "A generar") 
             {
@@ -115,7 +114,7 @@ namespace UberFrba.Rendicion_Viajes
             }
 
             
-            if (dateTimePicker1.Value < Globals.getDateFechaSistema())
+            if (dateTimePicker1.Value <= Globals.getDateFechaSistema())
             {
 
                 dataGridView_Viajes.DataSource = DAORendicionViaje.getViajes(Convert.ToInt32(persona.ID), 
@@ -153,7 +152,7 @@ namespace UberFrba.Rendicion_Viajes
 
         private void button_Limpiar_Click(object sender, EventArgs e)
         {
-            dateTimePicker1.Text = Convert.ToString(Globals.getFechaSistemaEnTipoDate());
+            dateTimePicker1.Value = Globals.getDateFechaSistema();
             dataGridView_Viajes.DataSource = new DataTable();
             textBox_montoTotal.Text = "";
             textBox_Nombre.Text = "";
@@ -166,7 +165,7 @@ namespace UberFrba.Rendicion_Viajes
 
         private void button_Buscar_Click(object sender, EventArgs e)
         {
-            dateTimePicker1.Text = Convert.ToString(Globals.getFechaSistemaEnTipoDate());
+            dateTimePicker1.Value = Globals.getDateFechaSistema();
             dataGridView_Viajes.DataSource = new DataTable();
             textBox_montoTotal.Text = "";
             textBox_Nombre.Text = "";
@@ -187,6 +186,36 @@ namespace UberFrba.Rendicion_Viajes
         {
             //dataGridView_Viajes.DataSource = null;
             button_Buscar_Viajes_Click(sender, e);
+            textBox_Numero.Text = "A generar";
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void keypressporcentaje(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsPunctuation(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
         }
 
 

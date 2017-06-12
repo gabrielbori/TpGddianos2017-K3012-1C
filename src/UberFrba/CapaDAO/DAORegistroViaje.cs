@@ -32,5 +32,10 @@ namespace UberFrba.CapaDAO
         {
             return executeProcedureWithReturnValue("VIAJE_YA_REGISTRADO", fecha, horaI, horaF, chofer);
         }
+
+        public static int validarTurno( int horaI,int horaF, int turno)
+        {
+            return executeProcedureWithReturnValue("HORARIO_SE_ENCUENTRA_EN_TURNO", horaI, horaF, turno);
+        }
     }
 }

@@ -161,6 +161,7 @@
             // textBox_Documento
             // 
             this.textBox_Documento.Location = new System.Drawing.Point(76, 82);
+            this.textBox_Documento.MaxLength = 9;
             this.textBox_Documento.Name = "textBox_Documento";
             this.textBox_Documento.Size = new System.Drawing.Size(129, 20);
             this.textBox_Documento.TabIndex = 4;

@@ -30,7 +30,7 @@ namespace UberFrba.Registro_Viajes
             TimeSpan time = new TimeSpan(12, 00, 00);
             dateTimePicker2.Value = dateTimePicker2.Value.Date + time;
             dateTimePicker3.Value = dateTimePicker2.Value.Date + time;
-            dateTimePicker1.Value = Globals.getFechaSistemaEnTipoDate();
+            dateTimePicker1.Value = Globals.getDateFechaSistema();
         }               
 
         private void button_Buscar_Click(object sender, EventArgs e)
@@ -52,17 +52,18 @@ namespace UberFrba.Registro_Viajes
         }
         private void textBox_DNI_TextChanged(object sender, EventArgs e)
         {
-           
+            if (textBox_DNI.Text != "")
+            {
 
-            choferDoc = Convert.ToInt32(textBox_DNI.Text);
+                choferDoc = Convert.ToInt32(textBox_DNI.Text);
 
 
-            DataTable automoviles = DAORegistroViaje.getAutos(choferDoc);
+                DataTable automoviles = DAORegistroViaje.getAutos(choferDoc);
 
-            comboBox1.ValueMember = "COCHE_ESTADO";
-            comboBox1.DisplayMember = "COCHE_PATENTE";
-            comboBox1.DataSource = automoviles;
-
+                comboBox1.ValueMember = "COCHE_ESTADO";
+                comboBox1.DisplayMember = "COCHE_PATENTE";
+                comboBox1.DataSource = automoviles;
+            }
 
 
         }
@@ -70,6 +71,12 @@ namespace UberFrba.Registro_Viajes
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+
+            TimeSpan time = new TimeSpan(12, 00, 00);
+            dateTimePicker2.Value = dateTimePicker2.Value.Date + time;
+            dateTimePicker3.Value = dateTimePicker2.Value.Date + time;
+                 
+            
         }
 
         private void RegistrarViaje_Shown(object sender, EventArgs e)
@@ -161,13 +168,15 @@ namespace UberFrba.Registro_Viajes
             foreach (var control in this.groupBox5.Controls.OfType<TextBox>()) control.Text = "";
             foreach (var control in this.groupBox6.Controls.OfType<TextBox>()) control.Text = "";
             textBox3.Text = "";
-            dateTimePicker1.Value = Globals.getFechaSistemaEnTipoDate();
+            dateTimePicker1.Value = Globals.getDateFechaSistema();
+            dateTimePicker2.Value = Globals.getDateFechaSistema();
+            dateTimePicker3.Value = Globals.getDateFechaSistema();
             
             TimeSpan time = new TimeSpan(12, 00, 00);
             dateTimePicker2.Value = dateTimePicker2.Value.Date + time;
             dateTimePicker3.Value = dateTimePicker2.Value.Date + time;
 
-
+            
         }
 
         private void cancelar_Click(object sender, EventArgs e)
@@ -183,12 +192,12 @@ namespace UberFrba.Registro_Viajes
                 Mensaje_Error("No están todos los datos obligatorios");
                 return;
             }
-            if (textBox3.Text != "" && Convert.ToInt32(textBox3.Text) == 0)
+            if (textBox3.Text != "" && Convert.ToDecimal(textBox3.Text) == 0)
             {
                 Mensaje_Error("Los kilometros no pueden ser cero");
                 return;
             }
-            if (dateTimePicker1.Value > Globals.getFechaSistemaEnTipoDate()) 
+            if (dateTimePicker1.Value > Globals.getDateFechaSistema()) 
             {
                 Mensaje_Error("No se puede registrar un viaje con fecha futura");
                 return;
@@ -201,6 +210,12 @@ namespace UberFrba.Registro_Viajes
             if (Convert.ToDateTime(dateTimePicker3.Value) < Convert.ToDateTime(dateTimePicker2.Value))
             {
                 Mensaje_Error("La hora final no puede ser menor a la hora de inicio");
+                return;
+            }
+
+            if (DAORegistroViaje.validarTurno(Convert.ToInt32(dateTimePicker2.Value.Hour), Convert.ToInt32(dateTimePicker3.Value.Hour), Convert.ToInt32(comboBox2.SelectedValue))==1)
+            {
+                Mensaje_Error("La hora ingresada no corresponde al turno asignado");
                 return;
             }
 
@@ -259,6 +274,32 @@ namespace UberFrba.Registro_Viajes
             comboBox2.DataSource = turnos;
 
         }
+
+
+        private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsPunctuation(e.KeyChar))
+            {
+                e.Handled = false;            
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
 
        
               
