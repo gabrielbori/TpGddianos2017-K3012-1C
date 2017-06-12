@@ -78,9 +78,11 @@
             // textBox_chofer_dni
             // 
             this.textBox_chofer_dni.Location = new System.Drawing.Point(124, 143);
+            this.textBox_chofer_dni.MaxLength = 9;
             this.textBox_chofer_dni.Name = "textBox_chofer_dni";
             this.textBox_chofer_dni.Size = new System.Drawing.Size(130, 20);
             this.textBox_chofer_dni.TabIndex = 28;
+            this.textBox_chofer_dni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_chofer_dni_KeyPress);
             // 
             // buttonSeleccionar
             // 

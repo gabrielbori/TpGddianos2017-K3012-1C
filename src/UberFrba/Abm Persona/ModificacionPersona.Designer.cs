@@ -99,9 +99,11 @@ namespace UberFrba.Abm_Persona
             // textBox_CodigoPostal
             // 
             this.textBox_CodigoPostal.Location = new System.Drawing.Point(175, 224);
+            this.textBox_CodigoPostal.MaxLength = 10;
             this.textBox_CodigoPostal.Name = "textBox_CodigoPostal";
             this.textBox_CodigoPostal.Size = new System.Drawing.Size(226, 20);
             this.textBox_CodigoPostal.TabIndex = 77;
+            this.textBox_CodigoPostal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_CodigoPostal_KeyPress);
             // 
             // label10
             // 
@@ -151,16 +153,18 @@ namespace UberFrba.Abm_Persona
             // 
             this.textBox_Telefono.Location = new System.Drawing.Point(175, 120);
             this.textBox_Telefono.Name = "textBox_Telefono";
+            this.textBox_Telefono.ReadOnly = true;
             this.textBox_Telefono.Size = new System.Drawing.Size(226, 20);
             this.textBox_Telefono.TabIndex = 70;
-            this.textBox_Telefono.ReadOnly = true;
             // 
             // textBox_DNI
             // 
             this.textBox_DNI.Location = new System.Drawing.Point(175, 94);
+            this.textBox_DNI.MaxLength = 9;
             this.textBox_DNI.Name = "textBox_DNI";
             this.textBox_DNI.Size = new System.Drawing.Size(226, 20);
             this.textBox_DNI.TabIndex = 69;
+            this.textBox_DNI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_DNI_KeyPress);
             // 
             // textBox_Apellido
             // 

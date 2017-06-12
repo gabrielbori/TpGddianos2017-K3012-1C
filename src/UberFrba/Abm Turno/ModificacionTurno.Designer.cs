@@ -164,6 +164,7 @@ namespace UberFrba.Abm_Turno
             this.TextBoxPrecioBase.Name = "TextBoxPrecioBase";
             this.TextBoxPrecioBase.Size = new System.Drawing.Size(182, 20);
             this.TextBoxPrecioBase.TabIndex = 18;
+            this.TextBoxPrecioBase.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxPrecioBase_KeyPress);
             // 
             // TextBoxValorKM
             // 
@@ -171,6 +172,7 @@ namespace UberFrba.Abm_Turno
             this.TextBoxValorKM.Name = "TextBoxValorKM";
             this.TextBoxValorKM.Size = new System.Drawing.Size(182, 20);
             this.TextBoxValorKM.TabIndex = 17;
+            this.TextBoxValorKM.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxValorKM_KeyPress);
             // 
             // TextBoxHoraFin
             // 
