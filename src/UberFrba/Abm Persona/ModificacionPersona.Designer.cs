@@ -30,7 +30,7 @@ namespace UberFrba.Abm_Persona
         public override void mostrar(Form parent, params object[] values)
         {
             Persona persona = (Persona)values[0];
-            string usuario = values[1] as string;
+            //string usuario = values[1] as string;
             int rol = Convert.ToInt32(values[2]);
 
             this.persona = persona;
@@ -42,7 +42,7 @@ namespace UberFrba.Abm_Persona
             textBox_Mail.Text = persona.Mail;
             textBox_Nombre.Text = persona.Nombre;
             textBox_CodigoPostal.Text = persona.CodigoPostal;
-            if (DAORol.rolHabilitado(usuario, rol))
+            if (persona.Estado==1)
             {
                 checkBox_Estado.Visible = true;
                 label8.Visible = true;
@@ -308,6 +308,7 @@ namespace UberFrba.Abm_Persona
             this.Name = "ModificacionPersona";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ModificacionPersona";
+            this.Load += new System.EventHandler(this.ModificacionPersona_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

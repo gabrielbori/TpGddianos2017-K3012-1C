@@ -61,8 +61,7 @@ namespace UberFrba.Abm_Persona
                     textBox_Direccion.Text,
                     dateTimePicker_FechaNacimiento.Value,
                     Convert.ToInt32(checkBox_Estado.Checked),
-                    textBox_Mail.Text,
-                    textBox_CodigoPostal.Text
+                    textBox_Mail.Text
                     );
         }
 
@@ -135,6 +134,11 @@ namespace UberFrba.Abm_Persona
             {
                 e.Handled = true;
             }
+        }
+
+        private void ModificacionPersona_Load(object sender, EventArgs e)
+        {
+
         }
         
     }
