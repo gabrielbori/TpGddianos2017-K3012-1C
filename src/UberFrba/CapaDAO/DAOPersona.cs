@@ -69,7 +69,7 @@ namespace UberFrba.CapaDAO
                 return true;
         }
 
-        public static void ModificarPersona(Persona persona, int id, int rolId, int estado)
+        public static void ModificarPersona(Persona persona, int id, int rolId, int estado,string codPostal)
         {
             executeProcedure("MODIFICAR_PERSONA",
                 id,
@@ -81,7 +81,7 @@ namespace UberFrba.CapaDAO
                 Convert.ToDateTime(persona.FechaDeNacimiento),
                 persona.Mail,
                 estado,
-                persona.CodigoPostal,
+                codPostal,
                 rolId);
         }
 
