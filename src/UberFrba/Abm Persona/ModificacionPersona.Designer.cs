@@ -42,7 +42,7 @@ namespace UberFrba.Abm_Persona
             textBox_Mail.Text = persona.Mail;
             textBox_Nombre.Text = persona.Nombre;
             textBox_CodigoPostal.Text = persona.CodigoPostal;
-            if (persona.Estado==1)
+            if (persona.Estado==0)
             {
                 checkBox_Estado.Visible = true;
                 label8.Visible = true;

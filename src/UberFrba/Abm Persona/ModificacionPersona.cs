@@ -80,7 +80,8 @@ namespace UberFrba.Abm_Persona
                 catch { Mensaje_Error("El dni y el telefono son campos de numeros"); return; }
             if (!Validaciones(rolTipo)) return;
             int estadoRol = Convert.ToInt32(checkBox_Estado.Checked);
-            DAOPersona.ModificarPersona(GenerarPersona(), persona.ID, rolTipo,estadoRol);
+            string codPostal = Convert.ToString(textBox_CodigoPostal.Text);
+            DAOPersona.ModificarPersona(GenerarPersona(), persona.ID, rolTipo,estadoRol,codPostal);
             Mensaje_OK("Los datos han sido almacenados con éxito");
             this.Close();
             }
