@@ -49,8 +49,8 @@ namespace UberFrba.Abm_Persona
             int id = Convert.ToInt32(dataGridView_Seleccion.Rows[e.RowIndex].Cells[1].Value);
             DataTable table = DAOPersona.getPersona(id);
             Persona persona = DAOPersona.dataRowToPersona(table.Rows[0]);
-            string usuario  = DAOUsuario.getUsuario(persona.Dni);
-            caller.mostrar(this.MdiParent, persona, usuario, tipoPersona);
+           // string usuario  = DAOUsuario.getUsuario(persona.Dni);
+            caller.mostrar(this.MdiParent, persona, null, tipoPersona);
             cerrar();
                      
         }

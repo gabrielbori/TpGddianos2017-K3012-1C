@@ -13,12 +13,28 @@ namespace UberFrba.CapaDAO
     {
         public static DataTable getPersona(string nombre, string apellido, string nroDoc,int tipoPersona, int tipoAmbos)
         {
-            return retrieveDataTable("FIND_PERSONA", nombre, apellido, nroDoc, tipoPersona, tipoAmbos);
+            if (tipoPersona == 2)
+            {
+                return retrieveDataTable("FIND_CHOFER", nombre, apellido, nroDoc);
+            }
+            else 
+            {
+                return retrieveDataTable("FIND_CLIENTE", nombre, apellido, nroDoc);   
+            }
+            
         }
 
         public static DataTable getPersonaActiva(string nombre, string apellido, string nroDoc, int tipoPersona, int tipoAmbos)
         {
-            return retrieveDataTable("FIND_PERSONA_ACTIVA", nombre, apellido, nroDoc, tipoPersona, tipoAmbos);
+            if (tipoPersona == 2) 
+            {
+                return retrieveDataTable("FIND_CHOFER_ACTIVO", nombre, apellido, nroDoc, tipoPersona, tipoAmbos);
+            }
+            else 
+            {
+                return retrieveDataTable("FIND_CLIENTE_ACTIVO", nombre, apellido, nroDoc, tipoPersona, tipoAmbos);
+            }
+           
         }
 
 
@@ -37,9 +53,8 @@ namespace UberFrba.CapaDAO
                                row["PERS_DIRECCION"] as string,
                                Convert.ToDateTime(row["PERS_FECHA_NACIM"]),
                                Convert.ToInt32(row["PERS_ESTADO"]),
-                               row["PERS_MAIL"] as string,
-                               Convert.ToInt32(row["PERS_TIPO"]),
-                               row["PERS_COD_POSTAL"] as string);
+                               row["PERS_MAIL"] as string     
+                               );
                                
         }
 
@@ -105,6 +120,7 @@ namespace UberFrba.CapaDAO
         {
             return checkIfExists("GET_PERSONA_POR_DNI", dni);
         }
+
 
     }
 }

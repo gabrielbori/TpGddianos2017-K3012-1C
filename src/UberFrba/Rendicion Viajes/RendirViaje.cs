@@ -121,8 +121,11 @@ namespace UberFrba.Rendicion_Viajes
                                                                 Convert.ToDateTime(dateTimePicker1.Value), 
                                                                    Convert.ToInt32(comboBox1.SelectedValue), 
                                                                    Convert.ToDecimal(textBox1.Text));
-                this.dataGridView_Viajes.Columns["ID"].Visible = false;        
-                
+                if(dataGridView_Viajes.DataSource!=null)
+                {
+                    this.dataGridView_Viajes.Columns["ID"].Visible = false;
+                }
+
                 setTotal();
                 
             }
