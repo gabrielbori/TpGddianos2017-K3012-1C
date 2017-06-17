@@ -107,6 +107,7 @@
             this.textBox_Nombre.Name = "textBox_Nombre";
             this.textBox_Nombre.Size = new System.Drawing.Size(232, 20);
             this.textBox_Nombre.TabIndex = 0;
+            this.textBox_Nombre.TextChanged += new System.EventHandler(this.button_Buscar_Click);
             // 
             // textBox_Apellido
             // 
@@ -114,6 +115,7 @@
             this.textBox_Apellido.Name = "textBox_Apellido";
             this.textBox_Apellido.Size = new System.Drawing.Size(232, 20);
             this.textBox_Apellido.TabIndex = 1;
+            this.textBox_Apellido.TextChanged += new System.EventHandler(this.button_Buscar_Click);
             // 
             // button_Limpiar
             // 
@@ -165,6 +167,7 @@
             this.textBox_Documento.Name = "textBox_Documento";
             this.textBox_Documento.Size = new System.Drawing.Size(129, 20);
             this.textBox_Documento.TabIndex = 4;
+            this.textBox_Documento.TextChanged += new System.EventHandler(this.button_Buscar_Click);
             this.textBox_Documento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_Documento_KeyPress);
             // 
             // button_Buscar
