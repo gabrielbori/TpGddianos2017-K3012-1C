@@ -82,16 +82,9 @@ namespace UberFrba.Abm_Persona
                     if ((!ValidarTelefono(telefono1, dni1))) { string mensaje1 = "El telefono ingresado o el dni pertenece a otra persona"; Mensaje_Error(mensaje1); }
                 }
                 catch { Mensaje_Error("El dni y el telefono son campos de numeros"); return; }
-
             if (!Validaciones()) return;
             int estadoPerfil = Convert.ToInt32(checkBox_Estado.Checked);
             DAOPersona.ModificarPersona(GenerarPersona(), persona.ID, estadoPerfil, tipo);
-
-            if (!Validaciones(rolTipo)) return;
-            int estadoRol = Convert.ToInt32(checkBox_Estado.Checked);
-            string codPostal = Convert.ToString(textBox_CodigoPostal.Text);
-            DAOPersona.ModificarPersona(GenerarPersona(), persona.ID, rolTipo,estadoRol,codPostal);
-
             Mensaje_OK("Los datos han sido almacenados con éxito");
             this.Close();
             }
