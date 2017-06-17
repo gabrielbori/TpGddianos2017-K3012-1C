@@ -323,8 +323,10 @@
   <ItemGroup>
     <None Include="Resources\FondoPrueba1.bmp" />
   </ItemGroup>
-
-
+  <ItemGroup>
+    <Folder Include="Abm Chofer\" />
+    <Folder Include="Abm Cliente\" />
+  </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
       <Visible>False</Visible>
