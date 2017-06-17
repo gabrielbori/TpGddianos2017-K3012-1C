@@ -172,7 +172,7 @@ namespace UberFrba.Facturacion
             textBox_Numero.Text = "A generar";
             textBox_montoTotal.Text = "";
 
-            SeleccionPersonaActiva frm = new SeleccionPersonaActiva(this, 3);
+            SeleccionPersonaActiva frm = new SeleccionPersonaActiva(this, "Cliente");
             frm.Show();
         }
 

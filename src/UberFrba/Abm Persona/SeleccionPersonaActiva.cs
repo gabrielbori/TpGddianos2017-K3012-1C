@@ -20,49 +20,45 @@ namespace UberFrba.Abm_Persona
 
         private FormBase caller;
         
-        private int tipoAmbos = 1, tipoPersona = 0;
+        private string tipo = "";
         string nombre, apellido, doc;
         private int abm = 0;
         private RegistrarViaje otro;
         private AltaAutomovil altaAutomovil;
-        private ModificacionAutomovil modificacionAutomovil;
-
-       
-
-        
+        private ModificacionAutomovil modificacionAutomovil;  
 
 
-         public SeleccionPersonaActiva(FormBase caller, int tipoS2)
+        public SeleccionPersonaActiva(FormBase caller, string tipoP)
         {
             this.caller = caller;
             caller.Hide();
-             tipoPersona = tipoS2;
+            tipo = tipoP;
             InitializeComponent();
         }
 
-         public SeleccionPersonaActiva(RegistrarViaje caller, int tipoS2, int id) //para que sepa que es registro registro de viaje chofer=1 registro de viaje cliente=2 , abm automovil seleccionarChofer=3
+         public SeleccionPersonaActiva(RegistrarViaje caller, string tipoP, int id) //para que sepa que es registro registro de viaje chofer=1 registro de viaje cliente=2 , abm automovil seleccionarChofer=3
          {
              this.otro = caller;
              otro.Hide();
-             tipoPersona = tipoS2;
+             tipo = tipoP;
              abm = id;
              InitializeComponent();
          }
 
-         public SeleccionPersonaActiva(AltaAutomovil caller, int tipoS2, int id) // abm automovil seleccionarChofer=3
+         public SeleccionPersonaActiva(AltaAutomovil caller, string tipoP, int id) // abm automovil seleccionarChofer=3
          {
              this.altaAutomovil = caller;
              altaAutomovil.Hide();
-             tipoPersona = tipoS2;
+             tipo = tipoP;
              abm = id;
              InitializeComponent();
          }
 
-         public SeleccionPersonaActiva(ModificacionAutomovil caller, int tipoS2, int id) // abm automovil seleccionarChofer=4
+         public SeleccionPersonaActiva(ModificacionAutomovil caller, string tipoP, int id) // abm automovil seleccionarChofer=4
          {
              caller.Hide();
              this.modificacionAutomovil = caller;
-             tipoPersona = tipoS2;
+             tipo = tipoP;
              abm = id;
              InitializeComponent();
          }
@@ -78,7 +74,7 @@ namespace UberFrba.Abm_Persona
             apellido = textBox_Apellido.Text;
             doc = textBox_Documento.Text;
 
-            dataGridView_Seleccion.DataSource = DAOPersona.getPersonaActiva(nombre, apellido, doc, tipoPersona, tipoAmbos);
+            dataGridView_Seleccion.DataSource = DAOPersona.getPersonaActiva(nombre, apellido, doc, tipo);
         }
 
         private void dataGridView_Seleccion_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -173,7 +169,7 @@ namespace UberFrba.Abm_Persona
 
         private void SeleccionPersonaActiva_Load(object sender, EventArgs e)
         {
-            dataGridView_Seleccion.DataSource = DAOPersona.getPersonaActiva(nombre, apellido, doc, tipoPersona, tipoAmbos);
+            dataGridView_Seleccion.DataSource = DAOPersona.getPersonaActiva(nombre, apellido, doc, tipo);
         }
 
         private void paner_Filtros_Enter(object sender, EventArgs e)

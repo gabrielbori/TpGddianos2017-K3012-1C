@@ -37,7 +37,7 @@ namespace UberFrba.Registro_Viajes
         {
 
             //ABRE EL FORM DE SELECCION DE PERSONA para chofer
-            SeleccionPersonaActiva frm = new SeleccionPersonaActiva(this, 2, 1);
+            SeleccionPersonaActiva frm = new SeleccionPersonaActiva(this, "Chofer", 1);
             frm.Show();
 
         }
@@ -46,7 +46,7 @@ namespace UberFrba.Registro_Viajes
         {
 
             //ABRE EL FORM DE SELECCION DE PERSONA para cliente
-            SeleccionPersonaActiva frm2 = new SeleccionPersonaActiva(this, 3, 2);
+            SeleccionPersonaActiva frm2 = new SeleccionPersonaActiva(this, "Cliente", 2);
             frm2.Show();
            
         }

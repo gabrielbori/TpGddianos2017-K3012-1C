@@ -91,7 +91,7 @@ namespace UberFrba.Abm_Automovil
 
         private void button_buscar_chofer_Click(object sender, EventArgs e)
         {
-            Abm_Persona.SeleccionPersonaActiva seleccionarPersonaActiva = new Abm_Persona.SeleccionPersonaActiva(this,2,3);
+            Abm_Persona.SeleccionPersonaActiva seleccionarPersonaActiva = new Abm_Persona.SeleccionPersonaActiva(this,"Chofer",3);
             seleccionarPersonaActiva.Show();
         }
 
