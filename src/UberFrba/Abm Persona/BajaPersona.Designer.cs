@@ -30,8 +30,8 @@ namespace UberFrba.Abm_Persona
         public override void mostrar(Form parent, params object[] values)
         {
             Persona persona = (Persona)values[0];
-            string usuario = values[1] as string;
-            int rol = Convert.ToInt32(values[2]);
+            string codigoPostal = values[1] as string;
+            string tipo = values[2] as string;
 
             this.persona = persona;
             textBox_Direccion.Text = persona.Direccion;
@@ -42,8 +42,8 @@ namespace UberFrba.Abm_Persona
             textBox_Telefono.Text = Convert.ToString(persona.Telefono);
             textBox_Mail.Text = persona.Mail;
             textBox_Nombre.Text = persona.Nombre;
-            textBox_CodigoPostal.Text = persona.CodigoPostal;
-            if (!(DAORol.rolHabilitado(usuario, rol)))
+            textBox_CodigoPostal.Text = codigoPostal;
+            if (!(DAOPersona.estadoDePerfil(persona.Telefono, persona.Dni, tipo)))
             {
                 checkBox_Estado.Visible = true;
                 label8.Visible = true;

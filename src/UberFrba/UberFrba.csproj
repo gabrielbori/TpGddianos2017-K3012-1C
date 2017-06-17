@@ -323,7 +323,8 @@
   <ItemGroup>
     <None Include="Resources\FondoPrueba1.bmp" />
   </ItemGroup>
-  <ItemGroup />
+
+
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
       <Visible>False</Visible>
