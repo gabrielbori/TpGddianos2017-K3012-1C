@@ -45,8 +45,13 @@ namespace UberFrba.Abm_Persona
             textBox_Telefono.Text = Convert.ToString(persona.Telefono);
             textBox_Mail.Text = persona.Mail;
             textBox_Nombre.Text = persona.Nombre;
+
             textBox_CodigoPostal.Text = codigo;
             if (DAOPersona.estadoDePerfil(persona.Telefono, persona.Dni, tipo))
+
+            textBox_CodigoPostal.Text = persona.CodigoPostal;
+            if (persona.Estado==0)
+
             {
                 checkBox_Estado.Visible = true;
                 label8.Visible = true;
