@@ -15,12 +15,12 @@ namespace UberFrba.Abm_Persona
 {
     public partial class BajaPersona : FormBase
     {
-        private int rolTipo = 0;
+        private string tipo = "";
 
-        public BajaPersona(int tipo)
+        public BajaPersona(string tipoP)
         {
             InitializeComponent();
-            rolTipo = tipo;
+            tipo = tipoP;
         }
 
         private void cerrar()
@@ -39,7 +39,7 @@ namespace UberFrba.Abm_Persona
             if (resultado == DialogResult.Yes)
             {
                 int id = persona.ID;
-                DAOPersona.bajaPersona(id, rolTipo);
+                DAOPersona.bajaPersona(id, tipo);
                 Mensaje_OK("La persona ha sido dada de baja");
                 this.Close();
             }

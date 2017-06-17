@@ -104,7 +104,7 @@ namespace UberFrba
 
             if (noPuedeIngresar(4)) return;
             if (ActiveMdiChild != null) ActiveMdiChild.Close();
-            Abm_Persona.AltaPersona altaChofer = new Abm_Persona.AltaPersona(2);
+            Abm_Persona.AltaPersona altaChofer = new Abm_Persona.AltaPersona("Chofer");
             altaChofer.mostrar(this);
         }
 
@@ -112,7 +112,7 @@ namespace UberFrba
         {
             if (noPuedeIngresar(5)) return;
             if (ActiveMdiChild != null) ActiveMdiChild.Close();
-            Abm_Persona.SeleccionDePersona seleccionPersona = new Abm_Persona.SeleccionDePersona(new Abm_Persona.BajaPersona(2),2);
+            Abm_Persona.SeleccionDePersona seleccionPersona = new Abm_Persona.SeleccionDePersona(new Abm_Persona.BajaPersona("Chofer"), "Chofer");
             seleccionPersona.mostrar(this);
         }
 
@@ -120,7 +120,7 @@ namespace UberFrba
         {
             if (noPuedeIngresar(6)) return;
             if (ActiveMdiChild != null) ActiveMdiChild.Close();
-            Abm_Persona.SeleccionDePersona seleccionPersona = new Abm_Persona.SeleccionDePersona(new Abm_Persona.ModificacionPersona(2),2);
+            Abm_Persona.SeleccionDePersona seleccionPersona = new Abm_Persona.SeleccionDePersona(new Abm_Persona.ModificacionPersona("Chofer"), "Chofer");
             seleccionPersona.mostrar(this);
         }
 
@@ -128,7 +128,7 @@ namespace UberFrba
         {
             if (noPuedeIngresar(7)) return;
             if (ActiveMdiChild != null) ActiveMdiChild.Close();
-            Abm_Persona.AltaPersona altaCliente = new Abm_Persona.AltaPersona(3);
+            Abm_Persona.AltaPersona altaCliente = new Abm_Persona.AltaPersona("Cliente");
             altaCliente.mostrar(this);
         }
 
@@ -136,7 +136,7 @@ namespace UberFrba
         {
             if (noPuedeIngresar(8)) return;
             if (ActiveMdiChild != null) ActiveMdiChild.Close();
-            Abm_Persona.SeleccionDePersona seleccionPersona = new Abm_Persona.SeleccionDePersona(new Abm_Persona.BajaPersona(3),3);
+            Abm_Persona.SeleccionDePersona seleccionPersona = new Abm_Persona.SeleccionDePersona(new Abm_Persona.BajaPersona("Cliente"), "Cliente");
             seleccionPersona.mostrar(this);
         }
 
@@ -144,7 +144,7 @@ namespace UberFrba
         {
             if (noPuedeIngresar(8)) return;
             if (ActiveMdiChild != null) ActiveMdiChild.Close();
-            Abm_Persona.SeleccionDePersona seleccionPersona = new Abm_Persona.SeleccionDePersona(new Abm_Persona.ModificacionPersona(3),3);
+            Abm_Persona.SeleccionDePersona seleccionPersona = new Abm_Persona.SeleccionDePersona(new Abm_Persona.ModificacionPersona("Cliente"), "Cliente");
             seleccionPersona.mostrar(this);
         }
 
@@ -229,7 +229,7 @@ namespace UberFrba
             if (ActiveMdiChild != null) ActiveMdiChild.Close();
             //Facturacion.Facturar facturar = new Facturacion.Facturar();
             //facturar.mostrar(this);   
-            Abm_Persona.SeleccionPersonaActiva seleccionPersonaActiva = new Abm_Persona.SeleccionPersonaActiva(new Facturacion.Facturar(), 3);
+            Abm_Persona.SeleccionPersonaActiva seleccionPersonaActiva = new Abm_Persona.SeleccionPersonaActiva(new Facturacion.Facturar(), "Cliente");
             seleccionPersonaActiva.mostrar(this);
         }
 
@@ -239,7 +239,7 @@ namespace UberFrba
             if (ActiveMdiChild != null) ActiveMdiChild.Close();
             //Rendicion_Viajes.RendirViaje rendirViaje = new Rendicion_Viajes.RendirViaje();
             //rendirViaje.mostrar(this); 
-            Abm_Persona.SeleccionPersonaActiva seleccionPersonaActiva = new Abm_Persona.SeleccionPersonaActiva(new Rendicion_Viajes.RendirViaje(), 2);
+            Abm_Persona.SeleccionPersonaActiva seleccionPersonaActiva = new Abm_Persona.SeleccionPersonaActiva(new Rendicion_Viajes.RendirViaje(), "Chofer");
             seleccionPersonaActiva.mostrar(this);
         }
 

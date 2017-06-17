@@ -22,7 +22,7 @@ namespace UberFrba.Model
         public string CodigoPostal { get; set; }
 
         public Persona(int id, int telefono, string nombre, string apellido, int dni, string direccion
-                       , DateTime fecha_nac, int estado, string mail, string codPost)
+                       , DateTime fecha_nac,int estado, string mail, string codPost)
         {
             ID = id;
             Telefono = telefono;
@@ -33,12 +33,12 @@ namespace UberFrba.Model
             FechaDeNacimiento = fecha_nac;
             Estado = estado;
             Mail = mail;
-            Tipo = Tipo;
             CodigoPostal = codPost;
         }
+
 
         public Persona(int id, int telefono, string nombre, string apellido, int dni, string direccion
-                       , DateTime fecha_nac,int estado, string mail, int tipo, string codPost)
+                       , DateTime fecha_nac, int estado, string mail)
         {
             ID = id;
             Telefono = telefono;
@@ -48,11 +48,11 @@ namespace UberFrba.Model
             Direccion = direccion;
             FechaDeNacimiento = fecha_nac;
             Estado = estado;
-            Mail = mail;
-            Tipo = tipo;
-            CodigoPostal = codPost;
+            Mail = mail;   
+         
         }
 
+ 
         
     }
 }

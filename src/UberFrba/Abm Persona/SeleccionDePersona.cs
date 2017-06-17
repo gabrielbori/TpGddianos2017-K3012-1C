@@ -18,20 +18,15 @@ namespace UberFrba.Abm_Persona
         private FormBase caller;
       
 
-        private int tipoAmbos = 1, tipoPersona = 0;
+        private string tipoPersona = "";
 
         string nombre, apellido, doc;
 
-        public SeleccionDePersona(FormBase caller, int tipoS2)
+        public SeleccionDePersona(FormBase caller, string tipoS2)
         {
             this.caller = caller;
             tipoPersona = tipoS2;
             InitializeComponent();
-        }
-
-        private void SeleccionDePersona_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void button_Buscar_Click(object sender, EventArgs e)
@@ -40,7 +35,7 @@ namespace UberFrba.Abm_Persona
             apellido = textBox_Apellido.Text;
             doc = textBox_Documento.Text;
 
-            dataGridView_Seleccion.DataSource = DAOPersona.getPersona(nombre, apellido, doc, tipoPersona, tipoAmbos);
+            dataGridView_Seleccion.DataSource = DAOPersona.getPersona(nombre, apellido, doc, tipoPersona);
         }
 
         private void dataGridView_Seleccion_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -49,8 +44,8 @@ namespace UberFrba.Abm_Persona
             int id = Convert.ToInt32(dataGridView_Seleccion.Rows[e.RowIndex].Cells[1].Value);
             DataTable table = DAOPersona.getPersona(id);
             Persona persona = DAOPersona.dataRowToPersona(table.Rows[0]);
-            string usuario  = DAOUsuario.getUsuario(persona.Dni);
-            caller.mostrar(this.MdiParent, persona, usuario, tipoPersona);
+            string codigoPostal = DAOPersona.getCodigoPostal(persona.ID);
+            caller.mostrar(this.MdiParent, persona, codigoPostal, tipoPersona);
             cerrar();
                      
         }
