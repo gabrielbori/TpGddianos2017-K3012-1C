@@ -187,7 +187,6 @@
             this.Name = "SeleccionDePersona";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "SeleccionDePersona";
-            this.Load += new System.EventHandler(this.SeleccionDePersona_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Seleccion)).EndInit();
             this.paner_Filtros.ResumeLayout(false);
             this.paner_Filtros.PerformLayout();

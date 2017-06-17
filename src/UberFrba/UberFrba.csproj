@@ -79,24 +79,6 @@
     <Compile Include="Abm Automovil\ModificacionAutomovil.Designer.cs">
       <DependentUpon>ModificacionAutomovil.cs</DependentUpon>
     </Compile>
-    <Compile Include="Abm Chofer\AltaChofer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Abm Chofer\AltaChofer.Designer.cs">
-      <DependentUpon>AltaChofer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Abm Chofer\BajaChofer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Abm Chofer\BajaChofer.Designer.cs">
-      <DependentUpon>BajaChofer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Abm Chofer\ModificacionChofer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Abm Chofer\ModificacionChofer.Designer.cs">
-      <DependentUpon>ModificacionChofer.cs</DependentUpon>
-    </Compile>
     <Compile Include="Abm Persona\BajaPersona.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -250,15 +232,6 @@
     <EmbeddedResource Include="Abm Automovil\ModificacionAutomovil.resx">
       <DependentUpon>ModificacionAutomovil.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Abm Chofer\AltaChofer.resx">
-      <DependentUpon>AltaChofer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Abm Chofer\BajaChofer.resx">
-      <DependentUpon>BajaChofer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Abm Chofer\ModificacionChofer.resx">
-      <DependentUpon>ModificacionChofer.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Abm Persona\BajaPersona.resx">
       <DependentUpon>BajaPersona.cs</DependentUpon>
     </EmbeddedResource>
@@ -351,6 +324,7 @@
     <None Include="Resources\FondoPrueba1.bmp" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Abm Chofer\" />
     <Folder Include="Abm Cliente\" />
   </ItemGroup>
   <ItemGroup>

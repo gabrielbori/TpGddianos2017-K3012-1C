@@ -41,6 +41,7 @@ namespace UberFrba.Abm_Automovil
             string patente = comboBoxPatente.Text;
             int estado = Convert.ToInt32(checkBoxEstado.Checked);
             int chofer = Convert.ToInt32(textBox_chofer_dni.Text);
+            string nombre = textBox_chofer_nombre.Text;
 
             var resultado = Mensaje_Pregunta("¿Está seguro que desea modificar el automovil?", "Modificar Automovil");
             if (resultado == DialogResult.Yes)
@@ -49,7 +50,8 @@ namespace UberFrba.Abm_Automovil
                 {
                     if (Turno.CheckedItems.Count == 0) { Mensaje_Error("No se ha/n seleccionado turno/s"); return; }
                 }
-                if (DAOAutomovil.choferAsignado(chofer, patente) == true ) { Mensaje_Error("El chofer ya posee auto"); }
+                if (DAOAutomovil.choferAsignado(chofer, patente) == true) { Mensaje_Error("El chofer ya posee auto"); return; }
+                if (!(DAOPersona.choferActivo(chofer, nombre))) { Mensaje_Error("El chofer no se encuentra habilitado"); return; }
                 else
                 {
                     DAOAutomovil.modificarAutomovilPorPatente(patente, estado, chofer);
@@ -195,7 +197,7 @@ namespace UberFrba.Abm_Automovil
 
         private void button_buscar_Chofer_Click(object sender, EventArgs e)
         {
-            Abm_Persona.SeleccionPersonaActiva seleccionarPersonaActiva = new Abm_Persona.SeleccionPersonaActiva(this, 2, 4);
+            Abm_Persona.SeleccionPersonaActiva seleccionarPersonaActiva = new Abm_Persona.SeleccionPersonaActiva(this, "Chofer", 4);
             seleccionarPersonaActiva.Show();
         }
 
