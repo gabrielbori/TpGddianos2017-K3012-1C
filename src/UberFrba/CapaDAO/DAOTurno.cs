@@ -40,8 +40,8 @@ namespace UberFrba.CapaDAO
                                Convert.ToInt32(row["TURNO_HORA_INICIO"]),
                                Convert.ToInt32(row["TURNO_HORA_FIN"]),
                                row["TURNO_DESCRIPCION"] as string,
-                               Convert.ToInt32(row["TURNO_VALOR_KM"]),
-                               Convert.ToInt32(row["TURNO_PRECIO_BASE"]),
+                               Convert.ToDouble(row["TURNO_VALOR_KM"]),
+                               Convert.ToDouble(row["TURNO_PRECIO_BASE"]),
                                Convert.ToInt32(row["TURNO_ESTADO"]));
         }
 
