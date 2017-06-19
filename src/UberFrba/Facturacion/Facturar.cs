@@ -24,7 +24,7 @@ namespace UberFrba.Facturacion
 
         private void Facturar_Load(object sender, EventArgs e)
         {
-            dateTimePicker1.Value = Globals.getDateFechaSistema();
+             dateTimePicker1.Value = new DateTime(Globals.getDateFechaSistema().Year, Globals.getDateFechaSistema().Month, 1);            
             DateTime fechaI = new DateTime(Globals.getDateFechaSistema().Year, Globals.getDateFechaSistema().Month, 1);
             dateTimePicker_Inicio.Value = fechaI;
 
@@ -85,7 +85,7 @@ namespace UberFrba.Facturacion
         {
             foreach (var control in this.groupBox_Cliente.Controls.OfType<TextBox>()) control.Text = "";
 
-            dateTimePicker1.Value = Globals.getDateFechaSistema();
+            dateTimePicker1.Value = new DateTime(Globals.getDateFechaSistema().Year, Globals.getDateFechaSistema().Month, 1);
             DateTime fechaI = new DateTime(Globals.getDateFechaSistema().Year, Globals.getDateFechaSistema().Month, 1);
             dateTimePicker_Inicio.Value = fechaI;
             DateTime fechaF = new DateTime(Globals.getDateFechaSistema().Year, Globals.getDateFechaSistema().Month, DateTime.DaysInMonth(Globals.getDateFechaSistema().Year, Globals.getDateFechaSistema().Month));
@@ -107,9 +107,11 @@ namespace UberFrba.Facturacion
                 Mensaje_Error("Limpie los datos de la última operación");
                 return;
             }
-            if ((DAOFacturacion.viajeYaFacturado(dataGridView_Viajes.Rows)) == 0) 
+            int factNumero=DAOFacturacion.viajeYaFacturado(dataGridView_Viajes.Rows);
+            if (factNumero > 0) 
             { 
-                Mensaje_Error("Los viajes ya han sido facturados");            
+                Mensaje_Error("Los viajes ya han sido facturados. Factura numero: "+factNumero);
+                textBox_Numero.Text = factNumero.ToString() ;
                 return;
             }
             else
@@ -151,6 +153,8 @@ namespace UberFrba.Facturacion
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
+            dateTimePicker1.Value = new DateTime(dateTimePicker1.Value.Year, dateTimePicker1.Value.Month, 1);
+
             DateTime fechaI = new DateTime(dateTimePicker1.Value.Year, dateTimePicker1.Value.Month, 1);
             dateTimePicker_Inicio.Value = fechaI;
 
@@ -163,7 +167,7 @@ namespace UberFrba.Facturacion
         {
             foreach (var control in this.groupBox_Cliente.Controls.OfType<TextBox>()) control.Text = "";
 
-            dateTimePicker1.Value = Globals.getDateFechaSistema();
+            dateTimePicker1.Value = new DateTime(Globals.getDateFechaSistema().Year, Globals.getDateFechaSistema().Month, 1);
             DateTime fechaI = new DateTime(Globals.getDateFechaSistema().Year, Globals.getDateFechaSistema().Month, 1);
             dateTimePicker_Inicio.Value = fechaI;
             DateTime fechaF = new DateTime(Globals.getDateFechaSistema().Year, Globals.getDateFechaSistema().Month, DateTime.DaysInMonth(Globals.getDateFechaSistema().Year, Globals.getDateFechaSistema().Month));
@@ -205,6 +209,10 @@ namespace UberFrba.Facturacion
         private void groupBox_Cliente_Enter(object sender, EventArgs e) { }
 
         private void textBox_Telefono_TextChanged(object sender, EventArgs e) { }
+
+        private void dateTimePicker1_Enter(object sender, EventArgs e)  {  }
+
+        private void dateTimePicker1_KeyPress(object sender, KeyPressEventArgs e)  {  }
 
       
         }

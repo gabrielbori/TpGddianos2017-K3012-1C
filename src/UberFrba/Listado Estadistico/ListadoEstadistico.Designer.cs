@@ -193,7 +193,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "ListadoEstadistico";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Listados Estadisticos";
             this.Load += new System.EventHandler(this.ListadoEstadistico_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
