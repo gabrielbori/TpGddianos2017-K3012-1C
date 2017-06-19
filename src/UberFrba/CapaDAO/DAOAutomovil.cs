@@ -57,7 +57,10 @@ namespace UberFrba.CapaDAO
 
         public static bool choferAsignado (int chofer, string patente)
         {
-            return checkIfExists("CHOFER_ASIGNADO", chofer, patente);
+            int cont = executeProcedureWithReturnValue("CHOFER_ASIGNADO", chofer, patente);
+            if (cont == 0)
+                return false;
+            else { return true; }
         }
 
         public static void altaAutomovil(string marca, string modelo, string patente, int chofer, int estado)

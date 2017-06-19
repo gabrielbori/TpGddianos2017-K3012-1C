@@ -12,11 +12,11 @@ namespace UberFrba.Model
         public int horaInicio { get; set; }
         public int horaFin { get; set; }
         public string descripcion { get; set; }
-        public int valorKm { get; set; }
-        public int precioBase { get; set; }
+        public double valorKm { get; set; }
+        public double precioBase { get; set; }
         public int estado { get; set; }
 
-        public Turno(int ID, int HORAINICIO, int HORAFIN, string DESCRIPCION, int VALORKM, int PRECIOBASE, int ESTADO)
+        public Turno(int ID, int HORAINICIO, int HORAFIN, string DESCRIPCION, double VALORKM, double PRECIOBASE, int ESTADO)
         {
             id = ID;
             horaInicio = HORAINICIO;
