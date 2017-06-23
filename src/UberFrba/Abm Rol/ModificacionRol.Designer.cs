@@ -120,6 +120,7 @@ namespace UberFrba.Abm_Rol
             this.dataGridView_ListaFuncionalidades.GridColor = System.Drawing.SystemColors.ControlText;
             this.dataGridView_ListaFuncionalidades.Location = new System.Drawing.Point(365, 19);
             this.dataGridView_ListaFuncionalidades.Name = "dataGridView_ListaFuncionalidades";
+            this.dataGridView_ListaFuncionalidades.ReadOnly = true;
             this.dataGridView_ListaFuncionalidades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataGridView_ListaFuncionalidades.Size = new System.Drawing.Size(454, 330);
             this.dataGridView_ListaFuncionalidades.TabIndex = 11;
@@ -130,6 +131,7 @@ namespace UberFrba.Abm_Rol
             this.Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Eliminar.HeaderText = "Eliminar";
             this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
             this.Eliminar.Text = "Eliminar Fila";
             this.Eliminar.UseColumnTextForButtonValue = true;
             this.Eliminar.Width = 49;
