@@ -22,8 +22,7 @@ namespace UberFrba.Rendicion_Viajes
             InitializeComponent();
             textBox1.Text = Convert.ToString(30);
         }
-
-       
+   
 
         private void RendirViaje_Load(object sender, EventArgs e)
         {
@@ -38,16 +37,12 @@ namespace UberFrba.Rendicion_Viajes
 
         
 
-        private void textBox_Nombre_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        private void textBox_Nombre_TextChanged(object sender, EventArgs e){}
 
         private void button_Aceptar_Click(object sender, EventArgs e)
         {
-            
 
-            if (textBox_Numero.Text != "A generar") 
+            if (textBox_Numero.Text != "A generar")
             {
                 Mensaje_Error("Limpie los datos de la última operación");
                 return;
@@ -65,32 +60,41 @@ namespace UberFrba.Rendicion_Viajes
             }
             else
             {
-
-                var resultado = Mensaje_Pregunta("¿Está seguro que desea realizar el pago?", "Generar Pago");
-                if (resultado == DialogResult.Yes)
+                int rendNumero = DAORendicionViaje.viajeYaRendido(dataGridView_Viajes.Rows);
+                if (rendNumero > 0)
+                {
+                    Mensaje_Error("Los viajes ya han sido rendidos. Pago numero: " + rendNumero);
+                    textBox_Numero.Text = rendNumero.ToString();
+                    return;
+                }
+                else
                 {
 
-                    try
+                    var resultado = Mensaje_Pregunta("¿Está seguro que desea realizar el pago?", "Generar Pago");
+                    if (resultado == DialogResult.Yes)
                     {
-                        DAORendicionViaje.crearRendicion(Convert.ToDateTime(dateTimePicker1.Value), Convert.ToInt32(persona.ID),
-                                                  Convert.ToInt32(comboBox1.SelectedValue), this.total, Convert.ToDecimal(textBox1.Text));
 
-                        int numPago = DAORendicionViaje.buscarIDPagoInsertado();
-                        textBox_Numero.Text = Convert.ToString(numPago);
+                        try
+                        {
+                            DAORendicionViaje.crearRendicion(Convert.ToDateTime(dateTimePicker1.Value), Convert.ToInt32(persona.ID),
+                                                      Convert.ToInt32(comboBox1.SelectedValue), this.total, Convert.ToDecimal(textBox1.Text));
 
-                        Mensaje_OK("El pago fue realizado con éxito");
-                        button_Buscar_Viajes_Click(sender, e);
-                        
+                            int numPago = DAORendicionViaje.buscarIDPagoInsertado();
+                            textBox_Numero.Text = Convert.ToString(numPago);
 
-                    }
-                    catch
-                    {
-                        Mensaje_Error("Falló la creación del pago en la base de datos");
+                            Mensaje_OK("El pago fue realizado con éxito");
+                            button_Buscar_Viajes_Click(sender, e);
+
+
+                        }
+                        catch
+                        {
+                            Mensaje_Error("Falló la creación del pago en la base de datos");
+                        }
                     }
                 }
             }
         }
-
         private bool Validaciones()
         {
             bool vacio = false;
@@ -98,7 +102,6 @@ namespace UberFrba.Rendicion_Viajes
             {
                 vacio = true;
             }
-
 
             return vacio;
         }
@@ -175,15 +178,12 @@ namespace UberFrba.Rendicion_Viajes
             textBox_Apellido.Text = "";
             textBox_DNI.Text = "";
 
-            SeleccionPersonaActiva frm = new SeleccionPersonaActiva(this, "Cliente");
+            SeleccionPersonaActiva frm = new SeleccionPersonaActiva(this, "Chofer");
             frm.Show();
             
         }
 
-        private void groupBox_Pago_Enter(object sender, EventArgs e)
-        {
-
-        }
+        private void groupBox_Pago_Enter(object sender, EventArgs e){}
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -192,10 +192,7 @@ namespace UberFrba.Rendicion_Viajes
             textBox_Numero.Text = "A generar";
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        private void textBox1_TextChanged(object sender, EventArgs e){}
 
         private void keypressporcentaje(object sender, KeyPressEventArgs e)
         {
