@@ -45,8 +45,8 @@ namespace UberFrba.Abm_Persona
             textBox_CodigoPostal.Text = codigoPostal;
             if (!(DAOPersona.estadoDePerfil(persona.Telefono, persona.Dni, tipo)))
             {
-                checkBox_Estado.Visible = true;
-                label8.Visible = true;
+                checkBox_Estado.Visible = false;
+                label8.Visible = false;
             }
             else
             {
@@ -272,6 +272,7 @@ namespace UberFrba.Abm_Persona
             this.checkBox_Estado.TabIndex = 80;
             this.checkBox_Estado.Text = "Deshabilitado";
             this.checkBox_Estado.UseVisualStyleBackColor = true;
+            this.checkBox_Estado.Visible = false;
             // 
             // label8
             // 

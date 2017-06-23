@@ -107,9 +107,11 @@ namespace UberFrba.Facturacion
                 Mensaje_Error("Limpie los datos de la última operación");
                 return;
             }
-            if ((DAOFacturacion.viajeYaFacturado(dataGridView_Viajes.Rows)) == 0) 
+            int factNumero=DAOFacturacion.viajeYaFacturado(dataGridView_Viajes.Rows);
+            if (factNumero > 0) 
             { 
-                Mensaje_Error("Los viajes ya han sido facturados");            
+                Mensaje_Error("Los viajes ya han sido facturados. Factura numero: "+factNumero);
+                textBox_Numero.Text = factNumero.ToString() ;
                 return;
             }
             else
