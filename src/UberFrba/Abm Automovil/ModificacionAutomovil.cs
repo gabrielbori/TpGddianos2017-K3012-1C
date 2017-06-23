@@ -177,13 +177,12 @@ namespace UberFrba.Abm_Automovil
             this.Close();
         }
 
-        private void comboBox_Marca_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBox_Marca_onClick(object sender, EventArgs e)
         {
 
             DataTable modelos = DAOAutomovil.getModelos(comboBoxMarca.Text);
             comboBoxModelo.DisplayMember = "COCHE_MODELO_CODIGO";
             comboBoxModelo.DataSource = modelos;
-
         }
 
         private void comboBox_Modelo_SelectedIndexChanged(object sender, EventArgs e)

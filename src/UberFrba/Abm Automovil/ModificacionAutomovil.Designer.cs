@@ -157,7 +157,7 @@
             this.comboBoxMarca.Name = "comboBoxMarca";
             this.comboBoxMarca.Size = new System.Drawing.Size(130, 21);
             this.comboBoxMarca.TabIndex = 47;
-            this.comboBoxMarca.SelectedIndexChanged += new System.EventHandler(this.comboBox_Marca_SelectedIndexChanged);
+            this.comboBoxMarca.SelectedIndexChanged += new System.EventHandler(this.comboBox_Marca_onClick);
             // 
             // checkBoxEstado
             // 
