@@ -73,6 +73,7 @@
             this.textBoxDescripcion.Size = new System.Drawing.Size(232, 20);
             this.textBoxDescripcion.TabIndex = 0;
             this.textBoxDescripcion.Text = "Ingrese la descripcion";
+            this.textBoxDescripcion.Click += new System.EventHandler(this.textBoxDescripcion_Click);
             // 
             // button_Limpiar
             // 

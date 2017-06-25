@@ -71,5 +71,10 @@ namespace UberFrba.Abm_Turno
             Close();
         }
 
+        private void textBoxDescripcion_Click(object sender, EventArgs e)
+        {
+            textBoxDescripcion.Text = "";
+        }
+
     }
 }
