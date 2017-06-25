@@ -186,6 +186,7 @@
             this.comboBoxPatente.Name = "comboBoxPatente";
             this.comboBoxPatente.Size = new System.Drawing.Size(130, 21);
             this.comboBoxPatente.TabIndex = 52;
+            this.comboBoxPatente.SelectedIndexChanged += new System.EventHandler(this.buttonSeleccionar_Click);
             // 
             // Turno
             // 

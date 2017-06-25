@@ -25,13 +25,13 @@ namespace UberFrba.Abm_Automovil
 
             comboBoxMarca.DisplayMember = "MARCA_NOMBRE";
             comboBoxMarca.DataSource = marcas;
-            button_buscar_Chofer.Visible = false;
+            /* button_buscar_Chofer.Visible = false;
             textBox_chofer_nombre.Visible = false;
             textBox_chofer_dni.Visible = false;
             checkBoxEstado.Visible = false;
             label8.Visible = false;
             label5.Visible = false;
-            label7.Visible = false;
+            label7.Visible = false;*/
 
         }
 
@@ -105,7 +105,8 @@ namespace UberFrba.Abm_Automovil
                     catch { row = null; }
                 }
             }catch
-            { Mensaje_OK("No existen turnos a asignar");}
+            {// Mensaje_OK("No existen turnos a asignar");
+            }
         }
 
         private void cargarTurnosHabilitados(DataTable table, int estado)
